@@ -83,14 +83,14 @@
 .chat {
     float: right;
 }
-
+.wapper{ width:90%; margin:45px auto 0px auto; min-height:490px;}
 .points-main {
     background-color: #FFFFFF;
     border: 1px solid #dddddd;
-    float: left;
-    margin: 15px 2% 65px 2%;
-    width: 95%;
-    padding: 10px;
+    /*float: left;*/
+    /*margin: 15px 2% 65px 2%;*/
+    width: 100%;
+    /*padding: 10px;*/
 }
 
 .point-heading {
@@ -226,13 +226,13 @@ a {
         padding: 0 0 0 12px;
     }
 
-.points-main {
+/*.points-main {
     background-color: #FFFFFF;
     border: 1px solid #dddddd;
     float: left;
     margin: 15px 2% 65px 2%;
     width: 95%;
-}
+}*/
 
 .point-heading {
     background-color: #ff8032;
@@ -330,6 +330,7 @@ a {
 
 .uploder {
     width: 100%;
+    /*float:left;*/
 }
 
 .image-upload {
@@ -348,8 +349,8 @@ a {
 
 .textarea {
     height: 120px;
-    margin: 10px 0;
-    width: 95%;
+    margin: 10px 7px;
+    width: 95% !important;
 }
 
 .info-user {
@@ -703,9 +704,9 @@ label {
             .business-info ul li a {
                 text-decoration: none;
                 color: #000;
-                width: 92.4% !important;
+                width: 98% !important;
                 float: left;
-                padding: 0 10px;
+                padding: 0 0 0 2%;
                 font-weight:normal;
             }
 
@@ -713,6 +714,7 @@ label {
                     text-decoration: none;
                     color: #000;
                     width: 100%;
+                    /*padding:0 10px;*/
                 }
 
             .business-info ul li .cruent a {
@@ -725,7 +727,7 @@ label {
 
     .business-info li:last-child {
         border-bottom: medium none;
-        margin-bottom: 90px;
+        /*margin-bottom: 90px;*/
     }
 
 .modify-btn {
@@ -756,7 +758,7 @@ textarea {
 }
 
 .flright {
-    float: left;
+    /*float: left;*/
 }
 
 .top_bar-btm{ height:75px; border-top:1px solid #b00e0e;border-bottom:1px solid #bd342d; text-align:center; color:#FFF;  background: #c41010; /* Old browsers */
@@ -783,3 +785,4 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c41010', end
 	background-repeat:no-repeat;
 	background-position:right center;
 }
+.logout {margin-right:80px !important;}

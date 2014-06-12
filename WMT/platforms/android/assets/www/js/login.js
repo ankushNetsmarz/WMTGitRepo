@@ -1,4 +1,4 @@
-﻿
+
 (function ($) {
     $.mobile.defaultPageTransition = 'slide';
     //$.mobile.page.prototype.options.domCache = true;

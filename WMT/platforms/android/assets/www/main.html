@@ -10,6 +10,26 @@
     <script src="js/jquery-1.10.2.min.js"></script>
     <script src="js/jquery.mobile-1.4.2.min.js"></script>
     <script src="js/jquery.validate.min.js"></script>
+     <script src="cordova.js"></script>
+     <script>
+     
+   document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+        document.addEventListener("backbutton", function (e) {
+        
+         if($.mobile.activePage.is('#login')){
+         
+         }
+         else
+         {
+          e.preventDefault();
+         }
+           
+        }, false );
+}
+     
+     
+     </script>
     <style>
         label.error {
             color: red;
@@ -325,7 +345,8 @@
     <div data-role="page" id="dvQRCode">
         <div data-role="header" data-position="fixed">
             <h1>Scan QR Code</h1>
-            <a href="#" class="ui-btn-right" data-role="button" data-iconpos="notext">Help</a>
+             <a href="#" class="ui-btn-right logout" data-role="button" data-iconpos="notext">Help</a>
+            <a href="#" class="ui-btn-right" data-role="button" data-iconpos="notext">Logout</a>
         </div>
         <div data-role="content" id="Div2" class="ui-content headerChild">
             <div class="ui-field-contain">
@@ -353,23 +374,23 @@
                     <ul>
                         <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
                             <img src="css/images/scan-icon-active.png" alt=""><br>
-
+                                
                             <span>Scan</span></a>
                         </li>
-                        <li><a href="javascript:;">
+                        <li ><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
                             <img src="css/images/publish-icon.png" alt=""><br>
                             <span>Publish</span></a>
                         </li>
-                        <li><a href="javascript:;">
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
                             <img src="css/images/member-icon.png" alt=""><br>
                             <span>Member</span></a>
                         </li>
-                        <li><a href="javascript:;">
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvBusinessInfo')">
                             <img src="css/images/info-icon.png" alt=""><br>
-
+                                
                             <span>Info</span></a>
                         </li>
-                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvStore')">
+                        <li ><a href="javascript:;" onclick="$.mobile.navigate('#dvStore')">
                             <img src="css/images/store-icon.png" alt=""><br>
                             <span>Store</span></a>
                         </li>
@@ -886,12 +907,12 @@ Old Price, discount price.
                             <img src="css/images/publish-icon.png" alt=""><br>
                             <span>Publish</span></a>
                         </li>
-                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
-                            <img src="css/images/member-icon.png" alt=""><br>
+                        <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
+                            <img src="css/images/member-icon-active.png" alt=""><br>
                             <span>Member</span></a>
                         </li>
-                        <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvBusinessInfo')">
-                            <img src="css/images/info-icon-active.png" alt=""><br>
+                        <li ><a href="javascript:;" onclick="$.mobile.navigate('#dvBusinessInfo')">
+                            <img src="css/images/info-icon.png" alt=""><br>
 
                             <span>Info</span></a>
                         </li>
@@ -1016,15 +1037,16 @@ Old Price, discount price.
                 <div class="clr"></div>
             </div>
         </div>
-        <div class="top_bar-btm">
-            <div class="wapper-wrap">
-                <div class="avtar bussiness">
-                    <img alt="" src="css/images/busines-man.jpg">
-                </div>
-                <p class="cont-my">Contact My Support Manager</p>
-            </div>
-        </div>
+       
         <div data-role="footer" data-position="fixed">
+            <div class="top_bar-btm" >
+                <div class="wapper-wrap">
+                    <div class="avtar bussiness">
+                        <img alt="" src="css/images/busines-man.jpg">
+                            </div>
+                    <p class="cont-my">Contact My Support Manager</p>
+                </div>
+            </div>
             <div class="bottom_bar">
                 <div class="social-icon">
                      <ul>
@@ -1138,15 +1160,16 @@ Old Price, discount price.
             </div>
 
         </div>
-        <div class="top_bar-btm">
-            <div class="wapper-wrap">
-                <div class="avtar bussiness">
-                    <img alt="" src="css/images/busines-man.jpg">
-                </div>
-                <p class="cont-my">Contact My Support Manager</p>
-            </div>
-        </div>
+        
         <div data-role="footer" data-position="fixed">
+            <div class="top_bar-btm">
+                <div class="wapper-wrap">
+                    <div class="avtar bussiness">
+                        <img alt="" src="css/images/busines-man.jpg">
+                            </div>
+                    <p class="cont-my">Contact My Support Manager</p>
+                </div>
+            </div>
             <div class="bottom_bar">
                 <div class="social-icon">
                    <ul>
