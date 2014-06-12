@@ -1,0 +1,259 @@
+﻿
+.ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper {
+    background: none repeat scroll 0 0 #fff7e6;
+    color: #969696;
+    font-family: Microsoft YaHei;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.ui-header {
+    background: linear-gradient(to bottom, #C41010 0%, #AE0808 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    background: -moz-linear-gradient(top, #c41010 0%, #ae0808 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c41010), color-stop(100%,#ae0808)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #c41010 0%,#ae0808 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #c41010 0%,#ae0808 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #c41010 0%,#ae0808 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #c41010 0%,#ae0808 100%); /* W3C */
+}
+
+    .ui-header h1 {
+        font-size: 16px;
+        color: #fff;
+        font-family: Microsoft YaHei;
+        font-weight: normal;
+    }
+
+.ui-shadow {
+    box-shadow: none;
+}
+
+.ui-btn input {
+    border-bottom: 1px solid #BD342D;
+    border-top: 1px solid #B00E0E;
+}
+
+.ui-field-contain {
+    border-bottom: none;
+}
+
+.red {
+    color: red;
+    margin-bottom: 5px;
+}
+
+.clr {
+    clear: both;
+}
+
+.total-main-details {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    width: 100%;
+}
+
+    .total-main-details p {
+        float: left;
+        margin: 0;
+        padding: 5px;
+        text-align: left;
+        width: 20%;
+    }
+
+.remember_div {
+    width: 100%;
+    padding-top: 10px;
+}
+
+.welcome {
+    color: #b20a0a;
+    font-size: 30px;
+}
+
+.only-now {
+    text-align: left;
+}
+
+.now {
+    float: left;
+    width: 48%;
+}
+
+.chat {
+    float: right;
+}
+
+.points-main {
+    background-color: #FFFFFF;
+    border: 1px solid #dddddd;
+    float: left;
+    margin: 15px 2% 65px 2%;
+    width: 95%;
+}
+
+.point-heading {
+    background-color: #ff8032;
+    font-size: 16px;
+    color: #FFF;
+    font-weight: normal;
+    text-align: left;
+    margin: 0px;
+    padding: 5px;
+}
+
+    .point-heading span {
+        float: right;
+    }
+
+.cancel-btn-owner {
+    background-color: #959595;
+    border: medium none;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 0px;
+    width: 90%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.c-scan {
+    text-align: center;
+}
+
+    .c-scan img {
+        border: 1px solid #fff;
+        width: 100%;
+    }
+
+.social-icon {
+    margin: 0 auto;
+    width: 100%;
+}
+
+    .social-icon ul {
+        margin: 0px;
+        padding: 0px;
+    }
+
+        .social-icon ul li {
+            float: left;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 20%;
+        }
+
+            .social-icon ul li a {
+                color: #4d4d4d;
+            }
+
+    .social-icon li span {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        font-size: 14px;
+    }
+
+.active a {
+    color: #FF0000 !important;
+}
+
+.bottom_bar {
+    height: auto;
+    text-align: center;
+    overflow: hidden;
+    background: #e0e0e0;
+    font-size: 16px;
+    padding-top: 8px;
+    border-top: 1px solid #CECECE;
+    padding-bottom: 8px;
+}
+
+.WMT-points {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #dddddd;
+    float: left;
+    width: 100%;
+}
+
+.wmt-left {
+    float: left;
+    margin: 15px 0 15px 9px;
+    width: 104px;
+}
+
+    .wmt-left > img {
+        height: 99px;
+        width: 99px;
+    }
+
+.wmt-right {
+    float: left;
+    width: 59%;
+}
+
+.wmt-hdeading {
+    margin: 16px 0 0 15px;
+    text-align: left;
+    width: 100%;
+}
+
+    .wmt-hdeading p {
+        color: #6E6E6E;
+        float: left;
+        font-size: 13px;
+        margin: 0;
+        padding: 0;
+        width: 60%;
+    }
+
+    .wmt-hdeading span {
+        color: #FF8032;
+        font-size: 14px;
+        padding: 0 0 0 12px;
+    }
+
+.points-main {
+    background-color: #FFFFFF;
+    border: 1px solid #dddddd;
+    float: left;
+    margin: 15px 2% 65px 2%;
+    width: 95%;
+}
+
+.point-heading {
+    background-color: #ff8032;
+    font-size: 16px;
+    color: #FFF;
+    font-weight: normal;
+    text-align: left;
+    margin: 0px;
+    padding: 5px;
+}
+
+    .point-heading span {
+        float: right;
+    }
+
+.toy-car {
+    width: 100%;
+}
+
+    .toy-car p {
+        float: left;
+        padding: 5px;
+        text-align: left;
+        width: 60%;
+    }
+
+.help-btn-btn {
+    float: right;
+    margin-bottom: 15px;
+    margin-right: 5px;
+    margin-top: 14px !important;
+    /*width: 34%;*/
+}

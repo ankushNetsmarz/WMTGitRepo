@@ -1,0 +1,15 @@
+﻿body {margin: 0px; padding: 0px;background: #ffecca;font-family: Microsoft YaHei;font-size: 13px;color: #969696;text-align: center;
+    background: #a20808 !important; /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover, #a20808 0%, #b20c0c 50%, #950505 100%) !important; /* FF3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#a20808), color-stop(50%,#b20c0c), color-stop(100%,#950505)) !important; /* Chrome,Safari4+ */
+    background: -webkit-radial-gradient(center, ellipse cover, #a20808 0%,#b20c0c 50%,#950505 100%) !important; /* Chrome10+,Safari5.1+ */
+    background: -o-radial-gradient(center, ellipse cover, #a20808 0%,#b20c0c 50%,#950505 100%) !important; /* Opera 12+ */
+    background: -ms-radial-gradient(center, ellipse cover, #a20808 0%,#b20c0c 50%,#950505 100%) !important; /* IE10+ */
+    background: radial-gradient(ellipse at center, #a20808 0%,#b20c0c 50%,#950505 100%) !important; /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a20808', endColorstr='#950505',GradientType=1 ) !important; /* IE6-9 fallback on horizontal gradient */
+}
+
+.main-splash {width: 100%;height: auto;}
+.splash-image {margin: 0 auto;}
+.splash-image img {margin: 100px 0 0;}
+.wapper {margin: 45px auto 0;min-height: 490px;width: 90%;}

@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>:: WMT Spec ::</title>
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.2.css">
+    <link rel="stylesheet" href="css/customjqueryui.css" />
+    <link rel="stylesheet" href="css/stylesheet.css" />
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+     <script src="cordova.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+</head>
+<body>
+
+    <!------------- Login  Section ---------------------->
+     <div data-role="page" id="login">
+        <div data-role="header" data-position="fixed">
+            <h1>Log In</h1>
+            <a href="#" class="ui-btn-right " data-role="button" data-iconpos="notext">Help</a>
+        </div>
+        <div data-role="content" class="ui-content">
+            <form id="frmLogin" onsubmit="return false;">
+                <div class="ui-field-contain">
+                    <input type="text" name="txtUserName" id="txtUserName" placeholder="User name" required pattern=".*\S+.*" />
+                    <input type="password" name="txtPassword" id="txtPassword" placeholder="Password" required pattern=".*\S+.*" />
+                    <label for="rememberme">Remember User Name</label>
+                    <input type="checkbox" name="rememberme" id="rememberme" value="Remember User Name" data-theme="c">
+                    <input type="button" data-theme="c" value="Forget password?" onclick="$.fn.ShowPasswordiv()" />
+                </div>
+                <input type="submit" value="Log In" data-theme="a">
+                <input type="button" value="Register New Store" id="btnRegister" data-theme="b" >
+            </form>
+        </div>
+        <!----- Alert Msg ---->
+        <a href="#POPMsg" data-rel="popup" data-position-to="window" data-transition="fade" id="amsg"></a>
+        <div data-role="popup" id="POPMsg" data-overlay-theme="a" data-theme="b" data-dismissible="true" style="max-width: 400px;">
+            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+            <div data-role="header" data-theme="a">
+                <h1>Alert</h1>
+            </div>
+            <div role="main" class="ui-content">
+                <p>Wrong user name or password.</p>
+                <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-theme="b" data-rel="back">Ok</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Forget Password -->
+    <div data-role="page" id="dvForgetPassword">
+        <div data-role="header" data-position="fixed">
+            <h1>Password</h1>
+            <a href="#" class="ui-btn-right " data-role="button" data-iconpos="notext">Help</a>
+        </div>
+        <div data-role="content" class="ui-content">
+            <form id="frmForgetPassword" onsubmit="return false;">
+                <div class="ui-field-contain">
+                    <input type="text" name="txtEnterMobileNumber" id="txtEnterMobileNumber" placeholder="Enter Mobile Number" required pattern=".*\S+.*" />
+                </div>
+                <input type="submit" value="Submit" data-theme="a">
+                <input type="button" value="Cancel" data-theme="b" class="clsback">
+            </form>
+        </div>
+    </div>
+
+
+
+    <!---- Register Wizard Step 1 ---------->
+    <div data-role="page" id="wstep1">
+        <div data-role="header" data-position="fixed">
+            <a class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext clsback">back</a><h1>Enroll</h1>
+            <a href="#" class="ui-btn-right" data-role="button" data-iconpos="notext">Help</a>
+        </div>
+
+        <div data-role="content" class="ui-content">
+            <div>
+                Only few steps away for register on the best sell product.
+            </div>
+            <form id="frmStep1" onsubmit="return false;">
+                <div class="ui-field-contain">
+                    <input type="text" name="txtMobileNumber" id="txtMobileNumber" maxlength="15" placeholder="Mobile Number" required pattern=".*\S+.*">
+                </div>
+                <input type="button" value="Cancel" data-theme="b" class="clsback">
+                <input type="submit" value="Next" data-theme="a">
+            </form>
+            <div class="ui-field-contain ui-content">
+                <label for="agreement">Agreed Terms <a href="#">WMT Agreement</a></label>
+                <input type="checkbox" name="agreement" id="agreement" checked="checked" data-theme="c">
+            </div>
+        </div>
+        <!----- Alert Msg ---->
+        <a href="#POPMsgExist" data-rel="popup" data-position-to="window" data-transition="fade" id="amsgExist"></a>
+        <div data-role="popup" id="POPMsgExist" data-overlay-theme="a" data-theme="b" data-dismissible="true" style="max-width: 400px;">
+            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+            <div data-role="header" data-theme="a">
+                <h1>Alert</h1>
+            </div>
+            <div role="main" class="ui-content">
+                <p>Phone number already exist.</p>
+                <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-theme="b" data-rel="back">Ok</a>
+            </div>
+        </div>
+    </div>
+
+    <!---- Register Wizard Step 2 ---------->
+    <div data-role="page" id="wstep2">
+        <div data-role="header" data-position="fixed">
+            <a class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext clsback">back</a>
+            <h1>Enroll</h1>
+            <a href="#" class="ui-btn-right" data-role="button" data-iconpos="notext">Help</a>
+        </div>
+
+        <div data-role="content" class="ui-content clsHide">
+            <div>
+                Set up login password
+            </div>
+            <form id="frmStep2" onsubmit="return false;">
+                <div class="ui-field-contain">
+                    <input type="password" id="txtRegPassword" placeholder="Enter Password" required pattern=".*\S+.*" name="txtRegPassword" onchange=" this.setCustomValidity(this.validity.patternMismatch ? 'Password can not be blank' : ''); if(this.checkValidity()) form.txtRegRepPassword.pattern = this.value;">
+                    <input type="password" id="txtRegRepPassword" placeholder="Repeat Password" required pattern=".*\S+.*" name="txtRegRepPassword" onchange=" this.setCustomValidity(this.validity.patternMismatch ? 'Password can not be blank' : ''); ">
+                </div>
+                <input type="button" value="Back" data-theme="b" class="clsback">
+                <input type="submit" value="Next" data-theme="a">
+            </form>
+        </div>
+    </div>
+
+    <!---- Register Wizard Step 3 ---------->
+
+    <div data-role="page" id="wstep3">
+
+        <div data-role="header" data-position="fixed">
+            <a class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext clsback">back</a><h1>Enroll</h1>
+            <a href="#" class="ui-btn-right" data-role="button" data-iconpos="notext">Help</a>
+        </div>
+        <div data-role="content" class="ui-content clsHide">
+            <div>
+                Enter the Detail Store Information
+            </div>
+            <form id="frmStep3" onsubmit="return false;">
+                <div class="ui-field-contain">
+                    <label for="txtName">Name</label>
+                    <input type="text" name="txtStoreName" id="txtStoreName" placeholder="Store Name" maxlength="100" required pattern=".*\S+.*">
+                    <label for="selectAddress">Address</label>
+                    <select name="selectAddress" id="selectAddress" data-theme="c">
+                        <option value="Address1">Address1</option>
+                        <option value="Address2">Address2</option>
+                        <option value="Address3">Address3</option>
+                        <option value="Address4">Address4</option>
+                    </select>
+                    <label for="txtAddressDetail" class="select"></label>
+                    <input type="text" name="txtAddressDetail" id="txtAddressDetail" placeholder="Address detail" required pattern=".*\S+.*">
+                    <label for="txtPhone">Phone</label>
+                    <input type="text" name="txtPhone" id="txtPhone" maxlength="15" placeholder="Phone" required pattern=".*\S+.*">
+                    <label for="selectIndustrylevel1">Industry</label>
+                    <select name="selectIndustrylevel1" id="selectIndustrylevel1" data-theme="c">
+                        <option value="Industrylevel2">Industry level1</option>
+                        <option value="Industrylevel2">Industry level2</option>
+                        <option value="Industrylevel3">Industry level3</option>
+                        <option value="Industrylevel4">Industry level 4</option>
+                    </select>
+                    <label for="selectIndustrylevel2"></label>
+                    <select name="selectIndustrylevel2" id="selectIndustrylevel2" data-theme="c">
+                        <option value="Industrylevel2">Industry level1</option>
+                        <option value="Industrylevel2">Industry level2</option>
+                        <option value="Industrylevel3">Industry level3</option>
+                        <option value="Industrylevel4">Industry level 4</option>
+                    </select>
+                    <label for="selectIndustrylevel3"></label>
+                    <select name="selectIndustrylevel3" id="selectIndustrylevel3" data-theme="c">
+                        <option value="Industrylevel2">Industry level1</option>
+                        <option value="Industrylevel2">Industry level2</option>
+                        <option value="Industrylevel3">Industry level3</option>
+                        <option value="Industrylevel4">Industry level 4</option>
+                    </select>
+                </div>
+                <input type="button" value="Back" data-theme="b" class="clsback">
+                <input type="submit" value="Next" data-theme="a">
+            </form>
+        </div>
+
+    </div>
+
+<!---- Register Wizard Step 4 ---------->
+
+<div data-role="page" id="wstep4">
+    
+    <div data-role="header" data-position="fixed">
+        <a class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext clsback">back</a><h1>Enroll</h1>
+        <a href="#" class="ui-btn-right" data-role="button" data-iconpos="notext">Help</a>
+    </div>
+    
+    <div data-role="content" class="ui-content clsHide">
+        <div>
+            Enter the Owner Information
+        </div>
+        <form id="frmStep4" onsubmit="return false;">
+            <div class="ui-field-contain">
+                <label for="txtOwnerName">Owner</label>
+                <input type="text" name="txtOwnerName" id="txtOwnerName" maxlength="100" placeholder="Please enter full name" required pattern=".*\S+.*">
+                    <label for="txtID">ID</label>
+                    <input type="text" name="txtID" id="txtID" maxlength="20" placeholder="Please enter ID number" required pattern=".*\S+.*">
+                        <label for="txtName">Upload Picture</label>
+                        <div class="points-main">
+                            <p>Rake phone with ID show as below:</p>
+                            <div class="uploder">
+                                <div class="view-published">
+                                    <img height="80px" width="90px"  id="imageHolder" src="css/images/enter-owner.jpg" alt="">
+                                        </div>
+                            </div>
+                            <div class="help-btn-owner">
+                                <input type="button" name="Help" onclick="capturePhotoCamera();" value="Take from Camera" class="cancel-btn-owner" data-theme="b">
+                                    </div>
+                            <div class="help-btn-pick">
+                                <input type="button" name="Help" onclick="capturePhotoLibrary();" value="Take from Library" class="cancel-btn-owner" data-theme="b">
+                                    </div>
+                        </div>
+                        </div>
+            <input type="button" value="Back" data-theme="b" class="clsback">
+                <input type="submit" value="Next" data-theme="a">
+                    </form>
+    </div>
+</div>
+
+<!---- Register Wizard Step 5 ---------->
+
+<div data-role="page" id="wstep5">
+    
+    <div data-role="header" data-position="fixed">
+        <a class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext clsback">back</a><h1>Enroll</h1>
+        <a href="#" class="ui-btn-right" data-role="button" data-iconpos="notext">Help</a>
+    </div>
+    
+    <div data-role="content" class="ui-content clsHide">
+        <div>
+            <span class="red clr">Publish Password</span>
+        </div>
+        <span class="clr">Enter a publish Password, only the people know this password could Publish info to members.</span>
+        <form id="frmStep5" onsubmit="return false;">
+            <div class="ui-field-contain">
+                <input type="password" id="txtPublishPassword" placeholder="Enter Password" required pattern=".*\S+.*" name="txtPublishPassword" onchange=" this.setCustomValidity(this.validity.patternMismatch ? 'Password can not be blank' : ''); if(this.checkValidity()) form.txtRepPublishPassword.pattern = this.value;">
+                    <input type="password" id="txtRepPublishPassword" placeholder="Repeat Password" required pattern=".*\S+.*" name="txtRepPublishPassword" onchange=" this.setCustomValidity(this.validity.patternMismatch ? 'Password can not be blank' : ''); ">
+                        </div>
+            <input type="submit" value="Next" data-theme="a">
+                </form>
+    </div>
+    
+</div>
+
+<!---- Register Wizard Step 6 ---------->
+
+<div data-role="page" id="wstep6">
+    
+    <div data-role="header" data-position="fixed">
+        <a class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext clsback">back</a><h1>Enroll Success</h1>
+        <a href="#" class="ui-btn-right" data-role="button" data-iconpos="notext">Help</a>
+    </div>
+    
+    <div data-role="content" class="ui-content clsHide">
+        
+        <div class="remember_div">
+            <div class="remember_div">
+                <p class="welcome">
+                Welcome<br>
+                to<br>
+                Wei Ma Tao
+                </p>
+            </div>
+            <div class="clr"></div>
+            <input type="button" onclick="$.fn.StartNow();" value="Start Now" data-theme="a">
+                <input type="button" onclick="$.fn.Exit();" value="Exit" data-theme="b">
+                    </div>
+    </div>
+</div>
+
+    <!-- Landing Pages After Loged in -->
+    <div data-role="page" id="dvStore">
+        <div data-role="header" data-position="fixed">
+            <h1>Store</h1>
+            <a href="#" class="ui-btn-right" data-role="button" data-iconpos="notext">Help</a>
+        </div>
+        <div data-role="content" id="foo" class="ui-content headerChild">
+            <div class="ui-field-contain">
+                <input type="text" name="txtUserName" id="Text1" placeholder="User name">
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <div class="bottom_bar">
+                <div class="social-icon">
+                    <ul>
+                        <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                            <img src="css/images/scan-icon-active.png" alt=""><br>
+
+                            <span>Scan</span></a>
+                        </li>
+                        <li><a href="javascript:;">
+                            <img src="css/images/publish-icon.png" alt=""><br>
+                            <span>Publish</span></a>
+                        </li>
+                        <li><a href="javascript:;">
+                            <img src="css/images/member-icon.png" alt=""><br>
+                            <span>Member</span></a>
+                        </li>
+                        <li><a href="javascript:;">
+                            <img src="css/images/info-icon.png" alt=""><br>
+
+                            <span>Info</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvStore')">
+                            <img src="css/images/store-icon.png" alt=""><br>
+                            <span>Store</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- QR Code Section -->
+    <div data-role="page" id="dvQRCode">
+        <div data-role="header" data-position="fixed">
+            <h1>Scan QR Code</h1>
+            <a href="#" class="ui-btn-right" data-role="button" data-iconpos="notext">Help</a>
+        </div>
+        <div data-role="content" id="Div2" class="ui-content headerChild">
+            <div class="ui-field-contain">
+                <div class="remember_div">
+
+                    <div class="avtar c-scan">
+                        <img src="css/images/Scan-QR-Code.jpg" alt="">
+                    </div>
+                    <p class="place">Place QR code into the square to scan</p>
+
+
+                    <div class="clr"></div>
+                </div>
+                <div class="button">
+                    <input type="button" onclick="$.fn.ScanMemberShipCard();" value="Scan Membership Card" data-theme="a">
+                    <input type="button" onclick="$.fn.LoadPicture();" value="Load Local Picture" data-theme="a">
+                    <input type="button" onclick="$.fn.ScanOffline();" value="Offline Scan" data-theme="b">
+                    <div class="clr"></div>
+                </div>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <div class="bottom_bar">
+                <div class="social-icon">
+                    <ul>
+                        <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                            <img src="css/images/scan-icon-active.png" alt=""><br>
+
+                            <span>Scan</span></a>
+                        </li>
+                        <li><a href="javascript:;">
+                            <img src="css/images/publish-icon.png" alt=""><br>
+                            <span>Publish</span></a>
+                        </li>
+                        <li><a href="javascript:;">
+                            <img src="css/images/member-icon.png" alt=""><br>
+                            <span>Member</span></a>
+                        </li>
+                        <li><a href="javascript:;">
+                            <img src="css/images/info-icon.png" alt=""><br>
+
+                            <span>Info</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvStore')">
+                            <img src="css/images/store-icon.png" alt=""><br>
+                            <span>Store</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scan Member Ship --->
+
+    <div data-role="page" id="dvScanMemberShip">
+        <div data-role="header" data-position="fixed">
+            <a class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext clsback">back</a><h1>Scan Membership</h1>
+            <a href="#" class="ui-btn-right" data-role="button" data-iconpos="notext">Help</a>
+        </div>
+        <div data-role="content" class="ui-content headerChild">
+            <div class="ui-field-contain">
+                <div class="remember_div">
+                    <div class="WMT-points">
+                        <div class="wmt-left">
+                            <img width="142" height="142" alt="" src="css/images/scan-detail-1.jpg">
+                            <span>Mem001</span>
+                        </div>
+                        <div class="wmt-right">
+                            <div class="wmt-hdeading">
+                                <p>WMT Points:</p>
+                                <span>12658</span>
+                            </div>
+
+                            <div class="wmt-hdeading">
+                                <p>Store Points:</p>
+                                <span>558</span>
+                            </div>
+                            <div class="wmt-hdeading">
+                                <p>Available Points: </p>
+                                <span>126</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="clr"></div>
+                </div>
+                <div class="points-main">
+                    <h1 class="point-heading">Points -&gt; Goods Exchange
+                        <span>
+                            <img alt="" src="css/images/down-arrow.png"></span>
+                    </h1>
+                    <div class="toy-car">
+                        <p>500 Points for a Toy Car</p>
+                        <div class="help-btn-btn">
+                            <a href="#">
+                                <input type="button" class="btn-btn" value="Exchange" name="Help">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="clr"></div>
+                    <h1 class="point-heading">Membership Discount
+                        <span>
+                            <img alt="" src="css/images/down-arrow.png"></span>
+                    </h1>
+                    <div class="remember_div">
+                        <div class="fl">
+                            <label for="Membershipdiscount">Membership discount 15%</label>
+                            <input type="checkbox" name="Membershipdiscount" id="Membershipdiscount" data-theme="c">
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+                    <div class="remember_div">
+                        <div class="fl">
+                            <label for="discountitem">Discount Item - free drink</label>
+                            <input type="checkbox" name="discountitem" id="discountitem" data-theme="c">
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+                    <div class="total-main">
+                        <p>Total Cost:</p>
+                        <input type="text" placeholder="168.00" class="publish-scan" name="">
+                    </div>
+
+                    <div class="total-main-discount">
+                        <p>Discounted:</p>
+                        <span>150.00</span>
+
+                    </div>
+                    <input type="button" value="Ok" name="Help" data-theme="a">
+                </div>
+                <div class="clr"></div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
+<script type="text/javascript">
+    var imageByte;
+    function capturePhotoCamera()
+    {
+       // navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50 ,
+                                   // destinationType: navigator.camera.DestinationType.DATA_URL});
+                                    
+                                    navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
+    destinationType: Camera.DestinationType.DATA_URL
+});
+                                    
+    }
+
+function onPhotoDataSuccess(imageData) {
+    alert(1);
+    //var smallImage = document.getElementById('imageHolder');
+   // smallImage.style.display = 'block';
+   // smallImage.src = "data:image/jpeg;base64," + imageData;
+    alert(imageData);
+    imageByte=imageData;
+}
+
+function onFail()
+{
+    alert('Failed because: ' + message);
+}
+
+function capturePhotoLibrary() {
+    
+    navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
+                                destinationType: navigator.camera.DestinationType.DATA_URL,
+                                sourceType: navigator.camera.PictureSource.PHOTOLIBRARY });
+}
+
+
+
+function onSuccess(imageData) {
+    var image = document.getElementById('imageHolder');
+    image.src = "data:image/jpeg;base64," + imageData;
+    console.log(imageData);
+    window.localStorage.setItem("imageData",imageData);
+}
+
+function onFail(message) {
+    alert('Failed because: ' + message);
+}
+
+
+
+</script>
+<script type="text/javascript" src="js/registernewstore.js"></script>
+<script type="text/javascript" src="js/qrscancode.js"></script>
+
+
+</html>
