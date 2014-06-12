@@ -785,4 +785,50 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c41010', end
 	background-repeat:no-repeat;
 	background-position:right center;
 }
-.logout {margin-right:80px !important;}
+.logout {
+    float: right;
+    padding: 6px 40px 0 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+}
+.dvhelp {
+    background-image: url("images/help_1.png");
+    background-repeat: no-repeat;
+    cursor: pointer;
+    float: right;
+    height: 30px;
+    width: 30px;
+}
+.helpPad {padding-right:11px !important;}
+
+  label.error {
+                            color: red;
+                            font-size: 16px;
+                            font-weight: normal;
+                            line-height: 1.4;
+                            margin-top: 0.5em;
+                            width: 100%;
+                            float: left;
+                        }
+                    
+                    @media screen and (orientation: portrait) {
+                        label.error {
+                            margin-left: 0;
+                            display: block;
+                        }
+                    }
+                    
+                    @media screen and (orientation: landscape) {
+                        label.error {
+                            display: inline-block;
+                            /*margin-left: 22%;*/
+                        }
+                    }
+                    
+                    em {
+                        color: red;
+                        font-weight: bold;
+                        padding-right: .25em;
+                    }
