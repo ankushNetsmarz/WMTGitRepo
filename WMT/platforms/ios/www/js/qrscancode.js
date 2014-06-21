@@ -1,7 +1,7 @@
 ﻿(function ($) {
 
     /* Scan Membership Card function */
-    $.fn.ScanMemberShipCard = function () {
+    QRScan.ScanMemberShipCard = function () {
        cordova.plugins.barcodeScanner.scan(
 		function (result) {
 			   alert(result.text);
@@ -13,21 +13,21 @@
     }
 
     /* Load Local Picture function */
-    $.fn.LoadPicture = function () {
-
+    QRScan.LoadPicture = function () {
+       
     }
 
     /* Offline Scan function */
-    $.fn.ScanOffline = function () {
-cordova.plugins.barcodeScanner.scan(
-		function (result) {
-			 alert(result.text);
-			
-		}, 
-		function (error) {
-			alert("Scanning failed: " + error);
-		}
-	);
+    QRScan.ScanOffline = function () {
+        cordova.plugins.barcodeScanner.scan(
+                function (result) {
+                    alert(result.text);
+
+                },
+                function (error) {
+                    alert("Scanning failed: " + error);
+                }
+            );
     }
 
 })(jQuery);

@@ -1,5 +1,5 @@
 ﻿$('#login').bind('pageinit', function (event) {
-    $('form').validate({
+    $('#frmLogin').validate({
         rules: {
             txtUserName: {
                 required: true
@@ -10,10 +10,23 @@
         }
     });
 });
+
+$('#frmForgetPassword').validate({
+    rules: {
+        txtEnterMobileNumber: {
+            required: true
+        }
+    }
+});
+
 $('#frmStep1').validate({
     rules: {
         txtMobileNumber: {
-            required: true
+            required: true           
+        },
+        txtEmailAddress: {
+            required: true,
+            email: true
         }
     }
 });
@@ -33,11 +46,11 @@ $("#frmStep3").validate({
         txtStoreName: {
             required: true
         },
-        txtAddressDetail: {
+        txtAddressDetail1: {
             required: true
         },
         txtPhone: {
-            required: true
+            required: true            
         }
     }
 });
@@ -55,11 +68,27 @@ $("#frmStep4").validate({
 $("#frmStep5").validate({
     rules: {
         txtPublishPassword: {
-            required: true
+            required: false,
+            noSpace: true
+
         },
         txtRepPublishPassword: {
-            required: true,
+            required: false,
+            noSpace: true,
             equalTo: "#txtPublishPassword"
         }
     }
 });
+
+jQuery.validator.addMethod("noSpace", function (value, element) {
+    return value.indexOf(" ") < 0;
+}, "Space not allowed");
+
+$("#frmSaveStoreChanges").validate({
+    rules: {
+        txtEditStore: {
+            required: true
+        }
+    }
+});
+

@@ -4,18 +4,20 @@
 var option = {};
 option.url = ""; option.data = ""; option.HttpVerb = "POST";
 
-(function ($) {   
-    $.fn.jqXHR = function (option, Callback) {
+/* Alise for wmt common module */
+
+var WMT = myStore = membership = QRScan = $.fn;
+(function ($) {
+    WMT.jqXHR = function (option, Callback) {
         var defaults = {
             HttpVerb: "POST",
             data: {},
-            async: true,           
+            async: true,
             dataType: "json"
         }
         var settings = $.extend({}, defaults, option);
-        console.log(settings.url);
         $.ajax({
-            type: "POST",
+            type: settings.HttpVerb,
             url: settings.url,
             data: settings.data,
             dataType: settings.dataType,
@@ -25,9 +27,11 @@ option.url = ""; option.data = ""; option.HttpVerb = "POST";
             success: function (data) {
                 return Callback(data);
             },
-            error: function (error) {                
+            error: function (error) {
                 alert(error.status + "<-and-> " + error.statusText);
             }
         });
     }
-})(jQuery)
+
+})(jQuery);
+

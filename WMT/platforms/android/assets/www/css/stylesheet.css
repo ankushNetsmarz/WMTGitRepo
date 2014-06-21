@@ -310,7 +310,7 @@ a {
                     width: 100%;
                 }
 
-.cruent a {
+.current a {
     background-color: #ff8032;
     color: #fff !important;
     background-image: url(images/right-arrow.png);
@@ -717,7 +717,7 @@ label {
                     /*padding:0 10px;*/
                 }
 
-            .business-info ul li .cruent a {
+            .business-info ul li .current a {
                 background-color: #ff8032;
                 color: #fff !important;
                 background-image: url(images/right-arrow.png);
@@ -802,6 +802,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c41010', end
     width: 30px;
 }
 .helpPad {padding-right:11px !important;}
+#frmLogin .ui-shadow-inset{
+   margin:12px -1px 0px -1px;
+}
+.clsHide {display:none;}
+.price-yaun-left span {color:red;}
+.currency {width: 2%; margin-top: 2.5%; text-align: left;}
 
   label.error {
                             color: red;

@@ -1,12 +1,6 @@
 
 (function ($) {
-    $.mobile.defaultPageTransition = 'slide';
-    //$.mobile.page.prototype.options.domCache = true;
-    $(document).on('click', '.clsback', function () {
-        $('label.error').hide();
-        window.history.back();
 
-    });
 
     $(document).on('submit', '#frmLogin', function () {
         var UserName = $.trim($('#txtUserName').val());
@@ -20,25 +14,45 @@
             data: { phoneNumber: UserName, password: Password, RememberMe: RememberMe }
         }
 
-        $.fn.jqXHR(ajaxcallobj, function (response) {
+        WMT.jqXHR(ajaxcallobj, function (response) {
             if (response.success > 0) {
-                $.mobile.navigate("#dvQRCode");
+
+                /* Create Local Storage */
+                objlocalStorage.User_ID = response.user_id;
+                objlocalStorage.Store_ID = response.store_id;
+                objlocalStorage.Publish_Pin = response.publish_password;
+                localStorage.setItem("LocalStorageObj", JSON.stringify(objlocalStorage));
+                $.mobile.navigate("#dvStore");
             }
-            else {               
+            else {
                 $('#amsg').trigger('click');
             }
         });
     });
 
 
-    $(document).on('click', '.clsok', function () {       
+    $('.clsok').on('click', function () {
         $('#txtUserName').focus();
     });
 
-    /* */
+
     $.fn.ShowPasswordiv = function () {
+        $('#frmForgetPassword').hide();
         $.mobile.navigate("#dvForgetPassword");
     }
+
+
+    $('.clsRecover').change(function () {
+        $('.clsHide').hide();
+        if ($(this).attr('id') == "rdoEmail") {            
+            $('#dvShowEmail').show();
+        }
+        else if ($(this).attr('id') == "rdoSMS") {         
+            $('#dvShowSMS').show();
+        }
+        $('#frmForgetPassword').show();
+
+    });
 
 
     /* Forget Password Function */
@@ -48,17 +62,25 @@
             url: "http://weexcel.biz/zend_webservice/public/index.php/user/forgetPassword",
             data: { phoneNumber: UserName, password: Password, RememberMe: RememberMe }
         }
-        $.fn.jqXHR(ajaxcallobj, function (response) {
+        WMT.jqXHR(ajaxcallobj, function (response) {
             if (response.success > 0) {
                 $.mobile.navigate("#login");
             }
         });
     });
 
-    $(document).on('click', '#btnRegister', function () {
-        // $.mobile.changePage($(document.location.href = "/modules/registernewstore.html"), 'fade');
+    $('#btnRegister').on('click', function () {
         $.mobile.navigate("#wstep1");
     });
+
+
+    /* logout event */
+    $('.aLogout').on("click", function () {
+        localStorage.clear();
+        $.mobile.navigate('#login');
+    });
+
+
 
 
 })(jQuery)
