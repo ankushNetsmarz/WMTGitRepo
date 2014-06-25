@@ -13,8 +13,12 @@
 
 $('#frmForgetPassword').validate({
     rules: {
-        txtEnterMobileNumber: {
+        txtResetPwdByMobileNumber: {
             required: true
+        },
+        txtResetPwdByEmail: {
+            required: true,
+            email: true
         }
     }
 });
@@ -92,3 +96,68 @@ $("#frmSaveStoreChanges").validate({
     }
 });
 
+$('#frmPublishPin').validate({
+    rules: {
+        txtPublishedPassword: {
+            required: true
+        }
+    }
+});
+
+$('#frmStoreInformation').validate({
+    rules: {
+        txtStoreInformation: {
+            required: true
+        }
+    }
+});
+
+$('#frmMembershipDiscount').validate({
+    rules: {
+        txtMembershipdiscount: {
+            required: true,
+            number:true
+        }
+    }
+});
+
+$('#frmProductDiscount').validate({
+    rules: {
+        txtProductInformation: {
+            required: true
+        },
+        txtPrice: {
+            required: true
+        },
+        txtdiscount: {
+            required: true
+        }
+    }
+});
+
+$('#frmProductDuration').validate({
+    rules: {
+        frmProductDuration: {
+            required: true
+        },
+        txtProductDurationdiscount: {
+            required: true
+        },
+        txtProductDurationInformation: {
+            required: true
+        }
+    }
+})
+$('#frmGiftPoint').validate({
+    rules: {
+        txtProductGiftPrice: {
+            required: true
+        },
+        txtProductGiftPoint: {
+            required: true
+        },
+        txtProductGiftInformation: {
+            required: true
+        }
+    }
+})

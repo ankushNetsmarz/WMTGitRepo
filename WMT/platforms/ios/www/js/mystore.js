@@ -59,6 +59,7 @@ var IndustriesIds="";
             if (response.success > 0) {
                 resetControl();
                 myStore.getStoredata();
+                $.dynamicSuccess_popup('<p>infromation updated succesfully.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
             }
         });
 });

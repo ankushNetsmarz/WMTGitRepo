@@ -5,6 +5,7 @@
        cordova.plugins.barcodeScanner.scan(
 		function (result) {
 			   alert(result.text);
+                                           $.mobile.navigate('#dvScanMemberShip');
 		}, 
 		function (error) {
 			alert("Scanning failed: " + error);

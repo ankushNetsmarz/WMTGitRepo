@@ -9,4 +9,4 @@ $('.clsback').on('click', function () {
 
 });
 
-$("#helpPopup-outside-page").enhanceWithin().popup();
+$("#dvImageUpload").enhanceWithin().popup();
