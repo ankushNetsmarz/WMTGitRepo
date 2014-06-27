@@ -1,6 +1,6 @@
 ﻿
 var paramType = "";
-var IndustriesIds="";
+var IndustriesIds = "";
 (function ($) {
 
     /* Get My Store Data*/
@@ -29,6 +29,7 @@ var IndustriesIds="";
             }
             $('#storephone').html(obj[0].PhoneNumber);
             $('#storeownername').html(obj[0].OwnerName);
+            $('#emailaddress').html(obj[0].EmailAddress);
             $('#sltIndustryEdit1').val(industries[0]).selectmenu('refresh', true);
             $('#sltIndustryEdit2').val(industries[1]).selectmenu('refresh', true);
             $('#sltIndustryEdit3').val(industries[2]).selectmenu('refresh', true);
@@ -42,19 +43,15 @@ var IndustriesIds="";
     }
 
     /* Update Store Changes */
-    $(document).on('submit', '#frmSaveStoreChanges', function () {
-        var Industrylevel1 = $('#sltIndustryEdit1').val();
-        var Industrylevel2 = $('#sltIndustryEdit2').val();
-        var Industrylevel3 = $('#sltIndustryEdit3').val();
-        var currentControl = $(this).find('input[type=text]').val();
-        var indsutry = $('#sltIndustry').val();
+    $(document).on('submit', '#frmSaveStoreChanges', function () {        
+        var currentControl = $(this).find('input[type=text]').val();       
         var type = $('#sltType').val();
         var ajaxcallobj = {
             url: "http://weexcel.biz/zend_webservice/public/index.php/user/updatefield",
-            data: { store_id: objlocalStorage.Store_ID, ParamType: paramType, value: currentControl, Industrylevel1: Industrylevel1, Industrylevel2: Industrylevel2, Industrylevel3: Industrylevel3,IndustriesIds:IndustriesIds, type: type }
-    }
-       
-        
+            data: { store_id: objlocalStorage.Store_ID, ParamType: paramType, value: currentControl, type: type }
+        }
+
+
         WMT.jqXHR(ajaxcallobj, function (response) {
             if (response.success > 0) {
                 resetControl();
@@ -62,37 +59,58 @@ var IndustriesIds="";
                 $.dynamicSuccess_popup('<p>infromation updated succesfully.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
             }
         });
-});
+    });
 
-
-/* Modify button event */
-
-$('.modify-btn').on('click', function () {
-    $('#dvMystoreInfo').find('div.dynamicInputs').remove();
-
-    var $this = $(this).parents('.modyfy-button').prev('div');
-    $('.modify-btn').attr('value', 'Edit').button("refresh");
-
-
-    if ($(this).attr('customattr') == "Cancel") {
-
-        $('.btnStoreChanges').css({ 'display': 'none' });
-        $(this).attr('value', 'Edit').button("refresh");
-        $(this).removeAttr('customattr');
-        $this.find('div.dynamicInputs').remove();
-
-    } else {
-        $('.modify-btn').removeAttr('customattr');
-        if ($this.attr('id') == "storephone") {
-            $('<div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset dynamicInputs" ><input type="text" name="txtEditStore" currentControl="' + $this.attr('id') + '" value="' + $this.html() + '" maxlength="15" /></div>').insertAfter($this);
+    /* Update Store industries */
+    $(document).on('submit', '#frmUpdateIndustryChanges', function () {
+        var Industrylevel1 = $('#sltIndustryEdit1').val();
+        var Industrylevel2 = $('#sltIndustryEdit2').val();
+        var Industrylevel3 = $('#sltIndustryEdit3').val();             
+        var type = $('#sltType').val();
+        var ajaxcallobj = {
+            url: "http://weexcel.biz/zend_webservice/public/index.php/user/updateindustries",
+            data: { store_id: objlocalStorage.Store_ID, ParamType: paramType, Industrylevel1: Industrylevel1, Industrylevel2: Industrylevel2, Industrylevel3: Industrylevel3, IndustriesIds: IndustriesIds, type: type }
         }
-        else {
-            $('<div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset dynamicInputs" ><input type="text" name="txtEditStore" currentControl="' + $this.attr('id') + '" value="' + $this.html() + '" /></div>').insertAfter($this);
+
+
+        WMT.jqXHR(ajaxcallobj, function (response) {
+            if (response.success > 0) {
+                resetControl();
+                myStore.getStoredata();
+                $.dynamicSuccess_popup('<p>infromation updated succesfully.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
+            }
+        });
+    });
+
+
+    /* Modify button event */
+
+    $('.modify-btn').on('click', function () {
+        $('#dvMystoreInfo').find('div.dynamicInputs').remove();
+
+        var $this = $(this).parents('.modyfy-button').prev('div');
+        $('.modify-btn').attr('value', 'Edit').button("refresh");
+
+
+        if ($(this).attr('customattr') == "Cancel") {
+
+            $('.btnStoreChanges').css({ 'display': 'none' });
+            $(this).attr('value', 'Edit').button("refresh");
+            $(this).removeAttr('customattr');
+            $this.find('div.dynamicInputs').remove();
+
+        } else {
+            $('.modify-btn').removeAttr('customattr');
+            if ($this.attr('id') == "storephone") {
+                $('<div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset dynamicInputs firstClass" ><input type="text" name="txtEditStore" class="secondClass" currentControl="' + $this.attr('id') + '" value="' + $this.html() + '" maxlength="15" /></div>').insertAfter($this);
+            }
+            else {
+                $('<div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset dynamicInputs firstClass" ><input type="text" name="txtEditStore" class="secondClass" currentControl="' + $this.attr('id') + '" value="' + $this.html() + '" /></div>').insertAfter($this);
+            }
+            $('.btnStoreChanges').css({ 'display': 'block' });
+            $(this).attr('value', 'Cancel').button("refresh");
+            $(this).attr('customattr', 'Cancel');
         }
-        $('.btnStoreChanges').css({ 'display': 'block' });
-        $(this).attr('value', 'Cancel').button("refresh");
-        $(this).attr('customattr', 'Cancel');
-    }
-    paramType = $this.attr('id');
-});
+        paramType = $this.attr('id');
+    });
 })(jQuery);

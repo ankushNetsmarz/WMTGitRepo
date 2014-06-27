@@ -343,9 +343,10 @@ a {
 
 .upload {
     float: left;
-    height: 49px;
-    width: 51px;
+    height: auto;
+    width: 100%;
 }
+
 
 .textarea {
     height: 120px;
@@ -808,6 +809,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c41010', end
 .clsHide {display:none;}
 .price-yaun-left span {color:red;}
 .currency {width: 2%; margin-top: 2.5%; text-align: left;}
+.name { float:left; width:33%; text-align:left; margin-top:10px;}
+.address {float:left; width:38%;  text-align:left; margin-top:10px;}
+.firstClass {background:none!important; border:none!important; box-shadow:none!important;}
+.secondClass {border:1px solid #c8c8c8 !important;  background:#fff!important; display:inline-block!important; border-radius:5px!important; margin-top:5px;}
+
+
 
   label.error {
                             color: red;

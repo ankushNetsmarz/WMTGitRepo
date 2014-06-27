@@ -4,8 +4,7 @@
     QRScan.ScanMemberShipCard = function () {
        cordova.plugins.barcodeScanner.scan(
 		function (result) {
-			   alert(result.text);
-                                           $.mobile.navigate('#dvScanMemberShip');
+		    $.mobile.navigate('#dvScanMemberShip');
 		}, 
 		function (error) {
 			alert("Scanning failed: " + error);
@@ -22,7 +21,8 @@
     QRScan.ScanOffline = function () {
         cordova.plugins.barcodeScanner.scan(
                 function (result) {
-                    alert(result.text);
+                   
+            $.mobile.navigate('#dvScanMemberShip');
 
                 },
                 function (error) {

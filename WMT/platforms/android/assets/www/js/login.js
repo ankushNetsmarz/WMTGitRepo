@@ -4,8 +4,7 @@
 
     $(document).on('submit', '#frmLogin', function () {
         var UserName = $.trim($('#txtUserName').val());
-        var Password = $.trim($('#txtPassword').val());
-        var RememberMe = false;
+        var Password = $.trim($('#txtPassword').val());       
         if ($('#rememberme').is(':checked')) {
             RememberMe = true;
         }
@@ -21,8 +20,16 @@
                 objlocalStorage.User_ID = response.user_id;
                 objlocalStorage.Store_ID = response.store_id;
                 objlocalStorage.Publish_Pin = response.publish_password;
-                //  console.log()
+
                 localStorage.setItem("LocalStorageObj", JSON.stringify(objlocalStorage));
+                if (RememberMe) {
+                    window.localStorage.setItem("username", UserName);
+                    window.localStorage.setItem("pwd", Password);
+                }
+                else {
+                    window.localStorage.setItem("username", '');
+                    window.localStorage.setItem("pwd", '');
+                }
                 $.mobile.navigate("#dvStore");
             }
             else {
@@ -79,10 +86,20 @@
 
 
     /* logout event */
-    $('.aLogout').on("click", function () {
+    $('.aLogout').on("click", function () {      
+        
+        if (RememberMe) {
+            window.localStorage.setItem("username", window.localStorage.getItem("username"));
+            window.localStorage.setItem("pwd", window.localStorage.getItem("pwd"));
+        }
+        else {
+            window.localStorage.setItem("username", '');
+            window.localStorage.setItem("pwd", '');
+            $('#txtUserName, #txtPassword').val('');
+            $('#rememberme').prop('checked', false).checkboxradio('refresh');
+        }
         localStorage.clear();
         $.mobile.navigate('#login');
     });
-
 
 })(jQuery)

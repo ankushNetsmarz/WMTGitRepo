@@ -26,6 +26,15 @@
                 }
 
             }, false);
+
+            if (window.localStorage.getItem("username") != '' && window.localStorage.getItem("username") != undefined) {
+                $('#txtUserName').val(window.localStorage.getItem("username")); $('#txtPassword').val(window.localStorage.getItem("pwd"));
+                $('#rememberme').prop('checked', true).checkboxradio('refresh');
+            }
+            else {
+                $('#txtUserName, #txtPassword').val('');
+                $('#rememberme').prop('checked', false).checkboxradio('refresh');
+            }
         }
 
     </script>
@@ -35,7 +44,7 @@
 
     <!------------- Login  Section ---------------------->
     <div data-role="page" id="login">
-        <div data-role="header" data-position="fixed">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
             <h1>Log In</h1>
             <div class="logout helpPad">
                 <a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop"><span class="dvhelp"></span></a>
@@ -63,7 +72,7 @@
 
     <!-- Forget Password -->
     <div data-role="page" id="dvForgetPassword">
-        <div data-role="header" data-position="fixed">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
             <a class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext clsback">back</a><h1>Password</h1>
             <div class="logout helpPad">
                 <a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop"><span class="dvhelp"></span></a>
@@ -95,7 +104,7 @@
 
     <!---- Register Wizard Step 1 ---------->
     <div data-role="page" id="wstep1">
-        <div data-role="header" data-position="fixed">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
             <a class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext clsback">back</a><h1>Enroll</h1>
             <div class="logout helpPad">
                 <a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop"><span class="dvhelp"></span></a>
@@ -118,36 +127,14 @@
             <div class="ui-field-contain ui-content">
                 <label for="agreement">Agreed Terms WMT Agreement</label>
                 <input type="checkbox" name="agreement" id="agreement" checked="checked" data-theme="c">
-                <label><a href="javascript:;" id="termAgreement">WMT Agreement</a></label>
+                <label><a href="#dvAgreement" data-rel="popup" data-transition="pop">WMT Agreement</a></label>
             </div>
         </div>
     </div>
-
-    <!-- Term And Agreement -->
-
-    <!---- Register Wizard Step 1 ---------->
-    <div data-role="page" id="dvTermAndAgreement">
-        <div data-role="header" data-position="fixed">
-            <a class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext clsback">back</a><h1>Agreement</h1>
-            <div class="logout helpPad">
-                <a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop"><span class="dvhelp"></span></a>
-            </div>
-        </div>
-
-        <div data-role="content" class="ui-content" style="text-align: left;">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the 
-            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and 
-            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into 
-            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
-            and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
-        </div>
-
-    </div>
-
 
     <!---- Register Wizard Step 2 ---------->
     <div data-role="page" id="wstep2">
-        <div data-role="header" data-position="fixed">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
             <a class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext clsback">back</a>
             <h1>Enroll</h1>
             <div class="logout helpPad">
@@ -176,7 +163,7 @@
 
     <div data-role="page" id="wstep3">
 
-        <div data-role="header" data-position="fixed">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
             <a class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext clsback">back</a><h1>Enroll</h1>
             <div class="logout helpPad">
                 <a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop"><span class="dvhelp"></span></a>
@@ -238,7 +225,7 @@
 
     <div data-role="page" id="wstep4">
 
-        <div data-role="header" data-position="fixed">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
             <a class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext clsback">back</a><h1>Enroll</h1>
             <div class="logout helpPad">
                 <a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop"><span class="dvhelp"></span></a>
@@ -282,7 +269,7 @@
 
     <div data-role="page" id="wstep5">
 
-        <div data-role="header" data-position="fixed">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
             <a class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext clsback">back</a><h1>Enroll</h1>
             <div class="logout helpPad">
                 <a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop"><span class="dvhelp"></span></a>
@@ -311,7 +298,7 @@
 
     <div data-role="page" id="wstep6">
 
-        <div data-role="header" data-position="fixed">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
             <h1>Enroll Success</h1>
             <div class="logout helpPad">
                 <a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop"><span class="dvhelp"></span></a>
@@ -338,7 +325,7 @@
 
     <!-- QR Code Section -->
     <div data-role="page" id="dvQRCode">
-        <div data-role="header" data-position="fixed">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
             <h1>Scan QR Code</h1>
             <div class="logout">
                 <a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop"><span class="dvhelp"></span></a>
@@ -366,7 +353,7 @@
                 </div>
             </div>
         </div>
-        <div data-role="footer" data-position="fixed">
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
             <div class="bottom_bar">
                 <div class="social-icon">
                     <ul>
@@ -401,7 +388,7 @@
     <!-- Scan Member Ship --->
 
     <div data-role="page" id="dvScanMemberShip">
-        <div data-role="header" data-position="fixed">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
             <a class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext clsback">back</a><h1>Scan Membership</h1>
             <div class="logout">
                 <a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop"><span class="dvhelp"></span></a>
@@ -489,7 +476,7 @@
     <!--- publish Info Section --->
 
     <div data-role="page" id="dvPublishInfo">
-        <div data-role="header" data-position="fixed">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
             <a class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext clsback">back</a><h1>Publish Info</h1>
             <div class="logout">
                 <a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop"><span class="dvhelp"></span></a>
@@ -521,7 +508,7 @@
                 <div class="clr"></div>
             </div>
         </div>
-        <div data-role="footer" data-position="fixed">
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
             <div class="bottom_bar">
                 <div class="social-icon publish">
                     <ul>
@@ -553,7 +540,7 @@
         </div>
     </div>
     <div data-role="page" id="dvPublishPin">
-        <div data-role="header" data-position="fixed">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
             <a class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext clsback">back</a><h1>Publish Info</h1>
             <div class="logout">
                 <a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop"><span class="dvhelp"></span></a>
@@ -573,10 +560,40 @@
                 </form>
             </div>
         </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div class="bottom_bar">
+                <div class="social-icon publish">
+                    <ul>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                            <img src="css/images/scan-icon.png" alt=""><br>
+
+                            <span>Scan</span></a>
+                        </li>
+                        <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                            <img src="css/images/publish-icon-active.png" alt=""><br>
+                            <span>Publish</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
+                            <img src="css/images/member-icon.png" alt=""><br>
+                            <span>Member</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvBusinessInfo')">
+                            <img src="css/images/info-icon.png" alt=""><br>
+
+                            <span>Info</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvStore')">
+                            <img src="css/images/store-icon.png" alt=""><br>
+                            <span>Store</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- Store Information -->
     <div data-role="page" id="dvStoreInformation">
-        <div data-role="header" data-position="fixed">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
             <a class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext clsback">back</a><h1>Store Information</h1>
             <div class="logout">
                 <a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop"><span class="dvhelp"></span></a>
@@ -595,14 +612,13 @@
                                     <div class="image-upload">
                                         <div class="upload">
 
-                                            <img alt="" height="80px" width="90px" class="clsImage" src="css/images/image-uploader.jpg">
-                                                
+                                            <img alt="" class="clsImage" width="160" height="130" src="css/images/image-uploader.jpg">
                                         </div>
                                     </div>
                                 </div>
                             </a>
                             <p class="flright">Information</p>
-                            <textarea class="textarea" name="txtStoreInformation" id="txtStoreInformation" placeholder="Enter Information" rows="5" cols=""></textarea>
+                            <textarea class="textarea" name="txtStoreInformation" id="txtStoreInformation" style="min-height: 125px !important;" placeholder="Enter Information" rows="5" cols=""></textarea>
                         </div>
                         <div class="clr"></div>
                     </div>
@@ -616,11 +632,41 @@
 
             <div class="clr"></div>
         </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div class="bottom_bar">
+                <div class="social-icon publish">
+                    <ul>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                            <img src="css/images/scan-icon.png" alt=""><br>
+
+                            <span>Scan</span></a>
+                        </li>
+                        <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                            <img src="css/images/publish-icon-active.png" alt=""><br>
+                            <span>Publish</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
+                            <img src="css/images/member-icon.png" alt=""><br>
+                            <span>Member</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvBusinessInfo')">
+                            <img src="css/images/info-icon.png" alt=""><br>
+
+                            <span>Info</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvStore')">
+                            <img src="css/images/store-icon.png" alt=""><br>
+                            <span>Store</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!--- Membership Discount -->
     <div data-role="page" id="dvMemberShipDiscount">
-        <div data-role="header" data-position="fixed">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
             <a class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext clsback">back</a><h1>Publish Info</h1>
             <div class="logout">
                 <a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop"><span class="dvhelp"></span></a>
@@ -655,10 +701,40 @@
                 <div class="clr"></div>
             </div>
         </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div class="bottom_bar">
+                <div class="social-icon publish">
+                    <ul>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                            <img src="css/images/scan-icon.png" alt=""><br>
+
+                            <span>Scan</span></a>
+                        </li>
+                        <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                            <img src="css/images/publish-icon-active.png" alt=""><br>
+                            <span>Publish</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
+                            <img src="css/images/member-icon.png" alt=""><br>
+                            <span>Member</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvBusinessInfo')">
+                            <img src="css/images/info-icon.png" alt=""><br>
+
+                            <span>Info</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvStore')">
+                            <img src="css/images/store-icon.png" alt=""><br>
+                            <span>Store</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- Publish Product Discount -->
     <div data-role="page" id="dvProductDiscount">
-        <div data-role="header" data-position="fixed">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
             <a class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext clsback">back</a><h1>Discount Product</h1>
             <div class="logout">
                 <a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop"><span class="dvhelp"></span></a>
@@ -673,16 +749,20 @@
                         <div class="points-main">
                             <p class="info-user">User for product or services</p>
                             <p class="flright">Upload Picture</p>
-                            <div class="uploder">
-                                <div class="image-upload">
-                                    <div class="upload">
-                                        <a href="#">
-                                            <img alt="" src="css/images/image-uploader.jpg"></a>
+
+                            <a href="#dvImageUpload" data-rel="popup" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                <div class="uploder">
+                                    <div class="image-upload">
+                                        <div class="upload">
+
+                                            <img alt="" class="clsImage" width="160" height="130" src="css/images/image-uploader.jpg">
+                                        </div>
                                     </div>
                                 </div>
-                                <p class="flright">Information</p>
-                                <textarea class="textarea" placeholder="Enter Information" rows="15" cols="" name="txtProductInformation" id="txtProductInformation"></textarea>
-                            </div>
+                            </a>
+                            <p class="flright">Information</p>
+                            <textarea class="textarea" placeholder="Enter Information" rows="15" cols="" style="min-height: 125px !important;" name="txtProductInformation" id="txtProductInformation"></textarea>
+
 
                             <div class="total-main-org ui-grid-b">
                                 <div class="ui-block-b">
@@ -715,12 +795,42 @@
                 <div class="clr"></div>
             </div>
         </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div class="bottom_bar">
+                <div class="social-icon publish">
+                    <ul>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                            <img src="css/images/scan-icon.png" alt=""><br>
+
+                            <span>Scan</span></a>
+                        </li>
+                        <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                            <img src="css/images/publish-icon-active.png" alt=""><br>
+                            <span>Publish</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
+                            <img src="css/images/member-icon.png" alt=""><br>
+                            <span>Member</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvBusinessInfo')">
+                            <img src="css/images/info-icon.png" alt=""><br>
+
+                            <span>Info</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvStore')">
+                            <img src="css/images/store-icon.png" alt=""><br>
+                            <span>Store</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Publish Product for short duration -->
 
     <div data-role="page" id="dvProductforShortDuration">
-        <div data-role="header" data-position="fixed">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
             <a class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext clsback">back</a><h1>Product Promotion</h1>
             <div class="logout">
                 <a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop"><span class="dvhelp"></span></a>
@@ -734,16 +844,19 @@
                         <div class="points-main">
                             <p class="info-user">User for product or services</p>
                             <p class="flright">Upload Picture</p>
-                            <div class="uploder">
-                                <div class="image-upload">
-                                    <div class="upload">
-                                        <a href="#">
-                                            <img alt="" src="css/images/image-uploader.jpg"></a>
+                            <a href="#dvImageUpload" data-rel="popup" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                <div class="uploder">
+                                    <div class="image-upload">
+                                        <div class="upload">
+
+                                            <img alt="" class="clsImage" width="160" height="130" src="css/images/image-uploader.jpg">
+                                        </div>
                                     </div>
                                 </div>
-                                <p class="flright">Information</p>
-                                <textarea class="textarea" placeholder="Enter Information" rows="15" cols="" name="txtProductDurationInformation" id="txtProductDurationInformation"></textarea>
-                            </div>
+                            </a>
+                            <p class="flright">Information</p>
+                            <textarea class="textarea" placeholder="Enter Information" rows="15" style="min-height: 125px !important;" cols="" name="txtProductDurationInformation" id="txtProductDurationInformation"></textarea>
+
 
                             <div class="total-main-org ui-grid-b">
                                 <div class="ui-block-b">
@@ -795,12 +908,42 @@
                 </form>
             </div>
         </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div class="bottom_bar">
+                <div class="social-icon publish">
+                    <ul>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                            <img src="css/images/scan-icon.png" alt=""><br>
+
+                            <span>Scan</span></a>
+                        </li>
+                        <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                            <img src="css/images/publish-icon-active.png" alt=""><br>
+                            <span>Publish</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
+                            <img src="css/images/member-icon.png" alt=""><br>
+                            <span>Member</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvBusinessInfo')">
+                            <img src="css/images/info-icon.png" alt=""><br>
+
+                            <span>Info</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvStore')">
+                            <img src="css/images/store-icon.png" alt=""><br>
+                            <span>Store</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Publish Product Gift Point -->
 
     <div data-role="page" id="dvGiftPoint">
-        <div data-role="header" data-position="fixed">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
             <a class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext clsback">back</a><h1>Gift Point</h1>
             <div class="logout">
                 <a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop"><span class="dvhelp"></span></a>
@@ -814,16 +957,19 @@
                         <div class="points-main">
                             <p class="info-user">User for product or services</p>
                             <p class="flright">Upload Picture</p>
-                            <div class="uploder">
-                                <div class="image-upload">
-                                    <div class="upload">
-                                        <a href="#">
-                                            <img alt="" src="css/images/image-uploader.jpg"></a>
+
+                            <a href="#dvImageUpload" data-rel="popup" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                <div class="uploder">
+                                    <div class="image-upload">
+                                        <div class="upload">
+
+                                            <img alt="" class="clsImage" width="160" height="130" src="css/images/image-uploader.jpg">
+                                        </div>
                                     </div>
                                 </div>
-                                <p class="flright">Information</p>
-                                <textarea class="textarea" placeholder="Enter Information" rows="15" cols="" name="txtProductGiftInformation" id="txtProductGiftInformation"></textarea>
-                            </div>
+                            </a>
+                            <p class="flright">Information</p>
+                            <textarea class="textarea" placeholder="Enter Information" rows="15" style="min-height: 125px !important;" cols="" name="txtProductGiftInformation" id="txtProductGiftInformation"></textarea>
 
                             <div class="total-main-org ui-grid-b">
                                 <div class="ui-block-b">
@@ -856,11 +1002,41 @@
                 </form>
             </div>
         </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div class="bottom_bar">
+                <div class="social-icon publish">
+                    <ul>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                            <img src="css/images/scan-icon.png" alt=""><br>
+
+                            <span>Scan</span></a>
+                        </li>
+                        <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                            <img src="css/images/publish-icon-active.png" alt=""><br>
+                            <span>Publish</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
+                            <img src="css/images/member-icon.png" alt=""><br>
+                            <span>Member</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvBusinessInfo')">
+                            <img src="css/images/info-icon.png" alt=""><br>
+
+                            <span>Info</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvStore')">
+                            <img src="css/images/store-icon.png" alt=""><br>
+                            <span>Store</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- View Product Published Info -->
     <div data-role="page" id="dvViewPublishedInfo">
-        <div data-role="header" data-position="fixed">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
             <a class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext clsback">back</a><h1>Publish Info</h1>
             <div class="logout">
                 <a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop"><span class="dvhelp"></span></a>
@@ -871,75 +1047,44 @@
             <div class="ui-field-contain">
 
                 <div class="remember_div">
-                    <div class="points-main">
-                        <p>Restaurant Zao (Redmond # 1)</p>
-                        <div class="uploder">
-                            <div class="view-published">
-                                <img alt="" src="css/images/view-published.jpg">
-                            </div>
-                        </div>
-                        <div class="view-txt">
-                            <p>
-                                Restaurant infroductions, a lots of introduction:))).
-                                and also show what is the discount.
-                                Old Price, discount price.
-                            </p>
-                        </div>
-                        <div class="price-yaun">
-                            <div class="price-yaun-left">
-                                <p>Price: <span>158</span> Yuan</p>
-                            </div>
-                            <div class="price-yaun-left">
-                                <p>Discount: <span>88</span> Yuan</p>
-                            </div>
-                            <p class="price-yaun-left">Status: Active / Finished</p>
 
-                            <div class="price-yaun-left">
-                                <div class="help-btn-publish">
-                                    <input type="button" name="Help" value="Delete" class="btn-download" data-inline="true" data-theme="b">
-                                    <input type="button" name="Help" value="Modify" class="btn-download" data-inline="true" data-theme="b">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="points-main">
-                        <p>Restaurant Zao (Redmond # 1)</p>
-                        <div class="uploder">
-                            <div class="view-published">
-                                <img alt="" src="css/images/view-published.jpg">
-                            </div>
-                        </div>
-                        <div class="view-txt">
-                            <p>
-                                Restaurant infroductions, a lots of introduction:))).
-                                and also show what is the discount.
-                                Old Price, discount price.
-                            </p>
-                        </div>
-                        <div class="price-yaun">
-                            <div class="price-yaun-left">
-                                <p>Price: <span>158</span> Yuan</p>
-                            </div>
-                            <div class="price-yaun-left">
-                                <p>Discount: <span>88</span> Yuan</p>
-                            </div>
-                            <p class="price-yaun-left">Status: Active / Finished</p>
-
-
-                            <div class="price-yaun-left">
-                                <div class="help-btn-publish">
-                                    <input type="button" name="Help" value="Delete" class="btn-download" data-inline="true" data-theme="b">
-                                    <input type="button" name="Help" value="Modify" class="btn-download" data-inline="true" data-theme="b">
-                                </div>
-                            </div>
-                        </div>
+                    <div id="dvPublishedProduct">
                     </div>
 
                 </div>
                 <div class="clr"></div>
             </div>
             <div class="clr"></div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div class="bottom_bar">
+                <div class="social-icon publish">
+                    <ul>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                            <img src="css/images/scan-icon.png" alt=""><br>
+
+                            <span>Scan</span></a>
+                        </li>
+                        <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                            <img src="css/images/publish-icon-active.png" alt=""><br>
+                            <span>Publish</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
+                            <img src="css/images/member-icon.png" alt=""><br>
+                            <span>Member</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvBusinessInfo')">
+                            <img src="css/images/info-icon.png" alt=""><br>
+
+                            <span>Info</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvStore')">
+                            <img src="css/images/store-icon.png" alt=""><br>
+                            <span>Store</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -948,7 +1093,7 @@
     <!-- Membership Section -->
 
     <div data-role="page" id="dvMemberShipManagement">
-        <div data-role="header" data-position="fixed">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
             <a class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext clsback">back</a><h1>Membership</h1>
             <div class="logout">
                 <a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop"><span class="dvhelp"></span></a>
@@ -977,7 +1122,7 @@
                 <div class="clr"></div>
             </div>
         </div>
-        <div data-role="footer" data-position="fixed">
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
             <div class="bottom_bar">
                 <div class="social-icon">
                     <ul>
@@ -1010,7 +1155,7 @@
     </div>
 
     <div data-role="page" id="dvMemberShipListing" data-title="member">
-        <div data-role="header" data-position="fixed" style="border-style: solid; border-width: 1px 0 0;">
+        <div data-role="header" data-position="fixed" style="border-style: solid; border-width: 1px 0 0;" data-tap-toggle="false">
             <a class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext clsback">back</a><h1>Membership</h1>
             <div class="logout">
                 <a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop"><span class="dvhelp"></span></a>
@@ -1019,10 +1164,10 @@
         </div>
         <div class="top_bar-member">
             <div class="wapper-wrap">
-                <div class="wrap-left">Select Member</div>
-                <div class="wrap-left">
+                <div class="wrap-left" style="text-align: left;">Select Member</div>
+                <div class="wrap-left" style="text-align: right; width: auto; float: right;">
                     Sort<br>
-                    <img src="css/images/down-arrow.png" alt="" width="16" height="11">
+                    <center><img src="css/images/down-arrow.png" alt="" width="16" height="11"></center>
                 </div>
             </div>
         </div>
@@ -1105,7 +1250,7 @@
             </div>
             <div class="clr"></div>
         </div>
-        <div data-role="footer" data-position="fixed">
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
             <div class="bottom_bar">
                 <div class="social-icon">
                     <ul>
@@ -1138,7 +1283,7 @@
     </div>
 
     <div data-role="page" id="dvMemberDetail">
-        <div data-role="header" data-position="fixed">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
             <a class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext clsback">back</a><h1>Membership Detail</h1>
             <div class="logout">
                 <a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop"><span class="dvhelp"></span></a>
@@ -1218,6 +1363,36 @@
             </div>
             <div class="clr"></div>
         </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div class="bottom_bar">
+                <div class="social-icon">
+                    <ul>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                            <img src="css/images/scan-icon.png" alt=""><br>
+
+                            <span>Scan</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                            <img src="css/images/publish-icon.png" alt=""><br>
+                            <span>Publish</span></a>
+                        </li>
+                        <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
+                            <img src="css/images/member-icon-active.png" alt=""><br>
+                            <span>Member</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvBusinessInfo')">
+                            <img src="css/images/info-icon.png" alt=""><br>
+
+                            <span>Info</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvStore')">
+                            <img src="css/images/store-icon.png" alt=""><br>
+                            <span>Store</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Membership Section End-->
@@ -1225,7 +1400,7 @@
     <!-- Business Info Section -->
 
     <div data-role="page" id="dvBusinessInfo" data-title="store">
-        <div data-role="header" data-position="fixed">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
             <h1>Business Info</h1>
             <div class="logout">
                 <a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop"><span class="dvhelp"></span></a>
@@ -1255,8 +1430,9 @@
             </div>
         </div>
 
-        <div data-role="footer" data-position="fixed">
-            <div class="top_bar-btm">
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+           <a href="tel:+00864001370402" style="display:none;"></a>
+                <div class="top_bar-btm" id="callContactManager">
                 <div class="wapper-wrap">
                     <div class="avtar bussiness">
                         <img alt="" src="css/images/busines-man.jpg">
@@ -1264,6 +1440,7 @@
                     <p class="cont-my">Contact My Support Manager</p>
                 </div>
             </div>
+            
             <div class="bottom_bar">
                 <div class="social-icon">
                     <ul>
@@ -1298,7 +1475,7 @@
 
     <!-- View Supplier Info --->
     <div data-role="page" id="dvSupplierInfo" data-title="store">
-        <div data-role="header" data-position="fixed" style="border-style: solid; border-width: 1px 0 0;">
+        <div data-role="header" data-position="fixed" style="border-style: solid; border-width: 1px 0 0;" data-tap-toggle="false">
             <a class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext clsback">back</a><h1>Supplier Info</h1>
             <div class="logout">
                 <a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop"><span class="dvhelp"></span></a>
@@ -1307,10 +1484,10 @@
         </div>
         <div class="top_bar-member">
             <div class="wapper-wrap">
-                <div class="wrap-left">Select Member</div>
-                <div class="wrap-left">
+                <div class="wrap-left" style="text-align: left;">Select Member</div>
+                <div class="wrap-left" style="text-align: right; width: auto; float: right;">
                     Sort<br>
-                    <img src="css/images/down-arrow.png" alt="" width="16" height="11">
+                    <center><img src="css/images/down-arrow.png" alt="" width="16" height="11"></center>
                 </div>
             </div>
         </div>
@@ -1381,15 +1558,21 @@
 
         </div>
 
-        <div data-role="footer" data-position="fixed">
-            <div class="top_bar-btm">
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+           
+            
+           <a href="tel:+00864001370402" style="display:none;"></a>
+            <div class="top_bar-btm" id="callContactManager">
                 <div class="wapper-wrap">
                     <div class="avtar bussiness">
                         <img alt="" src="css/images/busines-man.jpg">
-                    </div>
+                            </div>
                     <p class="cont-my">Contact My Support Manager</p>
                 </div>
             </div>
+
+            
+            
             <div class="bottom_bar">
                 <div class="social-icon">
                     <ul>
@@ -1423,8 +1606,9 @@
 
 
     <!-- Landing Page After Loged in -->
+    <!-- Landing Page After Loged in -->
     <div data-role="page" id="dvStore" data-title="store">
-        <div data-role="header" data-position="fixed">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
             <h1>My Store</h1>
             <div class="logout">
                 <a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop"><span class="dvhelp"></span></a>
@@ -1441,7 +1625,7 @@
                                 <div class="add">
                                     <div class="name">Name: </div>
                                     <div id="storename" class="address"></div>
-                                    <div class="modyfy-button">
+                                    <div class="modyfy-button" style="background: none; border: none; box-shadow: none;">
                                         <input type="button" name="Help" value="Edit" class="modify-btn" data-theme="a">
                                     </div>
                                 </div>
@@ -1484,8 +1668,19 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="member-manage">
+                            <div class="wapper-wrap">
+                                <div class="add">
+                                    <div class="name">Email: </div>
+                                    <div id="emailaddress" class="address"></div>
+                                    <div class="modyfy-button">
+                                        <input type="button" name="Help" value="Edit" class="modify-btn" data-theme="a">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="member-manage" style="border:0px;">
                             <div class="wapper-wrap">
                                 <div class="add">
                                     <div class="name">Owner: </div>
@@ -1497,25 +1692,37 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="clr"></div>
-
+                    <div class="member-manage">
+                        <div class="wapper-wrap">
+                            <div class="button">
+                                <div class="help-btn-pick clsHide btnStoreChanges">
+                                    <input type="submit" value="Save Changes" data-theme="a" id="Submit1">
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clr"></div>
+                </form>
+                <div class="clr" style="margin-top: 15px;"></div>
+                <form id="frmUpdateIndustryChanges" onsubmit="return false;">
                     <div class="wapper-wrap">
-                        <label for="selectIndustrylevel1">Industry</label>
+                        <label class="name" for="selectIndustrylevel1">Industry</label>
                         <select name="sltIndustryEdit1" id="sltIndustryEdit1" data-theme="c" data-native-menu="false">
                             <option value="Industrylevel1">Industry level1</option>
                             <option value="Industrylevel2">Industry level2</option>
                             <option value="Industrylevel3">Industry level3</option>
                             <option value="Industrylevel4">Industry level4</option>
                         </select>
-                        <label for="sltIndustryEdit2"></label>
+                        <label class="name" for="sltIndustryEdit2"></label>
                         <select name="sltIndustryEdit2" id="sltIndustryEdit2" data-theme="c" data-native-menu="false">
                             <option value="Industrylevel1">Industry level1</option>
                             <option value="Industrylevel2">Industry level2</option>
                             <option value="Industrylevel3">Industry level3</option>
                             <option value="Industrylevel4">Industry level4</option>
                         </select>
-                        <label for="sltIndustryEdit3"></label>
+                        <label class="name" for="sltIndustryEdit3"></label>
                         <select name="sltIndustryEdit3" id="sltIndustryEdit3" data-theme="c" data-native-menu="false">
                             <option value="Industrylevel1">Industry level1</option>
                             <option value="Industrylevel2">Industry level2</option>
@@ -1524,18 +1731,18 @@
                         </select>
 
                         <div class="button">
-                            <div class="help-btn-pick clsHide btnStoreChanges">
-                                <input type="submit" value="Save Changes" data-theme="a" id="SaveStoreChanges">
+                            <div class="help-btn-pick">
+                                <input type="submit" value="Save Changes" data-theme="a" id="SaveStoreChanges1">
                             </div>
                             <div class="clr"></div>
                         </div>
                     </div>
-
-                    <div class="clr"></div>
                 </form>
+                <div class="clr"></div>
+
             </div>
         </div>
-        <div data-role="footer" data-position="fixed">
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
             <div class="bottom_bar">
                 <div class="social-icon">
                     <ul>
@@ -1568,17 +1775,26 @@
     </div>
 
 
-    <div id="helpPopup-outside-page" data-overlay-theme="a" data-theme="b" data-dismissible="true"  data-position-to="window">
+    <div id="helpPopup-outside-page" data-overlay-theme="a" data-theme="b" data-dismissible="true" data-position-to="window">
 
         <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-        <h3>What is Lorem Ipsum?</h3>
+        <h3>WMT Help</h3>
         <div role="main" class="ui-content" style="text-align: left; max-height: 400px; overflow-y: scroll; overflow-x: hidden;">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+            Welcome to WMT, This page will be updated later, for now please call you customer services directly! Thank you, WMT Team.
+        </div>
+    </div>
+
+    <!-- Agreement Popup -->
+    <div id="dvAgreement" data-overlay-theme="a" data-theme="b" data-dismissible="true" data-position-to="window">
+
+        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+        <div role="main" class="ui-content" style="text-align: left; max-height: 400px; overflow-y: scroll; overflow-x: hidden;">
+            Welcome to WMT, this content will be updated later. For now please call your dedicated customer services about the testing agreement!
         </div>
     </div>
 
     <!-- Open poup  on publish image tag click -->
-   
+
     <div id="dvImageUpload" data-overlay-theme="a" data-theme="b" data-dismissible="true" style="min-width: 250px; max-width: 500px;" data-position-to="window">
 
         <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
@@ -1586,7 +1802,7 @@
         <div role="main" class="ui-content">
             <input id="btnPickImageCamera" type="button" value="Camera" data-theme="a">
             <input id="btnPickImageGallery" type="button" value="Load From Library" data-theme="a">
-            <a href="javascript:;" data-rel="back" class="ui-btn ui-corner-all" data-theme="b">Cancel</a>
+            <a href="javascript:;" id="cancelUpload" data-rel="back" class="ui-btn ui-corner-all" data-theme="b">Cancel</a>
             <div class="clr"></div>
         </div>
     </div>
