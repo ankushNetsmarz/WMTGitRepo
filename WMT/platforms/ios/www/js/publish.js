@@ -39,7 +39,7 @@
         $('#cancelUpload').trigger('click');
     });
     $(document).on('click', '#btnPickImageGallery', function () {
-
+                   capturePhotoLibrary();
     });
 
 

@@ -6,7 +6,8 @@ var imageDataObject='';
 $('.clsback').on('click', function () {
     $('label.error').hide();      
     window.history.back();
-     $('img.clsImage').attr('src', 'css/images/camra.jpg'); localStorage.removeItem("imageData");
+     $('img.clsImage').attr('src', 'css/images/camra.jpg');
+                 imageDataObject='';
 
 });
 
