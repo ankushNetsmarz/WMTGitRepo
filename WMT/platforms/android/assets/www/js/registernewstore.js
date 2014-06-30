@@ -79,6 +79,9 @@
     $.fn.StartNow = function () {
         $.mobile.navigate("#login");
     }
+    $.fn.Exit = function () {
+    	navigator.app.exitApp();
+    }
 
     /* show agreement screen */
 
