@@ -19,6 +19,10 @@
             document.addEventListener("backbutton", function (e) {
                    
                 var currentDiv= $.mobile.activePage.attr('id');
+                if(currentDiv == "login")
+                {
+                 navigator.app.exitApp();
+                }
                 if(currentDiv == "dvQRCode" ||currentDiv == "dvPublishInfo" ||currentDiv == "dvMemberShipManagement" ||currentDiv == "dvBusinessInfo" ||currentDiv == "dvStore")
                 {
              
