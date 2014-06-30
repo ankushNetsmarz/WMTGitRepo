@@ -17,7 +17,33 @@
         document.addEventListener("deviceready", onDeviceReady, false);
         function onDeviceReady() {
             document.addEventListener("backbutton", function (e) {
+                   
+                var currentDiv= $.mobile.activePage.attr('id');
+                if(currentDiv == "dvQRCode" ||currentDiv == "dvPublishInfo" ||currentDiv == "dvMemberShipManagement" ||currentDiv == "dvBusinessInfo" ||currentDiv == "dvStore")
+                {
+             
+						navigator.notification.confirm(
+						    'Do you want to logout?', // message
+						     onConfirm,            // callback to invoke with index of button pressed
+						    'Logout',           // title
+						    ['cancel','ok']     // buttonLabels
+						);
 
+
+                }
+                
+     else{
+             history.back();
+	     }
+
+   function onConfirm(buttonIndex)
+    {   
+    if(buttonIndex == 2)
+				{
+				$.mobile.navigate('#login');
+				}
+    }
+    
                 if ($.mobile.activePage.is('#login')) {
 
                 }
