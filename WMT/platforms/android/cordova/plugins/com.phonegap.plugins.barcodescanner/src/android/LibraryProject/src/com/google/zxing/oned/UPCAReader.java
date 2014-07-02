@@ -16,7 +16,7 @@
 
 package com.google.zxing.oned;
 
-import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BarcodeFormat2;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.ChecksumException;
 import com.google.zxing.DecodeHintType;
@@ -64,8 +64,8 @@ public final class UPCAReader extends UPCEANReader {
   }
 
   @Override
-  BarcodeFormat getBarcodeFormat() {
-    return BarcodeFormat.UPC_A;
+  BarcodeFormat2 getBarcodeFormat() {
+    return BarcodeFormat2.UPC_A;
   }
 
   @Override
@@ -77,7 +77,7 @@ public final class UPCAReader extends UPCEANReader {
   private static Result maybeReturnResult(Result result) throws FormatException {
     String text = result.getText();
     if (text.charAt(0) == '0') {
-      return new Result(text.substring(1), null, result.getResultPoints(), BarcodeFormat.UPC_A);
+      return new Result(text.substring(1), null, result.getResultPoints(), BarcodeFormat2.UPC_A);
     } else {
       throw FormatException.getFormatInstance();
     }

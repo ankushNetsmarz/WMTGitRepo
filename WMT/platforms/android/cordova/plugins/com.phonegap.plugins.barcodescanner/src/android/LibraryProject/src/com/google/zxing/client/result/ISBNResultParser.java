@@ -16,7 +16,7 @@
 
 package com.google.zxing.client.result;
 
-import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BarcodeFormat2;
 import com.google.zxing.Result;
 
 /**
@@ -31,8 +31,8 @@ public final class ISBNResultParser extends ResultParser {
    */
   @Override
   public ISBNParsedResult parse(Result result) {
-    BarcodeFormat format = result.getBarcodeFormat();
-    if (format != BarcodeFormat.EAN_13) {
+    BarcodeFormat2 format = result.getBarcodeFormat();
+    if (format != BarcodeFormat2.EAN_13) {
       return null;
     }
     String rawText = getMassagedText(result);

@@ -16,7 +16,7 @@
 
 package com.google.zxing.oned;
 
-import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BarcodeFormat2;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
@@ -120,7 +120,7 @@ public final class ITFReader extends OneDReader {
         null, // no natural byte representation for these barcodes
         new ResultPoint[] { new ResultPoint(startRange[1], (float) rowNumber),
                             new ResultPoint(endRange[0], (float) rowNumber)},
-        BarcodeFormat.ITF);
+        BarcodeFormat2.ITF);
   }
 
   /**

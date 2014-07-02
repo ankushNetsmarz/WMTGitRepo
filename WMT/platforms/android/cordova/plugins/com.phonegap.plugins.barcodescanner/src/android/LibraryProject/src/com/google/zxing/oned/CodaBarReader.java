@@ -16,7 +16,7 @@
 
 package com.google.zxing.oned;
 
-import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BarcodeFormat2;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.Result;
@@ -154,7 +154,7 @@ public final class CodaBarReader extends OneDReader {
         new ResultPoint[]{
             new ResultPoint(left, (float) rowNumber),
             new ResultPoint(right, (float) rowNumber)},
-        BarcodeFormat.CODABAR);
+        BarcodeFormat2.CODABAR);
   }
 
   void validatePattern(int start) throws NotFoundException {

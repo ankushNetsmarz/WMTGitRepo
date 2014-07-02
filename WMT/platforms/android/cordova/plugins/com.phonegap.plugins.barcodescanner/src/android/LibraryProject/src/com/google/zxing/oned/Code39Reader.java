@@ -16,7 +16,7 @@
 
 package com.google.zxing.oned;
 
-import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BarcodeFormat2;
 import com.google.zxing.ChecksumException;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.FormatException;
@@ -166,7 +166,7 @@ public final class Code39Reader extends OneDReader {
         new ResultPoint[]{
             new ResultPoint(left, (float) rowNumber),
             new ResultPoint(right, (float) rowNumber)},
-        BarcodeFormat.CODE_39);
+        BarcodeFormat2.CODE_39);
 
   }
 

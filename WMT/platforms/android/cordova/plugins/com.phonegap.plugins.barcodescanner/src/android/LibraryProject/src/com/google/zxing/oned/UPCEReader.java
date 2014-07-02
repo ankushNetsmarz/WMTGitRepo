@@ -16,7 +16,7 @@
 
 package com.google.zxing.oned;
 
-import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BarcodeFormat2;
 import com.google.zxing.ChecksumException;
 import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
@@ -109,8 +109,8 @@ public final class UPCEReader extends UPCEANReader {
   }
 
   @Override
-  BarcodeFormat getBarcodeFormat() {
-    return BarcodeFormat.UPC_E;
+  BarcodeFormat2 getBarcodeFormat() {
+    return BarcodeFormat2.UPC_E;
   }
 
   /**

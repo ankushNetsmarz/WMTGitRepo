@@ -16,7 +16,7 @@
 
 package com.google.zxing.oned;
 
-import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BarcodeFormat2;
 import com.google.zxing.ChecksumException;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.FormatException;
@@ -182,7 +182,7 @@ public abstract class UPCEANReader extends OneDReader {
 
     float left = (float) (startGuardRange[1] + startGuardRange[0]) / 2.0f;
     float right = (float) (endRange[1] + endRange[0]) / 2.0f;
-    BarcodeFormat format = getBarcodeFormat();
+    BarcodeFormat2 format = getBarcodeFormat();
     Result decodeResult = new Result(resultString,
         null, // no natural byte representation for these barcodes
         new ResultPoint[]{
@@ -199,7 +199,7 @@ public abstract class UPCEANReader extends OneDReader {
       // continue
     }
 
-    if (format == BarcodeFormat.EAN_13 || format == BarcodeFormat.UPC_A) {
+    if (format == BarcodeFormat2.EAN_13 || format == BarcodeFormat2.UPC_A) {
       String countryID = eanManSupport.lookupCountryIdentifier(resultString);
       if (countryID != null) {
         decodeResult.putMetadata(ResultMetadataType.POSSIBLE_COUNTRY, countryID);
@@ -343,7 +343,7 @@ public abstract class UPCEANReader extends OneDReader {
    *
    * @return The 1D format.
    */
-  abstract BarcodeFormat getBarcodeFormat();
+  abstract BarcodeFormat2 getBarcodeFormat();
 
   /**
    * Subclasses override this to decode the portion of a barcode between the start

@@ -16,7 +16,7 @@
 
 package com.google.zxing.oned;
 
-import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BarcodeFormat2;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.Writer;
 import com.google.zxing.WriterException;
@@ -32,7 +32,7 @@ import java.util.Map;
 public abstract class OneDimensionalCodeWriter implements Writer {
 
   @Override
-  public BitMatrix encode(String contents, BarcodeFormat format, int width, int height)
+  public BitMatrix encode(String contents, BarcodeFormat2 format, int width, int height)
       throws WriterException {
     return encode(contents, format, width, height, null);
   }
@@ -46,7 +46,7 @@ public abstract class OneDimensionalCodeWriter implements Writer {
    */
   @Override
   public BitMatrix encode(String contents,
-                          BarcodeFormat format,
+                          BarcodeFormat2 format,
                           int width,
                           int height,
                           Map<EncodeHintType,?> hints) throws WriterException {

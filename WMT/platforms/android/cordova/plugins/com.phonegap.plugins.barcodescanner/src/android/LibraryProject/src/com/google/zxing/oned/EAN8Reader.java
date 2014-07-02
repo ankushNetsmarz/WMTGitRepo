@@ -16,7 +16,7 @@
 
 package com.google.zxing.oned;
 
-import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BarcodeFormat2;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
 
@@ -68,8 +68,8 @@ public final class EAN8Reader extends UPCEANReader {
   }
 
   @Override
-  BarcodeFormat getBarcodeFormat() {
-    return BarcodeFormat.EAN_8;
+  BarcodeFormat2 getBarcodeFormat() {
+    return BarcodeFormat2.EAN_8;
   }
 
 }

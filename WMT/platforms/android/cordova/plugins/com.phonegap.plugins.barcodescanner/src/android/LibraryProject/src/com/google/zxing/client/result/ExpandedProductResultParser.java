@@ -29,7 +29,7 @@ package com.google.zxing.client.result;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BarcodeFormat2;
 import com.google.zxing.Result;
 
 /**
@@ -42,8 +42,8 @@ public final class ExpandedProductResultParser extends ResultParser {
 
   @Override
   public ExpandedProductParsedResult parse(Result result) {
-    BarcodeFormat format = result.getBarcodeFormat();
-    if (format != BarcodeFormat.RSS_EXPANDED) {
+    BarcodeFormat2 format = result.getBarcodeFormat();
+    if (format != BarcodeFormat2.RSS_EXPANDED) {
       // ExtendedProductParsedResult NOT created. Not a RSS Expanded barcode
       return null;
     }

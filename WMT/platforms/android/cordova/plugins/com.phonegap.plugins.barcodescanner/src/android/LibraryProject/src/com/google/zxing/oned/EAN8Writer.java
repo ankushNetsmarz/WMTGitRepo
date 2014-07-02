@@ -16,7 +16,7 @@
 
 package com.google.zxing.oned;
 
-import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BarcodeFormat2;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
@@ -38,11 +38,11 @@ public final class EAN8Writer extends UPCEANWriter {
 
   @Override
   public BitMatrix encode(String contents,
-                          BarcodeFormat format,
+                          BarcodeFormat2 format,
                           int width,
                           int height,
                           Map<EncodeHintType,?> hints) throws WriterException {
-    if (format != BarcodeFormat.EAN_8) {
+    if (format != BarcodeFormat2.EAN_8) {
       throw new IllegalArgumentException("Can only encode EAN_8, but got "
           + format);
     }

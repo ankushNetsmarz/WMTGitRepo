@@ -16,7 +16,7 @@
 
 package com.google.zxing.multi.qrcode;
 
-import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BarcodeFormat2;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.NotFoundException;
@@ -58,7 +58,7 @@ public final class QRCodeMultiReader extends QRCodeReader implements MultipleBar
         DecoderResult decoderResult = getDecoder().decode(detectorResult.getBits(), hints);
         ResultPoint[] points = detectorResult.getPoints();
         Result result = new Result(decoderResult.getText(), decoderResult.getRawBytes(), points,
-                                   BarcodeFormat.QR_CODE);
+                                   BarcodeFormat2.QR_CODE);
         List<byte[]> byteSegments = decoderResult.getByteSegments();
         if (byteSegments != null) {
           result.putMetadata(ResultMetadataType.BYTE_SEGMENTS, byteSegments);

@@ -16,7 +16,7 @@
 
 package com.google.zxing.oned;
 
-import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BarcodeFormat2;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.Reader;
@@ -39,37 +39,37 @@ public final class MultiFormatOneDReader extends OneDReader {
   private final OneDReader[] readers;
 
   public MultiFormatOneDReader(Map<DecodeHintType,?> hints) {
-    Collection<BarcodeFormat> possibleFormats = hints == null ? null :
-        (Collection<BarcodeFormat>) hints.get(DecodeHintType.POSSIBLE_FORMATS);
+    Collection<BarcodeFormat2> possibleFormats = hints == null ? null :
+        (Collection<BarcodeFormat2>) hints.get(DecodeHintType.POSSIBLE_FORMATS);
     boolean useCode39CheckDigit = hints != null &&
         hints.get(DecodeHintType.ASSUME_CODE_39_CHECK_DIGIT) != null;
     Collection<OneDReader> readers = new ArrayList<OneDReader>();
     if (possibleFormats != null) {
-      if (possibleFormats.contains(BarcodeFormat.EAN_13) ||
-          possibleFormats.contains(BarcodeFormat.UPC_A) ||
-          possibleFormats.contains(BarcodeFormat.EAN_8) ||
-          possibleFormats.contains(BarcodeFormat.UPC_E)) {
+      if (possibleFormats.contains(BarcodeFormat2.EAN_13) ||
+          possibleFormats.contains(BarcodeFormat2.UPC_A) ||
+          possibleFormats.contains(BarcodeFormat2.EAN_8) ||
+          possibleFormats.contains(BarcodeFormat2.UPC_E)) {
         readers.add(new MultiFormatUPCEANReader(hints));
       }
-      if (possibleFormats.contains(BarcodeFormat.CODE_39)) {
+      if (possibleFormats.contains(BarcodeFormat2.CODE_39)) {
         readers.add(new Code39Reader(useCode39CheckDigit));
       }
-      if (possibleFormats.contains(BarcodeFormat.CODE_93)) {
+      if (possibleFormats.contains(BarcodeFormat2.CODE_93)) {
         readers.add(new Code93Reader());
       }
-      if (possibleFormats.contains(BarcodeFormat.CODE_128)) {
+      if (possibleFormats.contains(BarcodeFormat2.CODE_128)) {
         readers.add(new Code128Reader());
       }
-      if (possibleFormats.contains(BarcodeFormat.ITF)) {
+      if (possibleFormats.contains(BarcodeFormat2.ITF)) {
          readers.add(new ITFReader());
       }
-      if (possibleFormats.contains(BarcodeFormat.CODABAR)) {
+      if (possibleFormats.contains(BarcodeFormat2.CODABAR)) {
          readers.add(new CodaBarReader());
       }
-      if (possibleFormats.contains(BarcodeFormat.RSS_14)) {
+      if (possibleFormats.contains(BarcodeFormat2.RSS_14)) {
          readers.add(new RSS14Reader());
       }
-      if (possibleFormats.contains(BarcodeFormat.RSS_EXPANDED)){
+      if (possibleFormats.contains(BarcodeFormat2.RSS_EXPANDED)){
         readers.add(new RSSExpandedReader());
       }
     }

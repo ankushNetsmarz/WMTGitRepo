@@ -17,7 +17,7 @@
 package com.google.zxing.client.android.share;
 
 import android.provider.ContactsContract;
-import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BarcodeFormat2;
 import com.google.zxing.client.android.Contents;
 import com.google.zxing.client.android.Intents;
 import com.google.zxing.client.android.R;
@@ -115,7 +115,7 @@ public final class ShareActivity extends Activity {
     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
     intent.putExtra(Intents.Encode.TYPE, Contents.Type.TEXT);
     intent.putExtra(Intents.Encode.DATA, text);
-    intent.putExtra(Intents.Encode.FORMAT, BarcodeFormat.QR_CODE.toString());
+    intent.putExtra(Intents.Encode.FORMAT, BarcodeFormat2.QR_CODE.toString());
     startActivity(intent);
   }
 
@@ -165,7 +165,7 @@ public final class ShareActivity extends Activity {
     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
     intent.putExtra(Intents.Encode.TYPE, Contents.Type.TEXT);
     intent.putExtra(Intents.Encode.DATA, text);
-    intent.putExtra(Intents.Encode.FORMAT, BarcodeFormat.QR_CODE.toString());
+    intent.putExtra(Intents.Encode.FORMAT, BarcodeFormat2.QR_CODE.toString());
     startActivity(intent);
   }
 
@@ -283,7 +283,7 @@ public final class ShareActivity extends Activity {
     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
     intent.putExtra(Intents.Encode.TYPE, Contents.Type.CONTACT);
     intent.putExtra(Intents.Encode.DATA, bundle);
-    intent.putExtra(Intents.Encode.FORMAT, BarcodeFormat.QR_CODE.toString());
+    intent.putExtra(Intents.Encode.FORMAT, BarcodeFormat2.QR_CODE.toString());
 
     Log.i(TAG, "Sending bundle for encoding: " + bundle);
     startActivity(intent);

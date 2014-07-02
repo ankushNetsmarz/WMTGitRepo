@@ -16,7 +16,7 @@
 
 package com.google.zxing.oned;
 
-import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BarcodeFormat2;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
@@ -32,11 +32,11 @@ public final class Code39Writer extends OneDimensionalCodeWriter {
 
   @Override
   public BitMatrix encode(String contents,
-                          BarcodeFormat format,
+                          BarcodeFormat2 format,
                           int width,
                           int height,
                           Map<EncodeHintType,?> hints) throws WriterException {
-    if (format != BarcodeFormat.CODE_39) {
+    if (format != BarcodeFormat2.CODE_39) {
       throw new IllegalArgumentException("Can only encode CODE_39, but got " + format);
     }
     return super.encode(contents, format, width, height, hints);

@@ -16,7 +16,7 @@
 
 package com.google.zxing.pdf417.encoder;
 
-import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BarcodeFormat2;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.Writer;
 import com.google.zxing.WriterException;
@@ -33,11 +33,11 @@ public final class PDF417Writer implements Writer {
 
   @Override
   public BitMatrix encode(String contents,
-                          BarcodeFormat format,
+                          BarcodeFormat2 format,
                           int width,
                           int height,
                           Map<EncodeHintType,?> hints) throws WriterException {
-    if (format != BarcodeFormat.PDF_417) {
+    if (format != BarcodeFormat2.PDF_417) {
       throw new IllegalArgumentException("Can only encode PDF_417, but got " + format);
     }
 
@@ -64,19 +64,19 @@ public final class PDF417Writer implements Writer {
 
   @Override
   public BitMatrix encode(String contents,
-                          BarcodeFormat format,
+                          BarcodeFormat2 format,
                           int width,
                           int height) throws WriterException {
     return encode(contents, format, width, height, null);
   }
 
   /**
-   * @deprecated Use {@link #encode(String, BarcodeFormat, int, int, Map)} instead, with hints to
+   * @deprecated Use {@link #encode(String, BarcodeFormat2, int, int, Map)} instead, with hints to
    * specify the encoding options.
    */
   @Deprecated
   public BitMatrix encode(String contents,
-                          BarcodeFormat format,
+                          BarcodeFormat2 format,
                           boolean compact,
                           int width,
                           int height,

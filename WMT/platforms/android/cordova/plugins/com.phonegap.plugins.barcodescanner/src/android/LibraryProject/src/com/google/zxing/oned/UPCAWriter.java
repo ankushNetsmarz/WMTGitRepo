@@ -16,7 +16,7 @@
 
 package com.google.zxing.oned;
 
-import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BarcodeFormat2;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.Writer;
 import com.google.zxing.WriterException;
@@ -34,21 +34,21 @@ public final class UPCAWriter implements Writer {
   private final EAN13Writer subWriter = new EAN13Writer();
 
   @Override
-  public BitMatrix encode(String contents, BarcodeFormat format, int width, int height)
+  public BitMatrix encode(String contents, BarcodeFormat2 format, int width, int height)
       throws WriterException {
     return encode(contents, format, width, height, null);
   }
 
   @Override
   public BitMatrix encode(String contents,
-                          BarcodeFormat format,
+                          BarcodeFormat2 format,
                           int width,
                           int height,
                           Map<EncodeHintType,?> hints) throws WriterException {
-    if (format != BarcodeFormat.UPC_A) {
+    if (format != BarcodeFormat2.UPC_A) {
       throw new IllegalArgumentException("Can only encode UPC-A, but got " + format);
     }
-    return subWriter.encode(preencode(contents), BarcodeFormat.EAN_13, width, height, hints);
+    return subWriter.encode(preencode(contents), BarcodeFormat2.EAN_13, width, height, hints);
   }
 
   /**

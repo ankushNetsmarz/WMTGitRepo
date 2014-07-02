@@ -16,7 +16,7 @@
 
 package com.google.zxing.client.android;
 
-import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BarcodeFormat2;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.ResultPointCallback;
 
@@ -46,7 +46,7 @@ final class DecodeThread extends Thread {
   private final CountDownLatch handlerInitLatch;
 
   DecodeThread(CaptureActivity activity,
-               Collection<BarcodeFormat> decodeFormats,
+               Collection<BarcodeFormat2> decodeFormats,
                String characterSet,
                ResultPointCallback resultPointCallback) {
 
@@ -58,7 +58,7 @@ final class DecodeThread extends Thread {
     // The prefs can't change while the thread is running, so pick them up once here.
     if (decodeFormats == null || decodeFormats.isEmpty()) {
       SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
-      decodeFormats = EnumSet.noneOf(BarcodeFormat.class);
+      decodeFormats = EnumSet.noneOf(BarcodeFormat2.class);
       if (prefs.getBoolean(PreferencesActivity.KEY_DECODE_1D, false)) {
         decodeFormats.addAll(DecodeFormatManager.ONE_D_FORMATS);
       }

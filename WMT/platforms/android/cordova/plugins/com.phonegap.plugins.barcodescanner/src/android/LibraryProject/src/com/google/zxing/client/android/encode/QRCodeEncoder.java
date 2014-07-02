@@ -17,7 +17,7 @@
 package com.google.zxing.client.android.encode;
 
 import android.provider.ContactsContract;
-import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BarcodeFormat2;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.Result;
@@ -66,7 +66,7 @@ final class QRCodeEncoder {
   private String contents;
   private String displayContents;
   private String title;
-  private BarcodeFormat format;
+  private BarcodeFormat2 format;
   private final int dimension;
   private final boolean useVCard;
 
@@ -108,17 +108,17 @@ final class QRCodeEncoder {
     format = null;
     if (formatString != null) {
       try {
-        format = BarcodeFormat.valueOf(formatString);
+        format = BarcodeFormat2.valueOf(formatString);
       } catch (IllegalArgumentException iae) {
         // Ignore it then
       }
     }
-    if (format == null || format == BarcodeFormat.QR_CODE) {
+    if (format == null || format == BarcodeFormat2.QR_CODE) {
       String type = intent.getStringExtra(Intents.Encode.TYPE);
       if (type == null || type.length() == 0) {
         return false;
       }
-      this.format = BarcodeFormat.QR_CODE;
+      this.format = BarcodeFormat2.QR_CODE;
       encodeQRCodeContents(intent, type);
     } else {
       String data = intent.getStringExtra(Intents.Encode.DATA);
@@ -166,7 +166,7 @@ final class QRCodeEncoder {
     }
     contents = theContents;
     // We only do QR code.
-    format = BarcodeFormat.QR_CODE;
+    format = BarcodeFormat2.QR_CODE;
     if (intent.hasExtra(Intent.EXTRA_SUBJECT)) {
       displayContents = intent.getStringExtra(Intent.EXTRA_SUBJECT);
     } else if (intent.hasExtra(Intent.EXTRA_TITLE)) {
@@ -179,7 +179,7 @@ final class QRCodeEncoder {
 
   // Handles send intents from the Contacts app, retrieving a contact as a VCARD.
   private void encodeFromStreamExtra(Intent intent) throws WriterException {
-    format = BarcodeFormat.QR_CODE;
+    format = BarcodeFormat2.QR_CODE;
     Bundle bundle = intent.getExtras();
     if (bundle == null) {
       throw new WriterException("No extras");
@@ -205,7 +205,7 @@ final class QRCodeEncoder {
     }
     Log.d(TAG, "Encoding share intent content:");
     Log.d(TAG, vcardString);
-    Result result = new Result(vcardString, vcard, null, BarcodeFormat.QR_CODE);
+    Result result = new Result(vcardString, vcard, null, BarcodeFormat2.QR_CODE);
     ParsedResult parsedResult = ResultParser.parseResult(result);
     if (!(parsedResult instanceof AddressBookParsedResult)) {
       throw new WriterException("Result was not an address");

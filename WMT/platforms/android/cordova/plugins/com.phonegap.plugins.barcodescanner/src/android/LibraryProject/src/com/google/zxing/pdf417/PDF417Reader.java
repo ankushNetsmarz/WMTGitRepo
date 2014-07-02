@@ -16,7 +16,7 @@
 
 package com.google.zxing.pdf417;
 
-import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BarcodeFormat2;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.ChecksumException;
 import com.google.zxing.DecodeHintType;
@@ -71,7 +71,7 @@ public final class PDF417Reader implements Reader {
       points = detectorResult.getPoints();
     }
     return new Result(decoderResult.getText(), decoderResult.getRawBytes(), points,
-        BarcodeFormat.PDF_417);
+        BarcodeFormat2.PDF_417);
   }
 
   @Override

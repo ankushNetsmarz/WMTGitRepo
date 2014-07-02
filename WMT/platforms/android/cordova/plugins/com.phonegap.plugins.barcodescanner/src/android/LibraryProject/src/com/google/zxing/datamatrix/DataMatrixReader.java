@@ -16,7 +16,7 @@
 
 package com.google.zxing.datamatrix;
 
-import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BarcodeFormat2;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.ChecksumException;
 import com.google.zxing.DecodeHintType;
@@ -74,7 +74,7 @@ public final class DataMatrixReader implements Reader {
       points = detectorResult.getPoints();
     }
     Result result = new Result(decoderResult.getText(), decoderResult.getRawBytes(), points,
-        BarcodeFormat.DATA_MATRIX);
+        BarcodeFormat2.DATA_MATRIX);
     List<byte[]> byteSegments = decoderResult.getByteSegments();
     if (byteSegments != null) {
       result.putMetadata(ResultMetadataType.BYTE_SEGMENTS, byteSegments);

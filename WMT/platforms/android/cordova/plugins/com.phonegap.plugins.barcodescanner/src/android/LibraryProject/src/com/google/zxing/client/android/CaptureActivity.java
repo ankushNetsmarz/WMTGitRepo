@@ -16,7 +16,7 @@
 
 package com.google.zxing.client.android;
 
-import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BarcodeFormat2;
 import com.google.zxing.Result;
 import com.google.zxing.ResultMetadataType;
 import com.google.zxing.ResultPoint;
@@ -118,7 +118,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
   private String sourceUrl;
   private String returnUrlTemplate;
   private boolean returnRaw;
-  private Collection<BarcodeFormat> decodeFormats;
+  private Collection<BarcodeFormat2> decodeFormats;
   private String characterSet;
   private HistoryManager historyManager;
   private InactivityTimer inactivityTimer;
@@ -461,8 +461,8 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
         paint.setStrokeWidth(4.0f);
         drawLine(canvas, paint, points[0], points[1]);
       } else if (points.length == 4 &&
-                 (rawResult.getBarcodeFormat() == BarcodeFormat.UPC_A ||
-                  rawResult.getBarcodeFormat() == BarcodeFormat.EAN_13)) {
+                 (rawResult.getBarcodeFormat() == BarcodeFormat2.UPC_A ||
+                  rawResult.getBarcodeFormat() == BarcodeFormat2.EAN_13)) {
         // Hacky special case -- draw two lines, for the barcode and metadata
         drawLine(canvas, paint, points[0], points[1]);
         drawLine(canvas, paint, points[2], points[3]);

@@ -26,7 +26,7 @@
 
 package com.google.zxing.oned.rss.expanded;
 
-import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BarcodeFormat2;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.Result;
@@ -159,7 +159,7 @@ public final class RSSExpandedReader extends AbstractRSSReader {
           resultingString,
           null,
           new ResultPoint[]{firstPoints[0], firstPoints[1], lastPoints[0], lastPoints[1]},
-          BarcodeFormat.RSS_EXPANDED
+          BarcodeFormat2.RSS_EXPANDED
       );
   }
 

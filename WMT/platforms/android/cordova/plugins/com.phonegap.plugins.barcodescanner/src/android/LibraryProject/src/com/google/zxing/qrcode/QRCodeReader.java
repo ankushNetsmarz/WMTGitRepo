@@ -16,7 +16,7 @@
 
 package com.google.zxing.qrcode;
 
-import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BarcodeFormat2;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.ChecksumException;
 import com.google.zxing.DecodeHintType;
@@ -78,7 +78,7 @@ public class QRCodeReader implements Reader {
       points = detectorResult.getPoints();
     }
 
-    Result result = new Result(decoderResult.getText(), decoderResult.getRawBytes(), points, BarcodeFormat.QR_CODE);
+    Result result = new Result(decoderResult.getText(), decoderResult.getRawBytes(), points, BarcodeFormat2.QR_CODE);
     List<byte[]> byteSegments = decoderResult.getByteSegments();
     if (byteSegments != null) {
       result.putMetadata(ResultMetadataType.BYTE_SEGMENTS, byteSegments);

@@ -16,7 +16,7 @@
 
 package com.google.zxing.oned.rss;
 
-import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BarcodeFormat2;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.Result;
@@ -135,7 +135,7 @@ public final class RSS14Reader extends AbstractRSSReader {
         String.valueOf(buffer.toString()),
         null,
         new ResultPoint[] { leftPoints[0], leftPoints[1], rightPoints[0], rightPoints[1], },
-        BarcodeFormat.RSS_14);
+        BarcodeFormat2.RSS_14);
   }
 
   private static boolean checkChecksum(Pair leftPair, Pair rightPair) {

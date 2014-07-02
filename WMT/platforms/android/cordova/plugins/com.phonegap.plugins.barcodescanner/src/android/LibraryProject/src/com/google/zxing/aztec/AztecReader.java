@@ -16,7 +16,7 @@
 
 package com.google.zxing.aztec;
 
-import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BarcodeFormat2;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.FormatException;
@@ -71,7 +71,7 @@ public final class AztecReader implements Reader {
 
     DecoderResult decoderResult = new Decoder().decode(detectorResult);
 
-    Result result = new Result(decoderResult.getText(), decoderResult.getRawBytes(), points, BarcodeFormat.AZTEC);
+    Result result = new Result(decoderResult.getText(), decoderResult.getRawBytes(), points, BarcodeFormat2.AZTEC);
     
     List<byte[]> byteSegments = decoderResult.getByteSegments();
     if (byteSegments != null) {

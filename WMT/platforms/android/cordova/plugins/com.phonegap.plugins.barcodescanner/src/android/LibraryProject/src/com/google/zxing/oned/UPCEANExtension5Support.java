@@ -16,7 +16,7 @@
 
 package com.google.zxing.oned;
 
-import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BarcodeFormat2;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.Result;
 import com.google.zxing.ResultMetadataType;
@@ -54,7 +54,7 @@ final class UPCEANExtension5Support {
                        new ResultPoint((extensionStartRange[0] + extensionStartRange[1]) / 2.0f, (float) rowNumber),
                        new ResultPoint((float) end, (float) rowNumber),
                    },
-                   BarcodeFormat.UPC_EAN_EXTENSION);
+                   BarcodeFormat2.UPC_EAN_EXTENSION);
     if (extensionData != null) {
       extensionResult.putAllMetadata(extensionData);
     }

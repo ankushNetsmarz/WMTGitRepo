@@ -16,7 +16,7 @@
 
 package com.google.zxing.client.result;
 
-import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BarcodeFormat2;
 import com.google.zxing.Result;
 import com.google.zxing.oned.UPCEReader;
 
@@ -30,9 +30,9 @@ public final class ProductResultParser extends ResultParser {
   // Treat all UPC and EAN variants as UPCs, in the sense that they are all product barcodes.
   @Override
   public ProductParsedResult parse(Result result) {
-    BarcodeFormat format = result.getBarcodeFormat();
-    if (!(format == BarcodeFormat.UPC_A || format == BarcodeFormat.UPC_E ||
-          format == BarcodeFormat.EAN_8 || format == BarcodeFormat.EAN_13)) {
+    BarcodeFormat2 format = result.getBarcodeFormat();
+    if (!(format == BarcodeFormat2.UPC_A || format == BarcodeFormat2.UPC_E ||
+          format == BarcodeFormat2.EAN_8 || format == BarcodeFormat2.EAN_13)) {
       return null;
     }
     String rawText = getMassagedText(result);
@@ -47,7 +47,7 @@ public final class ProductResultParser extends ResultParser {
 
     String normalizedProductID;
     // Expand UPC-E for purposes of searching
-    if (format == BarcodeFormat.UPC_E) {
+    if (format == BarcodeFormat2.UPC_E) {
       normalizedProductID = UPCEReader.convertUPCEtoUPCA(rawText);
     } else {
       normalizedProductID = rawText;

@@ -20,7 +20,7 @@ import android.content.ActivityNotFoundException;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.provider.Browser;
-import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BarcodeFormat2;
 import com.google.zxing.Result;
 import com.google.zxing.client.android.camera.CameraManager;
 
@@ -59,7 +59,7 @@ public final class CaptureActivityHandler extends Handler {
   private static FakeR fakeR;
 
   CaptureActivityHandler(CaptureActivity activity,
-                         Collection<BarcodeFormat> decodeFormats,
+                         Collection<BarcodeFormat2> decodeFormats,
                          String characterSet,
                          CameraManager cameraManager) {
 	fakeR = new FakeR(activity);

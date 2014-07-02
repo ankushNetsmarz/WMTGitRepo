@@ -66,7 +66,7 @@ public final class Intents {
 
     /**
      * Comma-separated list of formats to scan for. The values must match the names of
-     * {@link com.google.zxing.BarcodeFormat}s, e.g. {@link com.google.zxing.BarcodeFormat#EAN_13}.
+     * {@link com.google.zxing.BarcodeFormat2}s, e.g. {@link com.google.zxing.BarcodeFormat2#EAN_13}.
      * Example: "EAN_13,EAN_8,QR_CODE". This overrides {@link #MODE}.
      */
     public static final String FORMATS = "SCAN_FORMATS";
@@ -110,14 +110,14 @@ public final class Intents {
     /**
      * Call {@link android.content.Intent#getStringExtra(String)} with {@link #RESULT_FORMAT}
      * to determine which barcode format was found.
-     * See {@link com.google.zxing.BarcodeFormat} for possible values.
+     * See {@link com.google.zxing.BarcodeFormat2} for possible values.
      */
     public static final String RESULT_FORMAT = "SCAN_RESULT_FORMAT";
 
     /**
      * Call {@link android.content.Intent#getStringExtra(String)} with {@link #RESULT_UPC_EAN_EXTENSION}
      * to return the content of any UPC extension barcode that was also found. Only applicable
-     * to {@link com.google.zxing.BarcodeFormat#UPC_A} and {@link com.google.zxing.BarcodeFormat#EAN_13}
+     * to {@link com.google.zxing.BarcodeFormat2#UPC_A} and {@link com.google.zxing.BarcodeFormat2#EAN_13}
      * formats.
      */
     public static final String RESULT_UPC_EAN_EXTENSION = "SCAN_RESULT_UPC_EAN_EXTENSION";
@@ -189,7 +189,7 @@ public final class Intents {
     /**
      * The barcode format to be displayed. If this isn't specified or is blank,
      * it defaults to QR Code. Use {@link android.content.Intent#putExtra(String, String)}, where
-     * format is one of {@link com.google.zxing.BarcodeFormat}.
+     * format is one of {@link com.google.zxing.BarcodeFormat2}.
      */
     public static final String FORMAT = "ENCODE_FORMAT";
 

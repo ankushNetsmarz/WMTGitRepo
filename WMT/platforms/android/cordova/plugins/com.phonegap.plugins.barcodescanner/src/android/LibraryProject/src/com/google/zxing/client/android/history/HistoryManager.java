@@ -17,7 +17,7 @@
 package com.google.zxing.client.android.history;
 
 import android.database.sqlite.SQLiteException;
-import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BarcodeFormat2;
 import com.google.zxing.Result;
 import com.google.zxing.client.android.Intents;
 import com.google.zxing.client.android.PreferencesActivity;
@@ -104,7 +104,7 @@ public final class HistoryManager {
         String format = cursor.getString(2);
         long timestamp = cursor.getLong(3);
         String details = cursor.getString(4);
-        Result result = new Result(text, null, null, BarcodeFormat.valueOf(format), timestamp);
+        Result result = new Result(text, null, null, BarcodeFormat2.valueOf(format), timestamp);
         items.add(new HistoryItem(result, display, details));
       }
     } finally {
@@ -126,7 +126,7 @@ public final class HistoryManager {
       String format = cursor.getString(2);
       long timestamp = cursor.getLong(3);
       String details = cursor.getString(4);
-      Result result = new Result(text, null, null, BarcodeFormat.valueOf(format), timestamp);
+      Result result = new Result(text, null, null, BarcodeFormat2.valueOf(format), timestamp);
       return new HistoryItem(result, display, details);
     } finally {
       close(cursor, db);
