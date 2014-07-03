@@ -28,7 +28,7 @@
                     "AssetsLibrary.framework": [
                         {
                             "xml": "false",
-                            "count": 1
+                            "count": 2
                         }
                     ],
                     "CoreVideo.framework": [
@@ -38,6 +38,30 @@
                         }
                     ],
                     "QuartzCore.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "ImageIO.framework": [
+                        {
+                            "xml": "true",
+                            "count": 1
+                        }
+                    ],
+                    "CoreLocation.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "CoreGraphics.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "MobileCoreServices.framework": [
                         {
                             "xml": "false",
                             "count": 1
@@ -55,6 +79,10 @@
                         {
                             "xml": "<feature name=\"BarcodeScanner\"><param name=\"ios-package\" value=\"CDVBarcodeScanner\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Camera\"><param name=\"ios-package\" value=\"CDVCamera\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -66,6 +94,9 @@
             "PACKAGE_NAME": "com.wmt.wmt"
         },
         "com.phonegap.plugins.barcodescanner": {
+            "PACKAGE_NAME": "com.wmt.wmt"
+        },
+        "org.apache.cordova.camera": {
             "PACKAGE_NAME": "com.wmt.wmt"
         }
     },

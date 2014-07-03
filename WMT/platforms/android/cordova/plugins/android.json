@@ -545,9 +545,6 @@
         "com.phonegap.plugins.barcodescanner": {
             "PACKAGE_NAME": "com.wmt.wmt"
         },
-        "org.apache.cordova.camera": {
-            "PACKAGE_NAME": "com.wmt.wmt"
-        },
         "org.apache.cordova.console": {
             "PACKAGE_NAME": "com.wmt.wmt"
         }
