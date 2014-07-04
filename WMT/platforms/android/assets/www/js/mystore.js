@@ -94,12 +94,12 @@ var IndustriesIds = "";
 
         if ($(this).attr('customattr') == "Cancel") {
 
-            $('.btnStoreChanges').css({ 'display': 'none' });
+            $('.btnStoreChanges').removeClass('clsStoreShow').addClass('clsStorHide');
             $(this).attr('value', 'Edit').button("refresh");
             $(this).removeAttr('customattr');
             $this.find('div.dynamicInputs').remove();
 
-        } else {
+        } else {          
             $('.modify-btn').removeAttr('customattr');
             if ($this.attr('id') == "storephone") {
                 $('<div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset dynamicInputs firstClass" ><input type="text" name="txtEditStore" class="secondClass" currentControl="' + $this.attr('id') + '" value="' + $this.html() + '" maxlength="15" /></div>').insertAfter($this);
@@ -107,7 +107,7 @@ var IndustriesIds = "";
             else {
                 $('<div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset dynamicInputs firstClass" ><input type="text" name="txtEditStore" class="secondClass" currentControl="' + $this.attr('id') + '" value="' + $this.html() + '" /></div>').insertAfter($this);
             }
-            $('.btnStoreChanges').css({ 'display': 'block' });
+            $('.btnStoreChanges').removeClass('clsStorHide').addClass('clsStoreShow');
             $(this).attr('value', 'Cancel').button("refresh");
             $(this).attr('customattr', 'Cancel');
         }

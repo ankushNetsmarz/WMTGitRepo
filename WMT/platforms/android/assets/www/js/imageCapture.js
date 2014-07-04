@@ -1,6 +1,5 @@
 
 var imageByte;
-var imageDataObject='';
 function capturePhotoCamera() {
     // navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50 ,
     // destinationType: navigator.camera.DestinationType.DATA_URL});
@@ -13,7 +12,12 @@ function capturePhotoCamera() {
 }
 
 function onPhotoDataSuccess(imageData) {
-     $.mobile.navigate('#dvScanMemberShip');
+    alert(1);
+    //var smallImage = document.getElementById('imageHolder');
+    // smallImage.style.display = 'block';
+    // smallImage.src = "data:image/jpeg;base64," + imageData;
+    alert(imageData);
+    imageByte = imageData;
 }
 
 function onFail() {
@@ -22,22 +26,11 @@ function onFail() {
 
 function capturePhotoLibrary() {
 
-  
-    navigator.camera.getPicture(onSuccess, onFail, {
-                                quality: 50,
-                                destinationType: Camera.DestinationType.DATA_URL,
-                                sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
-                                });
-}
-
-
-function capturePhotoLibrary1() {
-    
     navigator.camera.getPicture(onPhotoDataSuccess, onFail, {
-                                quality: 50,
-                                destinationType: Camera.DestinationType.DATA_URL,
-                                sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
-                                });
+        quality: 50,
+        destinationType: navigator.camera.DestinationType.DATA_URL,
+        sourceType: navigator.camera.PictureSource.PHOTOLIBRARY
+    });
 }
 
 

@@ -2,12 +2,9 @@
 
     /* Scan Membership Card function */
     QRScan.ScanMemberShipCard = function () {
-    	
        cordova.plugins.barcodeScanner.scan(
 		function (result) {
-			//alert(result);
 		    $.mobile.navigate('#dvScanMemberShip');
-		
 		}, 
 		function (error) {
 			alert("Scanning failed: " + error);
