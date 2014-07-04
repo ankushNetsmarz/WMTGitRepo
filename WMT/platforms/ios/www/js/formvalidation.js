@@ -20,7 +20,7 @@ $('#frmForgetPassword').validate({
             required: true,
             email: true
         }
-    }
+
 });
 
 $('#frmStep1').validate({
@@ -29,8 +29,8 @@ $('#frmStep1').validate({
             required: true           
         },
         txtEmailAddress: {
-            required: true,
-            email: true
+            required: false,
+            email: false
         }
     }
 });

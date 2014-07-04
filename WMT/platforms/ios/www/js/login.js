@@ -54,12 +54,14 @@
     $('.clsRecover').change(function () {
         $('.clsHide').hide();
         if ($(this).attr('id') == "rdoEmail") {            
-            $('#dvShowEmail').show();
+            $('#dvShowEmail').removeClass('clsHide').show();
+            $('#dvShowSMS').addClass('clsHide');
         }
         else if ($(this).attr('id') == "rdoSMS") {         
-            $('#dvShowSMS').show();
+            $('#dvShowSMS').removeClass('clsHide').show();
+            $('#dvShowEmail').addClass('clsHide');
         }
-        $('#frmForgetPassword').show();
+        $('#frmForgetPassword').removeClass('clsHide').show();
 
     });
 

@@ -47,13 +47,11 @@
     $(document).on('submit', '#frmStep4', function () {
         regObj.ownerName = $.trim($('#txtOwnerName').val());
         regObj.owner_id = $.trim($('#txtID').val());
-        regObj.ProfilePicPath = imageDataObject;
-                  
+        regObj.ProfilePicPath = window.localStorage.getItem("imageData");
         $.mobile.navigate("#wstep5");
     });
 
     $(document).on('submit', '#frmStep5', function () {
-                 
         regObj.publishPassword = $.trim($('#txtPublishPassword').val());
         var ajaxcallobj = {
             url: "http://weexcel.biz/zend_webservice/public/index.php/user/completereg",
@@ -62,10 +60,8 @@
             }
         }
         WMT.jqXHR(ajaxcallobj, function (response) {
-                 
             if (response.store_id > 0) {
                 $('#frmStep1, #frmStep2, #frmStep3, #frmStep4, #frmStep5')[0].reset();
-                  imageDataObject='';
                 $.mobile.navigate("#wstep6");
             }
         });
@@ -79,6 +75,7 @@
     $.fn.StartNow = function () {
         $.mobile.navigate("#login");
     }
+
 
     /* show agreement screen */
 

@@ -11,6 +11,7 @@
     <script src="js/jquery.mobile-1.4.2.min.js"></script>
     <script src="js/jquery.validate.min.js"></script>
     <script src="js/jquery.mobile.dynamic.popup.js"></script>
+    <script src="js/responsiveslides.min.js"></script>
     <script src="cordova.js"></script>
     <script>
 
@@ -119,7 +120,7 @@
                 <div class="ui-field-contain">
                     <input type="text" name="txtMobileNumber" id="txtMobileNumber" maxlength="15" placeholder="Mobile Number">
                     <div class="clr"></div>
-                    <input type="text" name="txtEmailAddress" id="txtEmailAddress" maxlength="100" placeholder="Email Address">
+                    <input type="text" name="txtEmailAddress" id="txtEmailAddress" style="display:none;" maxlength="100" placeholder="Email Address">
                 </div>
                 <input type="button" value="Cancel" data-theme="b" class="clsback">
                 <input type="submit" value="Next" data-theme="a">
@@ -245,17 +246,17 @@
                     <input type="text" name="txtID" id="txtID" maxlength="20" placeholder="Please enter ID number">
                     <div class="clr"></div>
                     <label for="txtName">Upload Picture</label>
-                    <div class="points-main">
-                        <p>Rake phone with ID show as below:</p>
+                      <div class="points-main">
+                        <p>Take phone with ID show as below:</p>
                         <div class="uploder">
                             <div class="view-published">
                                 <img height="80px" width="90px" src="css/images/enter-owner.jpg" alt="" class="clsImage">
                             </div>
                         </div>
                         <div class="help-btn-owner">
-                            <input type="button" name="Help" onclick="capturePhotoCamera();" value="Take from Camera" data-inline="true" class="cancel-btn-owner" data-theme="b">
+                            <input type="button" name="Help" style="width:150px !important;" onclick="capturePhotoCamera();" value="Take from Camera" data-inline="true"  class="cancel-btn-owner" data-theme="b">
 
-                            <input type="button" name="Help" onclick="capturePhotoLibrary();" value="Take from Library" data-inline="true" class="cancel-btn-owner" data-theme="b">
+                            <input type="button" name="Help" style="width:150px !important;" onclick="capturePhotoLibrary();" value="Take from Library" data-inline="true" class="cancel-btn-owner" data-theme="b">
                         </div>
                     </div>
                 </div>
@@ -607,18 +608,31 @@
                         <div class="points-main">
                             <p class="info-user">User for product or services</p>
                             <p class="flright">Upload Picture</p>
-                            <a href="#dvImageUpload" data-rel="popup" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
-                                <div class="uploder">
-                                    <div class="image-upload">
-                                        <div class="upload">
 
-                                            <img alt="" class="clsImage" width="160" height="130" src="css/images/image-uploader.jpg">
-                                        </div>
+                            <div class="uploder">
+                                <div class="image-upload">
+                                    <div class="upload">
+
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
                             <p class="flright">Information</p>
-                            <textarea class="textarea" name="txtStoreInformation" id="txtStoreInformation" style="min-height: 125px !important;" placeholder="Enter Information" rows="5" cols=""></textarea>
+                            <textarea class="textarea clrPublishedInfo" name="txtStoreInformation" id="txtStoreInformation" style="min-height: 125px !important;" placeholder="Enter Information" rows="5" cols=""></textarea>
                         </div>
                         <div class="clr"></div>
                     </div>
@@ -750,18 +764,32 @@
                             <p class="info-user">User for product or services</p>
                             <p class="flright">Upload Picture</p>
 
-                            <a href="#dvImageUpload" data-rel="popup" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
-                                <div class="uploder">
-                                    <div class="image-upload">
-                                        <div class="upload">
 
-                                            <img alt="" class="clsImage" width="160" height="130" src="css/images/image-uploader.jpg">
-                                        </div>
+                            <div class="uploder">
+                                <div class="image-upload">
+                                    <div class="upload">
+
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
+
                             <p class="flright">Information</p>
-                            <textarea class="textarea" placeholder="Enter Information" rows="15" cols="" style="min-height: 125px !important;" name="txtProductInformation" id="txtProductInformation"></textarea>
+                            <textarea class="textarea clrPublishedInfo" placeholder="Enter Information" rows="15" cols="" style="min-height: 125px !important;" name="txtProductInformation" id="txtProductInformation"></textarea>
 
 
                             <div class="total-main-org ui-grid-b">
@@ -769,7 +797,7 @@
                                     <p>Org.Price</p>
                                 </div>
                                 <div class="ui-block-b">
-                                    <input type="text" class="publish" name="txtPrice" id="txtPrice">
+                                    <input type="text" class="publish clrPublishedInfo" name="txtPrice" id="txtPrice">
                                 </div>
                                 <div class="ui-block-b currency">Yuan</div>
                             </div>
@@ -779,7 +807,7 @@
                                     <p>Discount</p>
                                 </div>
                                 <div class="ui-block-b">
-                                    <input type="text" class="publish" name="txtdiscount" id="txtdiscount">
+                                    <input type="text" class="publish" name="txtdiscount clrPublishedInfo" id="txtdiscount">
                                 </div>
                                 <div class="ui-block-b currency">%</div>
                             </div>
@@ -844,16 +872,29 @@
                         <div class="points-main">
                             <p class="info-user">User for product or services</p>
                             <p class="flright">Upload Picture</p>
-                            <a href="#dvImageUpload" data-rel="popup" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
-                                <div class="uploder">
-                                    <div class="image-upload">
-                                        <div class="upload">
+                            <div class="uploder">
+                                <div class="image-upload">
+                                    <div class="upload">
 
-                                            <img alt="" class="clsImage" width="160" height="130" src="css/images/image-uploader.jpg">
-                                        </div>
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
+
                             <p class="flright">Information</p>
                             <textarea class="textarea" placeholder="Enter Information" rows="15" style="min-height: 125px !important;" cols="" name="txtProductDurationInformation" id="txtProductDurationInformation"></textarea>
 
@@ -863,7 +904,7 @@
                                     <p>Org.Price</p>
                                 </div>
                                 <div class="ui-block-b">
-                                    <input type="text" class="publish" name="txtProductDurationPrice" id="txtProductDurationPrice">
+                                    <input type="text" class="publish clrPublishedInfo" name="txtProductDurationPrice" id="txtProductDurationPrice">
                                 </div>
                                 <div class="ui-block-b currency">Yuan</div>
                             </div>
@@ -873,7 +914,7 @@
                                     <p>Discount</p>
                                 </div>
                                 <div class="ui-block-b">
-                                    <input type="text" class="publish" name="txtProductDurationdiscount" id="txtProductDurationdiscount">
+                                    <input type="text" class="publish clrPublishedInfo" name="txtProductDurationdiscount" id="txtProductDurationdiscount">
                                 </div>
                                 <div class="ui-block-b currency">%</div>
                             </div>
@@ -958,16 +999,29 @@
                             <p class="info-user">User for product or services</p>
                             <p class="flright">Upload Picture</p>
 
-                            <a href="#dvImageUpload" data-rel="popup" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
-                                <div class="uploder">
-                                    <div class="image-upload">
-                                        <div class="upload">
+                            <div class="uploder">
+                                <div class="image-upload">
+                                    <div class="upload">
 
-                                            <img alt="" class="clsImage" width="160" height="130" src="css/images/image-uploader.jpg">
-                                        </div>
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
+
                             <p class="flright">Information</p>
                             <textarea class="textarea" placeholder="Enter Information" rows="15" style="min-height: 125px !important;" cols="" name="txtProductGiftInformation" id="txtProductGiftInformation"></textarea>
 
@@ -976,7 +1030,7 @@
                                     <p>Org.Price</p>
                                 </div>
                                 <div class="ui-block-b">
-                                    <input type="text" class="publish" name="txtProductGiftPrice" id="txtProductGiftPrice">
+                                    <input type="text" class="publish clrPublishedInfo" name="txtProductGiftPrice" id="txtProductGiftPrice">
                                 </div>
                                 <div class="ui-block-b currency">Yuan</div>
                             </div>
@@ -986,7 +1040,7 @@
                                     <p>Gift Point</p>
                                 </div>
                                 <div class="ui-block-b">
-                                    <input type="text" class="publish" name="txtProductGiftPoint" id="txtProductGiftPoint">
+                                    <input type="text" class="publish clrPublishedInfo" name="txtProductGiftPoint" id="txtProductGiftPoint">
                                 </div>
                             </div>
 
@@ -1431,8 +1485,8 @@
         </div>
 
         <div data-role="footer" data-position="fixed" data-tap-toggle="false">
-           <a href="tel:+00864001370402" style="display:none;"></a>
-                <div class="top_bar-btm" id="callContactManager">
+            <a href="tel:+00864001370402" style="display: none;"></a>
+            <div class="top_bar-btm" id="callContactManager">
                 <div class="wapper-wrap">
                     <div class="avtar bussiness">
                         <img alt="" src="css/images/busines-man.jpg">
@@ -1440,7 +1494,7 @@
                     <p class="cont-my">Contact My Support Manager</p>
                 </div>
             </div>
-            
+
             <div class="bottom_bar">
                 <div class="social-icon">
                     <ul>
@@ -1559,20 +1613,20 @@
         </div>
 
         <div data-role="footer" data-position="fixed" data-tap-toggle="false">
-           
-            
-           <a href="tel:+00864001370402" style="display:none;"></a>
+
+
+            <a href="tel:+00864001370402" style="display: none;"></a>
             <div class="top_bar-btm" id="callContactManager">
                 <div class="wapper-wrap">
                     <div class="avtar bussiness">
                         <img alt="" src="css/images/busines-man.jpg">
-                            </div>
+                    </div>
                     <p class="cont-my">Contact My Support Manager</p>
                 </div>
             </div>
 
-            
-            
+
+
             <div class="bottom_bar">
                 <div class="social-icon">
                     <ul>
@@ -1680,7 +1734,7 @@
                             </div>
                         </div>
 
-                        <div class="member-manage" style="border:0px;">
+                        <div class="member-manage" style="border: 0px;">
                             <div class="wapper-wrap">
                                 <div class="add">
                                     <div class="name">Owner: </div>
@@ -1696,7 +1750,7 @@
                     <div class="member-manage">
                         <div class="wapper-wrap">
                             <div class="button">
-                                <div class="help-btn-pick clsHide btnStoreChanges">
+                                <div class="help-btn-pick clsStoreShow btnStoreChanges">
                                     <input type="submit" value="Save Changes" data-theme="a" id="Submit1">
                                 </div>
                                 <div class="clr"></div>
@@ -1808,6 +1862,25 @@
     </div>
 
 </body>
+
+<script type="text/javascript" src="js/offlineScan/grid.js"></script>
+<script type="text/javascript" src="js/offlineScan/version.js"></script>
+<script type="text/javascript" src="js/offlineScan/detector.js"></script>
+<script type="text/javascript" src="js/offlineScan/formatinf.js"></script>
+<script type="text/javascript" src="js/offlineScan/errorlevel.js"></script>
+<script type="text/javascript" src="js/offlineScan/bitmat.js"></script>
+<script type="text/javascript" src="js/offlineScan/datablock.js"></script>
+<script type="text/javascript" src="js/offlineScan/bmparser.js"></script>
+<script type="text/javascript" src="js/offlineScan/datamask.js"></script>
+<script type="text/javascript" src="js/offlineScan/rsdecoder.js"></script>
+<script type="text/javascript" src="js/offlineScan/gf256poly.js"></script>
+<script type="text/javascript" src="js/offlineScan/gf256.js"></script>
+<script type="text/javascript" src="js/offlineScan/decoder.js"></script>
+<script type="text/javascript" src="js/offlineScan/qrcode.js"></script>
+<script type="text/javascript" src="js/offlineScan/findpat.js"></script>
+<script type="text/javascript" src="js/offlineScan/alignpat.js"></script>
+<script type="text/javascript" src="js/offlineScan/databr.js"></script>
+
 <script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="js/utility.js"></script>
 <script type="text/javascript" src="js/formvalidation.js"></script>
