@@ -67,7 +67,7 @@
         });
 
     });
-
+`
 
     $.fn.StartNow = function () {
         $.mobile.navigate("#dvStore");
