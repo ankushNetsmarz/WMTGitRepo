@@ -29,8 +29,8 @@ $('#frmStep1').validate({
             required: true           
         },
         txtEmailAddress: {
-            required: true,
-            email: true
+            required: false,
+            email: false
         }
     }
 });
