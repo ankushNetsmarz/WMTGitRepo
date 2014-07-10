@@ -42,17 +42,35 @@
     /************************* Picture event from camera *****************/
     var $thisImage;
     $(document).on('click', '.uploadImage', function () {
-        $thisImage = $(this).children('img');
+    $thisImage = $(this).children('img');
     });
     $(document).on('click', '#btnPickImageCamera', function () {
-        capturePhotoCamera();
-        $thisImage.attr('src', "data:image/jpeg;base64," + imageDataObject);
-        $('#cancelUpload').trigger('click');
+    capturePhotoCamera();
+    setTimeout(function()
+    {
+    $thisImage.attr('src', "data:image/jpeg;base64," + imageDataObject);
+  //  imageDataObject='';
+    $('#cancelUpload').trigger('click');
+    },2000);
+
 
     });
     $(document).on('click', '#btnPickImageGallery', function () {
+    capturePhotoLibrary();
 
+    setTimeout(function()
+    {
+    $thisImage.attr('src', "data:image/jpeg;base64," + imageDataObject);
+   // imageDataObject='';
+    $('#cancelUpload').trigger('click');
+    },2000);
+    //
+    // $thisImage.attr('src', "data:image/jpeg;base64," + imageDataObject);
+    // imageDataObject='';
+    // $('#cancelUpload').trigger('click');
     });
+
+
 
 
     /************************** validate publish pin *********************/
