@@ -14,7 +14,7 @@
 
     /* Load Local Picture function */
     QRScan.LoadPicture = function () {
-       
+        capturePhotoLibrary2();
     }
 
     /* Offline Scan function */

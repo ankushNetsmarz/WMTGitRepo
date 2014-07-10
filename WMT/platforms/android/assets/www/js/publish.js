@@ -61,7 +61,7 @@
         var publishedPin = $.trim($('#txtPublishedPassword').val());
 
         var ajaxcallobj = {
-            url: "http://weexcel.biz/zend_webservice/public/index.php/user/validatepublishpin",
+            url: "validatepublishpin",
             data: {
                 store_id: objlocalStorage.Store_ID, published_pin: publishedPin
             }
@@ -89,7 +89,7 @@
         }
         else {
             var ajaxcallobj = {
-                url: "http://weexcel.biz/zend_webservice/public/index.php/user/getmembershipdiscount",
+                url: "getmembershipdiscount",
                 HttpVerb: "GET",
                 data: {
                     store_id: objlocalStorage.Store_ID
@@ -115,7 +115,7 @@
                 if (counter <= 5) {
                     var ajaxcallobj = {
                         HttpVerb: "POST",
-                        url: "http://weexcel.biz/zend_webservice/public/index.php/user/storepicturesinformation",
+                        url: "storepicturesinformation",
                         data: { store_id: objlocalStorage.Store_ID, store_info: info, upload_pic: imageDataObject, PID: PID }
                     }
 
@@ -152,7 +152,7 @@
         var discount = $.trim($('#txtMembershipdiscount').val());
         var ajaxcallobj = {
             HttpVerb: "POST",
-            url: "http://weexcel.biz/zend_webservice/public/index.php/user/membershipdiscount",
+            url: "membershipdiscount",
             data: { store_id: objlocalStorage.Store_ID, discount: discount }
         }
 
@@ -177,7 +177,7 @@
                 if (counter <= 5) {
                     var ajaxcallobj = {
                         HttpVerb: "POST",
-                        url: "http://weexcel.biz/zend_webservice/public/index.php/user/discountproduct",
+                        url: "discountproduct",
                         data: { store_id: objlocalStorage.Store_ID, discount: discount, information: info, original_price: Price, upload_pic: imageDataObject, PID: PID }
                     }
 
@@ -217,7 +217,7 @@
                 if (counter <= 5) {
                     var ajaxcallobj = {
                         HttpVerb: "POST",
-                        url: "http://weexcel.biz/zend_webservice/public/index.php/user/productpromotion",
+                        url: "productpromotion",
                         data: { store_id: objlocalStorage.Store_ID, exp_day: days, discount: discount, promotion_information: info, price: Price, upload_pic: imageDataObject, PID: PID }
                     }
 
@@ -256,7 +256,7 @@
                 if (counter <= 5) {
                     var ajaxcallobj = {
                         HttpVerb: "POST",
-                        url: "http://weexcel.biz/zend_webservice/public/index.php/user/giftpoint",
+                        url: "giftpoint",
                         data: { store_id: objlocalStorage.Store_ID, gift_point: giftPoint, gift_info: info, gift_price: Price, gift_upload_pic: imageDataObject, PID: PID }
                     }
 
@@ -289,7 +289,7 @@
     $.fn.getPublishedInfo = function () {
         var ajaxcallobj = {
             HttpVerb: "GET",
-            url: "http://weexcel.biz/zend_webservice/public/index.php/user/getallproductstoreinfo",
+            url: "getallproductstoreinfo",
             data: { store_id: objlocalStorage.Store_ID }
         }
 
@@ -389,7 +389,7 @@
         var id = $(this).attr('data-id');
         var ajaxcallobj = {
             HttpVerb: "POST",
-            url: "http://weexcel.biz/zend_webservice/public/index.php/user/deletepublishedproduct",
+            url: "deletepublishedproduct",
             data: { store_id: objlocalStorage.Store_ID, type: type, id: id }
         }
 
@@ -459,7 +459,7 @@
     var updatePublishedInformation = function (type, info, price, discount, giftPoint, PID, $this) {
         var ajaxcallobj = {
             HttpVerb: "POST",
-            url: "http://weexcel.biz/zend_webservice/public/index.php/user/modifyproduct",
+            url: "modifyproduct",
             data: { store_id: objlocalStorage.Store_ID, p_id: PID, gift_point: giftPoint, info: info, discount: discount, price: price, type: type }
         }
 

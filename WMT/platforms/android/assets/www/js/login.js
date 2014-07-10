@@ -9,7 +9,7 @@
             RememberMe = true;
         }
         var ajaxcallobj = {
-            url: "http://weexcel.biz/zend_webservice/public/index.php/user/userlogin",
+            url: "userlogin",
             data: { phoneNumber: UserName, password: Password, RememberMe: RememberMe }
         }
 
