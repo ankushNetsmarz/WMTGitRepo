@@ -9,7 +9,7 @@
             RememberMe = true;
         }
         var ajaxcallobj = {
-            url: "http://weexcel.biz/zend_webservice/public/index.php/user/userlogin",
+            url: "userlogin",
             data: { phoneNumber: UserName, password: Password, RememberMe: RememberMe }
         }
 
@@ -71,7 +71,7 @@
         var Email = $.trim($('#txtResetPwdByEmail').val());
         var Type = 1; // For Email
         var ajaxcallobj = {
-            url: "http://weexcel.biz/zend_webservice/public/index.php/user/forgetpassword",
+            url: "forgetpassword",
             data: { EmailAddress: Email, Type: Type }
         }
         WMT.jqXHR(ajaxcallobj, function (response) {

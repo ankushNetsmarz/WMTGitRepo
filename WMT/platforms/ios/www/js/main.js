@@ -1,6 +1,7 @@
 ﻿/*********************************************************/
 /************* Ajax Call Custom Made Plugin *************/
 //----------------------------------------------------------//
+var mainUrl = "http://182.92.83.16/ZendApp/public/index.php/user/";
 var option = {};
 option.url = ""; option.data = ""; option.HttpVerb = "POST";
 
@@ -18,7 +19,7 @@ var WMT = myStore = membership = QRScan = $.fn;
         var settings = $.extend({}, defaults, option);
         $.ajax({
             type: settings.HttpVerb,
-            url: settings.url,
+            url: mainUrl + settings.url,
             data: settings.data,
             dataType: settings.dataType,
             async: settings.async,

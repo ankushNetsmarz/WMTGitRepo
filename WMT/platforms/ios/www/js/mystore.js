@@ -12,7 +12,7 @@ var IndustriesIds = "";
                   });
  
  myStore.getStoredata = function () {
- var ajaxcallobj = { HttpVerb: "GET", url: "http://weexcel.biz/zend_webservice/public/index.php/user/editstoreinfo", data: { store_id: objlocalStorage.Store_ID } }
+ var ajaxcallobj = { HttpVerb: "GET", url: "editstoreinfo", data: { store_id: objlocalStorage.Store_ID } }
  
  WMT.jqXHR(ajaxcallobj, function (response) { binddata(response); });
  
@@ -47,7 +47,7 @@ var IndustriesIds = "";
                 var currentControl = $(this).find('input[type=text]').val();
                 var type = $('#sltType').val();
                 var ajaxcallobj = {
-                url: "http://weexcel.biz/zend_webservice/public/index.php/user/updatefield",
+                url: "updatefield",
                 data: { store_id: objlocalStorage.Store_ID, ParamType: paramType, value: currentControl, type: type }
                 }
                 
@@ -68,7 +68,7 @@ var IndustriesIds = "";
                 var Industrylevel3 = $('#sltIndustryEdit3').val();
                 var type = $('#sltType').val();
                 var ajaxcallobj = {
-                url: "http://weexcel.biz/zend_webservice/public/index.php/user/updateindustries",
+                url: "updateindustries",
                 data: { store_id: objlocalStorage.Store_ID, ParamType: paramType, Industrylevel1: Industrylevel1, Industrylevel2: Industrylevel2, Industrylevel3: Industrylevel3, IndustriesIds: IndustriesIds, type: type }
                 }
                 

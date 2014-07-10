@@ -9,7 +9,7 @@
         var MobileNo = $.trim($('#txtMobileNumber').val());
         var Email = $.trim($('#txtEmailAddress').val());
         var ajaxcallobj = {
-            url: "http://weexcel.biz/zend_webservice/public/index.php/user/existuser",
+            url: "existuser",
             data: { phoneNumber: MobileNo, emailAddress: Email }
         }
         WMT.jqXHR(ajaxcallobj, function (response) {
@@ -54,7 +54,7 @@
     $(document).on('submit', '#frmStep5', function () {
         regObj.publishPassword = $.trim($('#txtPublishPassword').val());
         var ajaxcallobj = {
-            url: "http://weexcel.biz/zend_webservice/public/index.php/user/completereg",
+            url: "completereg",
             data: {
                 RegisterData: regObj
             }
@@ -76,7 +76,9 @@
         $.mobile.navigate("#login");
     }
 
-
+    $.fn.Exit = function () {
+        navigator.app.exitApp();
+    }
     /* show agreement screen */
 
     $('#termAgreement').on("click", function () {
