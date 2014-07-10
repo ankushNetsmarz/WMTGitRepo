@@ -1,7 +1,7 @@
 ﻿/*********************************************************/
 /************* Ajax Call Custom Made Plugin *************/
 //----------------------------------------------------------//
-var mainUrl= "http://182.92.83.16/ZendApp/public/index.php/user/"
+var mainUrl= "http://182.92.83.16/ZendApp/public/index.php/user/";
 var option = {};
 option.url = ""; option.data = ""; option.HttpVerb = "POST";
 
