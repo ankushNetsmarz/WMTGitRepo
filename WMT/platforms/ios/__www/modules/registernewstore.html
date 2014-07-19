@@ -1,0 +1,212 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>:: WMT Spec ::</title>
+    <link rel="stylesheet" href="../css/jquery.mobile-1.4.2.css">
+
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/registernewstore.js"></script>
+
+    <style type="text/css">
+        .ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper {
+            background: none repeat scroll 0 0 #FFECCA;
+            color: #969696;
+            font-family: Microsoft YaHei;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .ui-header {
+            background: linear-gradient(to bottom, #C41010 0%, #AE0808 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+        }
+
+            .ui-header h1 {
+                font-size: 16px;
+                color: #fff;
+                font-family: Microsoft YaHei;
+                font-weight: normal;
+            }
+
+        .ui-shadow {
+            box-shadow: none;
+        }
+
+        .ui-btn input {
+            background: linear-gradient(to bottom, #C41010 0%, #AE0808 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+            border-bottom: 1px solid #BD342D;
+            border-top: 1px solid #B00E0E;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!---- Register Wizard Step 1 ---------->
+    <div data-role="page" id="wstep1">     
+        <div data-role="header" data-position="fixed">
+            <h1>Enroll</h1>
+            <a href="#" class="ui-btn-right" data-role="button" data-iconpos="notext">help</a>
+        </div>
+
+        <div data-role="content" class="ui-content">
+            <div>
+                Only few steps away for register on the best sell product.
+            </div>
+            <div class="ui-field-contain">
+                <input type="text" name="txtMobileNumber" id="txtMobileNumber" placeholder="Mobile Number">
+            </div>
+            <input type="button" value="Cancel" data-theme="b" class="clsback">
+            <input type="button" onclick="$.fn.step1();" value="Next">
+        </div>
+    </div>
+
+    <!---- Register Wizard Step 2 ---------->
+    <div data-role="page" id="wstep2">     
+        <div data-role="header" data-position="fixed">
+            <h1>Enroll</h1>
+            <a href="#" class="ui-btn-right" data-role="button" data-iconpos="notext">help</a>
+        </div>
+
+        <div data-role="content" class="ui-content clsHide">
+            <div>
+                Set up login password
+            </div>
+            <div class="ui-field-contain">
+                <input type="password" name="txtMobileNumber" id="txtPassword" placeholder="Enter Password">
+                <input type="password" name="txtMobileNumber" id="txtRepeat" placeholder="Repeat Password">
+            </div>
+            <input type="button" value="Back" data-theme="b" class="clsback">
+            <input type="button" onclick="$.fn.step2();" value="Next">
+        </div>
+    </div>
+
+    <!---- Register Wizard Step 3 ---------->
+
+    <div data-role="page" id="wstep3">
+
+        <div data-role="header" data-position="fixed">
+            <h1>Enroll</h1>
+            <a href="#" class="ui-btn-right" data-role="button" data-iconpos="notext">help</a>
+        </div>
+        <div data-role="content" class="ui-content clsHide">
+            <div>
+                Enter the Detail Store Information
+            </div>
+            <div class="ui-field-contain">
+                <label for="txtName">Name</label>
+                <input type="text" name="txtStoreName" id="txtStoreName" placeholder="Store Name">
+                <label for="select-choice-1">Address</label>
+                <select name="select-choice-1" id="select-choice-1">
+                    <option value="standard">Standard: 7 day</option>
+                    <option value="rush">Rush: 3 days</option>
+                    <option value="express">Express: next day</option>
+                    <option value="overnight">Overnight</option>
+                </select>
+                <label for="txtAddressDetail" class="select"></label>
+                <input type="text" name="txtAddressDetail" id="txtAddressDetail" placeholder="Address detail">
+                <label for="txtPhone">Phone</label>
+                <input type="text" name="txtPhone" id="Text1" placeholder="Store Name">
+                <label for="selectIndustrylevel1">Industry</label>
+                <select name="selectIndustrylevel1" id="select1">
+                    <option value="Industrylevel2">Industry level1</option>
+                    <option value="Industrylevel2">Industry level2</option>
+                    <option value="Industrylevel3">Industry level3</option>
+                    <option value="Industrylevel4">Industry level 4</option>
+                </select>
+                <label for="selectIndustrylevel2"></label>
+                <select name="selectIndustrylevel2" id="select2">
+                    <option value="Industrylevel2">Industry level1</option>
+                    <option value="Industrylevel2">Industry level2</option>
+                    <option value="Industrylevel3">Industry level3</option>
+                    <option value="Industrylevel4">Industry level 4</option>
+                </select>
+                <label for="selectIndustrylevel3"></label>
+                <select name="selectIndustrylevel3" id="select3">
+                    <option value="Industrylevel2">Industry level1</option>
+                    <option value="Industrylevel2">Industry level2</option>
+                    <option value="Industrylevel3">Industry level3</option>
+                    <option value="Industrylevel4">Industry level 4</option>
+                </select>
+            </div>
+            <input type="button" value="Back" data-theme="b" class="clsback">
+            <input type="button" onclick="$.fn.step3();" value="Next">
+        </div>
+
+    </div>
+
+    <!---- Register Wizard Step 4 ---------->
+
+    <div data-role="page" id="wstep4">
+
+        <div data-role="header" data-position="fixed">
+            <h1>Enroll</h1>
+            <a href="#" class="ui-btn-right" data-role="button" data-iconpos="notext">help</a>
+        </div>
+
+        <div data-role="content" class="ui-content clsHide">
+            <div>
+                Enter the Owner Information
+            </div>
+            <div class="ui-field-contain">
+                <label for="txtName">Owner</label>
+                <input type="text" name="txtName" id="Text2" placeholder="Store Name">
+                <label for="txtName">ID #:</label>
+                <input type="text" name="txtName" id="Text3" placeholder="Store Name">
+                <label for="txtName">Upload Picture</label>
+            </div>
+            <input type="button" value="Back" data-theme="b" class="clsback">
+            <input type="button" onclick="$.fn.step4();" value="Next">
+        </div>
+    </div>
+
+    <!---- Register Wizard Step 5 ---------->
+
+    <div data-role="page" id="wstep5">
+
+        <div data-role="header" data-position="fixed">
+            <h1>Enroll</h1>
+            <a href="#" class="ui-btn-right" data-role="button" data-iconpos="notext">help</a>
+        </div>
+
+        <div data-role="content" class="ui-content clsHide">
+            <div>
+                Publish Password
+            </div>
+            <span>Enter a publish Password, only the people know this password could Publish info to members.</span>
+            <div class="ui-field-contain">
+                <input type="password" name="txtMobileNumber" id="Password4" placeholder="Enter Password">
+                <input type="password" name="txtMobileNumber" id="Password5" placeholder="Repeat Password">
+            </div>
+            <input type="button" onclick="$.fn.step5();" value="Next">
+        </div>
+
+    </div>
+
+    <!---- Register Wizard Step 6 ---------->
+
+    <div data-role="page" id="wstep6">
+
+        <div data-role="header" data-position="fixed">
+            <h1>Enroll</h1>
+            <a href="#" class="ui-btn-right" data-role="button" data-iconpos="notext">help</a>
+        </div>
+
+        <div data-role="content" class="ui-content clsHide">
+            <div>
+                Enroll Success
+            </div>
+            <span>Welcome to Wei Ma Tao</span>
+            <div class="ui-field-contain">
+                <input type="password" name="txtMobileNumber" id="Password2" placeholder="Enter Password">
+                <input type="password" name="txtMobileNumber" id="Password3" placeholder="Repeat Password">
+            </div>
+            <input type="button" onclick="$.fn.StartNow();" value="Start Now">
+            <input type="button" value="Exit" data-theme="b">
+        </div>
+    </div>
+</body>
+</html>
