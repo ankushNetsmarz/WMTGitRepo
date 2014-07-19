@@ -4,7 +4,7 @@
     QRScan.ScanMemberShipCard = function () {
        cordova.plugins.barcodeScanner.scan(
 		function (result) {
-		    $.mobile.navigate('#dvScanMemberShip');
+		  //  $.mobile.navigate('#dvScanMemberShip');
 
 		    var code = 'sad'
 		    var ajaxcallobj = {
@@ -49,7 +49,7 @@
         cordova.plugins.barcodeScanner.scan(
                 function (result) {
                    
-            $.mobile.navigate('#dvScanMemberShip');
+          //  $.mobile.navigate('#dvScanMemberShip');
 
                 },
                 function (error) {

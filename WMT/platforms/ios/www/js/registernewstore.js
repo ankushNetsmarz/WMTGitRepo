@@ -75,10 +75,11 @@
     $.fn.StartNow = function () {
         $.mobile.navigate("#login");
     }
-
     $.fn.Exit = function () {
-        navigator.app.exitApp();
+    	   navigator.app.exitApp();
     }
+
+
     /* show agreement screen */
 
     $('#termAgreement').on("click", function () {

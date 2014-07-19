@@ -434,17 +434,18 @@
         <div data-role="content" id="Div2" class="ui-content headerChild">
             <div class="ui-field-contain">
                 <div class="button">
-                    <div class="btn_cscn" data-theme="a" id="txtScanQRCode">
-                       扫瞄会员卡二维码
-
+                
+                    <div class="btn_cscn" data-theme="a" id="txtScanQRCode" onclick="QRScan.ScanMemberShipCard();">
+                         扫瞄会员卡二维码
+                        
                     </div>
-                    <div class="btn_nscn" data-theme="a" id="txtLoadLocalPicture">
-                       调用本地图片
-
+                    <div class="btn_nscn" data-theme="a" id="txtLoadLocalPicture" onclick="QRScan.LoadPicture();">
+                         调用本地图片
+                        
                     </div>
-                    <div class="btn_nscn" data-theme="a;" id="txtMemberID">
-                      输入会员ID
-
+                    <div class="btn_nscn" data-theme="a;" id="txtMemberID" onclick="QRScan.ScanOffline();">
+                         输入会员ID
+                        
                     </div>
                 </div>
                 <div class="div_cuspto">
@@ -682,15 +683,15 @@
         </div>
         <div data-role="footer" data-position="fixed" data-tap-toggle="false">
             <div class="bottom_bar">
-                <div class="social-icon">
+                <div class="social-icon publish">
                     <ul>
                         <li ><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
-                            <img src="css/images/scan-icon-active.png" alt=""><br>
+                            <img src="css/images/scan-icon.png" alt=""><br>
 
                             <span>扫描</span></a>
                         </li>
                         <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
-                            <img src="css/images/publish-icon.png" alt=""><br>
+                            <img src="css/images/publish-icon-active.png" alt=""><br>
                             <span>发布</span></a>
                         </li>
                         <li><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
@@ -735,15 +736,15 @@
         </div>
         <div data-role="footer" data-position="fixed" data-tap-toggle="false">
             <div class="bottom_bar">
-                <div class="social-icon">
+                <div class="social-icon publish">
                     <ul>
                         <li ><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
-                            <img src="css/images/scan-icon-active.png" alt=""><br>
+                            <img src="css/images/scan-icon.png" alt=""><br>
 
                             <span>扫描</span></a>
                         </li>
                         <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
-                            <img src="css/images/publish-icon.png" alt=""><br>
+                            <img src="css/images/publish-icon-active.png" alt=""><br>
                             <span>发布</span></a>
                         </li>
                         <li><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
@@ -822,15 +823,15 @@
         </div>
         <div data-role="footer" data-position="fixed" data-tap-toggle="false">
             <div class="bottom_bar">
-                <div class="social-icon">
+                <div class="social-icon publish">
                     <ul>
                         <li ><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
-                            <img src="css/images/scan-icon-active.png" alt=""><br>
+                            <img src="css/images/scan-icon.png" alt=""><br>
 
                             <span>扫描</span></a>
                         </li>
                         <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
-                            <img src="css/images/publish-icon.png" alt=""><br>
+                            <img src="css/images/publish-icon-active.png" alt=""><br>
                             <span>发布</span></a>
                         </li>
                         <li><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
@@ -892,15 +893,15 @@
         </div>
         <div data-role="footer" data-position="fixed" data-tap-toggle="false">
             <div class="bottom_bar">
-                <div class="social-icon">
+                <div class="social-icon publish">
                     <ul>
                         <li ><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
-                            <img src="css/images/scan-icon-active.png" alt=""><br>
+                            <img src="css/images/scan-icon.png" alt=""><br>
 
                             <span>扫描</span></a>
                         </li>
                         <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
-                            <img src="css/images/publish-icon.png" alt=""><br>
+                            <img src="css/images/publish-icon-active.png" alt=""><br>
                             <span>发布</span></a>
                         </li>
                         <li><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
@@ -1002,15 +1003,15 @@
         </div>
         <div data-role="footer" data-position="fixed" data-tap-toggle="false">
             <div class="bottom_bar">
-                <div class="social-icon">
+                <div class="social-icon publish">
                     <ul>
                         <li ><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
-                            <img src="css/images/scan-icon-active.png" alt=""><br>
+                            <img src="css/images/scan-icon.png" alt=""><br>
 
                             <span>扫描</span></a>
                         </li>
                         <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
-                            <img src="css/images/publish-icon.png" alt=""><br>
+                            <img src="css/images/publish-icon-active.png" alt=""><br>
                             <span>发布</span></a>
                         </li>
                         <li><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
@@ -1129,15 +1130,15 @@
         </div>
         <div data-role="footer" data-position="fixed" data-tap-toggle="false">
             <div class="bottom_bar">
-                <div class="social-icon">
+                <div class="social-icon publish">
                     <ul>
                         <li ><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
-                            <img src="css/images/scan-icon-active.png" alt=""><br>
+                            <img src="css/images/scan-icon.png" alt=""><br>
 
                             <span>扫描</span></a>
                         </li>
                         <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
-                            <img src="css/images/publish-icon.png" alt=""><br>
+                            <img src="css/images/publish-icon-active.png" alt=""><br>
                             <span>发布</span></a>
                         </li>
                         <li><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
@@ -1237,15 +1238,15 @@
         </div>
         <div data-role="footer" data-position="fixed" data-tap-toggle="false">
             <div class="bottom_bar">
-                <div class="social-icon">
+                <div class="social-icon publish">
                     <ul>
                         <li ><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
-                            <img src="css/images/scan-icon-active.png" alt=""><br>
+                            <img src="css/images/scan-icon.png" alt=""><br>
 
                             <span>扫描</span></a>
                         </li>
                         <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
-                            <img src="css/images/publish-icon.png" alt=""><br>
+                            <img src="css/images/publish-icon-active.png" alt=""><br>
                             <span>发布</span></a>
                         </li>
                         <li><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
@@ -1292,15 +1293,15 @@
         </div>
         <div data-role="footer" data-position="fixed" data-tap-toggle="false">
             <div class="bottom_bar">
-                <div class="social-icon">
+                <div class="social-icon publish">
                     <ul>
                         <li ><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
-                            <img src="css/images/scan-icon-active.png" alt=""><br>
+                            <img src="css/images/scan-icon.png" alt=""><br>
 
                             <span>扫描</span></a>
                         </li>
                         <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
-                            <img src="css/images/publish-icon.png" alt=""><br>
+                            <img src="css/images/publish-icon-active.png" alt=""><br>
                             <span>发布</span></a>
                         </li>
                         <li><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
@@ -1359,7 +1360,7 @@
                 <div class="social-icon">
                     <ul>
                         <li ><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
-                            <img src="css/images/scan-icon-active.png" alt=""><br>
+                            <img src="css/images/scan-icon.png" alt=""><br>
 
                             <span>扫描</span></a>
                         </li>
@@ -1368,7 +1369,7 @@
                             <span>发布</span></a>
                         </li>
                         <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
-                            <img src="css/images/member-icon.png" alt=""><br>
+                            <img src="css/images/member-icon-active.png" alt=""><br>
                             <span>会员</span></a>
                         </li>
                         <li><a href="javascript:;" onclick="$.mobile.navigate('#dvBusinessInfo')">
@@ -1488,7 +1489,7 @@
                 <div class="social-icon">
                     <ul>
                         <li ><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
-                            <img src="css/images/scan-icon-active.png" alt=""><br>
+                            <img src="css/images/scan-icon.png" alt=""><br>
 
                             <span>扫描</span></a>
                         </li>
@@ -1497,7 +1498,7 @@
                             <span>发布</span></a>
                         </li>
                         <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
-                            <img src="css/images/member-icon.png" alt=""><br>
+                            <img src="css/images/member-icon-active.png" alt=""><br>
                             <span>会员</span></a>
                         </li>
                         <li><a href="javascript:;" onclick="$.mobile.navigate('#dvBusinessInfo')">
@@ -1602,7 +1603,7 @@
                 <div class="social-icon">
                     <ul>
                         <li ><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
-                            <img src="css/images/scan-icon-active.png" alt=""><br>
+                            <img src="css/images/scan-icon.png" alt=""><br>
 
                             <span>扫描</span></a>
                         </li>
@@ -1611,7 +1612,7 @@
                             <span>发布</span></a>
                         </li>
                         <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
-                            <img src="css/images/member-icon.png" alt=""><br>
+                            <img src="css/images/member-icon-active.png" alt=""><br>
                             <span>会员</span></a>
                         </li>
                         <li><a href="javascript:;" onclick="$.mobile.navigate('#dvBusinessInfo')">
@@ -1678,7 +1679,7 @@
                 <div class="social-icon">
                     <ul>
                         <li ><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
-                            <img src="css/images/scan-icon-active.png" alt=""><br>
+                            <img src="css/images/scan-icon.png" alt=""><br>
 
                             <span>扫描</span></a>
                         </li>
@@ -1691,7 +1692,7 @@
                             <span>会员</span></a>
                         </li>
                         <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvBusinessInfo')">
-                            <img src="css/images/info-icon.png" alt=""><br>
+                            <img src="css/images/info-icon-active.png" alt=""><br>
 
                             <span>信息</span></a>
                         </li>
@@ -1807,23 +1808,14 @@
 
 
 
-            <div data-role="footer" data-position="fixed" data-tap-toggle="false">
-                <a href="tel:+00864001370402" style="display: none;"></a>
-                <div class="top_bar-btm" id="Div1">
-                    <div class="wapper-wrap">
-                        <div class="avtar bussiness">
-                            <img alt="" src="css/images/busines-man.jpg">
-                        </div>
-                        <p class="cont-my" id="P1">Contact My Support Manager</p>
-                    </div>
-                </div>
+           
 
 
                 <div class="bottom_bar">
                     <div class="social-icon">
                         <ul>
                             <li ><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
-                                <img src="css/images/scan-icon-active.png" alt=""><br>
+                                <img src="css/images/scan-icon.png" alt=""><br>
 
                                 <span>扫描</span></a>
                             </li>
@@ -1836,7 +1828,7 @@
                                 <span>会员</span></a>
                             </li class="active">
                             <li><a href="javascript:;" onclick="$.mobile.navigate('#dvBusinessInfo')">
-                                <img src="css/images/info-icon.png" alt=""><br>
+                                <img src="css/images/info-icon-active.png" alt=""><br>
 
                                 <span>信息</span></a>
                             </li>
@@ -2002,7 +1994,7 @@
                     <div class="social-icon">
                         <ul>
                             <li ><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
-                                <img src="css/images/scan-icon-active.png" alt=""><br>
+                                <img src="css/images/scan-icon.png" alt=""><br>
 
                                 <span>扫描</span></a>
                             </li>
@@ -2020,7 +2012,7 @@
                                 <span>信息</span></a>
                             </li>
                             <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvStore')">
-                                <img src="css/images/store-icon.png" alt=""><br>
+                                <img src="css/images/store-icon-active.png" alt=""><br>
                                 <span>本店</span></a>
                             </li>
                         </ul>

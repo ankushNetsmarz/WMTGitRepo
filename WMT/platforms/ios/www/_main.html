@@ -1,0 +1,2095 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>:: WMT Spec ::</title>
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.2.css">
+    <link rel="stylesheet" href="css/customjqueryui.css" />
+    <link rel="stylesheet" href="css/stylesheet.css" />
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/jquery.mobile-1.4.2.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/jquery.mobile.dynamic.popup.js"></script>
+    <script src="js/responsiveslides.min.js"></script>
+    <script src="cordova.js"></script>
+    <script>
+
+        document.addEventListener("deviceready", onDeviceReady, false);
+        function onDeviceReady() {
+            //checkConnection();
+
+            document.addEventListener("backbutton", function (e) {
+
+                var currentDiv = $.mobile.activePage.attr('id');
+
+
+                if (currentDiv == "login") {
+                    navigator.app.exitApp();
+                }
+
+                if (currentDiv == "wstep6") {
+
+                }
+
+                else if (currentDiv == "dvQRCode" || currentDiv == "dvPublishInfo" || currentDiv == "dvMemberShipManagement" || currentDiv == "dvBusinessInfo" || currentDiv == "dvStore") {
+
+                    navigator.notification.confirm(
+                        'Do you want to logout?', // message
+                         onConfirm,            // callback to invoke with index of button pressed
+                        'Logout',           // title
+                        ['cancel', 'ok']     // buttonLabels
+            );
+
+
+                }
+
+                else {
+                    history.back();
+                }
+
+                function onConfirm(buttonIndex) {
+                    if (buttonIndex == 2) {
+                        $.mobile.navigate('#login');
+                    }
+                }
+
+                if ($.mobile.activePage.is('#login')) {
+
+                }
+                else {
+                    e.preventDefault();
+                }
+
+            }, false);
+
+            if (window.localStorage.getItem("username") != '' && window.localStorage.getItem("username") != undefined) {
+                $('#txtUserName').val(window.localStorage.getItem("username")); $('#txtPassword').val(window.localStorage.getItem("pwd"));
+                $('#rememberme').prop('checked', true).checkboxradio('refresh');
+            }
+            else {
+                $('#txtUserName, #txtPassword').val('');
+                $('#rememberme').prop('checked', false).checkboxradio('refresh');
+            }
+        }
+        function checkConnection() {
+            var networkState = navigator.connection.type;
+
+            var states = {};
+            states[Connection.UNKNOWN] = 'Unknown connection';
+            states[Connection.ETHERNET] = 'Ethernet connection';
+            states[Connection.WIFI] = 'WiFi connection';
+            states[Connection.CELL_2G] = 'Cell 2G connection';
+            states[Connection.CELL_3G] = 'Cell 3G connection';
+            states[Connection.CELL_4G] = 'Cell 4G connection';
+            states[Connection.CELL] = 'Cell generic connection';
+            states[Connection.NONE] = 'No network connection';
+
+            alert('Connection type: ' + states[networkState]);
+        }
+        $(document).ready(function () {
+            var code = 'sad'
+            var ajaxcallobj = {
+                url: 'getmembershippoints',
+                data: { qr_code: code }
+            }
+
+            WMT.jqXHR(ajaxcallobj, function (response) {
+                if (response != undefined && response != null) {
+                    $('#abl_pnt').html(response[0].availPoints);
+                    $('#str_pnt').html(response[0].storePoints);
+                    $('#wmt_pnt').html(response[0].wmtPoints);
+
+                }
+            });
+            var ajaxcallobj1 = {
+                url: 'getmembershipdsicount',
+                data: { store_id: 157 }
+            }
+            WMT.jqXHR(ajaxcallobj1, function (response) {
+                if (response != undefined && response != null) {
+
+                    $('#dis_rte').html(response[0].Membership_discount);
+
+                }
+            });
+        });
+
+    </script>
+
+</head>
+<body>
+
+
+    <!------------- Login  Section ---------------------->
+   <div data-role="page" id="login">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1 id="txtLogin">登录</h1>
+            <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp23">帮助</a></div>
+
+            <div class="cus_clr"></div>
+
+
+            <div class="cus_clr"></div>
+        </div>
+        <div data-role="content" class="ui-content">
+            <form id="frmLogin" onsubmit="return false;">
+                <div class="ui-field-contain">
+                    <div class="avtar">
+                        <img alt="" src="css/images/man_avtar.jpg">
+                    </div>
+                    <input type="text" name="txtUserName" id="txtUserName" placeholder="用户名" />
+                    <div class="clr"></div>
+                    <input type="password" name="txtPassword" id="txtPassword" placeholder="密码" />
+                    <div class="clr"></div>
+                    <label for="rememberme" id="txtRememberMe">记住用户名=</label>
+                    <input type="checkbox" name="rememberme" id="rememberme" value="Remember User Name" data-theme="c">
+                    <input type="button" data-theme="c" id="txtForgetPassword" value="忘记密码" onclick="$.fn.ShowPasswordiv()" />
+                </div>
+                <input type="submit" id="txtLoginbtn" value="登录" data-theme="a">
+                <input type="button" value="注册新商家" id="btnRegister" data-theme="b">
+            </form>
+        </div>
+    </div>
+
+    <!-- Forget Password -->
+    <div data-role="page" id="dvForgetPassword">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1>密码</h1>
+            <div class="maindiv_scan_lft  clsback" id="txtBack9">< Back</div>
+            <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp1">帮助</a></div>
+        </div>
+        <div data-role="content" class="ui-content">
+            <div>通过以下方式回复密码</div>
+            <div>
+                <label>
+                    <input type="radio" name="radio-choice-0" id="rdoEmail" data-theme="c" class="clsRecover">电子邮件
+                </label>
+                <label for="rdoSMS">手机短信</label>
+                <input type="radio" name="radio-choice-0" id="rdoSMS" data-theme="c" class="clsRecover">
+            </div>
+            <form id="frmForgetPassword" onsubmit="return false;" class="clsHide">
+                <div class="ui-field-contain clsHide" id="dvShowSMS">
+                    <input type="text" name="txtResetPwdByMobileNumber" id="txtResetPwdByMobileNumber" placeholder="Enter Mobile Number" />
+                </div>
+                <div class="ui-field-contain clsHide" id="dvShowEmail">
+                    <input type="text" name="txtResetPwdByEmail" id="txtResetPwdByEmail" placeholder="Enter Email Address" />
+                </div>
+                <input type="submit" value="提交" data-theme="a">
+                <input type="button" value="取消" data-theme="b" class="clsback">
+            </form>
+        </div>
+    </div>
+
+
+    <!---- Register Wizard Step 1 ---------->
+    <div data-role="page" id="wstep1">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1>加入</h1>
+            <div class="maindiv_scan_lft clsback" id="txtBack10">
+                <img src="css/images/back_icon.png" />
+                Back
+            </div>
+            <div class="maindiv_scan_rgt dvhelp"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp2">帮助</a></div>
+        </div>
+
+        <div data-role="content" class="ui-content">
+            <div id="txtFewStepAwayRegisterBestSellProduct">
+                Only few steps away for register on the best sell product.
+            </div>
+            <form id="frmStep1" onsubmit="return false;">
+                <div class="ui-field-contain">
+                    <input type="text" name="txtMobileNumber" id="txtMobileNumber" maxlength="15" placeholder="Mobile Number">
+                    <div class="clr"></div>
+                    <input type="text" name="txtEmailAddress" id="txtEmailAddress" maxlength="100" placeholder="Email Address">
+                </div>
+                <input type="button" id="txtCancel" value="取消" data-theme="b" class="clsback">
+                <input type="submit" value="下一步" data-theme="a" id="txtNEXT">
+            </form>
+            <div class="ui-field-contain ui-content">
+                <label for="agreement" id="txtAgreedTermsWMTAgreement">Agreed Terms WMT Agreement</label>
+                <input type="checkbox" name="agreement" id="agreement" checked="checked" data-theme="c">
+                <label><a href="#dvAgreement" data-rel="popup" data-transition="pop">WMT Agreement</a></label>
+            </div>
+        </div>
+    </div>
+
+    <!---- Register Wizard Step 2 ---------->
+    <div data-role="page" id="wstep2">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+
+            <h1 id="erl1">加入</h1>
+            <div class="maindiv_scan_lft clsback" id="txtBack11">
+                <img src="css/images/back_icon.png" />
+                Back
+            </div>
+            <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp3">帮助</a></div>
+        </div>
+
+        <div data-role="content" class="ui-content">
+            <div id="txtSetupLoginPassword">
+            </div>
+            <form id="frmStep2" onsubmit="return false;">
+                <div class="ui-field-contain">
+                    <input type="password" id="txtRegPassword" placeholder="Enter Password" name="txtRegPassword">
+                    <div class="clr"></div>
+                    <input type="password" id="txtRegRepPassword" placeholder="Repeat Password" name="txtRegRepPassword">
+                    <div class="clr"></div>
+                </div>
+                <input type="button" value="Back" data-theme="b" class="clsback" id="bck">
+                <input type="submit" value="下一步" data-theme="a" />
+            </form>
+        </div>
+    </div>
+
+    <!---- Register Wizard Step 3 ---------->
+
+    <div data-role="page" id="wstep3">
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1 id="txtEnroll">加入</h1>
+            <div class="maindiv_scan_lft clsback" id="txtBack12">
+                <img src="css/images/back_icon.png" />
+                Back
+            </div>
+            <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp4">帮助</a></div>
+        </div>
+        <div data-role="content" class="ui-content">
+            <div id="txtEnterDetailStoreInfo">
+                Enter the Detail Store Information
+            </div>
+            <form id="frmStep3" onsubmit="return false;">
+                <div class="ui-field-contain">
+                    <label for="txtName">名称</label>
+                    <input type="text" name="txtStoreName" id="txtStoreName" placeholder="Store Name" maxlength="100" />
+                    <div class="clr"></div>
+                    <label for="selectAddress" id="txtAddress">地址</label>
+                    <input type="text" name="txtAddressDetail1" id="txtAddressDetail1" placeholder="Address detail 1">
+                    <div class="clr"></div>
+                    <label for="txtAddressDetail" class="select"></label>
+                    <input type="text" name="txtAddressDetail2" id="txtAddressDetail2" placeholder="Address detail 2(optional)">
+                    <div class="clr"></div>
+                    <label for="txtPhone">电话：</label>
+                    <input type="text" name="txtPhone" id="txtPhone" maxlength="15" placeholder="Phone">
+                    <div class="clr"></div>
+                    <label for="selectIndustrylevel1">行業</label>
+                    <select name="selectIndustrylevel1" id="selectIndustrylevel1" data-theme="c" data-native-menu="false">
+                        <option value="Industrylevel1" id="txtIndustry1">行業 水平1</option>
+                        <option value="Industrylevel2" id="txtIndustry2">行業 水平2</option>
+                        <option value="Industrylevel3" id="txtIndustry3">行業 水平3</option>
+                        <option value="Industrylevel4">行業 水平4</option>
+                    </select>
+                    <label for="selectIndustrylevel2"></label>
+                    <select name="selectIndustrylevel2" id="selectIndustrylevel2" data-theme="c" data-native-menu="false">
+                        <option value="Industrylevel1" id="Option1">行業 水平1</option>
+                        <option value="Industrylevel2" id="Option2">行業 水平2</option>
+                        <option value="Industrylevel3" id="Option3">行業 水平3</option>
+                        <option value="Industrylevel4">行業 水平4</option>
+                    </select>
+                    <label for="selectIndustrylevel3"></label>
+                    <select name="selectIndustrylevel3" id="selectIndustrylevel3" data-theme="c" data-native-menu="false">
+                        <option value="Industrylevel1" id="Option4">行業 水平1</option>
+                        <option value="Industrylevel2" id="Option5">行業 水平2</option>
+                        <option value="Industrylevel3" id="Option6">行業 水平3</option>
+                        <option value="Industrylevel4">行業 水平4</option>
+                    </select>
+                    <label for="selectIndustrylevel1">Type</label>
+                    <select name="sltIndustryType" id="sltIndustryType" data-theme="c" data-native-menu="false">
+                        <option value="Public">Public</option>
+                        <option value="Private">Private</option>
+                    </select>
+                </div>
+                <input type="button" id="sto_bck" value="Back" data-theme="b" class="clsback">
+                <input type="submit" id="sto_nxt" value="下一步" data-theme="a">
+            </form>
+        </div>
+
+    </div>
+
+    <!---- Register Wizard Step 4 ---------->
+
+    <div data-role="page" id="wstep4">
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1 id="erl">加入</h1>
+            <div class="maindiv_scan_lft clsback" id="txtBack13">
+                <img src="css/images/back_icon.png" />
+                Back
+            </div>
+            <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp5">帮助</a></div>
+        </div>
+
+        <div data-role="content" class="ui-content">
+            <div id="txtEnterOwnerInfo">
+                Enter the Owner Information
+            </div>
+            <form id="frmStep4" onsubmit="return false;">
+                <div class="ui-field-contain">
+                    <label for="txtOwnerName" id="txtOwner">Owner</label>
+                    <input type="text" name="txtOwnerName" id="txtOwnerName" maxlength="100" placeholder="Please enter full name">
+                    <div class="clr"></div>
+                    <label for="txtID" id="txtID1">ID</label>
+                    <input type="text" name="txtID" id="txtID" maxlength="20" placeholder="请输入身份证信息">
+                    <div class="clr"></div>
+                    <label for="txtName" id="txtUploadPicture">Upload Picture</label>
+                    <div class="points-main">
+                        <p id="txtTakePhotoWithId">Take phone with ID show as below:</p>
+                        <div class="uploder">
+                            <div class="view-published">
+                                <img height="80px" width="90px" src="css/images/enter-owner.jpg" alt="" class="imgClass">
+                            </div>
+                        </div>
+                        <div class="help-btn-owner">
+                            <input type="button" name="Help" onclick="capturePhotoCamera();" value="Take from Camera" data-inline="true" class="cancel-btn-owner" data-theme="b">
+
+                            <input type="button" name="Help" onclick="capturePhotoLibrary();" value="Take from Library" data-inline="true" class="cancel-btn-owner" data-theme="b">
+                        </div>
+                    </div>
+                </div>
+                <input type="button" id="bck" value="返回" data-theme="b" class="clsback">
+                <input type="submit" id="nxt" value="下一步" data-theme="a">
+            </form>
+        </div>
+    </div>
+
+    <!---- Register Wizard Step 5 ---------->
+
+    <div data-role="page" id="wstep5">
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1 id="erl2">加入</h1>
+            <div class="maindiv_scan_lft clsback" id="txtBack14">
+                <img src="css/images/back_icon.png" />
+                Back
+            </div>
+            <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp6">帮助</a></div>
+        </div>
+
+        <div data-role="content" class="ui-content">
+            <div>
+                <span class="red clr" id="txtPublishPassword1">Publish Password</span>
+            </div>
+            <span class="clr">为了更好的保护您的信息安全，建议您添加发布密码。只有拥有发布密码的人可以更改和发布信息。 </span>
+            <form id="frmStep5" onsubmit="return false;">
+                <div class="ui-field-contain">
+                    <input type="password" name="txtPublishPassword" id="txtPublishPassword" placeholder="Enter Password">
+                    <div class="clr"></div>
+                    <input type="password" name="txtRepPublishPassword" id="txtRepPublishPassword" placeholder="Repeat Password">
+                    <div class="clr"></div>
+                </div>
+                <input type="submit" id="nxt" value="下一步" data-theme="a">
+            </form>
+        </div>
+
+    </div>
+
+    <!---- Register Wizard Step 6 ---------->
+
+    <div data-role="page" id="wstep6">
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1>Enroll Success</h1>
+            <div class="maindiv_scan_lft clsback" id="txtBack15">
+                <img src="css/images/back_icon.png" />
+                Back
+            </div>
+
+        </div>
+
+        <div data-role="content" class="ui-content">
+
+            <div class="remember_div">
+                <div class="remember_div">
+                    <p class="welcome" id="txtWelcomeWeiMaTao">
+                        Welcome<br>
+                        to<br>
+                        Wei Ma Tao
+                    </p>
+                </div>
+                <div class="clr"></div>
+                <input type="button" id="txtStartNow" onclick="$.fn.StartNow();" value="Start Now" data-theme="a">
+                <input type="button" id="txtExit" onclick="$.fn.Exit();" value="Exit" data-theme="b">
+            </div>
+        </div>
+    </div>
+
+
+    <!-- QR Code Section -->
+    <div data-role="page" id="dvQRCode">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div>
+                <h1>扫瞄</h1>
+            </div>
+
+            <div class="maindiv_scan_rgt "><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp7">帮助</a></div>
+
+            <div class="cus_clr"></div>
+
+            <!--   <div class="logout">
+                <a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop"><span class="dvhelp"></span></a>
+                <a href="javascript:;" class="ui-btn ui-btn-right ui-icon-power ui-btn-icon-right ui-shadow ui-corner-all ui-btn-icon-notext aLogout" data-role="button" data-iconpos="notext"></a>
+            </div>-->
+        </div>
+
+        <div data-role="content" id="Div2" class="ui-content headerChild">
+            <div class="ui-field-contain">
+                <div class="button">
+                    <div class="btn_cscn" data-theme="a" id="txtScanQRCode" onclick="QRScan.ScanMemberShipCard();">
+                       扫瞄会员卡二维码
+
+                    </div>
+                    <div class="btn_nscn" data-theme="a" id="txtLoadLocalPicture" onclick="QRScan.LoadPicture();">
+                       调用本地图片
+
+                    </div>
+                    <div class="btn_nscn" data-theme="a;" id="txtMemberID" onclick="QRScan.ScanOffline();">
+                      输入会员ID
+
+                    </div>
+                </div>
+                <div class="div_cuspto">
+                    <div class="cuspto_lft">
+                        <div class="cus_cuspto">
+                            <img alt="" src="css/images/man_avtar.jpg">
+                        </div>
+                    </div>
+                    <div class="cuspto_rgt">
+                        <div class="cuspto_rgt_lft" id="txtWMTPoints">会员积分</div>
+                        <div class="cuspto_lft_rgt" id="wmt_pnt"></div>
+                        <div class="cus_clr"></div>
+                        <div class="cuspto_rgt_lft" id="txtStorePoints">本店积分</div>
+                        <div class="cuspto_lft_rgt" id="str_pnt"></div>
+                        <div class="cus_clr"></div>
+                        <div class="cuspto_rgt_lft" id="txtAvailablePoints">可用积分</div>
+                        <div class="cuspto_lft_rgt" id="abl_pnt"></div>
+                        <div class="cus_clr"></div>
+
+                    </div>
+
+                    <div class="cus_clr"></div>
+                </div>
+
+                <div class="div_mpnt">
+                    <div class="mpnt_lft">
+                        <div class="mgn_lft" id="txtGoodsExchange">积分兑换礼品</div>
+                    </div>
+                    <div class="mpnt_rgt">
+                        <div class="cus_tfm">></div>
+                    </div>
+                    <div class="cus_clr"></div>
+                </div>
+
+                <div class="div_pnt">
+                    <div class="pnt_lft">
+                        <div class="mgn_lft">500 點玩具車</div>
+                    </div>
+                    <div class="ptn_rgt">
+                        <div class="btn_exge" id="txtExchange">兑换</div>
+                    </div>
+                    <div class="cus_clr"></div>
+                </div>
+                <div class="div_cusmbrdis">
+                    <div class="mbrdis_lft">
+                        <div class="mgn_lft" id="Div5">成员折扣</div>
+                    </div>
+                    <div class="mbrdis_rgt">
+                        <div class="cus_tfm">></div>
+                    </div>
+                    <div class="cus_clr"></div>
+                </div>
+                <div class="div_mdis">
+                    <div class="div_mbrdis">
+                        <input type="checkbox" id="chkMbr_dis">
+                    </div>
+                    <div class="mbr_disp">成员折扣&nbsp<span id="dis_rte"> 15 </span>%</div>
+                    <div class="cus_clr"></div>
+                    <div class="div_itmdis">
+                        <input type="checkbox">
+                    </div>
+                    <div class="Cus_dnt">折扣產品 - 免費飲料 </div>
+                    <div class="cus_clr"></div>
+                    <div class="cst_div">
+                        <div class='cus_tcst' id="txtTotalCost">合计花费：</div>
+                        <div style="width: 35%; float: left; margin-right: 10px; font-size: 14px;">
+                            <input placeholder="合计花费" value="" type="text" id="total_cost">
+                        </div>
+                        <div class="cus_clr"></div>
+                        <div class='cus_adis' id="txtAfterDiscount">折扣价：</div>
+                        <div class='cus_net' id="net_cost"></div>
+                        <div class="cus_clr"></div>
+
+                        <div class="btn_cok" id="txtOK">确认</div>
+                    </div>
+                </div>
+                <div>
+                </div>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div class="bottom_bar">
+                <div class="social-icon">
+                    <ul>
+                        <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                            <img src="css/images/scan-icon-active.png" alt=""><br>
+
+                            <span>扫描</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                            <img src="css/images/publish-icon.png" alt=""><br>
+                            <span>发布</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
+                            <img src="css/images/member-icon.png" alt=""><br>
+                            <span>会员</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvBusinessInfo')">
+                            <img src="css/images/info-icon.png" alt=""><br>
+
+                            <span>信息</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvStore')">
+                            <img src="css/images/store-icon.png" alt=""><br>
+                            <span>本店</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Scan Member Ship --->
+
+    <div data-role="page" id="dvScanMemberShip">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1>Scan Membership</h1>
+            <div class="maindiv_scan_lft clsback" id="txtBack16">
+                <img src="css/images/back_icon.png" />
+                Back
+            </div>
+            <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp8">帮助</a></div>
+        </div>
+        <div data-role="content" class="ui-content headerChild">
+            <div class="ui-field-contain">
+                <div class="remember_div">
+                    <div class="WMT-points">
+                        <div class="wmt-left">
+                            <img width="142" height="142" alt="" src="css/images/scan-detail-1.jpg">
+                            <span>Mem001</span>
+                        </div>
+                        <div class="wmt-right">
+                            <div class="wmt-hdeading">
+                                <p>WMT Points:</p>
+                                <span>12658</span>
+                            </div>
+
+                            <div class="wmt-hdeading">
+                                <p>Store Points:</p>
+                                <span>558</span>
+                            </div>
+                            <div class="wmt-hdeading">
+                                <p>Available Points: </p>
+                                <span>126</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="clr"></div>
+                </div>
+                <div class="points-main">
+                    <h1 class="point-heading">Points -&gt; Goods Exchange
+                            <span>
+                                <img alt="" src="css/images/down-arrow.png"></span>
+                    </h1>
+                    <div class="toy-car">
+                        <p>500 Points for a Toy Car</p>
+                        <div class="help-btn-btn">
+                            <a href="#">
+                                <input type="button" class="btn-btn" value="Exchange" name="Help">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="clr"></div>
+                    <h1 class="point-heading">Membership Discount
+                            <span>
+                                <img alt="" src="css/images/down-arrow.png"></span>
+                    </h1>
+                    <div class="remember_div">
+                        <div class="fl">
+                            <label for="Membershipdiscount">Membership discount 15%</label>
+                            <input type="checkbox" name="Membershipdiscount" id="Membershipdiscount" data-theme="c">
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+                    <div class="remember_div">
+                        <div class="fl">
+                            <label for="discountitem">Discount Item - free drink</label>
+                            <input type="checkbox" name="discountitem" id="discountitem" data-theme="c">
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+                    <div class="total-main">
+                        <p>Total Cost:</p>
+                        <input type="text" placeholder="168.00" class="publish-scan" name="">
+                    </div>
+
+                    <div class="total-main-discount">
+                        <p>Discounted:</p>
+                        <span>150.00</span>
+
+                    </div>
+                    <input type="button" value="Ok" name="Help" data-theme="a">
+                </div>
+                <div class="clr"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--- publish Info Section --->
+
+    <div data-role="page" id="dvPublishInfo">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1 id="txtPublishInfo">信息发布</h1>
+
+            <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp9">帮助</a></div>
+        </div>
+        <div data-role="content" class="ui-content headerChild">
+            <div class="ui-field-contain">
+                <div class="remember_div">
+
+                    <div class="clr"></div>
+                </div>
+                <div class="points-main">
+                    <p class="info">发布信息类型</p>
+                    <div class="business-info publishPusinessinfo">
+                        <ul>
+                            <li><a href="javascript:;" navigateto="#dvStoreInformation" class="clsPublisNav" id="txtStoreInformation1">商户信息发布</a></li>
+                            <li><a href="javascript:;" navigateto="#dvMemberShipDiscount" class="clsPublisNav" id="mbr_dis">會員折扣</a></li>
+                            <li><a href="javascript:;" navigateto="#dvProductDiscount" class="clsPublisNav" id="txtProductDiscount">產品折扣</a></li>
+                            <li><a href="javascript:;" navigateto="#dvProductforShortDuration" class="clsPublisNav" id="txtLastMinutesSale">最後一分鐘銷售</a></li>
+                            <li><a href="javascript:;" navigateto="#dvGiftPoint" class="clsPublisNav" id="txtInShopGift">在禮品店</a></li>
+                            <li><a href="javascript:;" navigateto="#dvViewPublishedInfo" class="clsPublisNav" id="txtAlreadyPublishedInfo">已發布信息</a></li>
+
+                        </ul>
+                    </div>
+
+                    <div class="clr"></div>
+                </div>
+                <div class="clr"></div>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div class="bottom_bar">
+                <div class="social-icon">
+                    <ul>
+                        <li ><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                            <img src="css/images/scan-icon-active.png" alt=""><br>
+
+                            <span>扫描</span></a>
+                        </li>
+                        <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                            <img src="css/images/publish-icon.png" alt=""><br>
+                            <span>发布</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
+                            <img src="css/images/member-icon.png" alt=""><br>
+                            <span>会员</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvBusinessInfo')">
+                            <img src="css/images/info-icon.png" alt=""><br>
+
+                            <span>信息</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvStore')">
+                            <img src="css/images/store-icon.png" alt=""><br>
+                            <span>本店</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-role="page" id="dvPublishPin">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1>信息发布</h1>
+            <div class="maindiv_scan_lft clsback" id="txtBack17">
+                <img src="css/images/back_icon.png" />
+                Back
+            </div>
+            <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp10">帮助</a></div>
+        </div>
+        <div data-role="content" class="ui-content headerChild">
+            <div class="ui-field-contain">
+                <div class="flright">
+                    Please Enter The Publish Pin
+                </div>
+                <form id="frmPublishPin" onsubmit="return false;">
+                    <div class="ui-field-contain">
+                        <input type="password" id="txtPublishedPassword" name="txtPublishedPassword" placeholder="Publish Pin">
+                    </div>
+                    <input type="submit" value="OK" data-theme="a">
+                </form>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div class="bottom_bar">
+                <div class="social-icon">
+                    <ul>
+                        <li ><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                            <img src="css/images/scan-icon-active.png" alt=""><br>
+
+                            <span>扫描</span></a>
+                        </li>
+                        <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                            <img src="css/images/publish-icon.png" alt=""><br>
+                            <span>发布</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
+                            <img src="css/images/member-icon.png" alt=""><br>
+                            <span>会员</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvBusinessInfo')">
+                            <img src="css/images/info-icon.png" alt=""><br>
+
+                            <span>信息</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvStore')">
+                            <img src="css/images/store-icon.png" alt=""><br>
+                            <span>本店</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Store Information -->
+    <div data-role="page" id="dvStoreInformation">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1>商户信息发布</h1>
+            <div class="maindiv_scan_lft clsback" id="txtBack">
+                <img src="css/images/back_icon.png" />
+           背面
+            </div>
+            <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp11">帮助</a></div>
+        </div>
+        <div data-role="content" class="ui-content headerChild">
+            <div class="ui-field-contain">
+                <form id="frmStoreInformation" onsubmit="return false;">
+                    <div class="remember_div">
+                        <div class="points-main">
+                            <p class="info-user" id="txtUserProductServices">用戶對產品或服務</p>
+                            <p class="flright" >上传图片</p>
+
+                            <div class="uploder">
+                                <div class="image-upload">
+                                    <div class="upload">
+
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="flright" id="txtInformation">信息</p>
+                            <textarea class="textarea clrPublishedInfo" name="txtStoreInformation" id="txtStoreInformation" style="min-height: 125px !important;" placeholder="Enter Information" rows="5" cols=""></textarea>
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+                    <div class="clr"></div>
+                    <div class="button">
+                        <input type="submit" value="发布" />
+                        <div class="clr"></div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="clr"></div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div class="bottom_bar">
+                <div class="social-icon">
+                    <ul>
+                        <li ><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                            <img src="css/images/scan-icon-active.png" alt=""><br>
+
+                            <span>扫描</span></a>
+                        </li>
+                        <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                            <img src="css/images/publish-icon.png" alt=""><br>
+                            <span>发布</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
+                            <img src="css/images/member-icon.png" alt=""><br>
+                            <span>会员</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvBusinessInfo')">
+                            <img src="css/images/info-icon.png" alt=""><br>
+
+                            <span>信息</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvStore')">
+                            <img src="css/images/store-icon.png" alt=""><br>
+                            <span>本店</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--- Membership Discount -->
+    <div data-role="page" id="dvMemberShipDiscount">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1>信息发布</h1>
+            <div class="maindiv_scan_lft clsback" id="txtBack1">
+                <img src="css/images/back_icon.png" />
+               背面
+            </div>
+            <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp12">帮助</a></div>
+        </div>
+        <div data-role="content" class="ui-content headerChild">
+            <div class="ui-field-contain">
+                <div class="remember_div">
+                    <form id="frmMembershipDiscount" onsubmit="return false;">
+                        <div class="points-main">
+                            <p class="info" id="mbr_dis1">會員折扣</p>
+                            <div class="total-main-dis  ui-grid-b">
+                                <div class="ui-block-b">
+                                    <p id="txtDiscount">Discount</p>
+                                </div>
+                                <div class="ui-block-b">
+                                    <input type="text" placeholder="" id="txtMembershipdiscount" name="txtMembershipdiscount" class="publish-scan" maxlength="10" />
+                                </div>
+                                <div class="ui-block-b currency">%</div>
+                            </div>
+
+                        </div>
+                        <div class="clr"></div>
+                        <div class="button">
+                            <input type="submit" value="发布" data-theme="a">
+                            <div class="clr"></div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="clr"></div>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div class="bottom_bar">
+                <div class="social-icon">
+                    <ul>
+                        <li ><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                            <img src="css/images/scan-icon-active.png" alt=""><br>
+
+                            <span>扫描</span></a>
+                        </li>
+                        <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                            <img src="css/images/publish-icon.png" alt=""><br>
+                            <span>发布</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
+                            <img src="css/images/member-icon.png" alt=""><br>
+                            <span>会员</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvBusinessInfo')">
+                            <img src="css/images/info-icon.png" alt=""><br>
+
+                            <span>信息</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvStore')">
+                            <img src="css/images/store-icon.png" alt=""><br>
+                            <span>本店</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Publish Product Discount -->
+    <div data-role="page" id="dvProductDiscount">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1>会员折扣商品</h1>
+            <div class="maindiv_scan_lft clsback" id="txtBack2">
+                <img src="css/images/back_icon.png" />
+               背面
+            </div>
+            <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp13">帮助</a></div>
+        </div>
+        <div data-role="content" class="ui-content headerChild">
+            <div class="ui-field-contain">
+
+                <div class="remember_div">
+                    <form id="frmProductDiscount" onsubmit="return false;">
+                        <div class="points-main">
+                            <p class="info-user" id="usr_dis">用戶對產品或服務</p>
+                            <p class="flright" id="uld_pic">Upload Picture</p>
+
+
+                            <div class="uploder">
+                                <div class="image-upload">
+                                    <div class="upload">
+
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p class="flright" id="inf">Information</p>
+                            <textarea class="textarea clrPublishedInfo" placeholder="Enter Information" rows="15" cols="" style="min-height: 125px !important;" name="txtProductInformation" id="txtProductInformation"></textarea>
+
+
+                            <div class="total-main-org ui-grid-b">
+                                <div class="ui-block-b">
+                                    <p id="txtOrgPrice">Org.Price</p>
+                                </div>
+                                <div class="ui-block-b">
+                                    <input type="text" class="publish clrPublishedInfo" name="txtPrice" id="txtPrice">
+                                </div>
+                                <div class="ui-block-b currency" id="yuan_unit1">Yuan</div>
+                            </div>
+
+                            <div class="total-main-org ui-grid-b">
+                                <div class="ui-block-b">
+                                    <p id="dis">Discount</p>
+                                </div>
+                                <div class="ui-block-b">
+                                    <input type="text" class="publish" name="txtdiscount clrPublishedInfo" id="txtdiscount">
+                                </div>
+                                <div class="ui-block-b currency">%</div>
+                            </div>
+                            <div class="clr"></div>
+                        </div>
+                        <div class="clr"></div>
+                        <div class="button">
+                            <input type="submit" value="发布" data-theme="a">
+                            <div class="clr"></div>
+                        </div>
+                    </form>
+                </div>
+                <div class="clr"></div>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div class="bottom_bar">
+                <div class="social-icon">
+                    <ul>
+                        <li ><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                            <img src="css/images/scan-icon-active.png" alt=""><br>
+
+                            <span>扫描</span></a>
+                        </li>
+                        <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                            <img src="css/images/publish-icon.png" alt=""><br>
+                            <span>发布</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
+                            <img src="css/images/member-icon.png" alt=""><br>
+                            <span>会员</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvBusinessInfo')">
+                            <img src="css/images/info-icon.png" alt=""><br>
+
+                            <span>信息</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvStore')">
+                            <img src="css/images/store-icon.png" alt=""><br>
+                            <span>本店</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Publish Product for short duration -->
+
+    <div data-role="page" id="dvProductforShortDuration">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1>Product Promotion</h1>
+            <div class="maindiv_scan_lft clsback" id="txtBack3">
+                <img src="css/images/back_icon.png" />
+               背面
+            </div>
+            <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp14">帮助</a></div>
+        </div>
+        <div data-role="content" class="ui-content headerChild">
+            <div class="ui-field-contain">
+                <form id="frmProductDuration" onsubmit="return false;">
+                    <div class="remember_div">
+                        <div class="points-main">
+                            <p class="info-user" id="usr-prdser">用戶對產品或服務</p>
+                            <p class="flright" id="up_pic">Upload Picture</p>
+                            <div class="uploder">
+                                <div class="image-upload">
+                                    <div class="upload">
+
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p class="flright" id="pinf">Information</p>
+                            <textarea class="textarea" placeholder="Enter Information" rows="15" style="min-height: 125px !important;" cols="" name="txtProductDurationInformation" id="txtProductDurationInformation"></textarea>
+
+
+                            <div class="total-main-org ui-grid-b">
+                                <div class="ui-block-b">
+                                    <p id="porg_pri">Org.Price</p>
+                                </div>
+                                <div class="ui-block-b">
+                                    <input type="text" class="publish clrPublishedInfo" name="txtProductDurationPrice" id="txtProductDurationPrice">
+                                </div>
+                                <div class="ui-block-b currency" id="cyun1">Yuan</div>
+                            </div>
+
+                            <div class="total-main-org ui-grid-b">
+                                <div class="ui-block-b">
+                                    <p id="disco">Discount</p>
+                                </div>
+                                <div class="ui-block-b">
+                                    <input type="text" class="publish clrPublishedInfo" name="txtProductDurationdiscount" id="txtProductDurationdiscount">
+                                </div>
+                                <div class="ui-block-b currency">%</div>
+                            </div>
+
+                            <div class="total-main-org ui-grid-b">
+                                <div class="ui-block-b">
+                                    <p id="dur">Duration</p>
+                                </div>
+                                <div class="ui-block-b">
+                                    <select name="sltDuration" id="sltDuration" data-theme="c" data-native-menu="false">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                    </select>
+                                </div>
+                                <div class="ui-block-b currency">Days</div>
+
+                                <div class="clr"></div>
+                            </div>
+                            <div class="clr"></div>
+                            <div class="button">
+                                <input type="submit" value="发布" data-theme="a">
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div class="bottom_bar">
+                <div class="social-icon">
+                    <ul>
+                        <li ><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                            <img src="css/images/scan-icon-active.png" alt=""><br>
+
+                            <span>扫描</span></a>
+                        </li>
+                        <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                            <img src="css/images/publish-icon.png" alt=""><br>
+                            <span>发布</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
+                            <img src="css/images/member-icon.png" alt=""><br>
+                            <span>会员</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvBusinessInfo')">
+                            <img src="css/images/info-icon.png" alt=""><br>
+
+                            <span>信息</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvStore')">
+                            <img src="css/images/store-icon.png" alt=""><br>
+                            <span>本店</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Publish Product Gift Point -->
+
+    <div data-role="page" id="dvGiftPoint">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1>Gift Point</h1>
+            <div class="maindiv_scan_lft clsback" id="txtBack4">
+                <img src="css/images/back_icon.png" />
+              背面
+            </div>
+            <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp15">帮助</a></div>
+        </div>
+        <div data-role="content" class="ui-content headerChild">
+            <div class="ui-field-contain">
+                <form id="frmGiftPoint" onsubmit="return false;">
+                    <div class="remember_div">
+                        <div class="points-main">
+                            <p class="info-user" id="usr_giftpro">用戶對產品或服務</p>
+                            <p class="flright" id="uld_pic1">Upload Picture</p>
+
+                            <div class="uploder">
+                                <div class="image-upload">
+                                    <div class="upload">
+
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
+                                        <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                            <img alt="" class="clrImages" width="60" height="40" src="css/images/image-uploader.jpg">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p class="flright" id="inf1">信息</p>
+                            <textarea class="textarea" placeholder="Enter Information" rows="15" style="min-height: 125px !important;" cols="" name="txtProductGiftInformation" id="txtProductGiftInformation"></textarea>
+
+                            <div class="total-main-org ui-grid-b">
+                                <div class="ui-block-b">
+                                    <p id="org_pri">Org.Price</p>
+                                </div>
+                                <div class="ui-block-b">
+                                    <input type="text" class="publish clrPublishedInfo" name="txtProductGiftPrice" id="txtProductGiftPrice">
+                                </div>
+                                <div class="ui-block-b currency" id="yun">Yuan</div>
+                            </div>
+
+                            <div class="total-main-org ui-grid-b">
+                                <div class="ui-block-b">
+                                    <p id="txtGiftPoint">Gift Point</p>
+                                </div>
+                                <div class="ui-block-b">
+                                    <input type="text" class="publish clrPublishedInfo" name="txtProductGiftPoint" id="txtProductGiftPoint">
+                                </div>
+                            </div>
+
+                            <div class="clr"></div>
+                            <div class="button">
+                                <input type="submit" value="发布" data-theme="a">
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+
+                        <div class="clr"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div class="bottom_bar">
+                <div class="social-icon">
+                    <ul>
+                        <li ><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                            <img src="css/images/scan-icon-active.png" alt=""><br>
+
+                            <span>扫描</span></a>
+                        </li>
+                        <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                            <img src="css/images/publish-icon.png" alt=""><br>
+                            <span>发布</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
+                            <img src="css/images/member-icon.png" alt=""><br>
+                            <span>会员</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvBusinessInfo')">
+                            <img src="css/images/info-icon.png" alt=""><br>
+
+                            <span>信息</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvStore')">
+                            <img src="css/images/store-icon.png" alt=""><br>
+                            <span>本店</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Product Published Info -->
+    <div data-role="page" id="dvViewPublishedInfo">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1>信息发布</h1>
+            <div class="maindiv_scan_lft clsback" id="txtBack5">
+                <img src="css/images/back_icon.png" />
+               背面
+            </div>
+            <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp16">帮助</a></div>
+        </div>
+        <div data-role="content" class="ui-content headerChild">
+            <div class="ui-field-contain">
+
+                <div class="remember_div">
+
+                    <div id="dvPublishedProduct">
+                    </div>
+
+                </div>
+                <div class="clr"></div>
+            </div>
+            <div class="clr"></div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div class="bottom_bar">
+                <div class="social-icon">
+                    <ul>
+                        <li ><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                            <img src="css/images/scan-icon-active.png" alt=""><br>
+
+                            <span>扫描</span></a>
+                        </li>
+                        <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                            <img src="css/images/publish-icon.png" alt=""><br>
+                            <span>发布</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
+                            <img src="css/images/member-icon.png" alt=""><br>
+                            <span>会员</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvBusinessInfo')">
+                            <img src="css/images/info-icon.png" alt=""><br>
+
+                            <span>信息</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvStore')">
+                            <img src="css/images/store-icon.png" alt=""><br>
+                            <span>本店</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--- publish Info Section End--->
+
+    <!-- Membership Section -->
+
+    <div data-role="page" id="dvMemberShipManagement">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1>设定会员折扣</h1>
+
+            <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp17">帮助</a></div>
+        </div>
+        <div data-role="content" class="ui-content headerChild">
+            <div class="ui-field-contain">
+
+                <div class="remember_div">
+
+                    <div class="clr"></div>
+                </div>
+                <div class="points-main">
+                    <p class="info" id="txtMembershipManagement">会员管理</p>
+                    <div class="business-info">
+                        <ul>
+                            <li class="current"><a id="txtMembershipManagement1" href="#" onclick="$.mobile.navigate('#dvMemberShipListing');">会员管理</a></li>
+                            <li><a href="#">Membership Points</a></li>
+                            <li><a href="#" id="txtMemberAnalysisReport">Membership Analysis Report</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="clr"></div>
+                </div>
+                <div class="clr"></div>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div class="bottom_bar">
+                <div class="social-icon">
+                    <ul>
+                        <li ><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                            <img src="css/images/scan-icon-active.png" alt=""><br>
+
+                            <span>扫描</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                            <img src="css/images/publish-icon.png" alt=""><br>
+                            <span>发布</span></a>
+                        </li>
+                        <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
+                            <img src="css/images/member-icon.png" alt=""><br>
+                            <span>会员</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvBusinessInfo')">
+                            <img src="css/images/info-icon.png" alt=""><br>
+
+                            <span>信息</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvStore')">
+                            <img src="css/images/store-icon.png" alt=""><br>
+                            <span>本店</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div data-role="page" id="dvMemberShipListing" data-title="member">
+        <div data-role="header" data-position="fixed" style="border-style: solid; border-width: 1px 0 0;" data-tap-toggle="false">
+            <h1>设定会员折扣</h1>
+            <div class="maindiv_scan_lft clsback" id="txtBack6">
+                <img src="css/images/back_icon.png" />
+             背面
+            </div>
+            <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp18">帮助</a></div>
+        </div>
+        <div class="top_bar-member">
+            <div class="wapper-wrap">
+                <div class="wrap-left" style="text-align: left;">选择会员</div>
+                <div class="wrap-left" style="text-align: right; width: auto; float: right;">
+                    排序<br>
+                    <center><img src="css/images/down-arrow.png" alt="" width="16" height="11"></center>
+                </div>
+            </div>
+        </div>
+        <div data-role="content" class="ui-content headerChild">
+            <div class="ui-field-contain">
+                <div class="member-manage">
+                    <div class="wapper-wrap">
+                        <div class="mamber-image avtar" onclick="$.mobile.navigate('#dvMemberDetail');">
+                            <img src="css/images/member-1.jpg" alt="">
+                        </div>
+                        <div class="member-right">
+                            <p onclick="$.mobile.navigate('#dvMemberDetail');">名称: Jane</p>
+                            <div class="memb-total">
+                                <div class="total">总数: <span>1456</span></div>
+                                <div class="total">可用: <span>58</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="member-manage">
+                    <div class="wapper-wrap">
+                        <div class="mamber-image avtar" onclick="$.mobile.navigate('#dvMemberDetail');">
+                            <img src="css/images/member-2.jpg" alt="">
+                        </div>
+                        <div class="member-right">
+                            <p onclick="$.mobile.navigate('#dvMemberDetail');">名称: Mary</p>
+                            <div class="memb-total">
+                                <div class="total">总数: <span>2666</span></div>
+                                <div class="total">可用: <span>25</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="member-manage">
+                    <div class="wapper-wrap">
+                        <div class="mamber-image avtar" onclick="$.mobile.navigate('#dvMemberDetail');">
+                            <img src="css/images/member-3.jpg" alt="">
+                        </div>
+                        <div class="member-right">
+                            <p onclick="$.mobile.navigate('#dvMemberDetail');">名称: Mark</p>
+                            <div class="memb-total">
+                                <div class="total">总数: <span>4456</span></div>
+                                <div class="total">可用: <span>18</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="member-manage">
+                    <div class="wapper-wrap">
+                        <div class="mamber-image avtar" onclick="$.mobile.navigate('#dvMemberDetail');">
+                            <img src="css/images/member-4.jpg" alt="">
+                        </div>
+                        <div class="member-right">
+                            <p onclick="$.mobile.navigate('#dvMemberDetail');">名称: John</p>
+                            <div class="memb-total">
+                                <div class="total">总数: <span>4456</span></div>
+                                <div class="total">可用: <span>18</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="member-manage">
+                    <div class="wapper-wrap">
+                        <div class="mamber-image avtar" onclick="$.mobile.navigate('#dvMemberDetail');">
+                            <img src="css/images/member-1.jpg" alt="">
+                        </div>
+                        <div class="member-right">
+                            <p onclick="$.mobile.navigate('#dvMemberDetail');">名称: Molly</p>
+                            <div class="memb-total">
+                                <div class="total">总数: <span>2666</span></div>
+                                <div class="total">可用: <span>25</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clr"></div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div class="bottom_bar">
+                <div class="social-icon">
+                    <ul>
+                        <li ><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                            <img src="css/images/scan-icon-active.png" alt=""><br>
+
+                            <span>扫描</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                            <img src="css/images/publish-icon.png" alt=""><br>
+                            <span>发布</span></a>
+                        </li>
+                        <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
+                            <img src="css/images/member-icon.png" alt=""><br>
+                            <span>会员</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvBusinessInfo')">
+                            <img src="css/images/info-icon.png" alt=""><br>
+
+                            <span>信息</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvStore')">
+                            <img src="css/images/store-icon.png" alt=""><br>
+                            <span>本店</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div data-role="page" id="dvMemberDetail">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1>会员详细信息</h1>
+            <div class="maindiv_scan_lft clsback" id="txtBack7">
+                <img src="css/images/back_icon.png" />
+                背面
+            </div>
+            <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp19">帮助</a></div>
+        </div>
+        <div data-role="content" class="ui-content headerChild">
+            <div class="ui-field-contain">
+                <div class="remember_div">
+                    <div class="WMT-points-member">
+                        <div class="wmt-left avtar">
+                            <img src="css/images/member-5.jpg" alt="">
+                        </div>
+                        <div class="wmt-right">
+                            <div class="wmt-hdeading-memb">
+                                <h2>名称: Love WMT</h2>
+                            </div>
+
+                            <div class="wmt-hdeading-memb">
+                                <p>总积分:</p>
+                                <span>2666</span>
+                            </div>
+                            <div class="wmt-hdeading-memb">
+                                <p>等级： </p>
+                                <span>56</span>
+                            </div>
+                            <div class="wmt-hdeading-memb">
+                                <p>收到的礼品： </p>
+                                <span>6</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="clr"></div>
+                </div>
+                <div class="points-main-member">
+                    <ul class="member-detail">
+
+                        <li>
+                            <div class="date-memb">日期</div>
+                            <div class="date-memb">商户</div>
+                            <div class="date-memb">消费</div>
+                            <div class="date-memb">折扣</div>
+                        </li>
+
+                        <li>
+                            <div class="date-txt">2013.07.12</div>
+                            <div class="date">ShopName</div>
+                            <div class="date">210</div>
+                            <div class="date">85%</div>
+                        </li>
+
+                        <li>
+                            <div class="date-txt">2013.07.12</div>
+                            <div class="date">ShopName2</div>
+                            <div class="date">400</div>
+                            <div class="date">95%</div>
+                        </li>
+
+                        <li>
+                            <div class="date-txt">2013.07.12</div>
+                            <div class="date">ShopName</div>
+                            <div class="date">210</div>
+                            <div class="date">85%</div>
+                        </li>
+
+                        <li>
+                            <div class="date-txt">2013.07.12</div>
+                            <div class="date">ShopName</div>
+                            <div class="date">210</div>
+                            <div class="date">85%</div>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="clr"></div>
+            </div>
+            <div class="clr"></div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div class="bottom_bar">
+                <div class="social-icon">
+                    <ul>
+                        <li ><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                            <img src="css/images/scan-icon-active.png" alt=""><br>
+
+                            <span>扫描</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                            <img src="css/images/publish-icon.png" alt=""><br>
+                            <span>发布</span></a>
+                        </li>
+                        <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
+                            <img src="css/images/member-icon.png" alt=""><br>
+                            <span>会员</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvBusinessInfo')">
+                            <img src="css/images/info-icon.png" alt=""><br>
+
+                            <span>信息</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvStore')">
+                            <img src="css/images/store-icon.png" alt=""><br>
+                            <span>本店</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Membership Section End-->
+
+    <!-- Business Info Section -->
+
+    <div data-role="page" id="dvBusinessInfo" data-title="store">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1>Business Info</h1>
+
+            <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp20">帮助</a></div>
+        </div>
+        <div data-role="content" id="Div3" class="ui-content headerChild">
+            <div class="ui-field-contain">
+                <div class="remember_div">
+                    <div class="clr"></div>
+                </div>
+                <div class="points-main">
+                    <div class="business-info">
+                        <ul>
+                            <li class="current"><a href="#dvSupplierInfo" id="txtViewSupplierInfo">View Supplier Info</a></li>
+                            <li><a href="#" id="txtViewIndustryInfo">View Industry Info</a></li>
+                            <li><a href="#" id="txtStoreComparationInfo">View Store Comparation Info</a></li>
+                            <li><a href="#" id="txtViewLocationInfo">View  Location Info</a></li>
+                            <li><a href="#" id="txtViewHRInfo">View HR Infor</a></li>
+                            <li><a href="#" id="txtJoinVIP">Join VIP</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="clr"></div>
+                </div>
+                <div class="clr"></div>
+            </div>
+        </div>
+
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <a href="tel:+00864001370402" style="display: none;"></a>
+            <div class="top_bar-btm" id="callContactManager">
+                <div class="wapper-wrap">
+                    <div class="avtar bussiness">
+                        <img alt="" src="css/images/busines-man.jpg">
+                    </div>
+                    <p class="cont-my" id="txtContactSupportManager">Contact My Support Manager</p>
+                </div>
+            </div>
+
+
+            <div class="bottom_bar">
+                <div class="social-icon">
+                    <ul>
+                        <li ><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                            <img src="css/images/scan-icon-active.png" alt=""><br>
+
+                            <span>扫描</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                            <img src="css/images/publish-icon.png" alt=""><br>
+                            <span>发布</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
+                            <img src="css/images/member-icon.png" alt=""><br>
+                            <span>会员</span></a>
+                        </li>
+                        <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvBusinessInfo')">
+                            <img src="css/images/info-icon.png" alt=""><br>
+
+                            <span>信息</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvStore')">
+                            <img src="css/images/store-icon.png" alt=""><br>
+                            <span>本店</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- View Supplier Info --->
+    <div data-role="page" id="dvSupplierInfo" data-title="store">
+        <div data-role="header" data-position="fixed" style="border-style: solid; border-width: 1px 0 0;" data-tap-toggle="false">
+            <h1>供应商信息查看</h1>
+            <div class="maindiv_scan_lft clsback" id="txtBack8">
+                <img src="css/images/back_icon.png" />
+                背面
+            </div>
+            <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp21">帮助</a></div>
+        </div>
+        <div class="top_bar-member">
+            <div class="wapper-wrap">
+                <div class="wrap-left" style="text-align: left;">选择供应商</div>
+                <div class="wrap-left" style="text-align: right; width: auto; float: right;">
+                    排序<br>
+                    <center><img src="css/images/down-arrow.png" alt="" width="16" height="11"></center>
+                </div>
+            </div>
+        </div>
+        <div data-role="content" id="Div4" class="ui-content headerChild">
+            <div class="ui-field-contain">
+                <div class="member-manage">
+                    <div class="wapper-wrap">
+                        <div class="mamber-supplier avtar">
+                            <img alt="" src="css/images/hr.jpg">
+                        </div>
+                        <div class="supplier-right">
+                            <p>Best HR Company</p>
+                            <div class="service">Service : XXXXXX</div>
+                            <div class="service">Address : YYY</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-manage">
+                    <div class="wapper-wrap">
+                        <div class="mamber-supplier avtar">
+                            <img alt="" src="css/images/hr.jpg">
+                        </div>
+                        <div class="supplier-right">
+                            <p>Best HR Company</p>
+                            <div class="service">Service : XXXXXX</div>
+                            <div class="service">Address : YYY</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-manage">
+                    <div class="wapper-wrap">
+                        <div class="mamber-supplier avtar">
+                            <img alt="" src="css/images/hr.jpg">
+                        </div>
+                        <div class="supplier-right">
+                            <p>Best HR Company</p>
+                            <div class="service">Service : XXXXXX</div>
+                            <div class="service">Address : YYY</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-manage">
+                    <div class="wapper-wrap">
+                        <div class="mamber-supplier avtar">
+                            <img alt="" src="css/images/hr.jpg">
+                        </div>
+                        <div class="supplier-right">
+                            <p>Best HR Company</p>
+                            <div class="service">Service : XXXXXX</div>
+                            <div class="service">Address : YYY</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-manage">
+                    <div class="wapper-wrap">
+                        <div class="mamber-supplier avtar">
+                            <img alt="" src="css/images/hr.jpg">
+                        </div>
+                        <div class="supplier-right">
+                            <p>Best HR Company</p>
+                            <div class="service">Service : XXXXXX</div>
+                            <div class="service">Address : YYY</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clr"></div>
+            </div>
+
+        </div>
+
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+
+
+            <a href="tel:+00864001370402" style="display: none;"></a>
+            <div class="top_bar-btm" id="callContactManager">
+                <div class="wapper-wrap">
+                    <div class="avtar bussiness">
+                        <img alt="" src="css/images/busines-man.jpg">
+                    </div>
+                    <p class="cont-my">Contact My Support Manager</p>
+                </div>
+            </div>
+
+
+
+            <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+                <a href="tel:+00864001370402" style="display: none;"></a>
+                <div class="top_bar-btm" id="Div1">
+                    <div class="wapper-wrap">
+                        <div class="avtar bussiness">
+                            <img alt="" src="css/images/busines-man.jpg">
+                        </div>
+                        <p class="cont-my" id="P1">Contact My Support Manager</p>
+                    </div>
+                </div>
+
+
+                <div class="bottom_bar">
+                    <div class="social-icon">
+                        <ul>
+                            <li ><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                                <img src="css/images/scan-icon-active.png" alt=""><br>
+
+                                <span>扫描</span></a>
+                            </li>
+                            <li><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                                <img src="css/images/publish-icon.png" alt=""><br>
+                                <span>发布</span></a>
+                            </li>
+                            <li><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
+                                <img src="css/images/member-icon.png" alt=""><br>
+                                <span>会员</span></a>
+                            </li class="active">
+                            <li><a href="javascript:;" onclick="$.mobile.navigate('#dvBusinessInfo')">
+                                <img src="css/images/info-icon.png" alt=""><br>
+
+                                <span>信息</span></a>
+                            </li>
+                            <li><a href="javascript:;" onclick="$.mobile.navigate('#dvStore')">
+                                <img src="css/images/store-icon.png" alt=""><br>
+                                <span>本店</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+    </div>
+
+        </div>
+    <!-- Landing Page After Loged in -->
+    <!-- Landing Page After Loged in -->
+    <div data-role="page" id="dvStore" data-title="store">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1>我的商店</h1>
+
+            <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp22">帮助</a></div>
+        </div>
+        <div data-role="content" id="foo" class="ui-content headerChild">
+
+            <div class="ui-field-contain">
+                <form id="frmSaveStoreChanges" onsubmit="return false;">
+                    <div id="dvMystoreInfo">
+                        <div class="member-manage">
+                            <div class="wapper-wrap">
+                                <div class="add">
+                                    <div class="name" id="txtName">名: </div>
+                                    <div id="storename" class="address"></div>
+                                    <div class="modyfy-button" style="background: none; border: none; box-shadow: none;">
+                                        <input type="button" name="Help" value="编辑" class="modify-btn" data-theme="a">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="member-manage">
+                            <div class="wapper-wrap">
+                                <div class="add">
+                                    <div class="name">地址: </div>
+                                    <div id="storeaddresss" class="address">
+                                    </div>
+                                    <div class="modyfy-button">
+                                        <input type="button" name="Help" value="编辑" class="modify-btn" data-theme="a">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="member-manage clsHide" id="dvAddressOption">
+                            <div class="wapper-wrap">
+                                <div class="add">
+                                    <div class="name">Address 2: </div>
+                                    <div id="storeaddresss2" class="address">
+                                    </div>
+                                    <div class="modyfy-button">
+                                        <input type="button" name="Help" value="编辑" class="modify-btn" data-theme="a">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="member-manage">
+                            <div class="wapper-wrap">
+                                <div class="add">
+                                    <div class="name">电话： </div>
+                                    <div id="storephone" class="address"></div>
+                                    <div class="modyfy-button">
+                                        <input type="button" name="Help" value="编辑" class="modify-btn" data-theme="a">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="member-manage">
+                            <div class="wapper-wrap">
+                                <div class="add">
+                                    <div class="name">电子邮件 </div>
+                                    <div id="emailaddress" class="address"></div>
+                                    <div class="modyfy-button">
+                                        <input type="button" name="Help" value="编辑" class="modify-btn" data-theme="a">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="member-manage" style="border: 0px;">
+                            <div class="wapper-wrap">
+                                <div class="add">
+                                    <div class="name">管理人</div>
+                                    <div id="storeownername" class="address"></div>
+                                    <div class="modyfy-button">
+                                        <input type="button" name="Help" value="编辑" class="modify-btn" data-theme="a">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clr"></div>
+                    <div class="member-manage">
+                        <div class="wapper-wrap">
+                            <div class="button">
+                                <div class="help-btn-pick clsStorHide btnStoreChanges">
+                                    <input type="submit" value="保存更改" data-theme="a" id="Submit1">
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clr"></div>
+                </form>
+                <div class="clr" style="margin-top: 15px;"></div>
+                <form id="frmUpdateIndustryChanges" onsubmit="return false;">
+                    <div class="wapper-wrap">
+                        <label class="name" for="selectIndustrylevel1">行業</label>
+                        <select name="sltIndustryEdit1" id="sltIndustryEdit1" data-theme="c" data-native-menu="false">
+                            <option value="Industrylevel1">行業 水平1</option>
+                            <option value="Industrylevel2">行業 水平2</option>
+                            <option value="Industrylevel3">行業 水平3</option>
+                            <option value="Industrylevel4">行業 水平4</option>
+                        </select>
+                        <label class="name" for="sltIndustryEdit2"></label>
+                        <select name="sltIndustryEdit2" id="sltIndustryEdit2" data-theme="c" data-native-menu="false">
+                            <option value="Industrylevel1">行業 水平1</option>
+                            <option value="Industrylevel2">行業 水平2</option>
+                            <option value="Industrylevel3">行業 水平3</option>
+                            <option value="Industrylevel4">行業 水平4</option>
+                        </select>
+                        <label class="name" for="sltIndustryEdit3"></label>
+                        <select name="sltIndustryEdit3" id="sltIndustryEdit3" data-theme="c" data-native-menu="false">
+                            <option value="Industrylevel1">行業 水平1</option>
+                            <option value="Industrylevel2">行業 水平2</option>
+                            <option value="Industrylevel3">行業 水平3</option>
+                            <option value="Industrylevel4">行業 水平4</option>
+                        </select>
+
+                        <div class="button">
+                            <div class="help-btn-pick">
+                                <input type="submit" value="保存更改" data-theme="a" id="SaveStoreChanges1">
+                            </div>
+                            <div class="clr"></div>
+                        </div>
+                        <div class="button">
+                            <div class="help-btn-pick">
+                                <input type="button" value="注销" data-theme="a" class="aLogout" id="Submit2">
+                            </div>
+                            <div class="clr"></div>
+                        </div>
+
+                    </div>
+                </form>
+                <div class="clr"></div>
+
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+   
+
+
+                <div class="bottom_bar">
+                    <div class="social-icon">
+                        <ul>
+                            <li ><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                                <img src="css/images/scan-icon-active.png" alt=""><br>
+
+                                <span>扫描</span></a>
+                            </li>
+                            <li><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                                <img src="css/images/publish-icon.png" alt=""><br>
+                                <span>发布</span></a>
+                            </li>
+                            <li><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
+                                <img src="css/images/member-icon.png" alt=""><br>
+                                <span>会员</span></a>
+                            </li>
+                            <li><a href="javascript:;" onclick="$.mobile.navigate('#dvBusinessInfo')">
+                                <img src="css/images/info-icon.png" alt=""><br>
+
+                                <span>信息</span></a>
+                            </li>
+                            <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvStore')">
+                                <img src="css/images/store-icon.png" alt=""><br>
+                                <span>本店</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+    
+    </div>
+
+
+    <div id="helpPopup-outside-page" data-overlay-theme="a" data-theme="b" data-dismissible="true" data-position-to="window">
+
+        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+        <h3>WMT 帮助</h3>
+        <div role="main" class="ui-content" style="text-align: left; max-height: 400px; overflow-y: scroll; overflow-x: hidden;">
+            Welcome to WMT, This page will be updated later, for now please call you customer services directly! Thank you, WMT Team.
+        </div>
+    </div>
+
+    <!-- Agreement Popup -->
+    <div id="dvAgreement" data-overlay-theme="a" data-theme="b" data-dismissible="true" data-position-to="window">
+
+        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+        <div role="main" class="ui-content" style="text-align: left; max-height: 400px; overflow-y: scroll; overflow-x: hidden;">
+            Welcome to WMT, this content will be updated later. For now please call your dedicated customer services about the testing agreement!
+        </div>
+    </div>
+
+    <!-- Open poup  on publish image tag click -->
+
+    <div id="dvImageUpload" data-overlay-theme="a" data-theme="b" data-dismissible="true" style="min-width: 250px; max-width: 500px;" data-position-to="window">
+
+        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+        <h3>拍照</h3>
+        <div role="main" class="ui-content">
+            <input id="btnPickImageCamera" type="button" value="相机拍照" data-theme="a">
+            <input id="btnPickImageGallery" type="button" value="从图片中调用" data-theme="a">
+            <a href="javascript:;" id="cancelUpload" data-rel="back" class="ui-btn ui-corner-all" data-theme="b">取消</a>
+            <div class="clr"></div>
+        </div>
+    </div>
+
+</body>
+<script type="text/javascript" src="js/offlineScan/grid.js"></script>
+<script type="text/javascript" src="js/offlineScan/version.js"></script>
+<script type="text/javascript" src="js/offlineScan/detector.js"></script>
+<script type="text/javascript" src="js/offlineScan/formatinf.js"></script>
+<script type="text/javascript" src="js/offlineScan/errorlevel.js"></script>
+<script type="text/javascript" src="js/offlineScan/bitmat.js"></script>
+<script type="text/javascript" src="js/offlineScan/datablock.js"></script>
+<script type="text/javascript" src="js/offlineScan/bmparser.js"></script>
+<script type="text/javascript" src="js/offlineScan/datamask.js"></script>
+<script type="text/javascript" src="js/offlineScan/rsdecoder.js"></script>
+<script type="text/javascript" src="js/offlineScan/gf256poly.js"></script>
+<script type="text/javascript" src="js/offlineScan/gf256.js"></script>
+<script type="text/javascript" src="js/offlineScan/decoder.js"></script>
+<script type="text/javascript" src="js/offlineScan/qrcode.js"></script>
+<script type="text/javascript" src="js/offlineScan/findpat.js"></script>
+<script type="text/javascript" src="js/offlineScan/alignpat.js"></script>
+<script type="text/javascript" src="js/offlineScan/databr.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/utility.js"></script>
+<script type="text/javascript" src="js/formvalidation.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
+<script type="text/javascript" src="js/imageCapture.js"></script>
+<script type="text/javascript" src="js/registernewstore.js"></script>
+<script type="text/javascript" src="js/qrscancode.js"></script>
+<script type="text/javascript" src="js/mystore.js"></script>
+<script type="text/javascript" src="js/publish.js"></script>
+<script src="Xml/ReadXml.js"></script>
+</html>
