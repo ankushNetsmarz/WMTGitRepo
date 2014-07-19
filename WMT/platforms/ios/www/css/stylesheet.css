@@ -1,4 +1,4 @@
-﻿body{font-family:Microsoft YaHei;}
+body{font-family:Microsoft YaHei;}
 .clsImage {
     margin: 0 auto;
 }
@@ -905,3 +905,191 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c41010', end
                         font-weight: bold;
                         padding-right: .25em;
                     }
+                    
+                    /*********************  QBR Scan ********************/
+.btn_cok
+{
+    margin-left: 75%; 
+    text-align: center; 
+    width: 15%; 
+    background-color: #bc1616; 
+    border-radius: 4px; 
+    margin-bottom: 15px; 
+    margin-top: 20px;
+    color:#fff;
+    text-shadow: 0 0 0 #f3f3f3;
+    height:26px;
+    font-size:13px;
+}
+.cus_clr
+{
+    clear: both;
+}
+.cus_net
+{
+    width: 35%; 
+    float: left; 
+    margin-right: 10px;
+    font-size:14px;
+}
+.cus_adis
+{
+    width: 55%; 
+    float: left; 
+    margin-left: 10px;
+    font-size:14px;
+text-shadow: 0 0 0 #f3f3f3;
+}
+.cus_tcst
+{
+    width: 55%; 
+    float: left; 
+    margin-left: 10px; 
+    margin-top: 15px;
+    font-size:14px;
+text-shadow: 0 0 0 #f3f3f3;
+}
+.cst_div
+{
+    background-color:#fff;
+    margin-bottom:15px;
+}
+.Cus_dnt
+{
+    float:left;font-size:14px;text-shadow: 0 0 0 #f3f3f3;margin-left:3px;margin-top:4px;
+}
+.div_itmdis
+{
+ float:left;width:10%;margin-top:4px;
+}
+.div_mbrdis
+{
+    float:left;width:10%;margin-top:10px
+}
+.mbr_disp
+{
+    float:left;margin-top:10px;margin-left:3px;
+}
+.div_mdis
+{
+    text-align: left; background-color: #fff
+}
+.div_cusmbrdis
+{
+    background-color: #FF7033; color: #fff; font-size: 15px;
+}
+.mbrdis_lft
+{
+    background-color: #FF7033; text-align: left; width: 90%; float: left;font-size:14px;text-shadow: 0 0 0 #f3f3f3;
+}
+.mgn_lft
+{
+    margin-left:15px;text-shadow: 0 0 0 #f3f3f3;text-shadow: 0 0 0 #f3f3f3;
+}
+.mbrdis_rgt
+{
+    background-color: #FF7033; width: 10%; float: left;
+}
+.cus_tfm
+{
+    transform: rotate(90deg);
+}
+.btn_cscn
+{
+    width: 30%; height: 20%; color: #fff; background-color: #bc1616; float: left; margin-left: 1%; border-radius: 4px;text-shadow: 0 0 0 #f3f3f3;
+}
+.btn_nscn
+{
+    width: 30%; height: 20%; color: #fff; background-color: #bc1616; margin-left: 3%; float: left; border-radius: 4px;text-shadow: 0 0 0 #f3f3f3;
+}
+.btn_exge
+{
+    width: 90%; height: 26px; background-color: #bc1616; font-size: 14px; color: #fff; margin-top: 5px;margin-bottom:5px; font-family: Arial; border-radius: 4px;text-align:center;text-shadow: 0 0 0 #f3f3f3;
+}
+.div_pnt
+{
+    text-align: left; background-color: #fff;
+}
+.pnt_lft
+{
+    float: left; width: 70%; background-color: #fff;font-size:14px;margin-top:5px;
+}
+.ptn_rgt
+{
+    float: left; width: 28%; background-color: #fff;
+}
+.div_mpnt
+{
+    background-color: #FF7033; color: #fff; font-size: 15px
+}
+.mpnt_lft
+{
+    background-color: #FF7033; text-align: left; width: 90%; float: left;
+}
+.mpnt_rgt
+{
+    background-color: #FF7033; width: 10%; float: left;
+}
+.div_cuspto
+{
+    background-color: #fff; margin-top: 70px;
+}
+.cuspto_lft
+{
+    width: 35%; float: left;
+}
+.cuspto_rgt
+{
+    width: 62%; float: left; margin-top: 2.4%; margin-left: 2%
+}
+.cus_cuspto
+{
+    text-align: left; margin: 10%
+}
+.cuspto_rgt_lft
+{
+    width: 70%; text-align: left; float: left; font-size: 14px; margin-top: 10px;text-shadow: 0 0 0 #f3f3f3;
+}
+.cuspto_lft_rgt
+{
+    text-align: left; float: left; font-size: 14px; margin-top: 10px;
+}
+.maindiv_scan_lft
+{
+   position:absolute;
+   top:13px; left:5%; color:#fff; text-shadow:none;font-size:13px;cursor:pointer;
+}
+.maindiv_scan_rgt
+{
+   position:absolute;
+   top:13px; right:5%; color:#fff; text-shadow:none;cursor:pointer;
+   font-size:13px;
+}
+.cus_hlp
+{
+    color:#fff !important;
+}
+
+/* Custom indentations are needed because the length of custom labels differs from
+   the length of the standard labels */
+.custom-size-flipswitch.ui-flipswitch .ui-btn.ui-flipswitch-on {
+    text-indent: -5.9em;
+}
+.custom-size-flipswitch.ui-flipswitch .ui-flipswitch-off {
+    text-indent: 0.5em;
+}
+/* Custom widths are needed because the length of custom labels differs from
+   the length of the standard labels */
+.custom-size-flipswitch.ui-flipswitch {
+    width: 8.875em;
+}
+.custom-size-flipswitch.ui-flipswitch.ui-flipswitch-active {
+    padding-left: 7em;
+    width: 1.875em;
+}
+@media (min-width: 28em) {
+    /*Repeated from rule .ui-flipswitch above*/
+    .ui-field-contain > label + .custom-size-flipswitch.ui-flipswitch {
+        width: 1.875em;
+    }
+}
