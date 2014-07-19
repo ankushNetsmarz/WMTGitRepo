@@ -1,0 +1,73 @@
+﻿{
+    "StorePicture": [
+        {
+            "PID": "0",
+            "Images": [
+                {
+                    "ImagePath": "http://weexcel.biz/zend_webservice/public/storeinfopic/53ad60b78d4dc.png"
+                },
+                {
+                    "ImagePath": "http://weexcel.biz/zend_webservice/public/storeinfopic/53ad6763e5404.png"
+                },
+                {
+                    "ImagePath": "http://weexcel.biz/zend_webservice/public/storeinfopic/53b115b8e3756.png"
+                }
+            ],
+            "introduction": "F2fjdnhehr"
+        },
+        {
+            "PID": "1",
+            "Images": [
+                {
+                    "ImagePath": "http://weexcel.biz/zend_webservice/public/storeinfopic/53ad669fcb1b9.png"
+                },
+                {
+                    "ImagePath": "http://weexcel.biz/zend_webservice/public/storeinfopic/53ad674723d6b.png"
+                }
+            ],
+            "introduction": "dsadasdasd"
+        }
+    ],
+    "ProductDiscount": [
+        {
+            "PID": "0",
+            "Images": [
+                {
+                    "ImagePath": "http://weexcel.biz/zend_webservice/public/product_discount/53b0c3e3aac44.png"
+                }
+            ],
+            "introduction": "asd",
+			"discount":"20",
+			"price":"33"
+        }
+    ],
+    "ProductPromotion": [
+        {
+            "PID": "0",
+            "Images": [
+                {
+                    "ImagePath": "http://weexcel.biz/zend_webservice/public/product_discount/53b0c3e3aac44.png"
+                }
+            ],
+            "introduction": "asd",
+			"discount":"20",
+			"price":"33"
+        }
+    ],
+    "GiftPoint": [
+        {
+            "PID": "0",
+            "Images": [
+                {
+                    "ImagePath": "http://weexcel.biz/zend_webservice/public/gift_point/53ad437650c10.png"
+                },
+                {
+                    "ImagePath": "http://weexcel.biz/zend_webservice/public/gift_point/53abfe46cdedc.png"
+                }
+            ],
+            "introduction": "abc",
+            "price": "20",
+            "giftPoint": "2"
+        }
+    ]
+}
