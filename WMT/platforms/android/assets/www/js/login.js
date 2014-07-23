@@ -98,7 +98,7 @@
             window.localStorage.setItem("username", '');
             window.localStorage.setItem("pwd", '');
             $('#txtUserName, #txtPassword').val('');
-            $('#rememberme').prop('checked', false).checkboxradio('refresh');
+            //$('#rememberme').prop('checked', false).checkboxradio('refresh');
         }
         localStorage.clear();
         $.mobile.navigate('#login');

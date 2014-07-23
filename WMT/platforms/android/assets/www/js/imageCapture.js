@@ -81,7 +81,7 @@ function getPhoto(imageData) {
         }
         else
         {
-            $.mobile.navigate('#dvScanMemberShip');
+           // $.mobile.navigate('#dvScanMemberShip');
             
         }
     };

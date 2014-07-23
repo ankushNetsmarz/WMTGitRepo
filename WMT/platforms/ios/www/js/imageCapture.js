@@ -50,7 +50,7 @@ function capturePhotoLibrary2() {
 }
 
 function onSuccess(imageData) {
-   // $('img.clsImage').attr('src', "data:image/jpeg;base64," + imageData);
+    $('img.clsImage').attr('src', "data:image/jpeg;base64," + imageData);
     //    var image = document.getElementByClass('clsImage');
     //    image.src = "data:image/jpeg;base64," + imageData;
     try
@@ -81,7 +81,7 @@ function getPhoto(imageData) {
         }
         else
         {
-            $.mobile.navigate('#dvScanMemberShip');
+           // $.mobile.navigate('#dvScanMemberShip');
             
         }
     };

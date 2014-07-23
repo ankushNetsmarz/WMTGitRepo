@@ -160,7 +160,8 @@
                 
                 WMT.jqXHR(ajaxcallobj, function (response) {
                           if (response.success > 0) {
-                          membershipDiscount = discount;
+                              membershipDiscount = discount;
+                              $('#dis_rte').html(membershipDiscount);
                           $.dynamicSuccess_popup('<p>Membership discount published succesfully.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
                           }
                           });
@@ -323,7 +324,7 @@
            
            + '<div class="price-yaun-left"><p>Discount: <span id="spnDiscount" class="clsShow">' + response.ProductDiscount[i].discount + '</span>'
            + '<input type="text" id="ProductDiscount" class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset clsHide" value="' + response.ProductDiscount[i].discount + '" /><span class="currencyName">%</span></p></div>'
-           + '<p class="price-yaun-left price-yaun-status">Status: Active / Finished</p>'
+           + '<p class="price-yaun-left price-yaun-status">Status: <select><option value="Active">Active<option><option value="Finish">Finished<option></select></p>'
            
            + '<div class="price-yaun-left"><div class="help-btn-publish">'
            + '<div class="ui-btn ui-input-btn ui-btn-b ui-corner-all ui-shadow ui-btn-inline">Delete<input type="button" name="Help" value="Delete" class="btn-download btnDelete" data-id="' + response.ProductDiscount[i].PID + '" data-type="productdiscount" data-inline="true" data-theme="b"></div>'
@@ -344,7 +345,7 @@
            
            + '<div class="price-yaun-left"><p>Discount: <span id="spnDiscount" class="clsShow">' + response.ProductPromotion[i].discount + '</span>'
            + '<input type="text" id="ProductDiscount" class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset clsHide" value="' + response.ProductPromotion[i].discount + '" /><span class="currencyName">%</span></p></div>'
-           + '<p class="price-yaun-left price-yaun-status">Status: Active / Finished</p>'
+           + '<p class="price-yaun-left price-yaun-status">Status: <select><option value="Active">Active<option><option value="Finish">Finished<option></select></p>'
            
            + '<div class="price-yaun-left"><div class="help-btn-publish">'
            + '<div class="ui-btn ui-input-btn ui-btn-b ui-corner-all ui-shadow ui-btn-inline">Delete<input type="button" name="Help" value="Delete" class="btn-download btnDelete" data-id="' + response.ProductPromotion[i].PID + '" data-type="productproduction" data-inline="true" data-theme="b"></div>'
@@ -366,7 +367,7 @@
            
            + '<div class="price-yaun-left"><p>Gift Point: <span id="spnGifPoint" class="clsShow">' + response.GiftPoint[i].giftPoint + '</span>'
            + '<input type="text" id="ProductGifPoint" class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset clsHide" value="' + response.GiftPoint[i].giftPoint + '" /></p></div>'
-           + '<p class="price-yaun-left price-yaun-status">Status: Active / Finished</p>'
+           + '<p class="price-yaun-left price-yaun-status">Status: <select><option value="Active">Active<option><option value="Finish">Finished<option></select></p>'
            
            + '<div class="price-yaun-left"><div class="help-btn-publish">'
            + '<div class="ui-btn ui-input-btn ui-btn-b ui-corner-all ui-shadow ui-btn-inline">Delete<input type="button" name="Help" value="Delete" class="btn-download btnDelete" data-id="' + response.GiftPoint[i].PID + '" data-type="giftpoint" data-inline="true" data-theme="b"></div>'

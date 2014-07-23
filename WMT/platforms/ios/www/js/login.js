@@ -7,7 +7,7 @@
         var Password = $.trim($('#txtPassword').val());       
         if ($('#rememberme').is(':checked')) {
             RememberMe = true;
-        } 
+        }
         var ajaxcallobj = {
             url: "userlogin",
             data: { phoneNumber: UserName, password: Password, RememberMe: RememberMe }
@@ -98,7 +98,7 @@
             window.localStorage.setItem("username", '');
             window.localStorage.setItem("pwd", '');
             $('#txtUserName, #txtPassword').val('');
-           // $('#rememberme').prop('checked', false).checkboxradio('refresh');
+            //$('#rememberme').prop('checked', false).checkboxradio('refresh');
         }
         localStorage.clear();
         $.mobile.navigate('#login');

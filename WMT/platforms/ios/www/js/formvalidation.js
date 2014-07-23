@@ -1,4 +1,4 @@
-﻿$('#login').bind('pageinit', function (event) {
+$('#login').bind('pageinit', function (event) {
     $('#frmLogin').validate({
         rules: {
             txtUserName: {
@@ -20,8 +20,9 @@ $('#frmForgetPassword').validate({
             required: true,
             email: true
         }
-    }
+                                 }
 });
+
 
 $('#frmStep1').validate({
     rules: {
@@ -147,7 +148,7 @@ $('#frmProductDuration').validate({
             required: true
         }
     }
-})
+                                  });
 $('#frmGiftPoint').validate({
     rules: {
         txtProductGiftPrice: {
@@ -160,4 +161,4 @@ $('#frmGiftPoint').validate({
             required: true
         }
     }
-})
+                            });
