@@ -70,12 +70,12 @@
                                                     })
                                                     .addClass('ui-content ui-popup-content');
 
-                $popupCloseBtn = $('<a></a>').attr({
-                                                'href': '#',
-                                                'data-role': 'button',
-                                                'data-rel': settings['data-rel']
-                                            })
-                                            .addClass('ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right ui-popup-close-btn');
+                //$popupCloseBtn = $('<a></a>').attr({
+                //                                'href': '#',
+                //                                'data-role': 'button',
+                //                                'data-rel': settings['data-rel']
+                //                            })
+                //                            .addClass('ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right ui-popup-close-btn');
 
             } else {
 

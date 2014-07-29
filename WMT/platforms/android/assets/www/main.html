@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="css/jquery.mobile-1.4.2.css">
     <link rel="stylesheet" href="css/customjqueryui.css" />
     <link rel="stylesheet" href="css/stylesheet.css" />
+    <link href="css/jquery.mobile.datepicker.css" rel="stylesheet" />
+    <link href="css/jquery.mobile.datepicker.theme.css" rel="stylesheet" />
+    <link href="css/theme-template.css" rel="stylesheet" />
     <script src="js/jquery-1.10.2.min.js"></script>
     <script src="js/jquery.mobile-1.4.2.min.js"></script>
     <script src="js/jquery.validate.min.js"></script>
@@ -107,6 +110,7 @@
         <div data-role="content" class="ui-content">
             <form id="frmLogin" onsubmit="return false;">
                 <div class="ui-field-contain">
+               
                     <div class="avtar">
                         <img alt="" src="css/images/man_avtar.jpg">
                     </div>
@@ -170,7 +174,7 @@
                 <div class="ui-field-contain">
                     <input type="text" name="txtMobileNumber" id="txtMobileNumber" maxlength="15" placeholder="Mobile Number">
                     <div class="clr"></div>
-                    <input type="text" name="txtEmailAddress" id="txtEmailAddress" maxlength="100" placeholder="Email Address">
+                   <!-- <input type="text" name="txtEmailAddress" id="txtEmailAddress" maxlength="100" placeholder="Email Address">-->
                 </div>
                 <input type="button"id="txtCancel" value="Cancel" data-theme="b" class="clsback">
                 <input type="submit" value="Next" data-theme="a" id="txtNEXT">
@@ -224,20 +228,21 @@
             </div>
             <form id="frmStep3" onsubmit="return false;">
                 <div class="ui-field-contain">
-                    <label for="txtName">Name</label>
+                    <label for="txtName" class="cus_txt_lft">Name</label>
                     <input type="text" name="txtStoreName" id="txtStoreName" placeholder="Store Name" maxlength="100" />
                     <div class="clr"></div>
-                    <label for="selectAddress" id="txtAddress">Address</label>
+                    <label for="selectAddress" id="txtAddress" class="cus_txt_lft">Address</label>
                     <input type="text" name="txtAddressDetail1" id="txtAddressDetail1" placeholder="Address detail 1">
                     <div class="clr"></div>
                     <label for="txtAddressDetail" class="select"></label>
                     <input type="text" name="txtAddressDetail2" id="txtAddressDetail2" placeholder="Address detail 2(optional)">
                     <div class="clr"></div>
-                    <label for="txtPhone">Phone</label>
+                    <label for="txtPhone" class="cus_txt_lft">Phone</label>
                     <input type="text" name="txtPhone" id="txtPhone" maxlength="15" placeholder="Phone">
                     <div class="clr"></div>
-                    <label for="selectIndustrylevel1">Industry</label>
+                    <label for="selectIndustrylevel1" class="cus_txt_lft">Industry</label>
                     <select name="selectIndustrylevel1" id="selectIndustrylevel1" data-theme="c" data-native-menu="false">
+                         <option value="Industrylevel1" id="Option7">Not Selected</option>
                         <option value="Industrylevel1" id="txtIndustry1">Industry level1</option>
                         <option value="Industrylevel2" id="txtIndustry2">Industry level2</option>
                         <option value="Industrylevel3" id="txtIndustry3">Industry level3</option>
@@ -245,6 +250,7 @@
                     </select>
                     <label for="selectIndustrylevel2"></label>
                     <select name="selectIndustrylevel2" id="selectIndustrylevel2" data-theme="c" data-native-menu="false">
+                          <option value="Industrylevel1" id="Option8">Not Selected</option>
                       <option value="Industrylevel1" id="Option1">Industry level1</option>
                         <option value="Industrylevel2" id="Option2">Industry level2</option>
                         <option value="Industrylevel3" id="Option3">Industry level3</option>
@@ -252,16 +258,17 @@
                     </select>
                     <label for="selectIndustrylevel3"></label>
                     <select name="selectIndustrylevel3" id="selectIndustrylevel3" data-theme="c" data-native-menu="false">
+                          <option value="Industrylevel1" id="Option9">Not Selected</option>
                       <option value="Industrylevel1" id="Option4">Industry level1</option>
                         <option value="Industrylevel2" id="Option5">Industry level2</option>
                         <option value="Industrylevel3" id="Option6">Industry level3</option>
                         <option value="Industrylevel4">Industry level4</option>
                     </select>
-                    <label for="selectIndustrylevel1">Type</label>
+                  <!--  <label for="selectIndustrylevel1">Type</label>
                     <select name="sltIndustryType" id="sltIndustryType" data-theme="c" data-native-menu="false">
                         <option value="Public">Public</option>
                         <option value="Private">Private</option>
-                    </select>
+                    </select>-->
                 </div>
                 <input type="button" id="sto_bck" value="Back" data-theme="b" class="clsback">
                 <input type="submit" id="sto_nxt" value="Next" data-theme="a">
@@ -286,13 +293,13 @@
             </div>
             <form id="frmStep4" onsubmit="return false;">
                 <div class="ui-field-contain">
-                    <label for="txtOwnerName" id="txtOwner">Owner</label>
+                    <label for="txtOwnerName" id="txtOwner"  class="cus_txt_lft">Owner</label>
                     <input type="text" name="txtOwnerName" id="txtOwnerName" maxlength="100" placeholder="Please enter full name">
                     <div class="clr"></div>
-                    <label for="txtID" id="txtID1">ID</label>
+                    <label for="txtID" id="txtID1"  class="cus_txt_lft">ID</label>
                     <input type="text" name="txtID" id="txtID" maxlength="20" placeholder="Please enter ID number">
                     <div class="clr"></div>
-                    <label for="txtName" id="txtUploadPicture">Upload Picture</label>
+                    <label for="txtName" id="txtUploadPicture"  class="cus_txt_lft">Upload Picture</label>
                     <div class="points-main">
                         <p id="txtTakePhotoWithId">Take phone with ID show as below:</p>
                         <div class="uploder">
@@ -362,7 +369,7 @@
                     </p>
                 </div>
                 <div class="clr"></div>
-                <input type="button" id="txtStartNow" onclick="$.fn.StartNow();" value="Start Now" data-theme="a">
+                <input type="button" id="txtStartNow"  value="Start Now" data-theme="a">
                 <input type="button" id="txtExit" onclick="$.fn.Exit();" value="Exit" data-theme="b">
             </div>
         </div>
@@ -387,23 +394,29 @@
         <div data-role="content" id="Div2" class="ui-content headerChild">
             <div class="ui-field-contain">
                 <div class="button">
+                    <a>
                     <div class="btn_cscn" data-theme="a" id="txtScanQRCode" onclick="QRScan.ScanMemberShipCard();">
                         Scan
                         <br>
                         QR<br>
                         Code
                     </div>
+                        </a>
+                    <a>
                     <div class="btn_nscn" data-theme="a" id="txtLoadLocalPicture" onclick="QRScan.LoadPicture();">
                         Load
                         <br>
                         Local<br>
                         Picture
                     </div>
-                    <div class="btn_nscn" data-theme="a;" id="txtMemberID" onclick="QRScan.ScanOffline();">
+                        </a>
+               <a  href="#EnterMemberId" data-rel="popup" data-transition="pop" >
+                    <div class="btn_nscn" data-theme="a;" >
                         Enter<br>
                         Member<br>
                         Id
                     </div>
+                   </a>
                 </div>
                 <div class="div_cuspto" >
                     <div class="cuspto_lft">
@@ -425,40 +438,26 @@
 
                     <div  class="cus_clr"></div>
                 </div>
-
-                <div class="div_mpnt">
-                    <div class="mpnt_lft"><div class="mgn_lft" id="txtGoodsExchange">Points -> Goods Exchange</div></div>
-                    <div class="mpnt_rgt">
-                        <div class="cus_tfm">></div>
+                <div id="point_div">
+     
                     </div>
-                    <div  class="cus_clr"></div>
-                </div>
-
-                <div class="div_pnt">
-                    <div class="pnt_lft"><div class="mgn_lft">500 Points for a Toy Car</div></div>
-                    <div class="ptn_rgt">
-                        <div class="btn_exge" id="txtExchange">
-
-                                                              Exchange </div>
-                    </div>
-                    <div  class="cus_clr"></div>
-                </div>
                 <div class="div_cusmbrdis">
                     <div class="mbrdis_lft"><div class="mgn_lft" id="txtMembershipDiscount">Membership Discount</div></div>
-                    <div class="mbrdis_rgt">
-                        <div class="cus_tfm">></div>
-                    </div>
                     <div class="cus_clr"></div>
                 </div>
                 <div class="div_mdis">                
-                       <div class="div_mbrdis"><input id="chkMbr_dis"  type="checkbox" ></div><div class="mbr_disp">Membership Discount<span id="dis_rte"> 15 </span>%</div>
+                      <div class="div_mbrdis"><input id="chkMbr_dis"  type="checkbox" ></div><div class="mbr_disp">Membership Discount<span id="dis_rte"> 0 </span>%</div>
                         <div class="cus_clr"></div>
-                        <div class="div_itmdis"><input  type="checkbox"> </div><div class="Cus_dnt">Discount Item - free drink </div>
-                    <div class="cus_clr"></div>                      
+                    <div id="Discount_Item_1"></div>
+                       
+                  
+                      <div id="Discount_Item_2"></div>
+                   
+                                       
                     <div class="cst_div">
                         <div class='cus_tcst' id="txtTotalCost">Total Cost</div>
                         <div style="width: 35%; float: left; margin-right: 10px;font-size:14px;">
-                            <input placeholder="Total cost" value="" type="text" id="total_cost"></div>
+                            <input placeholder="0.00" value="" type="text" id="total_cost" style="text-align:right;"></div>
                          <div class="cus_clr" ></div>
                         <div class='cus_adis' id="txtAfterDiscount">After Discount</div>
                         <div class='cus_net'  id="net_cost"></div>
@@ -467,21 +466,19 @@
                     <div class="btn_cok" id="txtOK">Ok</div>
                          </div>
                 </div>
-                <div>
-                   
-                </div>
+              
                 </div>
             </div>
                 <div data-role="footer" data-position="fixed" data-tap-toggle="false">
                     <div class="bottom_bar">
                         <div class="social-icon">
                             <ul>
-                                <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                                <li class="active"><a href="javascript:;" class="click_scan" >
                                     <img src="css/images/scan-icon-active.png" alt=""><br>
 
                                     <span>Scan</span></a>
                                 </li>
-                                <li><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                                <li><a href="javascript:;" class="Publish_screen">
                                     <img src="css/images/publish-icon.png" alt=""><br>
                                     <span>Publish</span></a>
                                 </li>
@@ -627,12 +624,12 @@
             <div class="bottom_bar">
                 <div class="social-icon publish">
                     <ul>
-                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                        <li><a href="javascript:;"  class="click_scan" >
                             <img src="css/images/scan-icon.png" alt=""><br>
 
                             <span>Scan</span></a>
                         </li>
-                        <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                        <li class="active"><a href="javascript:;" class="Publish_screen">
                             <img src="css/images/publish-icon-active.png" alt=""><br>
                             <span>Publish</span></a>
                         </li>
@@ -677,12 +674,12 @@
             <div class="bottom_bar">
                 <div class="social-icon publish">
                     <ul>
-                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                        <li><a href="javascript:;" class="click_scan">
                             <img src="css/images/scan-icon.png" alt=""><br>
 
                             <span>Scan</span></a>
                         </li>
-                        <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                        <li class="active"><a href="javascript:;"  class="Publish_screen" >
                             <img src="css/images/publish-icon-active.png" alt=""><br>
                             <span>Publish</span></a>
                         </li>
@@ -761,12 +758,12 @@
             <div class="bottom_bar">
                 <div class="social-icon publish">
                     <ul>
-                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                        <li><a href="javascript:;" class="click_scan">
                             <img src="css/images/scan-icon.png" alt=""><br>
 
                             <span>Scan</span></a>
                         </li>
-                        <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                        <li class="active"><a href="javascript:;"  class="Publish_screen" >
                             <img src="css/images/publish-icon-active.png" alt=""><br>
                             <span>Publish</span></a>
                         </li>
@@ -827,12 +824,12 @@
             <div class="bottom_bar">
                 <div class="social-icon publish">
                     <ul>
-                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                        <li><a href="javascript:;" class="click_scan">
                             <img src="css/images/scan-icon.png" alt=""><br>
 
                             <span>Scan</span></a>
                         </li>
-                        <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                        <li class="active"><a href="javascript:;"  class="Publish_screen" >
                             <img src="css/images/publish-icon-active.png" alt=""><br>
                             <span>Publish</span></a>
                         </li>
@@ -934,12 +931,12 @@
             <div class="bottom_bar">
                 <div class="social-icon publish">
                     <ul>
-                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                        <li><a href="javascript:;" class="click_scan">
                             <img src="css/images/scan-icon.png" alt=""><br>
 
                             <span>Scan</span></a>
                         </li>
-                        <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                        <li class="active"><a href="javascript:;"  class="Publish_screen" >
                             <img src="css/images/publish-icon-active.png" alt=""><br>
                             <span>Publish</span></a>
                         </li>
@@ -1029,7 +1026,10 @@
                                     <p id="dur">Duration</p>
                                 </div>
                                 <div class="ui-block-b">
-                                    <select name="sltDuration" id="sltDuration" data-theme="c" data-native-menu="false">
+                                    <div>
+                                    <input id="sltDuration" data-role="date" type="text">
+                                        </div>
+                                   <!-- <select name="sltDuration" id="sltDuration" data-theme="c" data-native-menu="false">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -1037,9 +1037,9 @@
                                         <option value="5">5</option>
                                         <option value="6">6</option>
                                         <option value="7">7</option>
-                                    </select>
+                                    </select>-->
                                 </div>
-                                <div class="ui-block-b currency">Days</div>
+                                <div class="ui-block-b currency"></div>
 
                                 <div class="clr"></div>
                             </div>
@@ -1058,12 +1058,12 @@
             <div class="bottom_bar">
                 <div class="social-icon publish">
                     <ul>
-                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                        <li><a href="javascript:;" class="click_scan">
                             <img src="css/images/scan-icon.png" alt=""><br>
 
                             <span>Scan</span></a>
                         </li>
-                        <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                        <li class="active"><a href="javascript:;"  class="Publish_screen" >
                             <img src="css/images/publish-icon-active.png" alt=""><br>
                             <span>Publish</span></a>
                         </li>
@@ -1163,12 +1163,12 @@
             <div class="bottom_bar">
                 <div class="social-icon publish">
                     <ul>
-                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                        <li><a href="javascript:;" class="click_scan">
                             <img src="css/images/scan-icon.png" alt=""><br>
 
                             <span>Scan</span></a>
                         </li>
-                        <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                        <li class="active"><a href="javascript:;"  class="Publish_screen" >
                             <img src="css/images/publish-icon-active.png" alt=""><br>
                             <span>Publish</span></a>
                         </li>
@@ -1215,12 +1215,12 @@
             <div class="bottom_bar">
                 <div class="social-icon publish">
                     <ul>
-                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                        <li><a href="javascript:;" class="click_scan">
                             <img src="css/images/scan-icon.png" alt=""><br>
 
                             <span>Scan</span></a>
                         </li>
-                        <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                        <li class="active"><a href="javascript:;"  class="Publish_screen" >
                             <img src="css/images/publish-icon-active.png" alt=""><br>
                             <span>Publish</span></a>
                         </li>
@@ -1260,13 +1260,13 @@
 
                     <div class="clr"></div>
                 </div>
-                <div class="points-main">
+                <div class="points-main ">
                     <p class="info" id="txtMembershipManagement">Membership Management</p>
-                    <div class="business-info">
+                    <div class="business-info member_info">
                         <ul>
-                            <li class="current"><a id="txtMembershipManagement1" href="#" >Membership Management</a></li>
-                            <li><a href="#">Membership Points</a></li>
-                            <li><a href="#" id="txtMemberAnalysisReport">Membership Analysis Report</a></li>
+                            <li class="current"><a id="txtMembershipManagement1" href="#" class="chge_cls" >Membership Management</a></li>
+                          <!--  <li><a href="#" class="chge_cls" >Membership Points</a></li>-->
+                            <li><a href="#" id="txtMemberAnalysisReport" class="chge_cls" >Membership Analysis Report</a></li>
                         </ul>
                     </div>
 
@@ -1279,12 +1279,12 @@
             <div class="bottom_bar">
                 <div class="social-icon">
                     <ul>
-                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                        <li><a href="javascript:;" class="click_scan">
                             <img src="css/images/scan-icon.png" alt=""><br>
 
                             <span>Scan</span></a>
                         </li>
-                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                        <li><a href="javascript:;"  class="Publish_screen" >
                             <img src="css/images/publish-icon.png" alt=""><br>
                             <span>Publish</span></a>
                         </li>
@@ -1316,17 +1316,17 @@
         <div class="top_bar-member">
             <div class="wapper-wrap">
                 <div class="wrap-left" style="text-align: left;">Select Member</div>
-                <div class="wrap-left" style="text-align: right; width: auto; float: right;">
-                    Sort<br>
-                    <center><img src="css/images/down-arrow.png" alt="" width="16" height="11"></center>
+               
+                <div class="wrap-left" style="text-align: right; width: auto; float: right;" id="">
+                   <a href="#SortParameter" data-rel="popup" data-transition="pop"style="color:#fff ; text-shadow: 0 0 0 #f3f3f3;height:35px;">Sort 
+                       <img src="css/images/down-arrow.png" alt="" width="16" height="11"></a> 
+                 
                 </div>
+                     
             </div>
         </div>
         <div data-role="content" class="ui-content headerChild">
             <div class="ui-field-contain Application_members">
-               
-
-
             </div>
             <div class="clr"></div>
         </div>
@@ -1334,12 +1334,12 @@
             <div class="bottom_bar">
                 <div class="social-icon">
                     <ul>
-                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                        <li><a href="javascript:;" class="click_scan">
                             <img src="css/images/scan-icon.png" alt=""><br>
 
                             <span>Scan</span></a>
                         </li>
-                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                        <li><a href="javascript:;"  class="Publish_screen" >
                             <img src="css/images/publish-icon.png" alt=""><br>
                             <span>Publish</span></a>
                         </li>
@@ -1369,49 +1369,7 @@
              <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp19">Help</a></div>
         </div>
         <div data-role="content" class="ui-content headerChild">
-            <div class="ui-field-contain application_membersdetail">
-                
-                <div class="points-main-member">
-                    <ul class="member-detail">
-
-                        <li>
-                            <div class="date-memb">Date</div>
-                            <div class="date-memb">Shop</div>
-                            <div class="date-memb">Cost</div>
-                            <div class="date-memb">Discount</div>
-                        </li>
-
-                        <li>
-                            <div class="date-txt">2013.07.12</div>
-                            <div class="date">ShopName</div>
-                            <div class="date">210</div>
-                            <div class="date">85%</div>
-                        </li>
-
-                        <li>
-                            <div class="date-txt">2013.07.12</div>
-                            <div class="date">ShopName2</div>
-                            <div class="date">400</div>
-                            <div class="date">95%</div>
-                        </li>
-
-                        <li>
-                            <div class="date-txt">2013.07.12</div>
-                            <div class="date">ShopName</div>
-                            <div class="date">210</div>
-                            <div class="date">85%</div>
-                        </li>
-
-                        <li>
-                            <div class="date-txt">2013.07.12</div>
-                            <div class="date">ShopName</div>
-                            <div class="date">210</div>
-                            <div class="date">85%</div>
-                        </li>
-                    </ul>
-
-                </div>
-                <div class="clr"></div>
+            <div class="ui-field-contain application_membersdetail"> 
             </div>
             <div class="clr"></div>
         </div>
@@ -1419,12 +1377,55 @@
             <div class="bottom_bar">
                 <div class="social-icon">
                     <ul>
-                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                        <li><a href="javascript:;" class="click_scan">
                             <img src="css/images/scan-icon.png" alt=""><br>
 
                             <span>Scan</span></a>
                         </li>
-                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                        <li><a href="javascript:;"  class="Publish_screen" >
+                            <img src="css/images/publish-icon.png" alt=""><br>
+                            <span>Publish</span></a>
+                        </li>
+                        <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvMemberShipManagement')">
+                            <img src="css/images/member-icon-active.png" alt=""><br>
+                            <span>Member</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvBusinessInfo')">
+                            <img src="css/images/info-icon.png" alt=""><br>
+
+                            <span>Info</span></a>
+                        </li>
+                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvStore')">
+                            <img src="css/images/store-icon.png" alt=""><br>
+                            <span>Store</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div data-role="page" id="MemberAnalysis">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+           <h1>Membership Analysis</h1>
+            <div class="maindiv_scan_lft clsback"  id="Div9"><img src="css/images/back_icon.png" /> Back</div>
+             <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="A3">Help</a></div>
+        </div>
+        <div data-role="content" class="ui-content headerChild">
+            <div class="ui-field-contain application_membersAnalysis"> 
+            </div>
+            <div class="clr"></div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div class="bottom_bar">
+                <div class="social-icon">
+                    <ul>
+                        <li><a href="javascript:;" class="click_scan">
+                            <img src="css/images/scan-icon.png" alt=""><br>
+
+                            <span>Scan</span></a>
+                        </li>
+                        <li><a href="javascript:;"  class="Publish_screen" >
                             <img src="css/images/publish-icon.png" alt=""><br>
                             <span>Publish</span></a>
                         </li>
@@ -1493,12 +1494,12 @@
             <div class="bottom_bar">
                 <div class="social-icon">
                     <ul>
-                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                        <li><a href="javascript:;" class="click_scan">
                             <img src="css/images/scan-icon.png" alt=""><br>
 
                             <span>Scan</span></a>
                         </li>
-                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                        <li><a href="javascript:;"  class="Publish_screen" >
                             <img src="css/images/publish-icon.png" alt=""><br>
                             <span>Publish</span></a>
                         </li>
@@ -1623,12 +1624,12 @@
             <div class="bottom_bar">
                 <div class="social-icon">
                     <ul>
-                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                        <li><a href="javascript:;" class="click_scan">
                             <img src="css/images/scan-icon.png" alt=""><br>
 
                             <span>Scan</span></a>
                         </li>
-                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                        <li><a href="javascript:;"  class="Publish_screen" >
                             <img src="css/images/publish-icon.png" alt=""><br>
                             <span>Publish</span></a>
                         </li>
@@ -1658,18 +1659,30 @@
         <div data-role="header" data-position="fixed" data-tap-toggle="false">
             <h1>My Store</h1>
  
-             <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp22">帮助</a></div>
+             <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp22">Help</a></div>
         </div>
         <div data-role="content" id="foo" class="ui-content headerChild">
 
             <div class="ui-field-contain">
                 <form id="frmSaveStoreChanges" onsubmit="return false;">
                     <div id="dvMystoreInfo">
+                          
                         <div class="member-manage">
                             <div class="wapper-wrap">
                                 <div class="add">
                                     <div class="name">Name: </div>
                                     <div id="storename" class="address"></div>
+                                    <div class="modyfy-button" style="background: none; border: none; box-shadow: none;">
+                                        <input type="button" name="Help" value="Edit" class="modify-btn" data-theme="a">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="member-manage">
+                            <div class="wapper-wrap">
+                                <div class="add">
+                                    <div class="name">Password: </div>
+                                    <div id="change_password" class="address">******</div>
                                     <div class="modyfy-button" style="background: none; border: none; box-shadow: none;">
                                         <input type="button" name="Help" value="Edit" class="modify-btn" data-theme="a">
                                     </div>
@@ -1689,7 +1702,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="member-manage clsHide" id="dvAddressOption">
+                        <div class="member-manage " id="dvAddressOption">
                             <div class="wapper-wrap">
                                 <div class="add">
                                     <div class="name">Address 2: </div>
@@ -1725,7 +1738,7 @@
                             </div>
                         </div>
 
-                        <div class="member-manage" style="border: 0px;">
+                        <div class="member-manage" style="border: 0px;" >
                             <div class="wapper-wrap">
                                 <div class="add">
                                     <div class="name">Owner: </div>
@@ -1736,6 +1749,7 @@
                                 </div>
                             </div>
                         </div>
+                     
                     </div>
                     <div class="clr"></div>
                     <div class="member-manage">
@@ -1787,7 +1801,7 @@
                             </div>
                             <div class="clr"></div>
                         </div>
-                       
+                       <div style="margin-bottom:10px;font-size:10px;color:red;text-align:center;"><i>version 5.0</i></div>
                     </div>
                 </form>
                 <div class="clr"></div>
@@ -1798,12 +1812,12 @@
             <div class="bottom_bar">
                 <div class="social-icon">
                     <ul>
-                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                        <li><a href="javascript:;" class="click_scan">
                             <img src="css/images/scan-icon.png" alt=""><br>
 
                             <span>Scan</span></a>
                         </li>
-                        <li><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                        <li><a href="javascript:;"  class="Publish_screen" >
                             <img src="css/images/publish-icon.png" alt=""><br>
                             <span>Publish</span></a>
                         </li>
@@ -1832,7 +1846,7 @@
         <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
         <h3>WMT Help</h3>
         <div role="main" class="ui-content" style="text-align: left; max-height: 400px; overflow-y: scroll; overflow-x: hidden;">
-            Welcome to WMT, This page will be updated later, for now please call you customer services directly! Thank you, WMT Team.
+          <div id="helptext">  Welcome to WMT, This page will be updated later, for now please call you customer services directly! Thank you, WMT Team.</div>
         </div>
     </div>
 
@@ -1896,12 +1910,12 @@
                     <div class="bottom_bar">
                         <div class="social-icon">
                             <ul>
-                                <li class="active"><a href="javascript:;" onclick="$.mobile.navigate('#dvQRCode')">
+                                <li class="active"><a href="javascript:;" class="click_scan">
                                     <img src="css/images/scan-icon-active.png" alt=""><br>
 
                                     <span>Scan</span></a>
                                 </li>
-                                <li><a href="javascript:;" onclick="$.mobile.navigate('#dvPublishInfo')">
+                                <li><a href="javascript:;"  class="Publish_screen" >
                                     <img src="css/images/publish-icon.png" alt=""><br>
                                     <span>Publish</span></a>
                                 </li>
@@ -1924,7 +1938,33 @@
                 </div>
             </div>
 
+   <!---- Enter Member ID ----->
+     <div id="EnterMemberId" data-overlay-theme="a" data-theme="b" data-dismissible="true" data-position-to="window">
+
+        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+        <h3>Enter Member ID</h3>
+        <div role="main" class="ui-content" style="text-align: left; max-height: 600px; overflow-y: scroll; overflow-x: hidden;">
+          
+            <input type="text" id="member_id" style="border:solid 1px red" />
+              <input type="button" value="ok" id="submitmemberid" />
+        </div>
+    </div>
+       <!---- Select Sort Parameter ----->
+     <div id="SortParameter" data-overlay-theme="a" data-theme="b" data-dismissible="true" data-position-to="window">
+
+        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+      <!-- <div style="width:200px;background-color:#ff0000;color:#fff"> <h3>Sort With..</h3></div>-->
+        <div role="main" class="ui-content" style="text-align: left; max-height: 600px;  overflow-x: hidden;">
+            <div  class="sort_By"> Sort By </div>
+            <div id="Sort_name" class="sorttext"> Name </div>
+              <div id="Sort_TotalPoint" class="sorttext" > Total Point</div>
+        </div>
+    </div>
+   
+
 </body>
+<script src="js/jquery.mobile.datepicker.js"></script>
+<script src="js/datepicker.js"></script>
 <script type="text/javascript" src="js/offlineScan/grid.js"></script>
 <script type="text/javascript" src="js/offlineScan/version.js"></script>
 <script type="text/javascript" src="js/offlineScan/detector.js"></script>
@@ -1949,8 +1989,9 @@
 <script type="text/javascript" src="js/imageCapture.js"></script>
 <script type="text/javascript" src="js/registernewstore.js"></script>
 <script type="text/javascript" src="js/qrscancode.js"></script>
-<script type="text/javascript" src="js/mystore.js"></script>
-<script type="text/javascript" src="js/publish.js"></script>
+    <script type="text/javascript" src="js/mystore.js"></script>
+    <script type="text/javascript" src="js/publish.js"></script>
+
 <script src="js/GiftExchange.js"></script>
 <script src="js/Membership.js"></script>
 </html>

@@ -1,4 +1,5 @@
-﻿var objlocalStorage = {}; /* Global Local storage array object */
+
+var objlocalStorage = {}; /* Global Local storage array object */
 var RememberMe = false;
 $.mobile.defaultPageTransition = 'slide'; /* Set default transition for all pages */
 //$.mobile.page.prototype.options.domCache = true;
@@ -14,6 +15,8 @@ $('.clsback').on('click', function () {
 $("#dvImageUpload").enhanceWithin().popup();
 $('#dvAgreement').enhanceWithin().popup();
 $('#helpPopup-outside-page').enhanceWithin().popup();
+$("#EnterMemberId").enhanceWithin().popup();
+$("#SortParameter").enhanceWithin().popup();
 $(document).on('click', '#callContactManager', function () {
     window.open($(this).prev('a').attr('href'));
 });

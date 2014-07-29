@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<!--  COMMOM SECTION  -->
+
+<localization>
+<txtScan>扫描</txtScan>
+<txtPublish>发布</txtPublish>
+<txtMember>会员</txtMember>
+<txtInfo>信息</txtInfo>
+
+<txtStore>本店</txtStore>
+<txtWrongUsernamePassword>用户名或密码错误</txtWrongUsernamePassword>
+
+<txtOK>确认</txtOK>
+<txtNoInternet>无网络链接，请确认设备设置正确</txtNoInternet>
+
+<!--  LOGIN SECTION  -->
+
+<txtUserName>用户名</txtUserName>
+<txtPassword>密码</txtPassword>
+<txtLogin>登录</txtLogin>
+<txtRegister>注册新商家</txtRegister>
+<txtCancel>取消</txtCancel>
+<txtForgetPassword>忘记密码</txtForgetPassword>
+<txtRememberMe>记住用户名</txtRememberMe>
+<txtHelp>帮助</txtHelp>
+<txtPasswordRecover>找回密码</txtPasswordRecover>
+<txtBack>返回</txtBack>
+<txtRecoverPasswordUsing>通过以下方式回复密码</txtRecoverPasswordUsing>
+<txtEmail>电子邮件</txtEmail>
+<txtSMS>手机短信</txtSMS>
+<txtMobileNo>输入手机号</txtMobileNo>
+<txtEmailAddress>输入电子邮箱地址</txtEmailAddress>
+<txtSubmit>提交</txtSubmit>
+<txtCancel>取消</txtCancel>
+
+
+<!--  SCAN SECTION -->
+
+<txtScanQRCode>扫瞄会员卡二维码</txtScanQRCode>
+<txtLoadLocalPicture>调用本地图片</txtLoadLocalPicture>
+<txtMemberID>输入会员ID</txtMemberID>
+<txtWMTPoints>会员积分</txtWMTPoints>
+<txtStorePoints>本店积分</txtStorePoints>
+<txtAvailablePoints>可用积分</txtAvailablePoints>
+<txtGoodsExchange>积分兑换礼品</txtGoodsExchange>
+<txtExchange>兑换</txtExchange>
+<txtMembershipDiscount>成员折扣</txtMembershipDiscount>
+<txtTotalCost>合计花费：</txtTotalCost>
+<txtAfterDiscount>折扣价：</txtAfterDiscount>
+<txtGiftExchange>礼品兑换</txtGiftExchange>
+<txtPointExchange>积分兑换</txtPointExchange>
+<txtPoints>积分：</txtPoints>
+<txtAmount>数量：</txtAmount>
+<txtTotalPoints>合计积分：</txtTotalPoints>
+<txtCustomerPhoneNo>顾客联系方式</txtCustomerPhoneNo>
+<txtPhone>电话：</txtPhone>
+
+
+<!-- PUBLISH SECTION -->
+
+<txtPublishInfo>信息发布</txtPublishInfo>
+<txtInfoType>发布信息类型</txtInfoType>
+<txtStoreInformation1>商户信息发布</txtStoreInformation1>
+<txtProductDiscount>设定商品折扣</txtProductDiscount>
+<txtLastMinutesSale>即时秒杀</txtLastMinutesSale>
+<txtInShopGift>到店即送</txtInShopGift>
+<txtAlreadyPublishedInfo>已经发布的信息</txtAlreadyPublishedInfo>
+<txtPublishPin>发布密码</txtPublishPin>
+<txtEnterPublishPin>请输入发布密码</txtEnterPublishPin>
+<txtUserProductServices>请描述商户的信息与最新活动，这些信息将发到用户手机中。</txtUserProductServices>
+<txtUploadPicture>上传图片</txtUploadPicture>
+<txtInformation>描述信息</txtInformation>
+<txtEnterInformation>请输入描述信息</txtEnterInformation>
+<txtMembership>设定会员折扣</txtMembership>
+<txtDiscount>折扣</txtDiscount>
+<txtDiscountProduct>会员折扣商品</txtDiscountProduct>
+<txtIntroduction>商品介绍</txtIntroduction>
+<txtEnterIntroduction>请输入商品介绍信息</txtEnterIntroduction>
+<txtOrgPrice>原价</txtOrgPrice>
+<txtYuan>元</txtYuan>
+<txtPercentage>%</txtPercentage>
+<txtLastMinutesPromotion>即时秒杀</txtLastMinutesPromotion>
+<txtEndTime>结束时间</txtEndTime>
+<txtInStoreGift>到店即送</txtInStoreGift>
+<txtGiftPoint>所需积分</txtGiftPoint>
+<txtPublishedInfo>已经发布的信息</txtPublishedInfo>
+<txtDelete>删除</txtDelete>
+<txtModify>修改</txtModify>
+<txtStatus>状态</txtStatus>
+<txtActive>活动中</txtActive>
+<txtFinished>结束</txtFinished>
+<txtTakePicture>拍照</txtTakePicture>
+<txtCamera>相机拍照</txtCamera>
+<txtLoadfromLibary>从图片中调用 </txtLoadfromLibary>
+
+
+
+
+<!-- MEMBERSHIP SECTION -->
+
+<txtMembershipManagement>会员管理</txtMembershipManagement>
+<txtMemberAnalysisReport>会员分析报告</txtMemberAnalysisReport>
+<txtMembershipMessage>会员信息</txtMembershipMessage>
+<txtSelectMember>选择会员</txtSelectMember>
+<txtSort>排序</txtSort>
+<txtByName>按名称排序</txtByName>
+<txtByPoint>按积分排序</txtByPoint>
+<txtTotal>总数</txtTotal>
+<txtCurrent>可用</txtCurrent>
+<txtName>名称</txtName>
+<txtMembershipDetail>会员详细信息</txtMembershipDetail>
+<txtMembershipGrade>等级：</txtMembershipGrade>
+<txtGiftRecevied>收到的礼品：</txtGiftRecevied>
+<txtDate>日期</txtDate>
+<txtShop>商户</txtShop>
+<txtCost>消费</txtCost>
+<txtMemberMessage>会员消息</txtMemberMessage>
+<txtReply>回复</txtReply>
+<txtEnterMessage>输入信息</txtEnterMessage>
+<txtAnalysisReport>分析报告</txtAnalysisReport>
+
+
+
+<!-- REGISTER SECTION -->
+
+<txtEnroll>加入</txtEnroll>
+<txtFewStepAwayRegisterBestSellProduct>只需五个简单步骤，就可以完成注册，并开始享受免费的CRM系统。 </txtFewStepAwayRegisterBestSellProduct>
+<txtMobileNo>手机号</txtMobileNo>
+<txtNEXT>下一步</txtNEXT>
+<txtAgreedTermsWMTAgreement>接受微码淘协议</txtAgreedTermsWMTAgreement>
+<txtAgreementInfo>协议内容</txtAgreementInfo>
+<txtAgreementTerms>这是简单的协议样本，（临时）</txtAgreementTerms>
+<txtSetupLoginPassword>Setup Login Password</txtSetupLoginPassword>
+<txtRepeatPassword>Repeat Password</txtRepeatPassword>
+<txtEnterDetailStoreInfo>Enter the Detail Store Information </txtEnterDetailStoreInfo>
+<txtStoreName>Store Name</txtStoreName>
+<txtAddress>Address</txtAddress>
+<txtLocation>Location</txtLocation>
+<txtaddressdetail>address detail</txtaddressdetail>
+<txtIndustry>Industry</txtIndustry>
+<txtIndustry1>Industry1</txtIndustry1>
+<txtIndustry2>Industry2</txtIndustry2>
+<txtIndustry3>Industry3</txtIndustry3>
+<txtEnterOwnerInfo>输入商户管理者信息</txtEnterOwnerInfo>
+<txtOwner>管理人</txtOwner>
+<txtFullName>姓名</txtFullName>
+<txtID1>证件号</txtID1>
+<txtEnterIDNo>请输入身份证信息</txtEnterIDNo>
+<txtTakePhotoWithId>请按下图样式排照并上传</txtTakePhotoWithId>
+<txtTakeFromCamera>用相机拍照</txtTakeFromCamera>
+<txtPublishPassword1>发布密码</txtPublishPassword1>
+<txtPublishPasswordPeopleKnown>为了更好的保护您的信息安全，建议您添加发布密码。只有拥有发布密码的人可以更改和发布信息。 </txtPublishPasswordPeopleKnown>
+<txtEnterPassword>输入密码</txtEnterPassword>
+<txtWelcomeWeiMaTao>欢迎加入微码淘商家联盟</txtWelcomeWeiMaTao>
+<txtYouStartJoinGame0.6bUser>现在您的系统将为你带来近6亿的潜在用户。</txtYouStartJoinGame0.6bUser>
+<txtStartNow>现在就开始使用</txtStartNow>
+<txtExit>退出</txtExit>
+
+
+
+<!-- BUSINESS INFO SECTION  -->
+<txtBusinessServices>商业信息服务</txtBusinessServices>
+<txtViewSupplierInfo>供应商信息查看</txtViewSupplierInfo>
+<txtViewIndustryInfo>行业信息查看</txtViewIndustryInfo>
+<txtStoreComparationInfo>商户信息查看</txtStoreComparationInfo>
+<txtViewLocationInfo>查看本地信息</txtViewLocationInfo>
+<txtViewHRInfo>查看人力信息</txtViewHRInfo>
+<txtJoinVIP>加入VIP客户</txtJoinVIP>
+<txtContactSupportManager>联系我的专属客服经理</txtContactSupportManager>
+<txtSupplierInfo>供应商信息查看</txtSupplierInfo>
+<txtSelectSupplier>选择供应商</txtSelectSupplier>
+<txtByType>按类型排序</txtByType>
+<txtSupplierDetailInfo>供应商详细信息查看</txtSupplierDetailInfo>
+<txtCompareAInfo>对比信息</txtCompareAInfo>
+<txtIndustryInfo>行业信息查看</txtIndustryInfo>
+<txtSelectIndustry>选择行业</txtSelectIndustry>
+<txtStoreCompaliationInfo>竞争信息查看</txtStoreCompaliationInfo>
+<txtStoreCompilation>Store Compilation</txtStoreCompilation>
+<txtLocationInfo>Location Info</txtLocationInfo>
+<txtHRINfo>HR Info</txtHRINfo>
+<txtJointWMTVIP>Joint WMT VIP</txtJointWMTVIP>
+<txtJoin>Join</txtJoin>
+
+
+
+<!-- MYSTORE SECTION  -->
+<txtMyStore>My Store</txtMyStore>
+<txtSaveChanges>Save Changes</txtSaveChanges>
+<txtExitApplication>Exit Application</txtExitApplication>
+</localization>

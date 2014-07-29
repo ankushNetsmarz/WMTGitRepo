@@ -18,7 +18,7 @@
                 regObj.mobileNumber = MobileNo; regObj.emailAddress = Email;
             }
             else {
-                $.dynamic_popup(' <p>Phone number already exist.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
+                $.dynamic_popup(' <p>Phone number already exist .</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
             }
         });
 
@@ -86,3 +86,9 @@
     });
 
 })(jQuery)
+
+/******* click Start Now *******/
+
+$('#txtStartNow').click(function () {
+    $.mobile.navigate("#dvStore");
+});

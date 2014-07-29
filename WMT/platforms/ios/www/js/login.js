@@ -1,4 +1,4 @@
-
+objlocalStorage.Store_ID = 0;
 (function ($) {
 
 
@@ -30,6 +30,7 @@
                     window.localStorage.setItem("username", '');
                     window.localStorage.setItem("pwd", '');
                 }
+               
                 $.mobile.navigate("#dvStore");
             }
             else {
@@ -98,10 +99,24 @@
             window.localStorage.setItem("username", '');
             window.localStorage.setItem("pwd", '');
             $('#txtUserName, #txtPassword').val('');
-            //$('#rememberme').prop('checked', false).checkboxradio('refresh');
+            $('#rememberme').prop('checked', false).checkboxradio('refresh');
         }
         localStorage.clear();
         $.mobile.navigate('#login');
+    });
+    $(document).ready(function () {
+        var ajaxcallobj = {
+            url: "helptext",
+            data: { helptext: 'e' }
+        }
+        WMT.jqXHR(ajaxcallobj, function (response) {
+            if (response.length > 0) {
+               
+                $('#helptext').html(response[0].helptext);
+
+            }
+        });
+
     });
 
 })(jQuery)

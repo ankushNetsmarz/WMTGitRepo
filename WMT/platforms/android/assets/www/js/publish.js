@@ -8,6 +8,7 @@
  
  
  $(document).on('click', '.clsPublisNav', function () {
+   
                 $navTo = $(this).attr('navigateTo');
                 
                 $('.publishPusinessinfo li').removeClass('current');
@@ -15,10 +16,10 @@
                 
                 
                 /* check if store has published pin then show publish screen*/
-                if (objlocalStorage.Publish_Pin != null && objlocalStorage.Publish_Pin != undefined && $navTo != "#dvViewPublishedInfo" && objlocalStorage.Publish_Pin != "") {
-                $.mobile.navigate('#dvPublishPin');
-                }
-                else {
+                //if (objlocalStorage.Publish_Pin != null && objlocalStorage.Publish_Pin != undefined && $navTo != "#dvViewPublishedInfo" && objlocalStorage.Publish_Pin != "") {
+                //$.mobile.navigate('#dvPublishPin');
+                //}
+                //else {
                 if ($navTo == "#dvMemberShipDiscount") {
                 $.mobile.navigate($navTo);
                 membership.getMemberShipdiscount();
@@ -33,7 +34,7 @@
                 else {
                 $.mobile.navigate($navTo);
                 }
-                }
+                //}
                 PID = 0, counter = 1;
                 $('.clrPublishedInfo').val('');
                 });
@@ -45,13 +46,12 @@
                 $thisImage = $(this).children('img');
                 });
  $(document).on('click', '#btnPickImageCamera', function () {
-                capturePhotoCamera();
-                $thisImage.attr('src', "data:image/jpeg;base64," + imageDataObject);
+                capturePhotoCamera($thisImage);
                 $('#cancelUpload').trigger('click');
                 
                 });
  $(document).on('click', '#btnPickImageGallery', function () {
-                capturePhotoLibrary();
+                capturePhotoLibrary($thisImage);
                 $thisImage.attr('src', "data:image/jpeg;base64," + imageDataObject);
                 $('#cancelUpload').trigger('click');
                 });
@@ -60,27 +60,47 @@
  /************************** validate publish pin *********************/
  
  $(document).on('submit', '#frmPublishPin', function () {
-                var publishedPin = $.trim($('#txtPublishedPassword').val());
-                
-                var ajaxcallobj = {
-                url: "validatepublishpin",
-                data: {
-                store_id: objlocalStorage.Store_ID, published_pin: publishedPin
-                }
-                }
-                WMT.jqXHR(ajaxcallobj, function (response) {
-                          if (response.success > 0) {
-                          $('#frmPublishPin')[0].reset();
-                          $.mobile.navigate($navTo);
-                          if ($navTo == "#dvMemberShipDiscount") {
-                          membership.getMemberShipdiscount();
-                          }
-                          }
-                          else {
-                          $.dynamic_popup(' <p>Invalid Publish Password.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
-                          }
-                          });
-                
+     var publishedPin = $.trim($('#txtPublishedPassword').val());
+
+    
+  
+
+         var ajaxcallobj = {
+             url: "validatepublishpin",
+             data: {
+                 store_id: objlocalStorage.Store_ID, published_pin: publishedPin
+             }
+         }
+         WMT.jqXHR(ajaxcallobj, function (response) {
+
+             if (response.success > 0) {
+                 if (Publishpinfor == "Password") {
+                     ChangePassword();
+                     $.mobile.navigate('#dvStore');
+
+                 }
+                 else if (Publishpinfor == "Store") {
+                     savestoreinformation();
+                     $.mobile.navigate('#dvStore');
+
+                 }
+                 else if (Publishpinfor == "Industries") {
+                    
+                     saveindustriesinformation();
+                     $.mobile.navigate('#dvStore');
+
+                 }
+                 else {
+                     $('#frmPublishPin')[0].reset();
+                     $.mobile.navigate('#dvPublishInfo');
+                 }
+
+             }
+             else {
+                 $.dynamic_popup(' <p>Invalid Publish Password.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
+             }
+         });
+     
                 });
  
  /********************* Get membership discount ********************************/
@@ -160,8 +180,8 @@
                 
                 WMT.jqXHR(ajaxcallobj, function (response) {
                           if (response.success > 0) {
-                              membershipDiscount = discount;
-                              $('#dis_rte').html(membershipDiscount);
+                          membershipDiscount = discount;
+                          $('#dis_rte').html(membershipDiscount);
                           $.dynamicSuccess_popup('<p>Membership discount published succesfully.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
                           }
                           });
@@ -508,4 +528,18 @@
                                 }
                                 });
  }
+
+    /*************** Check Publish Pin ***********************/
+ $('.Publish_screen').click(function () {
+    
+     if (objlocalStorage.Publish_Pin != null && objlocalStorage.Publish_Pin != undefined && $navTo != "#dvViewPublishedInfo" && objlocalStorage.Publish_Pin != "") {
+         $.mobile.navigate('#dvPublishPin');
+     }
+     else {
+         $.mobile.navigate('#dvPublishInfo');
+     }
+    
+ });
+
+    /********************************************************/
  })(jQuery)
