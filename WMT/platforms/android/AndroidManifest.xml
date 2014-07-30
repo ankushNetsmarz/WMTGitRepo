@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
-<manifest android:hardwareAccelerated="true" android:versionCode="1" android:versionName="0.0.1" android:windowSoftInputMode="adjustPan" package="com.wmt.wmt" xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest android:hardwareAccelerated="true" android:versionCode="1" android:versionName="0.0.1" android:windowSoftInputMode="adjustPan" package="com.app.wmt" xmlns:android="http://schemas.android.com/apk/res/android">
     <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true" android:xlargeScreens="true" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <application android:debuggable="true" android:hardwareAccelerated="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name">
-        <activity android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale" android:label="@string/app_name" android:name="WMT" android:screenOrientation="portrait" android:theme="@android:style/Theme.Black.NoTitleBar">
+    <application android:hardwareAccelerated="true" android:icon="@drawable/icon" android:label="@string/app_name">
+        <activity android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale" android:label="@string/app_name" android:launchMode="singleTop" android:name="wmt" android:theme="@android:style/Theme.Black.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -15,13 +15,13 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:label="@string/share_name" android:name="com.google.zxing.client.android.encode.EncodeActivity" android:screenOrientation="landscape">
+        <activity android:label="@string/share_name" android:name="com.google.zxing.client.android.encode.EncodeActivity">
             <intent-filter>
                 <action android:name="com.phonegap.plugins.barcodescanner.ENCODE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:label="@string/share_name" android:name="com.google.zxing.client.android.HelpActivity" android:screenOrientation="portrait">
+        <activity android:label="@string/share_name" android:name="com.google.zxing.client.android.HelpActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -29,10 +29,10 @@
         </activity>
     </application>
     <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="19" />
-    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
-       <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.RECORD_VIDEO" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-feature android:name="android.hardware.camera" android:required="false" />
-  
 </manifest>

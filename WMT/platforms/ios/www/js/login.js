@@ -30,7 +30,7 @@ objlocalStorage.Store_ID = 0;
                     window.localStorage.setItem("username", '');
                     window.localStorage.setItem("pwd", '');
                 }
-               
+                GetIndustryInformation();
                 $.mobile.navigate("#dvStore");
             }
             else {
@@ -120,3 +120,20 @@ objlocalStorage.Store_ID = 0;
     });
 
 })(jQuery)
+function GetIndustryInformation() {
+    var ajaxcallobj = {
+        url: "getindustry",
+        data: { language: 'e' }
+    }
+
+    WMT.jqXHR(ajaxcallobj, function (response) {
+
+        if (response.length > 0) {
+
+            $('#sltIndustryEdit1').html(' <option value="' + response[0].industryName + '">' + response[0].industryName + '</option> <option value="' + response[1].industryName + '">' + response[1].industryName + '</option><option value="' + response[2].industryName + '">' + response[2].industryName + '</option><option value="' + response[3].industryName + '">' + response[3].industryName + '</option>');
+            $('#sltIndustryEdit2').html(' <option value="' + response[0].industryName + '">' + response[0].industryName + '</option> <option value="' + response[1].industryName + '">' + response[1].industryName + '</option><option value="' + response[2].industryName + '">' + response[2].industryName + '</option><option value="' + response[3].industryName + '">' + response[3].industryName + '</option>');
+            $('#sltIndustryEdit3').html(' <option value="' + response[0].industryName + '">' + response[0].industryName + '</option> <option value="' + response[1].industryName + '">' + response[1].industryName + '</option><option value="' + response[2].industryName + '">' + response[2].industryName + '</option><option value="' + response[3].industryName + '">' + response[3].industryName + '</option>');
+
+        }
+    });
+}

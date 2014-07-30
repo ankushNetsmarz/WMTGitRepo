@@ -42,7 +42,7 @@ function capturePhotoLibrary1() {
 }
 
 function capturePhotoLibrary2() {
-    
+    alert(11);
     navigator.camera.getPicture(getPhoto, onFail, {
                                 quality: 50,
                                 destinationType: Camera.DestinationType.DATA_URL,
@@ -92,6 +92,7 @@ function getPhoto(imageData) {
         else
         {
             // $.mobile.navigate('#dvScanMemberShip');
+            alert(result);
             GetPoints(result);
         }
     };

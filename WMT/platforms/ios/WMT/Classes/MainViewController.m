@@ -19,7 +19,7 @@
 
 //
 //  MainViewController.h
-//  WMT
+//  wmt
 //
 //  Created by ___FULLUSERNAME___ on ___DATE___.
 //  Copyright ___ORGANIZATIONNAME___ ___YEAR___. All rights reserved.
@@ -77,10 +77,6 @@
     // Do any additional setup after loading the view from its nib.
 }
 
-- (BOOL)prefersStatusBarHidden {
-    return YES;
-}
-
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -88,6 +84,9 @@
     // e.g. self.myOutlet = nil;
 }
 
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations

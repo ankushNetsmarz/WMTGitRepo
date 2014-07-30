@@ -1,4 +1,4 @@
-﻿
+
 /*********************************fetch Memeber List *************************************/
 
 $('#txtMembershipManagement1').click(function () {
@@ -155,8 +155,8 @@ $('#Sort_TotalPoint').click(function () {
             if (response.length > 0) {
                
                 var url = response[0].employeeAnalysis;
-               // window.open(url, "_blank");
-               navigator.app.loadUrl(url, { openExternal:true });
+               
+                navigator.app.loadUrl(url, { openExternal:true });
                            }
            
         });

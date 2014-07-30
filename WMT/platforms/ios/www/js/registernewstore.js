@@ -31,7 +31,6 @@
         $.mobile.navigate("#wstep3");
     });
 
-
     $(document).on('submit', '#frmStep3', function () {
         regObj.storeName = $.trim($('#txtStoreName').val());
         regObj.phoneNumber = $.trim($('#txtPhone').val());

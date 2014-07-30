@@ -1,4 +1,4 @@
-
+var pinentered = 0;
 (function ($) {
  
  
@@ -40,7 +40,7 @@
                 });
  
  
- /************************* Picture event from camera *****************/
+ /************************* Picture event from camera *********************/
  var $thisImage;
  $(document).on('click', '.uploadImage', function () {
                 $thisImage = $(this).children('img');
@@ -57,7 +57,7 @@
                 });
  
  
- /************************** validate publish pin *********************/
+ /************************** validate publish pin *******************************/
  
  $(document).on('submit', '#frmPublishPin', function () {
      var publishedPin = $.trim($('#txtPublishedPassword').val());
@@ -72,7 +72,7 @@
              }
          }
          WMT.jqXHR(ajaxcallobj, function (response) {
-
+             $('#change_password').html('******');
              if (response.success > 0) {
                  if (Publishpinfor == "Password") {
                      ChangePassword();
@@ -97,7 +97,16 @@
 
              }
              else {
+              
+              
                  $.dynamic_popup(' <p>Invalid Publish Password.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
+                 pinentered = parseInt(pinentered) + 1;
+                 if (pinentered == 3) {
+                     pinentered = 0;
+                     $.mobile.navigate('#login');
+
+                 }
+                
              }
          });
      
@@ -317,9 +326,10 @@
  }
  
  WMT.jqXHR(ajaxcallobj, function (response) {
+     debugger;
            var html = "";
            if (response.StorePicture.length > 0) {
-           
+              
            for (var i = 0; i < response.StorePicture.length; i++) {
            html += '<div class="points-main"><p></p><div class="uploder"><div class="view-published">'
            + ' <div class="callbacks_container"> <ul class="rslides callbacks callbacks4" id="slider4 ">' + response.StorePicture[i].Images + '</ul></div>'

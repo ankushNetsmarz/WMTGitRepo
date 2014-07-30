@@ -1027,17 +1027,9 @@
                                 </div>
                                 <div class="ui-block-b">
                                     <div>
-                                    <input id="sltDuration" data-role="date" type="text">
+                                    <input id="sltDuration" data-role="date" type="text"/>
                                         </div>
-                                   <!-- <select name="sltDuration" id="sltDuration" data-theme="c" data-native-menu="false">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                    </select>-->
+                               
                                 </div>
                                 <div class="ui-block-b currency"></div>
 
@@ -1534,8 +1526,8 @@
             <div class="wapper-wrap">
                 <div class="wrap-left" style="text-align: left;">Select Member</div>
                 <div class="wrap-left" style="text-align: right; width: auto; float: right;">
-                    Sort<br>
-                    <center><img src="css/images/down-arrow.png" alt="" width="16" height="11"></center>
+                    Sort<img src="css/images/down-arrow.png" alt="" width="16" height="11">
+                   
                 </div>
             </div>
         </div>
@@ -1769,24 +1761,24 @@
                     <div class="wapper-wrap">
                         <label class="name" for="selectIndustrylevel1">Industry</label>
                         <select name="sltIndustryEdit1" id="sltIndustryEdit1" data-theme="c" data-native-menu="false">
-                            <option value="Industrylevel1">Industry level1</option>
+                          <!--  <option value="Industrylevel1">Industry level1</option>
                             <option value="Industrylevel2">Industry level2</option>
                             <option value="Industrylevel3">Industry level3</option>
-                            <option value="Industrylevel4">Industry level4</option>
+                            <option value="Industrylevel4">Industry level4</option>-->
                         </select>
                         <label class="name" for="sltIndustryEdit2"></label>
                         <select name="sltIndustryEdit2" id="sltIndustryEdit2" data-theme="c" data-native-menu="false">
-                            <option value="Industrylevel1">Industry level1</option>
+                        <!--    <option value="Industrylevel1">Industry level1</option>
                             <option value="Industrylevel2">Industry level2</option>
                             <option value="Industrylevel3">Industry level3</option>
-                            <option value="Industrylevel4">Industry level4</option>
+                            <option value="Industrylevel4">Industry level4</option>-->
                         </select>
                         <label class="name" for="sltIndustryEdit3"></label>
                         <select name="sltIndustryEdit3" id="sltIndustryEdit3" data-theme="c" data-native-menu="false">
-                            <option value="Industrylevel1">Industry level1</option>
+                            <!--<option value="Industrylevel1">Industry level1</option>
                             <option value="Industrylevel2">Industry level2</option>
                             <option value="Industrylevel3">Industry level3</option>
-                            <option value="Industrylevel4">Industry level4</option>
+                            <option value="Industrylevel4">Industry level4</option>-->
                         </select>
 
                         <div class="button">
@@ -1801,7 +1793,7 @@
                             </div>
                             <div class="clr"></div>
                         </div>
-                       <div style="margin-bottom:10px;font-size:10px;color:red;text-align:center;"><i>version 5.0</i></div>
+                       <div style="margin-bottom:10px;font-size:10px;color:red;text-align:center;"><i>version 1.0</i></div>
                     </div>
                 </form>
                 <div class="clr"></div>
@@ -1843,11 +1835,13 @@
 
     <div id="helpPopup-outside-page" data-overlay-theme="a" data-theme="b" data-dismissible="true" data-position-to="window">
 
-        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+        <!--<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>-->
         <h3>WMT Help</h3>
         <div role="main" class="ui-content" style="text-align: left; max-height: 400px; overflow-y: scroll; overflow-x: hidden;">
           <div id="helptext">  Welcome to WMT, This page will be updated later, for now please call you customer services directly! Thank you, WMT Team.</div>
+           
         </div>
+         <a data-rel="back" data-theme="b" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" href="#">Close</a>
     </div>
 
     <!-- Agreement Popup -->
@@ -1888,15 +1882,15 @@
             <div class="ui-field-contain">           
                     <div class="pnt_exch" >Point Exchange</div>  
                 <div style="width:100%"> 
-                <div class="gft_pnt_lft">Points:</div> <div class="gft_pnt_rgt"> 500</div>
+                <div class="gft_pnt_lft">Points:</div> <div class="gft_pnt_rgt" id="gift_point"> 500</div>
                     </div>   
                  <div class="cus_clr" ></div>
-                <div class="gft_pnt_lft cus_mgn">Amount:</div> <div class="gft_pnt_rgt"><div class="cus_minus">
-                    <img src="css/images/minus.jpg" />
+                <div class="gft_pnt_lft cus_mgn">Amount:</div> <div class="gft_pnt_rgt"><div class="cus_minus" >
+                    <img src="css/images/minus.jpg" id="minus" />
                      </div><div class="cus_plus">
-                      2 <img src="css/images/plus_icon.jpg" /></div></div>
+                      <span id="gift-multiplier">1</span> <img src="css/images/plus_icon.jpg" id="plus"/></div></div>
                  <div class="cus_clr" ></div>
-                <div class="gft_pnt_lft">Total Points:</div> <div class="gft_pnt_rgt">1000</div>
+                <div class="gft_pnt_lft">Total Points:</div> <div class="gft_pnt_rgt" ><span id="gift_Total">1000</span></div>
                  <div class="cus_clr" ></div>
                 <div class="gft_gap"> &nbsp </div>
                  <div class="pnt_exch" >Customer Phone Number</div>  

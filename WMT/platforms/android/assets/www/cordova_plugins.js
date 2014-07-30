@@ -1,10 +1,10 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
 module.exports = [
     {
-        "file": "plugins/com.phonegap.plugins.barcodescanner/www/barcodescanner.js",
-        "id": "com.phonegap.plugins.barcodescanner.BarcodeScanner",
+        "file": "plugins/org.apache.cordova.inappbrowser/www/inappbrowser.js",
+        "id": "org.apache.cordova.inappbrowser.inappbrowser",
         "clobbers": [
-            "cordova.plugins.barcodeScanner"
+            "window.open"
         ]
     },
     {
@@ -36,43 +36,216 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/org.apache.cordova.dialogs/www/notification.js",
-        "id": "org.apache.cordova.dialogs.notification",
-        "merges": [
-            "navigator.notification"
-        ]
-    },
-    {
-        "file": "plugins/org.apache.cordova.dialogs/www/android/notification.js",
-        "id": "org.apache.cordova.dialogs.notification_android",
-        "merges": [
-            "navigator.notification"
-        ]
-    },
-    {
-        "file": "plugins/org.apache.cordova.network-information/www/network.js",
-        "id": "org.apache.cordova.network-information.network",
+        "file": "plugins/org.apache.cordova.file/www/DirectoryEntry.js",
+        "id": "org.apache.cordova.file.DirectoryEntry",
         "clobbers": [
-            "navigator.connection",
-            "navigator.network.connection"
+            "window.DirectoryEntry"
         ]
     },
     {
-        "file": "plugins/org.apache.cordova.network-information/www/Connection.js",
-        "id": "org.apache.cordova.network-information.Connection",
+        "file": "plugins/org.apache.cordova.file/www/DirectoryReader.js",
+        "id": "org.apache.cordova.file.DirectoryReader",
         "clobbers": [
-            "Connection"
+            "window.DirectoryReader"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.file/www/Entry.js",
+        "id": "org.apache.cordova.file.Entry",
+        "clobbers": [
+            "window.Entry"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.file/www/File.js",
+        "id": "org.apache.cordova.file.File",
+        "clobbers": [
+            "window.File"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.file/www/FileEntry.js",
+        "id": "org.apache.cordova.file.FileEntry",
+        "clobbers": [
+            "window.FileEntry"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.file/www/FileError.js",
+        "id": "org.apache.cordova.file.FileError",
+        "clobbers": [
+            "window.FileError"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.file/www/FileReader.js",
+        "id": "org.apache.cordova.file.FileReader",
+        "clobbers": [
+            "window.FileReader"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.file/www/FileSystem.js",
+        "id": "org.apache.cordova.file.FileSystem",
+        "clobbers": [
+            "window.FileSystem"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.file/www/FileUploadOptions.js",
+        "id": "org.apache.cordova.file.FileUploadOptions",
+        "clobbers": [
+            "window.FileUploadOptions"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.file/www/FileUploadResult.js",
+        "id": "org.apache.cordova.file.FileUploadResult",
+        "clobbers": [
+            "window.FileUploadResult"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.file/www/FileWriter.js",
+        "id": "org.apache.cordova.file.FileWriter",
+        "clobbers": [
+            "window.FileWriter"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.file/www/Flags.js",
+        "id": "org.apache.cordova.file.Flags",
+        "clobbers": [
+            "window.Flags"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.file/www/LocalFileSystem.js",
+        "id": "org.apache.cordova.file.LocalFileSystem",
+        "clobbers": [
+            "window.LocalFileSystem"
+        ],
+        "merges": [
+            "window"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.file/www/Metadata.js",
+        "id": "org.apache.cordova.file.Metadata",
+        "clobbers": [
+            "window.Metadata"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.file/www/ProgressEvent.js",
+        "id": "org.apache.cordova.file.ProgressEvent",
+        "clobbers": [
+            "window.ProgressEvent"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.file/www/fileSystems.js",
+        "id": "org.apache.cordova.file.fileSystems"
+    },
+    {
+        "file": "plugins/org.apache.cordova.file/www/requestFileSystem.js",
+        "id": "org.apache.cordova.file.requestFileSystem",
+        "clobbers": [
+            "window.requestFileSystem"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.file/www/resolveLocalFileSystemURI.js",
+        "id": "org.apache.cordova.file.resolveLocalFileSystemURI",
+        "merges": [
+            "window"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.file/www/android/FileSystem.js",
+        "id": "org.apache.cordova.file.androidFileSystem",
+        "merges": [
+            "FileSystem"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.file/www/fileSystems-roots.js",
+        "id": "org.apache.cordova.file.fileSystems-roots",
+        "runs": true
+    },
+    {
+        "file": "plugins/org.apache.cordova.file/www/fileSystemPaths.js",
+        "id": "org.apache.cordova.file.fileSystemPaths",
+        "merges": [
+            "cordova"
+        ],
+        "runs": true
+    },
+    {
+        "file": "plugins/org.apache.cordova.media-capture/www/CaptureAudioOptions.js",
+        "id": "org.apache.cordova.media-capture.CaptureAudioOptions",
+        "clobbers": [
+            "CaptureAudioOptions"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.media-capture/www/CaptureImageOptions.js",
+        "id": "org.apache.cordova.media-capture.CaptureImageOptions",
+        "clobbers": [
+            "CaptureImageOptions"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.media-capture/www/CaptureVideoOptions.js",
+        "id": "org.apache.cordova.media-capture.CaptureVideoOptions",
+        "clobbers": [
+            "CaptureVideoOptions"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.media-capture/www/CaptureError.js",
+        "id": "org.apache.cordova.media-capture.CaptureError",
+        "clobbers": [
+            "CaptureError"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.media-capture/www/MediaFileData.js",
+        "id": "org.apache.cordova.media-capture.MediaFileData",
+        "clobbers": [
+            "MediaFileData"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.media-capture/www/MediaFile.js",
+        "id": "org.apache.cordova.media-capture.MediaFile",
+        "clobbers": [
+            "MediaFile"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.media-capture/www/capture.js",
+        "id": "org.apache.cordova.media-capture.capture",
+        "clobbers": [
+            "navigator.device.capture"
+        ]
+    },
+    {
+        "file": "plugins/com.phonegap.plugins.barcodescanner/www/barcodescanner.js",
+        "id": "com.phonegap.plugins.barcodescanner.BarcodeScanner",
+        "clobbers": [
+            "cordova.plugins.barcodeScanner"
         ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "com.phonegap.plugins.barcodescanner": "1.0.1",
+    "org.apache.cordova.inappbrowser": "0.5.1-dev",
     "org.apache.cordova.camera": "0.3.1-dev",
-    "org.apache.cordova.console": "0.2.10-dev",
-    "org.apache.cordova.dialogs": "0.2.9-dev",
-    "org.apache.cordova.network-information": "0.2.11-dev"
+    "org.apache.cordova.file": "1.2.1-dev",
+    "org.apache.cordova.media-capture": "0.3.2-dev",
+    "com.phonegap.plugins.barcodescanner": "1.0.1"
 }
 // BOTTOM OF METADATA
 });

@@ -60,7 +60,7 @@ var Publishpinfor = "";
                      
                      var $this = $(this).parents('.modyfy-button').prev('div');
                      $('.modify-btn').attr('value', 'Edit').button("refresh");
-                     
+                     $('#change_password').html('******');
                      
                      if ($(this).attr('customattr') == "Cancel") {
                      
@@ -79,6 +79,7 @@ var Publishpinfor = "";
                         $('<div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset dynamicInputs firstClass" ><input type="password" name="txtEditStore" style="margin-bottom:4px" placeholder="Previous Password" class="secondClass requfield" id="prev_pwd" currentControl="' + $this.attr('id') + '" value="' + $this.html() + '" /><input type="password" placeholder="New Password" style="margin-bottom:4px" name="txtEditStore" id="new_pwd" class="secondClass requfield" currentControl="' + $this.attr('id') + '" /><input style="margin-bottom:4px" type="password" name="txtEditStore" placeholder="Repeat Password" class="secondClass requfield" id="Repeat_password" currentControl="' + $this.attr('id') + '" value="' + $this.html() + '" /><input type="button" class="udte_pwd" value="Save"/><div style="clear:both"></div></div>').insertAfter($this);
                         $('#prev_pwd').val('');
                         $('#new_pwd').val('');
+                        $('#change_password').html('');
                         $('#change_password').html('')
                         $('.btnStoreChanges').removeClass('clsStoreShow').addClass('clsStorHide');
                          }

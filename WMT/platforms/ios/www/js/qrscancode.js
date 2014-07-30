@@ -150,7 +150,7 @@ function GetScanData() {
                 pointhtml += '<div  class="cus_clr"></div></div> '
                 for (var i = 0 ; i < response.length; i++) {
                     pointhtml += '<div class="div_pnt"><div class="pnt_lft"><div class="mgn_lft">' + response[i].giftPoint + ' Points for a ' + response[i].introduction + '</div>'
-                    pointhtml += '</div><div class="ptn_rgt"><div class="btn_exge Gift_Exchange" > Exchange </div> </div> <div  class="cus_clr"></div> </div>'
+                    pointhtml += '</div><div class="ptn_rgt"><div class="btn_exge Gift_Exchange" giftpoint=' + response[i].giftPoint + ' > Exchange </div> </div> <div  class="cus_clr"></div> </div>'
                 }
               
             }
@@ -200,7 +200,52 @@ function GetScanData() {
 
 /*********************************Navigate to Gift Exchange Screen **************************************/
 $(document).on('click', '.Gift_Exchange', function () {
+    var point = $(this).attr('giftpoint');
+    $('#gift_point').html(point);
+ 
+    var multiplier = $('#gift-multiplier').html();
+    var gifttotal = point * multiplier;
+    $('#gift_Total').html(gifttotal);
     $.mobile.navigate('#dvExchange');
+})
+
+
+
+
+/*******************************************************************************************************/
+
+/*********************************Click on Minus **************************************/
+$('#minus').click(function () {
+  
+    var multiplier = $('#gift-multiplier').html();
+    if (multiplier != 1) {
+        $('#gift-multiplier').html(parseInt(multiplier) - 1)
+        var point = $('#gift_point').html();
+        var multiplier = $('#gift-multiplier').html();
+        var gifttotal = point * multiplier;
+     
+        $('#gift_Total').html(gifttotal);
+    }
+   
+})
+
+
+/*******************************************************************************************************/
+
+/*********************************Click on plus **************************************/
+
+$('#plus').click(function () {
+
+    var multiplier = $('#gift-multiplier').html();
+
+        $('#gift-multiplier').html(parseInt(multiplier) + 1)
+        var point = $('#gift_point').html();  
+        var multiplier = $('#gift-multiplier').html();
+        var gifttotal = point * multiplier;
+       
+        $('#gift_Total').html(gifttotal);
+    
+
 })
 
 /*******************************************************************************************************/
@@ -221,12 +266,18 @@ $('#submitmemberid').click(function () {
             }
         }
         WMT.jqXHR(ajaxcallobj, function (response) {
+            if (response != undefined && response != null) {
+                $('#abl_pnt').html(response[0].wmtAvailablePoints);
+                $('#str_pnt').html(response[0].storePoints);
+                $('#wmt_pnt').html(response[0].wmtTotalPoint);
+                    $('#member_id').val('')
       
+        $.mobile.navigate("#dvQRCode");
+
+            }
 
         });
-        $('#member_id').val('')
-        GetPoints(memberid);
-        $.mobile.navigate("#dvQRCode");
+    
     }
    
 });
@@ -235,15 +286,21 @@ function GetPoints(x) {
     var code = x
     var ajaxcallobj = {
         url: 'getmembershippoints',
-        data: { qr_code: code }
+        data: {
+            qr_code: code,
+            store_id: objlocalStorage.Store_ID
+        }
     }
 
     WMT.jqXHR(ajaxcallobj, function (response) {
         if (response != undefined && response != null) {
-            $('#abl_pnt').html(response[0].availPoints);
+            $('#abl_pnt').html(response[0].wmtAvailablePoints);
             $('#str_pnt').html(response[0].storePoints);
-            $('#wmt_pnt').html(response[0].wmtPoints);
+            $('#wmt_pnt').html(response[0].wmtTotalPoint);
 
+        }
+        else {
+            alert('member not regestered...');
         }
     });
 }
