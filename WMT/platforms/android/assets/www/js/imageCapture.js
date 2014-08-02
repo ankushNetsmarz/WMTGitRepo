@@ -19,7 +19,8 @@ function onPhotoDataSuccess(imageData) {
 }
 
 function onFail() {
-    alert('Failed because: ' + message);
+    $.dynamicSuccess_popup(' Failed because: ' + message+'</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">ok</a>');
+  
 }
 
 function capturePhotoLibrary(x) {
@@ -70,7 +71,7 @@ function onSuccess(imageData) {
     }
     catch(e)
     {
-        alert(e);
+        //alert(e);
     }
     
     //    alert( window.localStorage.getItem("imageData"));
@@ -86,7 +87,8 @@ function getPhoto(imageData) {
     qrcode.callback=function(){
         if(this.result=="error")
         {
-            alert('Decoded:'+this.result)
+            $.dynamicSuccess_popup(' Decoded: ' + this.result + '</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">ok</a>');
+
             
         }
         else
@@ -99,7 +101,8 @@ function getPhoto(imageData) {
 }
 
 function onFail(message) {
-    alert('Failed because: ' + message);
+    $.dynamicSuccess_popup(' Failed because: ' + message + '</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">ok</a>');
+
 }
 
 function GetPoints(x) {

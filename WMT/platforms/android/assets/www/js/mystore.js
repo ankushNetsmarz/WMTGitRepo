@@ -61,7 +61,7 @@ var Publishpinfor = "";
                      var $this = $(this).parents('.modyfy-button').prev('div');
                      $('.modify-btn').attr('value', 'Edit').button("refresh");
                      $('#change_password').html('******');
-                     
+                     $('#Publish_Password').html('******');
                      if ($(this).attr('customattr') == "Cancel") {
                      
                      $('.btnStoreChanges').removeClass('clsStoreShow').addClass('clsStorHide');
@@ -80,9 +80,17 @@ var Publishpinfor = "";
                         $('#prev_pwd').val('');
                         $('#new_pwd').val('');
                         $('#change_password').html('');
-                        $('#change_password').html('')
+                       
                         $('.btnStoreChanges').removeClass('clsStoreShow').addClass('clsStorHide');
-                         }
+                    }
+                    else if ($this.attr('id') == "Publish_Password") {
+                        $('<div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset dynamicInputs firstClass" ><input type="password" placeholder="New Password" style="margin-bottom:4px" name="txtEditStore" id="Publish_new_pwd" class="secondClass requfield" currentControl="' + $this.attr('id') + '" /><input style="margin-bottom:4px" type="password" name="txtEditStore" placeholder="Repeat Password" class="secondClass requfield" id="Publish_Repeat_password" currentControl="' + $this.attr('id') + '" value="' + $this.html() + '" /><input type="button" class="Publish_udte_pwd" value="Save"/><div style="clear:both"></div></div>').insertAfter($this);
+                        $('#prev_pwd').val('');
+                        $('#Publish_prev_pwd').val('');                    
+                        $('#Publish_Password').html('');
+                      
+                        $('.btnStoreChanges').removeClass('clsStoreShow').addClass('clsStorHide');
+                    }
                      else {
                         $('<div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset dynamicInputs firstClass" ><input type="text" name="txtEditStore" class="secondClass" currentControl="' + $this.attr('id') + '" value="' + $this.html() + '" /></div>').insertAfter($this);
                         $('.btnStoreChanges').removeClass('clsStorHide').addClass('clsStoreShow');
@@ -204,3 +212,64 @@ function saveindustriesinformation() {
         }
     });
 }
+
+
+/****************************************************** publish Password *************************************************************************/
+$(document).on("click", ".Publish_udte_pwd", function () {
+
+
+    if ($('#Publish_new_pwd').val() == '' || $('#Publish_Repeat_password').val() == '') {
+        $.dynamicSuccess_popup('<p>All Field are required.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
+        return;
+    }
+    if (Publishcheckmatch()) {
+        $.dynamicSuccess_popup('<p>New Password not matched.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
+        return;
+    }
+    if (objlocalStorage.Publish_Pin != null && objlocalStorage.Publish_Pin != undefined && objlocalStorage.Publish_Pin != "") {
+        Publishpinfor = "PublishPassword";
+        $.mobile.navigate('#dvPublishPin');
+    }
+    else {
+        ChangePassword();
+    }
+
+
+
+
+})
+function Publishcheckmatch() {
+    if ($('#Publish_new_pwd').val() != $('#Publish_Repeat_password').val()) {
+
+        return 1;
+    }
+    else {
+        return 0;
+    }
+}
+
+
+function ChangePublishPassword() {
+    var newpassword = $('#Publish_new_pwd').val();
+
+    var ajaxcallobj = {
+        url: "changePinPassword",
+        data: { store_id: objlocalStorage.Store_ID, newpassword: newpassword }
+    }
+
+
+    WMT.jqXHR(ajaxcallobj, function (response) {
+
+        if (response.success > 0) {
+            resetControl();
+            myStore.getStoredata();
+            $.dynamicSuccess_popup('<p>Password updated succesfully.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
+        }
+        else {
+
+            myStore.getStoredata();
+            $.dynamicSuccess_popup('<p>Password Not updated.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
+        }
+    });
+}
+/****************************************************************************************************************************************************************/

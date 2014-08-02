@@ -1,5 +1,5 @@
 ﻿/// <reference path="../modules/header.html" />
 $(function () {
-    alert('a');
+    //alert('a');
     $('.headerChild').prepend('/modules/header.html');
 })(jQuery)

@@ -62,9 +62,6 @@ var pinentered = 0;
  $(document).on('submit', '#frmPublishPin', function () {
      var publishedPin = $.trim($('#txtPublishedPassword').val());
 
-    
-  
-
          var ajaxcallobj = {
              url: "validatepublishpin",
              data: {
@@ -73,6 +70,7 @@ var pinentered = 0;
          }
          WMT.jqXHR(ajaxcallobj, function (response) {
              $('#change_password').html('******');
+             $('#Publish_Password').html('******');
              if (response.success > 0) {
                  if (Publishpinfor == "Password") {
                      ChangePassword();
@@ -87,6 +85,12 @@ var pinentered = 0;
                  else if (Publishpinfor == "Industries") {
                     
                      saveindustriesinformation();
+                     $.mobile.navigate('#dvStore');
+
+                 }
+                 else if (Publishpinfor == "PublishPassword") {
+
+                     ChangePublishPassword();
                      $.mobile.navigate('#dvStore');
 
                  }
@@ -326,7 +330,7 @@ var pinentered = 0;
  }
  
  WMT.jqXHR(ajaxcallobj, function (response) {
-     debugger;
+    
            var html = "";
            if (response.StorePicture.length > 0) {
               

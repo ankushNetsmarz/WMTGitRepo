@@ -928,10 +928,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c41010', end
 }
 .cus_net
 {
-    width: 35%; 
-    float: left; 
-    margin-right: 10px;
-    font-size:14px;
+  float: left;
+    font-size: 14px;
+    margin-right: 17px;
+    padding: 4px;
+    text-align: right;
+    width: 30%;
+    border: 1px solid lightgray;
+     border-radius: 3px;
+     height: 19px;
 }
 .cus_adis
 {
@@ -949,6 +954,7 @@ text-shadow: 0 0 0 #f3f3f3;
     margin-top: 15px;
     font-size:14px;
 text-shadow: 0 0 0 #f3f3f3;
+ border-radius: 3px;
 }
 .cst_div
 {
@@ -1025,7 +1031,7 @@ text-shadow: 0 0 0 #f3f3f3;
 }
 .mpnt_lft
 {
-    background-color: #FF7033; text-align: left; padding:4px; float: left;width:100%;
+    background-color: #FF7033; text-align: left; padding:4px; float: left;
 }
 .mpnt_rgt
 {
@@ -1257,12 +1263,24 @@ h1
 
 .sorttext
 {
-    width:100px;color:#fff;background-color:#bc1616;cursor:pointer;z-index:2;border-radius:3px;box-shadow: 10px 10px 5px #888888;text-align:center;margin-top:5px;
+    width:100px;color:#fff;background-color:#bc1616;cursor:pointer;z-index:2;border-radius:3px;box-shadow: 10px 10px 5px #888888;text-align:center;margin-top:5px;padding:5px;
 }
 
 .sort_By
 {
-    width:100px;color:#fff;background-color:#000;
+    width:88px;color:#fff;background-color:#444444;padding:12px;border-radius:5px;
 
     text-align:center;
+}
+.Publish_udte_pwd
+{
+     border: 1px solid #000!important;
+      border: 1px solid #000!important;
+      cursor: pointer;
+      color:#fff!important;
+      background-color: #c44347;
+      padding:2px 13px!important;
+      width:auto!important;
+      float:right!important; margin-top:10px!important; margin-bottom:10px!important; line-height:none!important; min-height:inherit!important; font-family:sans-serif!important; font-weight:normal!important; font-size:16px!important; text-shadow:0px 0px #000!important;
+
 }

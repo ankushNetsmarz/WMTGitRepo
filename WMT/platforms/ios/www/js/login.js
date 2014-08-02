@@ -90,7 +90,9 @@ objlocalStorage.Store_ID = 0;
 
     /* logout event */
     $('.aLogout').on("click", function () {      
-        
+        $('#abl_pnt').html('');
+        $('#str_pnt').html('');
+        $('#wmt_pnt').html('');
         if (RememberMe) {
             window.localStorage.setItem("username", window.localStorage.getItem("username"));
             window.localStorage.setItem("pwd", window.localStorage.getItem("pwd"));
