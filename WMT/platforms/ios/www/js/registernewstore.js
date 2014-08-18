@@ -1,4 +1,4 @@
-﻿
+﻿var registerMobileNo = "";
 (function ($) {
 
     var retObj = {};
@@ -7,10 +7,11 @@
     $(document).on('submit', '#frmStep1', function () {
       
         if (!$('#agreement').is(":checked")) {
-            $.dynamic_popup(' <p>选择微码淘协议.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
+            $.dynamic_popup(' <p>Select WMT Agreement.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
             return;
         }
         var MobileNo = $.trim($('#txtMobileNumber').val());
+        registerMobileNo = $.trim($('#txtMobileNumber').val());
         var Email = $.trim($('#txtEmailAddress').val());
         var ajaxcallobj = {
             url: "existuser",
@@ -93,5 +94,9 @@
 /******* click Start Now *******/
 
 $('#txtStartNow').click(function () {
-    $.mobile.navigate("#dvStore");
+    var password = $.trim($('#txtRegPassword').val());
+    $('#txtUserName').val(registerMobileNo);
+    $('#txtPassword').val(password)
+    $('#frmLogin').submit();
+
 });

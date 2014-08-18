@@ -1,16 +1,16 @@
 
 $('#txtViewSupplierInfo').click(function () {
                                 var ajaxcallobj = {
-                                url: "getreportsinfo",
+                                    url: "businessreport",
                                 data: {
                                 store_id: objlocalStorage.Store_ID
                                 }
                                 }
                                 WMT.jqXHR(ajaxcallobj, function (response) {
-                                          
+                                    debugger;
                                           if (response.length > 0) {
                                           
-                                          var url = response[0].employeeAnalysis;
+                                              var url = response[0].reportURL;
                                           window.open(url,'_blank','location=no');
                                           }
                                           
@@ -21,7 +21,7 @@ $('#txtViewSupplierInfo').click(function () {
 
 $('#txtViewIndustryInfo').click(function () {
                                 var ajaxcallobj = {
-                                url: "getreportsinfo",
+                                    url: "businessreport",
                                 data: {
                                 store_id: objlocalStorage.Store_ID
                                 }
@@ -30,7 +30,7 @@ $('#txtViewIndustryInfo').click(function () {
                                           
                                           if (response.length > 0) {
                                           
-                                          var url = response[0].employeeAnalysis;
+                                              var url = response[1].reportURL;
                                           window.open(url,'_blank','location=no');
                                           }
                                           
@@ -42,7 +42,7 @@ $('#txtViewIndustryInfo').click(function () {
 
 $('#txtStoreComparationInfo').click(function () {
                                     var ajaxcallobj = {
-                                    url: "getreportsinfo",
+                                        url: "businessreport",
                                     data: {
                                     store_id: objlocalStorage.Store_ID
                                     }
@@ -51,7 +51,7 @@ $('#txtStoreComparationInfo').click(function () {
                                               
                                               if (response.length > 0) {
                                               
-                                              var url = response[0].employeeAnalysis;
+                                                  var url = response[2].reportURL;
                                               window.open(url,'_blank','location=no');
                                               }
                                               
@@ -63,7 +63,7 @@ $('#txtStoreComparationInfo').click(function () {
 
 $('#txtViewLocationInfo').click(function () {
                                 var ajaxcallobj = {
-                                url: "getreportsinfo",
+                                    url: "businessreport",
                                 data: {
                                 store_id: objlocalStorage.Store_ID
                                 }
@@ -72,7 +72,7 @@ $('#txtViewLocationInfo').click(function () {
                                           
                                           if (response.length > 0) {
                                           
-                                          var url = response[0].employeeAnalysis;
+                                              var url = response[3].reportURL;
                                           window.open(url,'_blank','location=no');
                                           }
                                           
@@ -84,7 +84,7 @@ $('#txtViewLocationInfo').click(function () {
 
 $('#txtViewHRInfo').click(function () {
                           var ajaxcallobj = {
-                          url: "getreportsinfo",
+                              url: "businessreport",
                           data: {
                           store_id: objlocalStorage.Store_ID
                           }
@@ -93,7 +93,7 @@ $('#txtViewHRInfo').click(function () {
                                     
                                     if (response.length > 0) {
                                     
-                                    var url = response[0].employeeAnalysis;
+                                        var url = response[4].reportURL;
                                     window.open(url,'_blank','location=no');
                                     }
                                     
@@ -104,7 +104,7 @@ $('#txtViewHRInfo').click(function () {
 
 $('#txtJoinVIP').click(function () {
                        var ajaxcallobj = {
-                       url: "getreportsinfo",
+                           url: "businessreport",
                        data: {
                        store_id: objlocalStorage.Store_ID
                        }
@@ -113,7 +113,7 @@ $('#txtJoinVIP').click(function () {
                                  
                                  if (response.length > 0) {
                                  
-                                 var url = response[0].employeeAnalysis;
+                                     var url = response[5].reportURL;
                                  window.open(url,'_blank','location=no');
                                  }
                                  
