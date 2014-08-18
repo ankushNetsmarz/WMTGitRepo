@@ -921,6 +921,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c41010', end
     text-shadow: 0 0 0 #f3f3f3;
     padding:10px 4px;
     font-size:15px;
+    cursor:pointer;
 }
 .cus_clr
 {
@@ -1003,15 +1004,15 @@ text-shadow: 0 0 0 #f3f3f3;
 }
 .btn_cscn
 {
-    width: 30%; height: 20%; color: #fff; background-color: #bc1616; float: left; margin-left: 1%; border-radius: 4px;text-shadow: 0 0 0 #f3f3f3;
+    width: 30%; height: 20%; color: #fff; background-color: #bc1616; float: left; margin-left: 1%; border-radius: 4px;text-shadow: 0 0 0 #f3f3f3;cursor:pointer;
 }
 .btn_nscn
 {
-    width: 30%; height: 20%; color: #fff; background-color: #bc1616; margin-left: 3%; float: left; border-radius: 4px;text-shadow: 0 0 0 #f3f3f3;
+    width: 30%; height: 20%; color: #fff; background-color: #bc1616; margin-left: 3%; float: left; border-radius: 4px;text-shadow: 0 0 0 #f3f3f3;cursor:pointer;
 }
 .btn_exge
 {
-    width: 80%; background-color: #bc1616; font-size: 15px; color: #fff; margin-top: 5px;margin-bottom:5px; font-family: Arial; border-radius: 4px;text-align:center;text-shadow: 0 0 0 #f3f3f3;padding: 10px 4px;
+    width: 80%; background-color: #bc1616; font-size: 15px; color: #fff; margin-top: 5px;margin-bottom:5px; font-family: Arial; border-radius: 4px;text-align:center;text-shadow: 0 0 0 #f3f3f3;padding: 10px 4px;cursor:pointer;
 }
 .div_pnt
 {
@@ -1180,7 +1181,7 @@ h1
 
     color:#fff;
     text-shadow: 0 0 0 #f3f3f3;
- 
+ cursor:pointer;
     font-size:15px;
 
 }
@@ -1202,8 +1203,8 @@ h1
 .cus_minus
 {
       padding-top:5px;
-    width:20%;
-    float:left;
+      width:20%;
+      float:left;
 }
 .cus_plus
 {

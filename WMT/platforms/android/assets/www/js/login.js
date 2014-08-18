@@ -84,7 +84,23 @@ objlocalStorage.Store_ID = 0;
     });
 
     $('#btnRegister').on('click', function () {
+        var ajaxcallobj = {
+            url: "getindustry",
+            data: { language: 'e' }
+        }
+
+        WMT.jqXHR(ajaxcallobj, function (response) {
+
+            if (response.length > 0) {
+
+                $('#selectIndustrylevel1').html(' <option value="' + response[0].industryName + '">' + response[0].industryName + '</option> <option value="' + response[1].industryName + '">' + response[1].industryName + '</option><option value="' + response[2].industryName + '">' + response[2].industryName + '</option><option value="' + response[3].industryName + '">' + response[3].industryName + '</option>');
+                $('#selectIndustrylevel2').html(' <option value="' + response[0].industryName + '">' + response[0].industryName + '</option> <option value="' + response[1].industryName + '">' + response[1].industryName + '</option><option value="' + response[2].industryName + '">' + response[2].industryName + '</option><option value="' + response[3].industryName + '">' + response[3].industryName + '</option>');
+                $('#selectIndustrylevel3').html(' <option value="' + response[0].industryName + '">' + response[0].industryName + '</option> <option value="' + response[1].industryName + '">' + response[1].industryName + '</option><option value="' + response[2].industryName + '">' + response[2].industryName + '</option><option value="' + response[3].industryName + '">' + response[3].industryName + '</option>');
+
+            }
+        });
         $.mobile.navigate("#wstep1");
+
     });
 
 
@@ -93,6 +109,17 @@ objlocalStorage.Store_ID = 0;
         $('#abl_pnt').html('');
         $('#str_pnt').html('');
         $('#wmt_pnt').html('');
+        $('#total_cost').val('');
+        $('#net_cost').val('');
+        $('#storename').html(' ');
+        $('#storeaddresss').html(' ');
+        $('#storeaddresss2').html('');
+        $('#emailaddress').html(' ');
+        $('#storeownername').html(' ');
+        $('#storephone').html(' ');
+        $('#Discount_Item_2').html('');
+        $('#Discount_Item_1').html('');
+        $('#point_div').html('');
         if (RememberMe) {
             window.localStorage.setItem("username", window.localStorage.getItem("username"));
             window.localStorage.setItem("pwd", window.localStorage.getItem("pwd"));

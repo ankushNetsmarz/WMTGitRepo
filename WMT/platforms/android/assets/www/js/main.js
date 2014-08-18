@@ -29,7 +29,7 @@ var WMT = myStore = membership = QRScan = $.fn;
                 return Callback(data);
             },
             error: function (error) {                
-                alert(error.status + "<-and-> " + error.statusText);
+                $.dynamic_popup('<p>Operation Failed.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">OK</a>');
             }
         });
     }

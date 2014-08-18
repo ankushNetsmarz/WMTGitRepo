@@ -1,17 +1,18 @@
 
 $('#txtViewSupplierInfo').click(function () {
                                 var ajaxcallobj = {
-                                url: "getreportsinfo",
+                                    url: "businessreport",
                                 data: {
                                 store_id: objlocalStorage.Store_ID
                                 }
                                 }
                                 WMT.jqXHR(ajaxcallobj, function (response) {
-                                          
+                                    debugger;
                                           if (response.length > 0) {
                                           
-                                          var url = response[0].employeeAnalysis;
-                                          navigator.app.loadUrl(url);                                          }
+                                              var url = response[0].reportURL;
+                                        navigator.app.loadUrl(url);
+                                          }
                                           
                                           });
                                 
@@ -20,7 +21,7 @@ $('#txtViewSupplierInfo').click(function () {
 
 $('#txtViewIndustryInfo').click(function () {
                                 var ajaxcallobj = {
-                                url: "getreportsinfo",
+                                    url: "businessreport",
                                 data: {
                                 store_id: objlocalStorage.Store_ID
                                 }
@@ -29,8 +30,9 @@ $('#txtViewIndustryInfo').click(function () {
                                           
                                           if (response.length > 0) {
                                           
-                                          var url = response[0].employeeAnalysis;
-                                          navigator.app.loadUrl(url);                                          }
+                                              var url = response[1].reportURL;
+                                        navigator.app.loadUrl(url);
+                                          }
                                           
                                           });
                                 
@@ -40,7 +42,7 @@ $('#txtViewIndustryInfo').click(function () {
 
 $('#txtStoreComparationInfo').click(function () {
                                     var ajaxcallobj = {
-                                    url: "getreportsinfo",
+                                        url: "businessreport",
                                     data: {
                                     store_id: objlocalStorage.Store_ID
                                     }
@@ -49,8 +51,9 @@ $('#txtStoreComparationInfo').click(function () {
                                               
                                               if (response.length > 0) {
                                               
-                                              var url = response[0].employeeAnalysis;
-                                              navigator.app.loadUrl(url);                                              }
+                                                  var url = response[2].reportURL;
+                                            navigator.app.loadUrl(url);
+                                              }
                                               
                                               });
                                 
@@ -60,7 +63,7 @@ $('#txtStoreComparationInfo').click(function () {
 
 $('#txtViewLocationInfo').click(function () {
                                 var ajaxcallobj = {
-                                url: "getreportsinfo",
+                                    url: "businessreport",
                                 data: {
                                 store_id: objlocalStorage.Store_ID
                                 }
@@ -69,8 +72,9 @@ $('#txtViewLocationInfo').click(function () {
                                           
                                           if (response.length > 0) {
                                           
-                                          var url = response[0].employeeAnalysis;
-                                          navigator.app.loadUrl(url);                                          }
+                                              var url = response[3].reportURL;
+                                        navigator.app.loadUrl(url);
+                                          }
                                           
                                           });
                                 
@@ -80,7 +84,7 @@ $('#txtViewLocationInfo').click(function () {
 
 $('#txtViewHRInfo').click(function () {
                           var ajaxcallobj = {
-                          url: "getreportsinfo",
+                              url: "businessreport",
                           data: {
                           store_id: objlocalStorage.Store_ID
                           }
@@ -89,8 +93,9 @@ $('#txtViewHRInfo').click(function () {
                                     
                                     if (response.length > 0) {
                                     
-                                    var url = response[0].employeeAnalysis;
-                                    navigator.app.loadUrl(url);                                    }
+                                        var url = response[4].reportURL;
+                                  navigator.app.loadUrl(url);
+                                    }
                                     
                                     });
                           
@@ -99,7 +104,7 @@ $('#txtViewHRInfo').click(function () {
 
 $('#txtJoinVIP').click(function () {
                        var ajaxcallobj = {
-                       url: "getreportsinfo",
+                           url: "businessreport",
                        data: {
                        store_id: objlocalStorage.Store_ID
                        }
@@ -108,8 +113,9 @@ $('#txtJoinVIP').click(function () {
                                  
                                  if (response.length > 0) {
                                  
-                                 var url = response[0].employeeAnalysis;
-                                 navigator.app.loadUrl(url);                                 }
+                                     var url = response[5].reportURL;
+                               navigator.app.loadUrl(url);
+                                 }
                                  
                                  });
                           
