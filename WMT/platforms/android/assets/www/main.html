@@ -16,6 +16,18 @@
     <script src="js/jquery.mobile.dynamic.popup.js"></script>
     <script src="js/responsiveslides.min.js"></script>
     <script src="cordova.js"></script>
+    <style>
+        * {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+        }
+
+        input,
+        textarea {
+            -webkit-touch-callout: auto;
+            -webkit-user-select: auto;
+        }
+    </style>
     <script>
 
         document.addEventListener("deviceready", onDeviceReady, false);
@@ -165,7 +177,8 @@
             <h1>Enroll</h1>
             <div class="maindiv_scan_lft clsback" id="txtBack10">
                 <img src="css/images/back_icon.png" />
-                Back</div>
+                Back
+            </div>
             <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="A1">Help</a></div>
         </div>
 
@@ -197,7 +210,8 @@
             <h1 id="erl1">Enroll</h1>
             <div class="maindiv_scan_lft clsback" id="txtBack11">
                 <img src="css/images/back_icon.png" />
-                Back</div>
+                Back
+            </div>
             <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp3">Help</a></div>
         </div>
 
@@ -226,7 +240,8 @@
             <h1 id="txtEnroll">Enroll</h1>
             <div class="maindiv_scan_lft clsback" id="txtBack12">
                 <img src="css/images/back_icon.png" />
-                Back</div>
+                Back
+            </div>
             <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp4">Help</a></div>
         </div>
         <div data-role="content" class="ui-content">
@@ -248,13 +263,13 @@
                     <input type="text" name="txtPhone" id="txtPhone" maxlength="15" placeholder="Phone">
                     <div class="clr"></div>
                     <label for="selectIndustrylevel1" class="cus_txt_lft">Industry</label>
-                    <select name="selectIndustrylevel1" id="selectIndustrylevel1" data-theme="c" data-native-menu="false">                    
+                    <select name="selectIndustrylevel1" id="selectIndustrylevel1" data-theme="c" data-native-menu="false">
                     </select>
                     <label for="selectIndustrylevel2"></label>
-                    <select name="selectIndustrylevel2" id="selectIndustrylevel2" data-theme="c" data-native-menu="false">              
+                    <select name="selectIndustrylevel2" id="selectIndustrylevel2" data-theme="c" data-native-menu="false">
                     </select>
                     <label for="selectIndustrylevel3"></label>
-                    <select name="selectIndustrylevel3" id="selectIndustrylevel3" data-theme="c" data-native-menu="false">                
+                    <select name="selectIndustrylevel3" id="selectIndustrylevel3" data-theme="c" data-native-menu="false">
                     </select>
                     <!--  <label for="selectIndustrylevel1">Type</label>
                     <select name="sltIndustryType" id="sltIndustryType" data-theme="c" data-native-menu="false">
@@ -277,7 +292,8 @@
             <h1 id="erl">Enroll</h1>
             <div class="maindiv_scan_lft clsback" id="txtBack13">
                 <img src="css/images/back_icon.png" />
-                Back</div>
+                Back
+            </div>
             <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp5">Help</a></div>
         </div>
 
@@ -322,7 +338,8 @@
             <h1 id="erl2">Enroll</h1>
             <div class="maindiv_scan_lft clsback" id="txtBack14">
                 <img src="css/images/back_icon.png" />
-                Back</div>
+                Back
+            </div>
             <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp6">Help</a></div>
         </div>
 
@@ -352,7 +369,8 @@
             <h1>Enroll Success</h1>
             <div class="maindiv_scan_lft clsback" id="txtBack15">
                 <img src="css/images/back_icon.png" />
-                Back</div>
+                Back
+            </div>
 
         </div>
 
@@ -393,31 +411,7 @@
 
         <div data-role="content" id="Div2" class="ui-content headerChild">
             <div class="ui-field-contain">
-                <div class="button">
-                    <a>
-                        <div class="btn_cscn" data-theme="a" id="txtScanQRCode" onclick="QRScan.ScanMemberShipCard();">
-                            Scan
-                        <br>
-                            QR<br>
-                            Code
-                        </div>
-                    </a>
-                    <a>
-                        <div class="btn_nscn" data-theme="a" id="txtLoadLocalPicture" onclick="QRScan.LoadPicture();">
-                            Load
-                        <br>
-                            Local<br>
-                            Picture
-                        </div>
-                    </a>
-                    <a href="#EnterMemberId" data-rel="popup" data-transition="pop">
-                        <div class="btn_nscn" data-theme="a;">
-                            Enter<br>
-                            Member<br>
-                            Id
-                        </div>
-                    </a>
-                </div>
+
                 <div class="div_cuspto">
                     <div class="cuspto_lft">
                         <div class="cus_cuspto">
@@ -472,7 +466,31 @@
                         <div class="btn_cok" id="txtOK">Ok</div>
                     </div>
                 </div>
-
+                <div class="button">
+                    <a>
+                        <div class="btn_cscn" data-theme="a" id="txtScanQRCode" onclick="QRScan.ScanMemberShipCard();">
+                            Scan
+                        <br>
+                            QR<br>
+                            Code
+                        </div>
+                    </a>
+                    <a>
+                        <div class="btn_nscn" data-theme="a" id="txtLoadLocalPicture" onclick="QRScan.LoadPicture();">
+                            Load
+                        <br>
+                            Local<br>
+                            Picture
+                        </div>
+                    </a>
+                    <a href="#EnterMemberId" data-rel="popup" data-transition="pop">
+                        <div class="btn_nscn" data-theme="a;">
+                            Enter<br>
+                            Member<br>
+                            Id
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
         <div data-role="footer" data-position="fixed" data-tap-toggle="false">
@@ -514,7 +532,8 @@
             <h1>Scan Membership</h1>
             <div class="maindiv_scan_lft clsback" id="txtBack16">
                 <img src="css/images/back_icon.png" />
-                Back</div>
+                Back
+            </div>
             <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp8">Help</a></div>
         </div>
         <div data-role="content" class="ui-content headerChild">
@@ -613,7 +632,7 @@
                     <p class="info">Info Type</p>
                     <div class="business-info publishPusinessinfo">
                         <ul>
-                            <li><a href="javascript:;" navigateto="#dvStoreInformation" class="clsPublisNav" id="txtStoreInformation1">Store Information</a></li>
+                            <li class="current"><a href="javascript:;" navigateto="#dvStoreInformation" class="clsPublisNav" id="txtStoreInformation1">Store Information</a></li>
                             <li><a href="javascript:;" navigateto="#dvMemberShipDiscount" class="clsPublisNav" id="mbr_dis">Membership Discount</a></li>
                             <li><a href="javascript:;" navigateto="#dvProductDiscount" class="clsPublisNav" id="txtProductDiscount">Product Discount</a></li>
                             <li><a href="javascript:;" navigateto="#dvProductforShortDuration" class="clsPublisNav" id="txtLastMinutesSale">Last Minutes Sale</a></li>
@@ -660,11 +679,12 @@
         </div>
     </div>
     <div data-role="page" id="dvPublishPin">
-        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" id="publishinfotext">
             <h1>Publish Info</h1>
             <div class="maindiv_scan_lft clsback" id="txtBack17">
                 <img src="css/images/back_icon.png" />
-                Back</div>
+                Back
+            </div>
             <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp10">Help</a></div>
         </div>
         <div data-role="content" class="ui-content headerChild">
@@ -718,7 +738,8 @@
             <h1>Store Information</h1>
             <div class="maindiv_scan_lft clsback" id="txtBack">
                 <img src="css/images/back_icon.png" />
-                Back</div>
+                Back
+            </div>
             <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp11">Help</a></div>
         </div>
         <div data-role="content" class="ui-content headerChild">
@@ -726,7 +747,6 @@
                 <form id="frmStoreInformation" onsubmit="return false;">
                     <div class="remember_div">
                         <div class="points-main">
-                            <p class="info-user" id="txtUserProductServices">User for product or services</p>
                             <p class="flright" id="P1">Upload Picture</p>
 
                             <div class="uploder">
@@ -804,7 +824,8 @@
             <h1>Publish Info</h1>
             <div class="maindiv_scan_lft clsback" id="txtBack1">
                 <img src="css/images/back_icon.png" />
-                Back</div>
+                Back
+            </div>
             <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp12">Help</a></div>
         </div>
         <div data-role="content" class="ui-content headerChild">
@@ -872,7 +893,8 @@
             <h1>Discount Product</h1>
             <div class="maindiv_scan_lft clsback" id="txtBack2">
                 <img src="css/images/back_icon.png" />
-                Back</div>
+                Back
+            </div>
             <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp13">Help</a></div>
         </div>
         <div data-role="content" class="ui-content headerChild">
@@ -881,7 +903,7 @@
                 <div class="remember_div">
                     <form id="frmProductDiscount" onsubmit="return false;">
                         <div class="points-main">
-                            <p class="info-user" id="usr_dis">User for product or services</p>
+
                             <p class="flright" id="uld_pic">Upload Picture</p>
 
 
@@ -982,7 +1004,8 @@
             <h1>Product Promotion</h1>
             <div class="maindiv_scan_lft clsback" id="txtBack3">
                 <img src="css/images/back_icon.png" />
-                Back</div>
+                Back
+            </div>
             <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp14">Help</a></div>
         </div>
         <div data-role="content" class="ui-content headerChild">
@@ -990,7 +1013,6 @@
                 <form id="frmProductDuration" onsubmit="return false;">
                     <div class="remember_div">
                         <div class="points-main">
-                            <p class="info-user" id="usr-prdser">User for product or services</p>
                             <p class="flright" id="up_pic">Upload Picture</p>
                             <div class="uploder">
                                 <div class="image-upload">
@@ -1103,7 +1125,8 @@
             <h1>Gift Point</h1>
             <div class="maindiv_scan_lft clsback" id="txtBack4">
                 <img src="css/images/back_icon.png" />
-                Back</div>
+                Back
+            </div>
             <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp15">Help</a></div>
         </div>
         <div data-role="content" class="ui-content headerChild">
@@ -1111,7 +1134,6 @@
                 <form id="frmGiftPoint" onsubmit="return false;">
                     <div class="remember_div">
                         <div class="points-main">
-                            <p class="info-user" id="usr_giftpro">User for product or services</p>
                             <p class="flright" id="uld_pic1">Upload Picture</p>
 
                             <div class="uploder">
@@ -1209,7 +1231,8 @@
             <h1>Publish Info</h1>
             <div class="maindiv_scan_lft clsback" id="txtBack5">
                 <img src="css/images/back_icon.png" />
-                Back</div>
+                Back
+            </div>
             <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp16">Help</a></div>
         </div>
         <div data-role="content" class="ui-content headerChild">
@@ -1275,7 +1298,7 @@
                     <div class="clr"></div>
                 </div>
                 <div class="points-main ">
-                    <p class="info" id="txtMembershipManagement">Membership Management</p>
+                    <!-- <p class="info" id="txtMembershipManagement">Membership Management</p>-->
                     <div class="business-info member_info">
                         <ul>
                             <li class="current"><a id="txtMembershipManagement1" href="#" class="chge_cls">Membership Management</a></li>
@@ -1326,7 +1349,8 @@
             <h1>Membership</h1>
             <div class="maindiv_scan_lft clsback" id="txtBack6">
                 <img src="css/images/back_icon.png" />
-                Back</div>
+                Back
+            </div>
             <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp18">Help</a></div>
         </div>
         <div class="top_bar-member">
@@ -1383,7 +1407,8 @@
             <h1>Membership Detail</h1>
             <div class="maindiv_scan_lft clsback" id="txtBack7">
                 <img src="css/images/back_icon.png" />
-                Back</div>
+                Back
+            </div>
             <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp19">Help</a></div>
         </div>
         <div data-role="content" class="ui-content headerChild">
@@ -1428,7 +1453,8 @@
             <h1>Membership Analysis</h1>
             <div class="maindiv_scan_lft clsback" id="Div9">
                 <img src="css/images/back_icon.png" />
-                Back</div>
+                Back
+            </div>
             <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="A3">Help</a></div>
         </div>
         <div data-role="content" class="ui-content headerChild">
@@ -1507,7 +1533,9 @@
                     <div class="avtar bussiness">
                         <img alt="" src="css/images/busines-man.jpg">
                     </div>
-                    <p class="cont-my" id="txtContactSupportManager">Contact My Support Manager</p>
+                    <p class="cont-my" id="txtContactSupportManager">
+                        <p style="margin-top: 16px; float: left;">Contact My Support Manager</p>
+                    </p>
                 </div>
             </div>
 
@@ -1549,7 +1577,8 @@
             <h1>Supplier Info</h1>
             <div class="maindiv_scan_lft clsback" id="txtBack8">
                 <img src="css/images/back_icon.png" />
-                Back</div>
+                Back
+            </div>
             <div class="maindiv_scan_rgt"><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="txtHelp21">Help</a></div>
         </div>
         <div class="top_bar-member">
@@ -1687,14 +1716,37 @@
             <div class="ui-field-contain">
                 <form id="frmSaveStoreChanges" onsubmit="return false;">
                     <div id="dvMystoreInfo">
+                        <div class="member-manage">
+                            <div class="wapper-wrap">
+                                <div class="add">
+                                    <div class="name">
+                                        <p style="padding-top:20px;">
+                                        Store Logo:
+                                            </p>
+                                    </div>
+                                    <div id="Div5" class="address">
+                                        <div class="upload">
+                                            <a href="#dvImageUpload" data-rel="popup" class="uploadImage" aria-haspopup="true" data-transition="pop" aria-owns="dvImageUpload" aria-expanded="false" class="ui-link">
+                                                <img alt="Logo" id="StoreLogo" class="clrImages" width="100" height="80" src="css/images/image-uploader.jpg">
+                                            </a>
+                                        </div>
+                                      
+                                    </div>
+                                      <div class="modyfy-button" style="background: none; border: none; box-shadow: none; ">
+                                           <p style="padding-top:25px;">  <img src="img/save.png"  id="savelogo"/></p>
 
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="member-manage">
                             <div class="wapper-wrap">
                                 <div class="add">
                                     <div class="name">Name: </div>
                                     <div id="storename" class="address"></div>
                                     <div class="modyfy-button" style="background: none; border: none; box-shadow: none;">
-                                        <input type="button" name="Help" value="Edit" class="modify-btn" data-theme="a">
+                                        <img class="modify-btn editimage" src="img/edit.jpg" />
+                                        <!-- <input type="button" name="Help" value="Edit" class="modify-btn" data-theme="a">-->
                                     </div>
                                 </div>
                             </div>
@@ -1705,7 +1757,8 @@
                                     <div class="name">Password: </div>
                                     <div id="change_password" class="address">******</div>
                                     <div class="modyfy-button" style="background: none; border: none; box-shadow: none;">
-                                        <input type="button" name="Help" value="Edit" class="modify-btn" data-theme="a">
+                                        <img class="modify-btn editimage" src="img/edit.jpg" />
+                                        <!--<input type="button" name="Help" value="Edit" class="modify-btn" data-theme="a">-->
                                     </div>
                                 </div>
                             </div>
@@ -1716,7 +1769,8 @@
                                     <div class="name">Publish Password: </div>
                                     <div id="Publish_Password" class="address">******</div>
                                     <div class="modyfy-button" style="background: none; border: none; box-shadow: none;">
-                                        <input type="button" name="Help" value="Edit" class="modify-btn" data-theme="a">
+                                        <img class="modify-btn editimage" src="img/edit.jpg" />
+                                        <!--<input type="button" name="Help" value="Edit" class="modify-btn" data-theme="a">-->
                                     </div>
                                 </div>
                             </div>
@@ -1728,7 +1782,8 @@
                                     <div id="storeaddresss" class="address">
                                     </div>
                                     <div class="modyfy-button">
-                                        <input type="button" name="Help" value="Edit" class="modify-btn" data-theme="a">
+                                        <img class="modify-btn editimage" src="img/edit.jpg" />
+                                        <!--<input type="button" name="Help" value="Edit" class="modify-btn" data-theme="a">-->
                                     </div>
                                 </div>
                             </div>
@@ -1740,7 +1795,8 @@
                                     <div id="storeaddresss2" class="address">
                                     </div>
                                     <div class="modyfy-button">
-                                        <input type="button" name="Help" value="Edit" class="modify-btn" data-theme="a">
+                                        <img class="modify-btn editimage" src="img/edit.jpg" />
+                                        <!--<input type="button" name="Help" value="Edit" class="modify-btn" data-theme="a">-->
                                     </div>
                                 </div>
                             </div>
@@ -1752,7 +1808,8 @@
                                     <div class="name">Phone: </div>
                                     <div id="storephone" class="address"></div>
                                     <div class="modyfy-button">
-                                        <input type="button" name="Help" value="Edit" class="modify-btn" data-theme="a">
+                                        <img class="modify-btn editimage" src="img/edit.jpg" />
+                                        <!--<input type="button" name="Help" value="Edit" class="modify-btn" data-theme="a">-->
                                     </div>
                                 </div>
                             </div>
@@ -1763,7 +1820,8 @@
                                     <div class="name">Email: </div>
                                     <div id="emailaddress" class="address"></div>
                                     <div class="modyfy-button">
-                                        <input type="button" name="Help" value="Edit" class="modify-btn" data-theme="a">
+                                        <img class="modify-btn editimage" src="img/edit.jpg" />
+                                        <!--<input type="button" name="Help" value="Edit" class="modify-btn" data-theme="a">-->
                                     </div>
                                 </div>
                             </div>
@@ -1775,7 +1833,8 @@
                                     <div class="name">Owner: </div>
                                     <div id="storeownername" class="address"></div>
                                     <div class="modyfy-button">
-                                        <input type="button" name="Help" value="Edit" class="modify-btn" data-theme="a">
+                                        <img class="modify-btn editimage" src="img/edit.jpg" />
+                                        <!--  <input type="button" name="Help" value="Edit" class="modify-btn" data-theme="a">-->
                                     </div>
                                 </div>
                             </div>
@@ -1832,7 +1891,7 @@
                             </div>
                             <div class="clr"></div>
                         </div>
-                        <div style="margin-bottom: 10px; font-size: 10px; color: red; text-align: center;"><i>version 1.0</i></div>
+                        <div style="margin-bottom: 10px; font-size: 10px; color: red; text-align: center;"><i>version 2.0</i></div>
                     </div>
                 </form>
                 <div class="clr"></div>
@@ -1875,12 +1934,12 @@
     <div id="helpPopup-outside-page" data-overlay-theme="a" data-theme="b" data-dismissible="true" data-position-to="window">
 
         <!--<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>-->
-        <h3>WMT Help</h3>
+        <!--  <h3>WMT Help</h3>-->
         <div role="main" class="ui-content" style="text-align: left; max-height: 400px; overflow-y: scroll; overflow-x: hidden;">
             <div id="helptext">Welcome to WMT, This page will be updated later, for now please call you customer services directly! Thank you, WMT Team.</div>
 
         </div>
-        <a data-rel="back" data-theme="b" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" href="#" style="background-color:#bc1616;" >Close</a>
+        <a data-rel="back" data-theme="b" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" href="#" style="background-color: #bc1616;">Close</a>
     </div>
 
     <!-- Agreement Popup -->
@@ -1897,7 +1956,7 @@
 
     <div id="dvImageUpload" data-overlay-theme="a" data-theme="b" data-dismissible="true" style="min-width: 250px; max-width: 500px;" data-position-to="window">
 
-        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right" style="background-color:#bc1616;" >Close</a>
+        <!--<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right" style="background-color: #bc1616;">Close</a>-->
         <h3>Take Picture</h3>
         <div role="main" class="ui-content">
             <input id="btnPickImageCamera" type="button" value="Camera" data-theme="a">
@@ -1916,7 +1975,8 @@
             </div>
             <div class="maindiv_scan_lft clsback">
                 <img src="css/images/back_icon.png" />
-                Back</div>
+                Back
+            </div>
             <div class="maindiv_scan_rgt "><a href="#helpPopup-outside-page" data-rel="popup" data-transition="pop" class="cus_hlp" id="A2">Help</a></div>
 
             <div class="cus_clr"></div>
@@ -1935,14 +1995,14 @@
                     <div class="cus_minus">
                         <img src="css/images/minus.jpg" id="minus" />
                     </div>
-                    <div class="cus_plus">  
-                        <div style="width:69%;float:left; margin-top:-7px;">                    
-                            <input type="text" id="gift-multiplier" style="text-align:right;"/>
-                            </div>
-                        <div style="float:left;width:30%">
-                             <img src="css/images/plus_icon.jpg" id="plus" />
-                            </div>
-                        <div style="clear:both;"></div>
+                    <div class="cus_plus">
+                        <div style="width: 69%; float: left; margin-top: -7px;">
+                            <input type="text" id="gift-multiplier" style="text-align: right;" />
+                        </div>
+                        <div style="float: left; width: 30%">
+                            <img src="css/images/plus_icon.jpg" id="plus" />
+                        </div>
+                        <div style="clear: both;"></div>
                     </div>
                 </div>
                 <div class="cus_clr"></div>
@@ -1952,13 +2012,19 @@
                 <div class="gft_gap">&nbsp </div>
                 <div class="pnt_exch">Customer Phone Number</div>
                 <div class="cus_pho_lft" id="Membernumber"></div>
-                <div class="cus_pho_rgt"><a href="#SavePhoneNumber" data-rel="popup" data-transition="pop">
-                    <div class="btn_cus_phone" id="Phonebtn">Phone#</div>
-                </a></div>
-                <div class="cus_btn_exg">
-                    <div class="btn_cus_Exg" id="Exchange_point">Exchange</div>
+                <div class="cus_pho_rgt">
+                    <a href="#SavePhoneNumber" data-rel="popup" data-transition="pop">
+                        <div class="btn_cus_phone" id="Phonebtn">Phone#</div>
+                    </a>
                 </div>
-
+                <div class="cus_clr"></div>
+                <div class="wapper-wrap">
+                    <div class="button Exchange_point">
+                        <div class="cus_btn_exg">
+                            <input type="button" class="btn_cus_Exg" data-theme="a" value="Exchange" />
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>
@@ -1999,11 +2065,13 @@
 
         <!--<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right" style="background-color:#bc1616;" >Close</a>-->
         <h3>Enter Member ID</h3>
-        <div role="main" class="ui-content" style="text-align: left; max-height: 600px;  overflow-x: hidden;">
+        <div role="main" class="ui-content" style="text-align: left; max-height: 600px; overflow-x: hidden;">
 
-            <input type="text" id="member_id" style="border: solid 2px red" />
-            <div style="width:202px;">  <input type="button" value="ok" id="submitmemberid" /></div>
-            <a data-rel="back" data-theme="b" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" style="width:170px;background-color:#bc1616;" href="#"  >Close</a>
+            <input type="text" id="member_id" style="border: 2px solid red; width: 190px ! important;" />
+            <div style="padding: 0px 7px; width: 93.3%;">
+                <input type="button" value="ok" id="submitmemberid" />
+            </div>
+            <a data-rel="back" data-theme="b" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" style="margin-top: 0px; width: 77%; /* padding: 10px 11px; */ margin-left: 7px; background-color: #bc1616;" href="#">Close</a>
         </div>
     </div>
     <!---- Select Sort Parameter ----->
@@ -2015,7 +2083,7 @@
             <div class="sort_By">Sort By </div>
             <div id="Sort_name" class="sorttext">Name </div>
             <div id="Sort_TotalPoint" class="sorttext">Total Point</div>
-            <a data-rel="back" data-theme="b" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" href="#" style="background-color:#bc1616;" >Close</a>
+            <a data-rel="back" data-theme="b" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" href="#" style="background-color: #bc1616;">Close</a>
         </div>
     </div>
 
@@ -2026,9 +2094,11 @@
         <h3>Enter Phone Number</h3>
         <div role="main" class="ui-content" style="text-align: left; max-height: 400px; overflow-y: scroll; overflow-x: hidden;">
 
-            <input type="text" id="PhoneNumber" style="border: solid 1px red" />
-            <input type="button" value="Ok" id="SavePhone" />
-            <a data-rel="back" data-theme="b" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" style="width: 170px;background-color:#bc1616;" href="#"  >Close</a>
+            <input type="text" id="PhoneNumber" style="border: solid 1px red; width: 190px ! important;" />
+            <div style="padding: 0px 7px; width: 93.3%;">
+                <input type="button" value="Ok" id="SavePhone" />
+            </div>
+            <a data-rel="back" data-theme="b" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" style="margin-top: 0px; width: 77%; /* padding: 10px 11px; */ margin-left: 7px; background-color: #bc1616;" href="#">Close</a>
         </div>
     </div>
 
@@ -2053,6 +2123,7 @@
 <script type="text/javascript" src="js/offlineScan/findpat.js"></script>
 <script type="text/javascript" src="js/offlineScan/alignpat.js"></script>
 <script type="text/javascript" src="js/offlineScan/databr.js"></script>
+
 <script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="js/utility.js"></script>
 <script type="text/javascript" src="js/formvalidation.js"></script>
@@ -2066,4 +2137,5 @@
 <script src="js/PhoneNumber.js"></script>
 <script src="js/GiftExchange.js"></script>
 <script src="js/Membership.js"></script>
+
 </html>

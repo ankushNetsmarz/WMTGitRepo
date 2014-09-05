@@ -54,7 +54,7 @@
             if( !$popup.length ){
 
                 // Create the generic popup elements.
-                $popupMain = $('<div><div data-role="header" data-theme="a" class="ui-header ui-bar-a" style="top: -10px;border-radius: 5px;"> <h1>Alert</h1> </div></div>').attr({
+                $popupMain = $('<div><div style="display:none; data-role="header" data-theme="a" class="ui-header ui-bar-a" style="top: -10px;border-radius: 5px;"> <h1>Alert</h1> </div></div>').attr({
                                                     'id': settings.popupId,
                                                     'data-role': 'popup',
                                                     'data-theme': settings['data-theme'],

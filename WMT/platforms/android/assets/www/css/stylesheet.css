@@ -88,7 +88,7 @@ body{font-family:Microsoft YaHei;}
 
 .remember_div {
     width: 100%;
-    padding-top: 10px;
+    /*padding-top: 10px;*/
 }
 
 .welcome {
@@ -399,7 +399,7 @@ a {
 .top_bar-member {
     background-color: #ff8032;
     font-size: 16px;
-    height: 45px;
+    height: 30px;
     padding-top: 8px;
     color: #fff;
     -webkit-box-shadow: 0px 2px 2px 0px rgba(50, 50, 50, 0.61);
@@ -560,6 +560,7 @@ a {
     }
 
 .points-main-member {
+      height:170px;
     background-color: #FFFFFF;
     border: 1px solid #A0A0A0;
     float: left;
@@ -716,7 +717,7 @@ label {
         .business-info ul li {
             border-bottom: 1px solid #D5D5D5;
             float: left;
-            line-height: 35px;
+            line-height: 70px;
             list-style-type: none;
             margin: 0;
             padding: 0;
@@ -757,7 +758,7 @@ label {
     }
 
 .modify-btn {
-    background-color: #FF8032;
+    /*background-color: #FF8032;*/
     border: medium none;
     border-radius: 3px;
     color: #FFFFFF;
@@ -913,7 +914,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c41010', end
     margin-left: 70%; 
     text-align: center; 
     width: 22.4%; 
-    background-color: #bc1616; 
+    background-color: #c44347; 
     border-radius: 4px; 
     margin-bottom: 15px; 
     margin-top: 20px;
@@ -922,7 +923,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c41010', end
     padding:10px 4px;
     font-size:15px;
     cursor:pointer;
+    border: 1px solid #6b2427;
 }
+ .btn_cok:hover {
+        background-color: #e14d51; 
+        border:solid 1px #7b2a2c;
+        padding:10px 4px;
+            }
 .cus_clr
 {
     clear: both;
@@ -1004,16 +1011,33 @@ text-shadow: 0 0 0 #f3f3f3;
 }
 .btn_cscn
 {
-    width: 30%; height: 20%; color: #fff; background-color: #bc1616; float: left; margin-left: 1%; border-radius: 4px;text-shadow: 0 0 0 #f3f3f3;cursor:pointer;
+    width: 30%; height: 20%; color: #fff; background-color: #c44347; float: left; margin-left: 1%; border-radius: 4px;text-shadow: 0 0 0 #f3f3f3;cursor:pointer;
+border:solid 1px #6b2427;
 }
+    .btn_cscn:hover {
+        background-color: #e14d51; 
+        border:solid 1px #7b2a2c;
+}
+
 .btn_nscn
 {
-    width: 30%; height: 20%; color: #fff; background-color: #bc1616; margin-left: 3%; float: left; border-radius: 4px;text-shadow: 0 0 0 #f3f3f3;cursor:pointer;
+    width: 30%; height: 20%; color: #fff; background-color: #c44347; margin-left: 3%; float: left; border-radius: 4px;text-shadow: 0 0 0 #f3f3f3;cursor:pointer;
+border:solid 1px #6b2427;
+}
+    .btn_nscn:hover {
+        background-color: #e14d51; 
+        border:solid 1px #7b2a2c;
 }
 .btn_exge
 {
-    width: 80%; background-color: #bc1616; font-size: 15px; color: #fff; margin-top: 5px;margin-bottom:5px; font-family: Arial; border-radius: 4px;text-align:center;text-shadow: 0 0 0 #f3f3f3;padding: 10px 4px;cursor:pointer;
+    width: 80%; background-color: #c44347; font-size: 15px; color: #fff; margin-top: 5px;margin-bottom:5px; font-family: Arial; border-radius: 4px;text-align:center;text-shadow: 0 0 0 #f3f3f3;padding: 10px 4px;cursor:pointer;
+border:solid 1px #6b2427;
 }
+    .btn_exge:hover {
+        background-color: #e14d51; 
+        border:solid 1px #7b2a2c;
+}
+
 .div_pnt
 {
     text-align: left; background-color: #fff;
@@ -1040,7 +1064,7 @@ text-shadow: 0 0 0 #f3f3f3;
 }
 .div_cuspto
 {
-    background-color: #fff; margin-top: 70px;
+    background-color: #fff;
 }
 .cuspto_lft
 {
@@ -1143,14 +1167,20 @@ h1
  
     text-align: center; 
     width: 84%; 
-    background-color: #bc1616; 
+    background-color: #c44347; 
     border-radius: 4px; 
        margin-top: 4px;
     color:#fff;
     text-shadow: 0 0 0 #f3f3f3;
  
     font-size:15px;
+border:solid 1px #6b2427;
 }
+    .btn_cus_phone:hover {
+        background-color: #e14d51; 
+        border:solid 1px #7b2a2c;
+}
+
 .cus_pho_lft
 {
        line-height:40px;
@@ -1174,16 +1204,20 @@ h1
 }
 .btn_cus_Exg
 {
-    margin-top:80px;
+     margin-top:80px;
      text-align: center; 
          background-color: #bc1616; 
     border-radius: 4px; 
-
+    border: 1px solid #6b2427;
     color:#fff;
     text-shadow: 0 0 0 #f3f3f3;
  cursor:pointer;
     font-size:15px;
+}
 
+  .btn_cus_Exg:hover {
+        background-color: #e14d51; 
+        border:solid 1px #7b2a2c;
 }
 .cus_btn_exg
 {
@@ -1214,7 +1248,7 @@ h1
 }
 .cus_mgn
 {
-    padding-top:5px;
+    padding-top:7px;
 }
 
 /******************************************************************************************/
@@ -1224,7 +1258,7 @@ h1
 .mbr_dtl
 {
      border-bottom: 1px solid #BDBDBD;
-     width:25%;float:left;
+     width:33.33%;float:left;
 }
 .loadMember
 {
@@ -1247,17 +1281,6 @@ h1
 /**************************************************************************************************************/
 
 /********************************** Save Password from My stored **********************************************************/
-.udte_pwd
-{
-     border: 1px solid #000!important;
-      border: 1px solid #000!important;
-      cursor: pointer;
-      color:#fff!important;
-      background-color: #c44347;
-      padding:2px 13px!important;
-      width:auto!important;
-      float:right!important; margin-top:10px!important; margin-bottom:10px!important; line-height:none!important; min-height:inherit!important; font-family:sans-serif!important; font-weight:normal!important; font-size:16px!important; text-shadow:0px 0px #000!important;
-}
 
 /**************************************************************************************************************/
 
@@ -1267,21 +1290,10 @@ h1
     width:100px;color:#fff;background-color:#bc1616;cursor:pointer;z-index:2;border-radius:3px;box-shadow: 10px 10px 5px #888888;text-align:center;margin-top:5px;padding:5px;
 }
 
-.sort_By
-{
-    width:88px;color:#fff;background-color:#444444;padding:12px;border-radius:5px;
-
-    text-align:center;
-}
-.Publish_udte_pwd
-{
-     border: 1px solid #000!important;
-      border: 1px solid #000!important;
-      cursor: pointer;
-      color:#fff!important;
-      background-color: #c44347;
-      padding:2px 13px!important;
-      width:auto!important;
-      float:right!important; margin-top:10px!important; margin-bottom:10px!important; line-height:none!important; min-height:inherit!important; font-family:sans-serif!important; font-weight:normal!important; font-size:16px!important; text-shadow:0px 0px #000!important;
-
+.sort_By {
+    width: 88px;
+    color: #fff;
+    background-color: #444444;
+    padding: 12px;
+    border-radius: 5px;
 }

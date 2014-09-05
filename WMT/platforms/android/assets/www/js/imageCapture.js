@@ -71,10 +71,7 @@ function onSuccess(imageData) {
     }
     catch(e)
     {
-        //alert(e);
     }
-    
-    //    alert( window.localStorage.getItem("imageData"));
     
     //    $("#imageHolder1").attr('src',"http://www.hdnewpictures.com/wp-content/uploads/2014/06/Funny-1.jpg");
     //},5000);

@@ -476,7 +476,7 @@ background: #e0e0e0; font-size:16px; padding-top:8px; border-top: 1px solid #CEC
 .top_bar-member{
 	background-color:#ff8032;
 	font-size: 16px;
-    height: 45px;
+    height: 28px;
     padding-top: 8px;
 	color:#fff;
 	-webkit-box-shadow: 0px 2px 2px 0px rgba(50, 50, 50, 0.61);
@@ -593,6 +593,7 @@ box-shadow:         0px 2px 2px 0px rgba(50, 50, 50, 0.61);
     margin: 15px 2% 65px;
     padding-bottom: 110px;
     width: 95%;
+    height:170px;
 }
 .only{
 	text-align:left;
