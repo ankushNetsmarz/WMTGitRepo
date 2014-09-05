@@ -214,7 +214,7 @@ $(document).on('click', '.Gift_Exchange', function () {
             var multiplier = $('#gift-multiplier').val();
             var gifttotal = point * multiplier;
             $('#gift_Total').html(gifttotal);
-            $('#Exchange_point').attr({ 'storeid': StoreId, 'ProductID': ProductID, 'memberid': memberid, 'giftpoint': point });
+            $('.Exchange_point').attr({ 'storeid': StoreId, 'ProductID': ProductID, 'memberid': memberid, 'giftpoint': point });
             $('#Phonebtn').attr({ 'memberid': memberid });
             $.mobile.navigate('#dvExchange');
         }
@@ -336,7 +336,7 @@ function GetPoints(x) {
 
 /********************************* Save Exchange Information ********************************************************/
 
-$('#Exchange_point').click(function () {
+$('.Exchange_point').click(function () {
 
     var point = $(this).attr('giftpoint');
     var StoreId = $(this).attr('storeid');
@@ -356,7 +356,7 @@ $('#Exchange_point').click(function () {
         }
     }
     WMT.jqXHR(ajaxcallobj, function (response) {
-        debugger;
+    
         if (response != undefined && response != null) {
 
             $('#abl_pnt').html(response.wmtpoint);
@@ -390,7 +390,7 @@ $(document).on('click', '#OK_Exchange', function () {
 $(document).on('click', '#txtOK', function () {
     var Point = $.trim($('#net_cost').val());
     if ($('#wmt_pnt').html() == "") {
-        $.dynamicSuccess_popup(' <p>Enter Member Information by clicking any one Button from the top three.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back" id="OK_Exchange">OK</a>');
+        $.dynamicSuccess_popup(' <p>Enter Member Information by clicking any one Button from the Bottom three.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back" id="OK_Exchange">OK</a>');
         return;
     }
     if (Point == '' || Point == ' 0') {
@@ -413,7 +413,7 @@ $(document).on('click', '#txtOK', function () {
             $('#abl_pnt').html(response[0].wmtAvailablePoints);
             $('#total_cost').val('');
             $('#net_cost').val('');
-            $.dynamicSuccess_popup(' <p>Information Saved.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back" id="OK_Exchange">OK</a>');
+            $.dynamicSuccess_popup(' <p>Purchase is Success.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back" id="OK_Exchange">OK</a>');
         }
 
     });

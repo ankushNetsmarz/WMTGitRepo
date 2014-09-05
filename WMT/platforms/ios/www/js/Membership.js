@@ -32,7 +32,7 @@ $(document).on("click", ".txtmemberid", function () {
                 memberhtml += '</div> </div>  </div><div class="clr"></div></div>'
                 memberhtml += '<div class="points-main-member">'
                 memberhtml += '<div  class="mbr_dtl">Date</div><div  class="mbr_dtl">Shop</div>'
-                memberhtml += '<div  class="mbr_dtl">Cost</div><div  class="mbr_dtl">Discount</div>'
+                memberhtml += '<div  class="mbr_dtl">Cost</div>'
                 memberhtml += '<div class="clr"></div>'
                 for (var i = 0; i < response.length; i++) {
                     if (response[i].shopDate != null) {
@@ -45,7 +45,7 @@ $(document).on("click", ".txtmemberid", function () {
                     var originalCost = response[i].originalCost == null ? '&nbsp ' : response[i].originalCost;
                     var discountRatio = response[i].discountRatio == null ? ' &nbsp' : response[i].discountRatio;
                     memberhtml += '<div  class="mbr_dtl">' + shopDate + '</div><div  class="mbr_dtl">' + storeID + '</div>'
-                    memberhtml += '<div  class="mbr_dtl">' + originalCost + '</div><div  class="mbr_dtl">' + discountRatio + '</div>'
+                    memberhtml += '<div  class="mbr_dtl">' + originalCost + '</div>'
                     memberhtml += '<div class="clr"></div>'
                 }
                 memberhtml += '</div>'
@@ -110,10 +110,12 @@ $('#Sort_TotalPoint').click(function () {
                         memberhtml += '<div class="member-right">'
                         memberhtml += '<p onclick="$.mobile.navigate("#dvMemberDetail");">Name: ' + response[1].result[i].memberFullName + '</p>'
                         memberhtml += ' <div class="memb-total">'
-                        memberhtml += ' <div class="total">Total: <span class="total_point">' + response[1].result[i].wmtTotalPoint + '</span></div>'
-                        memberhtml += ' <div class="total">Current: <span>' + response[1].result[i].wmtAvailablePoints + '</span ></div></div></div></div></div>'
+                        var wmtpoint = response[1].result[i].wmtTotalPoint.substring(0, 2) + "..";
+                        var Availablepoint = response[1].result[i].wmtAvailablePoints.substring(0, 2) + "..";
+                        memberhtml += ' <div class="total">Total: <span class="total_point">' + wmtpoint + '</span></div>'
+                        memberhtml += ' <div class="total">Current: <span>' + Availablepoint + '</span ></div></div></div></div></div>'
                     }
-                    memberhtml += '<div class="loadMember" pageid="' + pageid + '"> More Member... </div>'
+                    memberhtml += '<div class="loadMember" pageid="' + response[0].page_id + '"> More Member... </div>'
                     $('.Application_members').html(memberhtml);
 
                     $.mobile.navigate('#dvMemberShipListing');

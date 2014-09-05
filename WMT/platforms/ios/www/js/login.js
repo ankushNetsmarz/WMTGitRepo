@@ -31,7 +31,10 @@ objlocalStorage.Store_ID = 0;
                     window.localStorage.setItem("pwd", '');
                 }
                 GetIndustryInformation();
-                $.mobile.navigate("#dvStore");
+                GetScanData();
+                GetDiscount();
+                //$.fn.getPublishedInfo();
+                $.mobile.navigate("#dvQRCode");
             }
             else {
                 $.dynamic_popup('<p>Wrong user name or password.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');

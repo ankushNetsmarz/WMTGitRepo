@@ -7,7 +7,7 @@ $('#txtViewSupplierInfo').click(function () {
                                 }
                                 }
                                 WMT.jqXHR(ajaxcallobj, function (response) {
-                                    debugger;
+                                 
                                           if (response.length > 0) {
                                           
                                               var url = response[0].reportURL;

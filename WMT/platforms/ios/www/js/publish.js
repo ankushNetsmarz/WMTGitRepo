@@ -74,28 +74,34 @@ var pinentered = 0;
              if (response.success > 0) {
                  if (Publishpinfor == "Password") {
                      ChangePassword();
+
                      $.mobile.navigate('#dvStore');
+                     $('#publishinfotext').html('<h1>Publish Info</h1>');
 
                  }
                  else if (Publishpinfor == "Store") {
                      savestoreinformation();
                      $.mobile.navigate('#dvStore');
+                     $('#publishinfotext').html('<h1>Publish Info</h1>');
 
                  }
                  else if (Publishpinfor == "Industries") {
                     
                      saveindustriesinformation();
                      $.mobile.navigate('#dvStore');
+                     $('#publishinfotext').html('<h1>Publish Info</h1>');
 
                  }
                  else if (Publishpinfor == "PublishPassword") {
 
                      ChangePublishPassword();
                      $.mobile.navigate('#dvStore');
+                     $('#publishinfotext').html('<h1>Publish Info</h1>');
 
                  }
                  else {
                      $('#frmPublishPin')[0].reset();
+                     $('#publishinfotext').html('<h1>Publish Info</h1>');
                      $.mobile.navigate('#dvPublishInfo');
                  }
 
@@ -147,27 +153,27 @@ var pinentered = 0;
                 
                 var info = $.trim($('#txtStoreInformation').val());
                 if (info.length <= 4000) {
-                if (counter <= 5) {
-                var ajaxcallobj = {
-                HttpVerb: "POST",
-                url: "storepicturesinformation",
-                data: { store_id: objlocalStorage.Store_ID, store_info: info, upload_pic: imageDataObject, PID: PID }
-                }
-                
-                WMT.jqXHR(ajaxcallobj, function (response) {
-                          if (response.success > 0) {
-                          PID = response.PID;
-                          counter = counter + 1;
-                          //$('#frmStoreInformation')[0].reset();
-                          $.fn.ResetImageUpload();
-                          $.dynamicSuccess_popup('<p>Store infromation published succesfully.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
-                          }
-                          
-                          });
-                }
-                else {
-                $.dynamic_popup('<p>You can upload only 5 picture.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
-                }
+                    if (counter <= 5) {
+                        var ajaxcallobj = {
+                            HttpVerb: "POST",
+                            url: "storepicturesinformation",
+                            data: { store_id: objlocalStorage.Store_ID, store_info: info, upload_pic: imageDataObject, PID: PID }
+                        }
+
+                        WMT.jqXHR(ajaxcallobj, function (response) {
+                            if (response.success > 0) {
+                                PID = response.PID;
+                                counter = counter + 1;
+                                //$('#frmStoreInformation')[0].reset();
+                                $.fn.ResetImageUpload();
+                                $.dynamicSuccess_popup('<p>Store infromation published succesfully.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
+                            }
+
+                        });
+                    }
+                    else {
+                        $.dynamic_popup('<p>You can upload only 5 picture.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
+                    }
                 }
                 else {
                 $.dynamic_popup(' <p>Product information should only contain max 4000 words.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
@@ -320,7 +326,7 @@ var pinentered = 0;
                 });
  
  
- /******************************** Get published product informatio ****************************/
+ /******************************** Get published product information ****************************/
  
  $.fn.getPublishedInfo = function () {
  var ajaxcallobj = {
@@ -330,19 +336,19 @@ var pinentered = 0;
  }
  
  WMT.jqXHR(ajaxcallobj, function (response) {
-    
+   
            var html = "";
            if (response.StorePicture.length > 0) {
               
-           for (var i = 0; i < response.StorePicture.length; i++) {
-           html += '<div class="points-main"><p></p><div class="uploder"><div class="view-published">'
-           + ' <div class="callbacks_container"> <ul class="rslides callbacks callbacks4" id="slider4 ">' + response.StorePicture[i].Images + '</ul></div>'
-           + '</div></div>'
-           + '<div class="view-txt"><p><span id="ProductInfroduction" class="clsShow"> ' + response.StorePicture[i].introduction + '</span>'
-           + '<textarea id="ProductInfroduction" class="textarea ui-input-text ui-shadow-inset ui-body-inherit ui-corner-all ui-textinput-autogrow clsHide">' + response.StorePicture[i].introduction + '</textarea></p></div>'
-           + '<div class="ui-btn ui-input-btn ui-btn-b ui-corner-all ui-shadow ui-btn-inline">Delete<input type="button" name="Help" value="Delete" class="btn-download btnDelete" data-id="' + response.StorePicture[i].PID + '" data-type="storepicture" data-inline="true" data-theme="b"></div>'
-           + '<div class="ui-btn ui-input-btn ui-btn-b ui-corner-all ui-shadow ui-btn-inline"><span>Modify</span><input type="button" name="Help" value="Edit" class="btn-download btnEdit" data-type="storepicture" data-id="' + response.StorePicture[i].PID + '" data-inline="true" data-theme="b"></div></div></div></div></div>';
-           }
+               for (var i = 0; i < response.StorePicture.length; i++) {
+                   html += '<div class="points-main"><p></p><div class="uploder"><div class="view-published">'
+                   + ' <div class="callbacks_container"> <ul class="rslides callbacks callbacks4" id="slider4 ">' + response.StorePicture[i].Images + '</ul></div>'
+                   + '</div></div>'
+                   + '<div class="view-txt"><p><span id="ProductInfroduction" class="clsShow"> ' + response.StorePicture[i].introduction + '</span>'
+                   + '<textarea id="ProductInfroduction" class="textarea ui-input-text ui-shadow-inset ui-body-inherit ui-corner-all ui-textinput-autogrow clsHide">' + response.StorePicture[i].introduction + '</textarea></p></div>'
+                   + '<div class="ui-btn ui-input-btn ui-btn-b ui-corner-all ui-shadow ui-btn-inline"><span class="pub_del deletepublish">Delete</span><input type="button" name="Help" value="Delete" class="btn-download btnDelete" data-id="' + response.StorePicture[i].PID + '" data-type="storepicture" data-inline="true" data-theme="b"></div>'
+                   + '<div class="ui-btn ui-input-btn ui-btn-b ui-corner-all ui-shadow ui-btn-inline"><span class="pub_mod">Modify</span><input type="button" name="Help" value="Edit" class="btn-download btnEdit" data-type="storepicture" data-id="' + response.StorePicture[i].PID + '" data-inline="true" data-theme="b"></div></div></div></div></div>';
+               }
            }
            if (response.ProductDiscount.length > 0) {
            
@@ -353,16 +359,16 @@ var pinentered = 0;
            + '<div class="view-txt"><p><span id="ProductInfroduction"> ' + response.ProductDiscount[i].introduction + '</span>'
            + '<textarea id="ProductInfroduction" class="textarea ui-input-text ui-shadow-inset ui-body-inherit ui-corner-all ui-textinput-autogrow clsHide">' + response.ProductDiscount[i].introduction + '</textarea></p></div>'
            
-           + '<div class="price-yaun"><div class="price-yaun-left"><p>Price: <span id="spnProductPrice" class="clsShow">' + response.ProductDiscount[i].price + '</span>'
+           + '<div class="price-yaun"><div style="text-align:left"><p>Price: <span id="spnProductPrice" class="clsShow">' + response.ProductDiscount[i].price + '</span>'
            + '<input type="text" id="ProductPrice" class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset clsHide" value="' + response.ProductDiscount[i].price + '" /><span class="currencyName">Yuan</span></p></div>'
            
-           + '<div class="price-yaun-left"><p>Discount: <span id="spnDiscount" class="clsShow">' + response.ProductDiscount[i].discount + '</span>'
+           + '<div style="text-align:left"><p>Discount: <span id="spnDiscount" class="clsShow">' + response.ProductDiscount[i].discount + '</span>'
            + '<input type="text" id="ProductDiscount" class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset clsHide" value="' + response.ProductDiscount[i].discount + '" /><span class="currencyName">%</span></p></div>'
            + '<p class="price-yaun-left price-yaun-status">Status: <select><option value="Active">Active<option><option value="Finish">Finished<option></select></p>'
            
-           + '<div class="price-yaun-left"><div class="help-btn-publish">'
-           + '<div class="ui-btn ui-input-btn ui-btn-b ui-corner-all ui-shadow ui-btn-inline">Delete<input type="button" name="Help" value="Delete" class="btn-download btnDelete" data-id="' + response.ProductDiscount[i].PID + '" data-type="productdiscount" data-inline="true" data-theme="b"></div>'
-           + '<div class="ui-btn ui-input-btn ui-btn-b ui-corner-all ui-shadow ui-btn-inline"><span>Modify</span><input type="button" name="Help" value="Edit" class="btn-download btnEdit" data-type="productdiscount" data-id="' + response.ProductDiscount[i].PID + '" data-inline="true" data-theme="b"></div></div></div></div></div>';
+           + '<div style="text-align:Center"><div class="help-btn-publish">'
+           + '<div class="ui-btn ui-input-btn ui-btn-b ui-corner-all ui-shadow ui-btn-inline"><span class="pub_del">Delete</span><input type="button" name="Help" value="Delete" class="btn-download btnDelete" data-id="' + response.ProductDiscount[i].PID + '" data-type="productdiscount" data-inline="true" data-theme="b"></div>'
+           + '<div class="ui-btn ui-input-btn ui-btn-b ui-corner-all ui-shadow ui-btn-inline"><span class="pub_mod">Modify</span><input type="button" name="Help" value="Edit" class="btn-download btnEdit" data-type="productdiscount" data-id="' + response.ProductDiscount[i].PID + '" data-inline="true" data-theme="b"></div></div></div></div></div>';
            }
            }
            if (response.ProductPromotion.length > 0) {
@@ -374,39 +380,39 @@ var pinentered = 0;
            + '<div class="view-txt"><p><span id="ProductInfroduction" class="clsShow"> ' + response.ProductPromotion[i].introduction + '</span>'
            + '<textarea id="ProductInfroduction" class="textarea ui-input-text ui-shadow-inset ui-body-inherit ui-corner-all ui-textinput-autogrow clsHide">' + response.ProductPromotion[i].introduction + '</textarea></p></div>'
            
-           + '<div class="price-yaun"><div class="price-yaun-left"><p>Price: <span id="spnProductPrice" class="clsShow">' + response.ProductPromotion[i].price + '</span>'
+           + '<div class="price-yaun"><div style="text-align:left"><p>Price: <span id="spnProductPrice" class="clsShow">' + response.ProductPromotion[i].price + '</span>'
            + '<input type="text" id="ProductPrice" class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset clsHide" value="' + response.ProductPromotion[i].price + '" /><span class="currencyName">Yuan</span></p></div>'
            
-           + '<div class="price-yaun-left"><p>Discount: <span id="spnDiscount" class="clsShow">' + response.ProductPromotion[i].discount + '</span>'
+           + '<div style="text-align:left"><p>Discount: <span id="spnDiscount" class="clsShow">' + response.ProductPromotion[i].discount + '</span>'
            + '<input type="text" id="ProductDiscount" class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset clsHide" value="' + response.ProductPromotion[i].discount + '" /><span class="currencyName">%</span></p></div>'
            + '<p class="price-yaun-left price-yaun-status">Status: <select><option value="Active">Active<option><option value="Finish">Finished<option></select></p>'
            
-           + '<div class="price-yaun-left"><div class="help-btn-publish">'
-           + '<div class="ui-btn ui-input-btn ui-btn-b ui-corner-all ui-shadow ui-btn-inline">Delete<input type="button" name="Help" value="Delete" class="btn-download btnDelete" data-id="' + response.ProductPromotion[i].PID + '" data-type="productproduction" data-inline="true" data-theme="b"></div>'
-           + '<div class="ui-btn ui-input-btn ui-btn-b ui-corner-all ui-shadow ui-btn-inline"><span>Modify</span><input type="button" name="Help" value="Edit" class="btn-download btnEdit" data-type="productproduction" data-id="' + response.ProductPromotion[i].PID + '" data-inline="true" data-theme="b"></div></div></div></div></div>';
+           + '<div style="text-align:Center"><div class="help-btn-publish">'
+           + '<div class="ui-btn ui-input-btn ui-btn-b ui-corner-all ui-shadow ui-btn-inline"><span Class="pub_del">Delete</span><input type="button" name="Help" value="Delete" class="btn-download btnDelete" data-id="' + response.ProductPromotion[i].PID + '" data-type="productproduction" data-inline="true" data-theme="b"></div>'
+           + '<div class="ui-btn ui-input-btn ui-btn-b ui-corner-all ui-shadow ui-btn-inline"><span class="pub_mod">Modify</span><input type="button" name="Help" value="Edit" class="btn-download btnEdit" data-type="productpromotion" data-id="' + response.ProductPromotion[i].PID + '" data-inline="true" data-theme="b"></div></div></div></div></div>';
            }
            }
            if (response.GiftPoint.length > 0) {
-           
-           for (var i = 0; i < response.GiftPoint.length; i++) {
-           html += '<div class="points-main"><p></p><div class="uploder"><div class="view-published">'
-           + ' <div class="callbacks_container"> <ul class="rslides callbacks callbacks4" id="slider4 ">' + response.GiftPoint[i].Images + '</ul></div>'
-           + '</div></div>'
-           
-           + '<div class="view-txt"><p><span id="ProductInfroduction" class="clsShow"> ' + response.GiftPoint[i].introduction + '</span>'
-           + '<textarea id="ProductInfroduction" class="textarea ui-input-text ui-shadow-inset ui-body-inherit ui-corner-all ui-textinput-autogrow clsHide">' + response.GiftPoint[i].introduction + '</textarea></p></div>'
-           
-           + '<div class="price-yaun"><div class="price-yaun-left"><p>Price: <span id="spnProductPrice" class="clsShow">' + response.GiftPoint[i].price + '</span>'
-           + '<input type="text" id="ProductPrice" class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset clsHide" value="' + response.GiftPoint[i].price + '" /><span class="currencyName">Yuan</span></p></div>'
-           
-           + '<div class="price-yaun-left"><p>Gift Point: <span id="spnGifPoint" class="clsShow">' + response.GiftPoint[i].giftPoint + '</span>'
-           + '<input type="text" id="ProductGifPoint" class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset clsHide" value="' + response.GiftPoint[i].giftPoint + '" /></p></div>'
-           + '<p class="price-yaun-left price-yaun-status">Status: <select><option value="Active">Active<option><option value="Finish">Finished<option></select></p>'
-           
-           + '<div class="price-yaun-left"><div class="help-btn-publish">'
-           + '<div class="ui-btn ui-input-btn ui-btn-b ui-corner-all ui-shadow ui-btn-inline">Delete<input type="button" name="Help" value="Delete" class="btn-download btnDelete" data-id="' + response.GiftPoint[i].PID + '" data-type="giftpoint" data-inline="true" data-theme="b"></div>'
-           + '<div class="ui-btn ui-input-btn ui-btn-b ui-corner-all ui-shadow ui-btn-inline"><span>Modify</span><input type="button" name="Help" value="Edit" class="btn-download btnEdit" data-type="giftpoint" data-id="' + response.GiftPoint[i].PID + '" data-inline="true" data-theme="b"></div></div></div></div></div>';
-           }
+
+               for (var i = 0; i < response.GiftPoint.length; i++) {
+                   html += '<div class="points-main"><p></p><div class="uploder"><div class="view-published">'
+                   + ' <div class="callbacks_container"> <ul class="rslides callbacks callbacks4" id="slider4 ">' + response.GiftPoint[i].Images + '</ul></div>'
+                   + '</div></div>'
+
+                   + '<div class="view-txt"><p><span id="ProductInfroduction" class="clsShow"> ' + response.GiftPoint[i].introduction + '</span>'
+                   + '<textarea id="ProductInfroduction" class="textarea ui-input-text ui-shadow-inset ui-body-inherit ui-corner-all ui-textinput-autogrow clsHide">' + response.GiftPoint[i].introduction + '</textarea></p></div>'
+
+                   + '<div class="price-yaun"><div style="text-align:left"><p>Price: <span id="spnProductPrice" class="clsShow">' + response.GiftPoint[i].price + '</span>'
+                   + '<input type="text" id="ProductPrice" class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset clsHide" value="' + response.GiftPoint[i].price + '" /><span class="currencyName">Yuan</span></p></div>'
+
+                   + '<div style="text-align:left"><p>Gift Point: <span id="spnGifPoint" class="clsShow">' + response.GiftPoint[i].giftPoint + '</span>'
+                   + '<input type="text" id="ProductGifPoint" class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset clsHide" value="' + response.GiftPoint[i].giftPoint + '" /></p></div>'
+                   + '<p class="price-yaun-left price-yaun-status">Status: <select><option value="Active">Active<option><option value="Finish">Finished<option></select></p>'
+
+                   + '<div style="text-align:Center"><div class="help-btn-publish">'
+                   + '<div class="ui-btn ui-input-btn ui-btn-b ui-corner-all ui-shadow ui-btn-inline"><span class="pub_del">Delete</span><input type="button" name="Help" value="Delete" class="btn-download btnDelete" data-id="' + response.GiftPoint[i].PID + '" data-type="giftpoint" data-inline="true" data-theme="b"></div>'
+                   + '<div class="ui-btn ui-input-btn ui-btn-b ui-corner-all ui-shadow ui-btn-inline"><span class="pub_mod">Modify</span><input type="button" name="Help" value="Edit" class="btn-download btnEdit" data-type="giftpoint" data-id="' + response.GiftPoint[i].PID + '" data-inline="true" data-theme="b"></div></div></div></div></div>';
+               }
            }
            if (html != '') {
            $('#dvPublishedProduct').html(html);
@@ -421,57 +427,54 @@ var pinentered = 0;
  /********************** delete published picture **************************************/
  
  $(document).on('click', '.btnDelete', function () {
-                var $this = $(this);
-                var type = $(this).attr('data-type');
-                var id = $(this).attr('data-id');
-                var ajaxcallobj = {
-                HttpVerb: "POST",
-                url: "deletepublishedproduct",
-                data: { store_id: objlocalStorage.Store_ID, type: type, id: id }
-                }
-                
-                WMT.jqXHR(ajaxcallobj, function (response) {
-                          if (response.success > 0) {
-                          $.dynamicSuccess_popup('<p>Product deleted succesfully.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
-                          $this.parent().closest('div.points-main').remove();
-                          }
-                          });
-                
-                });
+     var $this = $(this);
+     var type = $(this).attr('data-type');
+     var id = $(this).attr('data-id');
+     var ajaxcallobj = {
+         HttpVerb: "POST",
+         url: "deletepublishedproduct",
+         data: { store_id: objlocalStorage.Store_ID, type: type, id: id }
+     }
+
+     WMT.jqXHR(ajaxcallobj, function (response) {
+         if (response.success > 0) {
+             $.dynamicSuccess_popup('<p>Product deleted succesfully.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
+             $this.parent().closest('div.points-main').remove();
+         }
+     });
+
+ });
  
- 
- 
- 
- /********************* Edit published picutuer information *****************************/
+ /********************* Edit published picture information *****************************/
  
  $(document).on('click', '.btnEdit', function () {
-                var $this = $(this);
-                var type = $this.attr('data-type');
-                switchToSpan($this);
-                setTimeout(function () {
-                           switchToInputs($this);
-                           }, 300);
-                
-                });
+     var $this = $(this);
+     var type = $this.attr('data-type');
+     switchToSpan($this);
+     setTimeout(function () {
+         switchToInputs($this);
+     }, 300);
+
+ });
  var switchToSpan = function (obj) {
- $('div#dvPublishedProduct').find('span.clsHide').removeClass('clsHide').addClass('clsShow');
- $('div#dvPublishedProduct').find('textarea.clsShow').removeClass('clsShow').addClass('clsHide');
- 
- $('div#dvPublishedProduct').find('input.clsShow').removeClass('clsShow').addClass('clsHide');
- 
- 
- $('div#dvPublishedProduct').find('div.ui-btn-inline').find('span').html('Modify');
- $('div#dvPublishedProduct').find('input[type=button]').removeClass('btnUpdate').addClass('btnEdit');
+    
+     $('div#dvPublishedProduct').find('span.clsHide').removeClass('clsHide').addClass('clsShow');
+     $('div#dvPublishedProduct').find('textarea.clsShow').removeClass('clsShow').addClass('clsHide');
+     $('div#dvPublishedProduct').find('input.clsShow').removeClass('clsShow').addClass('clsHide');
+     $('div#dvPublishedProduct').find('div.ui-btn-inline').find('.pub_mod').html('Modify');
+     $('div#dvPublishedProduct').find('div.ui-btn-inline').find('.pub_del').html('Delete');
+     $('div#dvPublishedProduct').find('input[type=button].btnUpdate').removeClass('btnUpdate').addClass('btnEdit');
+     $('div#dvPublishedProduct').find('input[type=button].btnDelete').removeClass('btnpublishCancel').addClass('btnDelete');
  }
  
  var switchToInputs = function (obj) {
- obj.parents('div.points-main').find('span.clsShow').removeClass('clsShow').addClass('clsHide');
- obj.parents('div.points-main').find('textarea.clsHide').removeClass('clsHide').addClass('clsShow');
- 
- obj.parents('div.points-main').find('input.clsHide').removeClass('clsHide').addClass('clsShow');
- 
- obj.parent('div.ui-btn-inline').find('span').html('Save');
- obj.parent('div.ui-btn-inline').find('input[type=button]').removeClass('btnEdit').addClass('btnUpdate');
+     obj.parents('div.points-main').find('span.clsShow').removeClass('clsShow').addClass('clsHide');
+     obj.parents('div.points-main').find('textarea.clsHide').removeClass('clsHide').addClass('clsShow');
+     obj.parents('div.points-main').find('input.clsHide').removeClass('clsHide').addClass('clsShow');
+     obj.parent('div.ui-btn-inline').find('.pub_mod').html('Save');
+     obj.parent('div.ui-btn-inline').parent().find('.pub_del').html('Cancel');
+     obj.parent('div.ui-btn-inline').find('input[type=button].btnEdit').removeClass('btnEdit').addClass('btnUpdate');
+     $('div#dvPublishedProduct').find('input[type=button].btnDelete').removeClass('btnDelete').addClass('btnpublishCancel');
  }
  
  
@@ -481,42 +484,49 @@ var pinentered = 0;
  /******************************* Update publishd information *************************************/
  var $this;
  $(document).on('click', '.btnUpdate', function () {
-                $this = $(this);
-                var type = $(this).attr('data-type');
-                var info = $(this).parents('div.points-main').find('textarea#ProductInfroduction').val();
-                var price = $(this).parents('div.points-main').find('input#ProductPrice').val();
-                var discount = $(this).parents('div.points-main').find('input#ProductDiscount').val();
-                var giftPoint = $(this).parents('div.points-main').find('input#ProductGifPoint').val();
-                var PID = $(this).attr('data-id');
-                console.log(type, info, price, discount, giftPoint, PID, $this);
-                updatePublishedInformation(type, info, price, discount, giftPoint, PID, $this);
-                
-                
-                });
+     $this = $(this);
+     var type = $(this).attr('data-type');
+     var info = $(this).parents('div.points-main').find('textarea#ProductInfroduction').val();
+     var price = $(this).parents('div.points-main').find('input#ProductPrice').val();
+     var discount = $(this).parents('div.points-main').find('input#ProductDiscount').val();
+     var giftPoint = $(this).parents('div.points-main').find('input#ProductGifPoint').val();
+     var PID = $(this).attr('data-id');
+     console.log(type, info, price, discount, giftPoint, PID, $this);
+     updatePublishedInformation(type, info, price, discount, giftPoint, PID, $this);
+ });
  var updatePublishedInformation = function (type, info, price, discount, giftPoint, PID, $this) {
- var ajaxcallobj = {
- HttpVerb: "POST",
- url: "modifyproduct",
- data: { store_id: objlocalStorage.Store_ID, p_id: PID, gift_point: giftPoint, info: info, discount: discount, price: price, type: type }
+   
+     var ajaxcallobj = {
+         HttpVerb: "POST",
+         url: "modifyproduct",
+         data: { store_id: objlocalStorage.Store_ID, p_id: PID, gift_point: giftPoint, info: info, discount: discount, price: price, type: type }
+     }
+
+     WMT.jqXHR(ajaxcallobj, function (response) {
+         if (response.success > 0) {
+             $this.parents('div.points-main').find('span#ProductInfroduction').html(info);
+             $this.parents('div.points-main').find('span#spnProductPrice').html(price);
+             $this.parents('div.points-main').find('span#spnDiscount').html(discount);
+             $this.parents('div.points-main').find('span#spnGifPoint').html(giftPoint);
+             switchToSpan($this);
+             $.dynamicSuccess_popup('<p>Product detail Updated succesfully.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
+         }
+         else {
+             $.dynamic_popup('<p>Error.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
+         }
+     });
+
  }
  
- WMT.jqXHR(ajaxcallobj, function (response) {
-           if (response.success > 0) {
-           $this.parents('div.points-main').find('span#ProductInfroduction').html(info);
-           $this.parents('div.points-main').find('span#spnProductPrice').html(price);
-           $this.parents('div.points-main').find('span#spnDiscount').html(discount);
-           $this.parents('div.points-main').find('span#spnGifPoint').html(giftPoint);
-           switchToSpan($this);
-           $.dynamicSuccess_popup('<p>Product detail Updated succesfully.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
-           }
-           else {
-           $.dynamic_popup('<p>Error.</p> <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b clsok" data-theme="b" data-rel="back">Ok</a>');
-           }
-           });
- 
- }
- 
- 
+    /***************************************************************************************************/
+
+    /******************************* Cancel Publish information ***************************************/
+ $(document).on('click', '.btnpublishCancel', function () {
+     $this = $(this);
+     switchToSpan($this);
+ });
+
+    /***************************************************************************************************/
  
  /********************* Reset control *************************/
  $.fn.ResetImageUpload = function () {
