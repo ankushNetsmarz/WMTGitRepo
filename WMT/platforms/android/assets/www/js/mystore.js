@@ -45,6 +45,14 @@ var Publishpinfor = "";
      
      Publishpinfor = "Store";
      $('#publishinfotext').html('<h1>Save Changes</h1>');
+    
+     $('#act-pub').removeClass('active');
+     $('#act-sto').addClass('active');
+     var pubsrc = $('#act-pub').find('img').attr('src').replace('-active.png', '.png')
+     var stosrc = $('#act-sto').find('img').attr('src').replace('.png', '-active.png')
+
+     $('#act-pub').find('img').attr('src', pubsrc)
+     $('#act-sto').find('img').attr('src', stosrc)
      $.mobile.navigate('#dvPublishPin');
                 });
  
@@ -52,6 +60,13 @@ var Publishpinfor = "";
  $(document).on('submit', '#frmUpdateIndustryChanges', function () {
      Publishpinfor = "Industries";
      $('#publishinfotext').html('<h1>Save Changes</h1>');
+     $('#act-pub').removeClass('active');
+     $('#act-sto').addClass('active');
+     var pubsrc = $('#act-pub').find('img').attr('src').replace('-active.png', '.png')
+     var stosrc = $('#act-sto').find('img').attr('src').replace('.png', '-active.png')
+
+     $('#act-pub').find('img').attr('src', pubsrc)
+     $('#act-sto').find('img').attr('src', stosrc)
      $.mobile.navigate('#dvPublishPin');
                 });
  
@@ -122,6 +137,13 @@ var Publishpinfor = "";
      if (objlocalStorage.Publish_Pin != null && objlocalStorage.Publish_Pin != undefined  && objlocalStorage.Publish_Pin != "") {
          Publishpinfor = "Password";
          $('#publishinfotext').html('<h1>Change Password</h1>');
+         $('#act-pub').removeClass('active');
+         $('#act-sto').addClass('active');
+         var pubsrc = $('#act-pub').find('img').attr('src').replace('-active.png', '.png')
+         var stosrc = $('#act-sto').find('img').attr('src').replace('.png', '-active.png')
+
+         $('#act-pub').find('img').attr('src', pubsrc)
+         $('#act-sto').find('img').attr('src', stosrc)
          $.mobile.navigate('#dvPublishPin');
      }
      else {
@@ -242,6 +264,13 @@ $(document).on("click", ".Publish_udte_pwd", function () {
     if (objlocalStorage.Publish_Pin != null && objlocalStorage.Publish_Pin != undefined && objlocalStorage.Publish_Pin != "") {
         Publishpinfor = "PublishPassword";
         $('#publishinfotext').html('<h1>Change Password</h1>');
+        $('#act-pub').removeClass('active');
+        $('#act-sto').addClass('active');
+        var pubsrc = $('#act-pub').find('img').attr('src').replace('-active.png', '.png')
+       var stosrc= $('#act-sto').find('img').attr('src').replace('.png', '-active.png')
+
+       $('#act-pub').find('img').attr('src', pubsrc)
+       $('#act-sto').find('img').attr('src', stosrc)
         $.mobile.navigate('#dvPublishPin');
     }
     else {

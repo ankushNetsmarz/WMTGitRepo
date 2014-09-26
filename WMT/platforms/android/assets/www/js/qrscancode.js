@@ -148,7 +148,7 @@ function GetScanData() {
         if (response.length != 0) {
             if (response != undefined && response != null) {
                 for (var i = 0 ; i < response.length; i++) {
-                    var item = response[i].introduction.substring(0, 8) + '...'
+                    var item = response[i].introduction.length < 18 ? response[i].introduction: response[i].introduction.substring(0, 18) + '...'
                     salehtml += '<div class="div_itmdis"><input  type="checkbox" style="margin-left:10px;"> </div><div class="Cus_dnt">Discount Item - ' + item + ' </div>'
                     salehtml += ' <div class="cus_clr"></div>'
                 }
@@ -187,8 +187,8 @@ function GetScanData() {
         if (response.length != 0) {
             if (response != undefined && response != null) {
                 for (var i = 0 ; i < response.length; i++) {
-                    var item = response[i].Introduction.substring(0, 8) + '...'
-                    producthtml += ' <div class="div_itmdis"><input  type="checkbox" style="margin-left:10px;"> </div><div class="Cus_dnt">Discount Item - ' + item + ' </div>'
+                    var item = response[i].Introduction.length < 18 ? response[i].Introduction  : response[i].Introduction.substring(0, 18) + '...'
+                    producthtml += ' <div class="div_itmdis"><input type="checkbox" style="margin-left:10px;"> </div><div class="Cus_dnt">Discount Item - ' + item + ' </div>'
                     producthtml += ' <div class="cus_clr"></div>'
                 }
             }
@@ -464,3 +464,10 @@ $('#gift-multiplier').keyup(function () {
     }
 });
 /********************************************************************************************************************************/
+
+/***********************************publish back ********************************************************/
+$('#').click(function () {
+
+    $('.frmEditPublishImage').click();
+})
+/*********************************************************************************************************/

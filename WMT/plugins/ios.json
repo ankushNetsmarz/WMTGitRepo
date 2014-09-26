@@ -10,7 +10,7 @@
                     "CoreGraphics.framework": [
                         {
                             "xml": "false",
-                            "count": 4
+                            "count": 5
                         }
                     ],
                     "ImageIO.framework": [
@@ -85,6 +85,10 @@
                         {
                             "xml": "<feature name=\"BarcodeScanner\"><param name=\"ios-package\" value=\"CDVBarcodeScanner\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SplashScreen\"><param name=\"ios-package\" value=\"CDVSplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -105,6 +109,9 @@
             "PACKAGE_NAME": "com.app.wmt"
         },
         "com.phonegap.plugins.barcodescanner": {
+            "PACKAGE_NAME": "com.app.wmt"
+        },
+        "org.apache.cordova.splashscreen": {
             "PACKAGE_NAME": "com.app.wmt"
         }
     },

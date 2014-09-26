@@ -1287,13 +1287,29 @@ border:solid 1px #6b2427;
 
 .sorttext
 {
-    width:100px;color:#fff;background-color:#bc1616;cursor:pointer;z-index:2;border-radius:3px;box-shadow: 10px 10px 5px #888888;text-align:center;margin-top:5px;padding:5px;
+    width:210px;color:#fff;background-color:#444444;cursor:pointer;z-index:2;border-radius:3px;/*box-shadow: 10px 10px 5px #888888;*/text-align:center;margin-top:5px;padding:5px;
 }
 
 .sort_By {
-    width: 88px;
-    color: #fff;
-    background-color: #444444;
-    padding: 12px;
+    width: 250px;
+    color: #444444;
+   text-align:center;
+    /*padding: 12px;*/
     border-radius: 5px;
+}
+.pub-pro-Back {
+    font-size: 16px !important;
+    margin-top: 5px;
+}
+.pub-sto-Back {
+     font-size: 16px !important;
+    margin-top: 5px;
+}
+.pub-dis-Back{
+       font-size: 16px !important;
+    margin-top: 5px;
+}
+.pub-gift-Back {
+     font-size: 16px !important;
+    margin-top: 5px;
 }
