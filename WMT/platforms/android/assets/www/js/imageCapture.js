@@ -107,7 +107,7 @@ function GetPoints(x) {
     WMT.jqXHR(ajaxcallobj, function (response) {
         if (response != undefined && response != null) {
             $('#abl_pnt').html(response[0].availPoints);
-            $('#str_pnt').html(response[0].storePoints);
+            $('#str_pnt').html(parseInt(response[0].wmtPoints)-parseInt(response[0].availPoints));
             $('#wmt_pnt').html(response[0].wmtPoints);
 
         }
