@@ -33,9 +33,7 @@
         document.addEventListener("deviceready", onDeviceReady, false);
         function onDeviceReady() {
             //checkConnection();
-            setTimeout(function() {
-                       navigator.splashscreen.hide();
-                       }, 2000);
+  setTimeout(function () { navigator.splashscreen.hide(); }, 2000);
             document.addEventListener("backbutton", function (e) {
 
                 var currentDiv = $.mobile.activePage.attr('id');
@@ -1368,7 +1366,7 @@
             </div>
         </div>
         <div data-role="content" class="ui-content headerChild">
-            <div class="ui-field-contain Application_members">
+            <div style="margin-top:-30px;" class="ui-field-contain Application_members">
             </div>
             <div class="clr"></div>
         </div>
@@ -2081,11 +2079,11 @@
 
         <!-- <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right" style="background-color:#bc1616;" >Close</a>-->
         <!-- <div style="width:200px;background-color:#ff0000;color:#fff"> <h3>Sort With..</h3></div>-->
-        <div role="main" class="ui-content" style="text-align: left; max-height: 600px; width:230px; overflow-x: hidden;">
+        <div role="main" class="ui-content" style="text-align: left; max-height: 600px; width:250px; overflow-x: hidden;">
             <div class="sort_By" ><h3>Sort By</h3> </div>
             <div id="Sort_name" class="sorttext">Name </div>
             <div id="Sort_TotalPoint" class="sorttext">Total Point</div>
-            <a data-rel="back" data-theme="b" class="ui-btn ui-input-btn ui-btn-a ui-corner-all ui-shadow" href="#" style=" width: 190 px;">Close</a>
+            <a data-rel="back" data-theme="b" class="ui-btn ui-input-btn ui-btn-a ui-corner-all ui-shadow" href="#" style=" width: 213px;">Close</a>
         </div>
     </div>
 

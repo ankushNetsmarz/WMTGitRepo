@@ -1290,6 +1290,14 @@ border:solid 1px #6b2427;
     width:237px;color:#fff;background-color:#444444;cursor:pointer;z-index:2;border-radius:3px;/*box-shadow: 10px 10px 5px #888888;*/text-align:center;margin-top:5px;padding:5px;
 }
 
+.member_font{
+     font-size: 12px;
+     text-align:left;
+     padding: 2px;
+}
+.member-manage_height {
+height:70px;
+}
 .sort_By {
     width: 250px;
     color: #444444;

@@ -104,16 +104,16 @@ $('#Sort_TotalPoint').click(function () {
                 if (response != undefined && response != null) {
                     for (var i = 0; i < response[1].result.length; i++) {
                         memberID = response[1].result[i].memberID == "" ? '0' : response[1].result[i].memberID;
-                        memberhtml += ' <div class="member-manage"> <div class="wapper-wrap">'
-                        memberhtml += '<div  member_id=' + memberID + ' class="mamber-image avtar txtmemberid" >'
-                        memberhtml += ' <img height="80px" width="90px" src="' + response[1].result[i].memberPicturePath + '" alt=""> </div>'
+                        memberhtml += ' <div class="member-manage member-manage_height member_margin_right"> <div class="wapper-wrap">'
+                        memberhtml += '<div  member_id=' + memberID + ' class="mamber-image avtar txtmemberid" style="margin-right:5px; height:50px;width:50px;" >'
+                        memberhtml += ' <img height="45px" width="40px" src="' + response[1].result[i].memberPicturePath + '" alt=""> </div>'
                         memberhtml += '<div class="member-right">'
-                        memberhtml += '<p onclick="$.mobile.navigate("#dvMemberDetail");">Name: ' + response[1].result[i].memberFullName + '</p>'
+                        memberhtml += '<p style="height:6px;" onclick="$.mobile.navigate("#dvMemberDetail");">Name: ' + response[1].result[i].memberFullName + '</p>'
                         memberhtml += ' <div class="memb-total">'
-                        var wmtpoint = response[1].result[i].wmtTotalPoint.substring(0, 2) + "..";
-                        var Availablepoint = response[1].result[i].wmtAvailablePoints.substring(0, 2) + "..";
-                        memberhtml += ' <div class="total">Total: <span class="total_point">' + wmtpoint + '</span></div>'
-                        memberhtml += ' <div class="total">Current: <span>' + Availablepoint + '</span ></div></div></div></div></div>'
+                        var wmtpoint = response[1].result[i].wmtTotalPoint;
+                        var Availablepoint = response[1].result[i].wmtAvailablePoints;
+                        memberhtml += ' <div class="member_font total" >Total: <span class="total_point">' + wmtpoint + '</span></div>'
+                        memberhtml += ' <div class="member_font total">Current: <span>' + Availablepoint + '</span ></div></div></div></div></div>'
                     }
                     memberhtml += '<div class="loadMember" pageid="' + response[0].page_id + '"> More Member... </div>'
                     $('.Application_members').html(memberhtml);
@@ -168,7 +168,7 @@ $('#Sort_TotalPoint').click(function () {
             if (response.length > 0) {
                
                 var url = response[0].employeeAnalysis;
-              //  window.open(url, "_blank");
+               // window.open(url, "_blank");
                   navigator.app.loadUrl(url);
                            }
            
